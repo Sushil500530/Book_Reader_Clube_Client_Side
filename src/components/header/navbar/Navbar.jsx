@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../logo/Logo";
+import { FaSearch } from "react-icons/fa";
 import NavLinkManu from "./NavLinkManu";
 
 const Navbar = ({ children }) => {
@@ -13,10 +14,10 @@ const Navbar = ({ children }) => {
                 <div className="relative bg-[url('https://i.ibb.co/ZfyLJjp/school-season-welcome-new-students-923676.jpg')] w-full min-h-[80vh] bg-no-repeat bg-cover object-contain">
                     <div className="bg-black w-full h-full opacity-70 relative">
                     <div className="absolute top-[40%] w-full space-y-3">
-                        <h1 className="text-xl font-medium text-center text-white">Search Your Fevourite Book Here.....</h1>
-                        <form className="lg:w-1/3 w-2/3 mx-auto flex items-center justify-center gap-4 bg-gray-600 shadow-lg p-3 rounded-full">
+                        <h1 className="text-xl font-medium text-center text-white">Search Your Fevourite Books Here.....</h1>
+                        <form className="lg:w-1/3 w-2/3 mx-auto flex items-center justify-center gap-4 bg-gray-800 shadow-lg py-3 pl-8 pr-3 rounded-full">
                             <input type="search" name="search" id="search" className="input bg-transparent text-white border border-blue-500 w-full focus:border-fuchsia-500" />
-                            <button type="submit" className="btn btn-outline">Search</button>
+                            <button type="submit" className="btn border-none bg-transparent hover:text-blue-500 hover:bg-transparent text-2xl pl-0 text-white"><FaSearch /></button>
                         </form>
                     </div>
                         <div className="w-full navbar flex items-center justify-between lg:flex-row flex-row-reverse">

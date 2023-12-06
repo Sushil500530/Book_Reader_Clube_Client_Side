@@ -1,16 +1,14 @@
-import { Link } from "react-router-dom";
-
+import ManuList from "../../../shared/manuItems/ManuList";
+import {FaHome} from 'react-icons/fa';
 const Sidebar = () => {
     return (
         <>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 min-h-full bg-base-200">
+                <ul className="menu w-80 min-h-full bg-gray-400 flex items-center text-black">
                     {/* Sidebar content here */}
-                   <Link to="about">
-                   <li><a>Sidebar Item 1</a></li>
-                   </Link>
-                    <li><a>Sidebar Item 2</a></li>
+                    <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
+                    <ManuList address={'about'} linkTitle={"About"} icon={FaHome} />
                 </ul>
             </div>
         </>

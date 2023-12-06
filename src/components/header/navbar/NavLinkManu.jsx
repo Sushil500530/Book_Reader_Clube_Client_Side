@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
+import ManuList from "../../../shared/manuItems/ManuList";
+import { FaHome, FaSign } from "react-icons/fa";
+import { FaUserPlus } from "react-icons/fa6";
+import { MdLogin } from "react-icons/md";
 
 const NavLinkManu = () => {
     return (
         <>
             <div className="flex-none hidden lg:block text-white">
-                <ul className="menu menu-horizontal">
+                <ul className="menu menu-horizontal flex">
                     {/* Navbar menu content here */}
-                    <Link to="about">
-                        <li><a>Navbar Item 1</a></li>
-                    </Link>
-                    <li><a>Navbar Item 2</a></li>
+                    <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
+                    <ManuList address={'/about'} linkTitle={"About"} icon={FaHome} />
+                    <ManuList address={'/login'} linkTitle={"Login"} icon={MdLogin} />
+                    <span className="bg-gray-500 animate-bounce hover:animate-none text-black">
+                        <ManuList address={'/signup'} linkTitle={"Signup"} icon={FaUserPlus} />
+                    </span>
                 </ul>
             </div>
         </>
