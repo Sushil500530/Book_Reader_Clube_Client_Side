@@ -1,10 +1,9 @@
-import Home from "../pages/home/Home";
+import Header from "../components/header/Header";
 
 const MainLayout = () => {
     return (
         <div>
-              <h1 className="text-2xl font-bold text-center">Main Layout the project</h1>
-          <Home />
+            <Header />
         </div>
     );
 };
