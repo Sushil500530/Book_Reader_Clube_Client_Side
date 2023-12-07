@@ -3,9 +3,9 @@ import {FaHome} from 'react-icons/fa';
 const Sidebar = () => {
     return (
         <>
-            <div className="drawer-side">
+            <div className="drawer-side z-30">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu w-80 min-h-full bg-gray-400 flex items-center text-black">
+                <ul className="menu w-80 min-h-full bg-blue-50 flex items-center text-black">
                     {/* Sidebar content here */}
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
                     <ManuList address={'about'} linkTitle={"About"} icon={FaHome} />
