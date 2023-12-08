@@ -7,15 +7,19 @@ import { imageUpload } from '../../api/getData';
 import toast from 'react-hot-toast';
 import SocialAccount from '../../shared/socialAccount/SocialAccount';
 import useaxiosPbulic from '../../hooks/useAxiosSecure';
+import { useState } from 'react';
+import { FaSpinner } from 'react-icons/fa';
 
 
 const SignupPage = () => {
     const axiosPbulic = useaxiosPbulic();
     const navigate = useNavigate();
     const location = useLocation();
+    const [loading,setLoading] = useState(false)
     const { createUser, updataUserProfile, googleSignIn } = useAuth();
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const handleSignIn = async (data) => {
+        setLoading(true)
         const imageFile = data?.image[0];
         const loadImage = await imageUpload(imageFile)
         const image = loadImage?.data?.display_url;
@@ -39,6 +43,7 @@ const SignupPage = () => {
                     .catch(err => toast.error(err.message));
 
                 if (res.user) {
+                    setLoading(false)
                     navigate(location.state ? location.pathname : '/')
                     return toast.success('Login Successfull...!');
                 }
@@ -46,8 +51,9 @@ const SignupPage = () => {
             .catch(error => toast.error(error.message));
 
     }
-    const handleGoogleSignIn = () => {
-        googleSignIn()
+    const handleGoogleSignIn = async() => {
+        setLoading(true)
+       await googleSignIn()
             .then(res => {
                 if (res.user) {
                     const userInfo = {
@@ -106,7 +112,13 @@ const SignupPage = () => {
                             {errors.image && <span className="text-red-500 mt-1">image is required!</span>}
                         </div>
                         <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 underline">Sign In</Link></p>
-                        <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full">Sign Up</button>
+                        <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full">
+                        {loading ? (
+                           <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
+                        ) : (
+                            'Sign Up'
+                        )}
+                        </button>
                     </form>
                     <div className="w-3/5 mx-auto pb-6">
                         <div className="divider text-2xl">Or</div>
