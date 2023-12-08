@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./useAuth";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const axiosSecure = axios.create({
     baseURL: "http://localhost:5000",
@@ -9,22 +11,22 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
     const navigate = useNavigate();
     const { logoutUser } = useAuth();
-
-    axiosSecure.interceptors.response.use(
-        response => response,
-        async error => {
-            console.log('Error tracked in the interceptor', error.response)
-            if (
-                error.response &&
-                (error.response.status === 401 || error.response.status === 403)
-            ) {
-                await logoutUser();
-                navigate('/login')
+    useEffect(() => {
+        axiosSecure?.interceptors?.response?.use(res => {
+           // console.log(res);
+            return res;
+        }, error => {
+           // console.log(error);
+            if (error?.response?.status === 401 || error?.response?.status === 403) {
+                logoutUser()
+                    .then(() => {
+                        toast.error('cannot find your token! log out the user');
+                        return navigate('/login')
+                    })
+                    .catch(error => console.error(error))
             }
-
-            return Promise.reject(error)
-        }
-    )
+        })
+    }, [navigate, logoutUser])
     return axiosSecure;
 };
 

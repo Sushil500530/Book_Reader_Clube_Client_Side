@@ -20,7 +20,7 @@ const LoginPage = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log('button clieked', email, password);
+        // console.log('button clieked', email, password);
         await loginUser(email, password)
             .then(res => {
                 if (res.user) {
@@ -37,7 +37,6 @@ const LoginPage = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(res => {
-
                 const userInfo = {
                     name: res.user.displayName,
                     email: res.user.email,
@@ -46,9 +45,7 @@ const LoginPage = () => {
                     status: 'Verified',
                 };
                 axiosPbulic.post('/users', userInfo)
-                    .then(res => {
-                        console.log(res.data);
-                    })
+                    .then(() => {})
                     .catch(error => toast.error(error.message))
                 navigate(location?.state ? location?.pathname : '/');
                 return toast.success('Login Successfull...!');

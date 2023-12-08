@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import { useAuth } from "../../../hooks/useAuth";
 import ManuList from "../../../shared/manuItems/ManuList";
 import {FaHome, FaSignOutAlt, FaUserPlus} from 'react-icons/fa';
-import { MdLogin } from "react-icons/md";
+import { MdAddShoppingCart, MdLogin } from "react-icons/md";
 const Sidebar = () => {
     const {user,logoutUser} = useAuth()
     const handleLogout = () => {
@@ -19,6 +19,7 @@ const Sidebar = () => {
                     {/* Sidebar content here */}
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
                     <ManuList address={'about'} linkTitle={"About"} icon={FaHome} />
+                    <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
                     {
                         user?.email ? <div className="flex gap-3 mt-5">
                             {/* <div className="avatar">
@@ -35,7 +36,7 @@ const Sidebar = () => {
                                 <ul tabIndex={0} className="mt-3 -mr-32 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                                     <li><a>Dashboard</a></li>
                                     <li><a>Profile</a></li>
-                                    <li><a>Logout</a></li>
+                                    <li onClick={handleLogout}><a>Logout</a></li>
                                 </ul>
                             </div>
                             <button onClick={handleLogout} className="bg-[#ef0d4d] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">

@@ -46,15 +46,11 @@ const AuthProvider = ({ children }) => {
             const loggedUserEmail = {email: emailInUser};
             if(currentUser){
                 axiosPublic.post('/jwt', loggedUserEmail)
-                .then(() => {
-                    console.log('user get token in database',);
-                })
+                .then(() => {})
             }
             else{
                 axiosPublic.post('/logout', loggedUserEmail)
-                .then(res => {
-                    console.log('logged out successfully', res.data);
-                })
+                .then(() => {})
             }
             
         })
