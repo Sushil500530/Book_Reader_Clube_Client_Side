@@ -1,8 +1,8 @@
 import { FaSearch } from "react-icons/fa";
-import image from '../../assets/image/banner/school season welcome new students_923676.jpg'
+import image from '../../assets/image/banner/banner-image.jpg'
 const Banner = () => {
     return (
-        <div className='w-full -z-40 h-[70vh] text-white'>
+        <div className='w-full -z-40 h-[80vh] text-white'>
             <div className="w-full h-full absolute top-0 left-0 bg-black ">
                 <img src={image} className="w-full h-full opacity-50" alt="" />
             </div>

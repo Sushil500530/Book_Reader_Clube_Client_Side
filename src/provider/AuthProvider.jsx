@@ -1,11 +1,13 @@
-
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+/* eslint-disable react/prop-types */
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase/firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
-// eslint-disable-next-line react/prop-types
+const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
+    const axiosPublic = useAxiosPublic();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -19,6 +21,17 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth,email,password)
     }
+    const updataUserProfile = (name, photo) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, {
+            displayName:name, photoURL:photo,
+        });
+    }
+
+    const googleSignIn = () => {
+        setLoading(true);
+        return signInWithPopup(auth,googleProvider)
+    }
 
     const logoutUser = () => {
         setLoading(true);
@@ -27,13 +40,29 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth,currentUser => {
+            setLoading(false);
             setUser(currentUser);
-            console.log(currentUser);
+            const emailInUser = currentUser?.email || user?.email;
+            const loggedUserEmail = {email: emailInUser};
+            if(currentUser){
+                axiosPublic.post('/jwt', loggedUserEmail)
+                .then(() => {
+                    console.log('user get token in database',);
+                })
+            }
+            else{
+                axiosPublic.post('/logout', loggedUserEmail)
+                .then(res => {
+                    console.log('logged out successfully', res.data);
+                })
+            }
+            
         })
         return () => {
             unsubscribe();
         }
-    },[])
+    },[axiosPublic,user?.email])
+
 
 
 
@@ -50,6 +79,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         loginUser,
         logoutUser,
+        updataUserProfile,
+        googleSignIn,
 
 
     }
