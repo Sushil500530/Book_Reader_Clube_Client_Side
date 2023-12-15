@@ -8,7 +8,6 @@ const Home = () => {
             <div className='relative text-white'>
                 <Banner />
             </div>
-            <h1 className="text-xl font-bold text-center text-fuchsia-500">Fevourite Furniture is here</h1>
             <FurniCate />
         </div>
     );
