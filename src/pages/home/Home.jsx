@@ -1,6 +1,7 @@
 import Banner from '../../components/banner/Banner';
 import FurniCate from './furni-category/FurniCate';
 import './home.css'
+import ServiceFeature from './service feature/ServiceFeature';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
                 <Banner />
             </div>
             <FurniCate />
+            <ServiceFeature />
         </div>
     );
 };
