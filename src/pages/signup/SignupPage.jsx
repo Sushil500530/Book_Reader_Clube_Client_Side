@@ -78,7 +78,7 @@ const SignupPage = () => {
     return (
         <Container>
             <div className="container mx-auto dark:text-white mb-12 flex flex-col lg:flex-row items-center justify-center gap-5">
-                <div className="bg-[url('https://i.ibb.co/SdywPYN/Animated-Shape.png')] w-full lg:w-3/5 h-[80vh] bg-no-repeat bg-center bg-cover flex items-center justify-center p-5 rounded-md">
+                <div className="bg-[url('https://i.ibb.co/VHvdndf/Animated-Shape.png')] w-full lg:w-3/5 h-[80vh] bg-no-repeat bg-center bg-cover flex items-center justify-center p-5 rounded-md">
                     <img src={loginImage} alt="" />
                 </div>
                 <div className="card-body p-0 lg:p-8 border m-5 w-full lg:w-1/2">
