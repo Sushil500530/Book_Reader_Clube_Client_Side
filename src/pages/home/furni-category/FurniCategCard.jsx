@@ -3,7 +3,7 @@
 import { IoMdShare } from "react-icons/io";
 
 const FurniCategCard = ({ category }) => {
-    console.log(category);
+    // console.log(category);
     return (
         <div>
             <div className="m-5 cursor-pointer w-auto h-[400px] relative group rounded-lg hover:rounded-lg overflow-hidden">
