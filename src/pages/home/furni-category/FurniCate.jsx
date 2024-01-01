@@ -4,7 +4,7 @@ import FurniCategCard from './FurniCategCard';
 import Container from "../../../shared/container/Container";
 import Loader from "../../../shared/Loader";
 const FurniCate = () => {
-    const [category , , ] = useFurCategory();
+    const [category ,refetch , ] = useFurCategory();
     // console.log(category);
     // AOS.init({
     //     offset: 200,
@@ -20,6 +20,7 @@ const FurniCate = () => {
                 {
                     category?.map(category => <FurniCategCard
                         key={category._id}
+                        refetch={refetch}
                         category={category}
                     ></FurniCategCard>)
                 }

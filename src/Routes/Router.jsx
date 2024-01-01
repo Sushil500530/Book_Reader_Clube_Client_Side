@@ -6,6 +6,7 @@ import About from "../pages/about/About";
 import SignupPage from "../pages/signup/SignupPage";
 import LoginPage from "../pages/login/LoginPage";
 import CreateShop from "../pages/create shop/CreateShop";
+import SubFurniHome from "../pages/sub-furniture-home/SubFurniHome";
 
 const Router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const Router = createBrowserRouter([
             {
                 path:'create-shop',
                 element: <CreateShop />
+            },
+            {
+                path:'category/:category',
+                element: <SubFurniHome />
             },
         ]
     }

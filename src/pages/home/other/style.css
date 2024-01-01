@@ -9,12 +9,45 @@
     background-position: center;
     background-size: cover;
     width: 650px;
-    height:550px;
+    height:580px;
   }
   
   .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
+  }
+   @media screen and (max-width: 480px) {
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 150px;
+      height:270px;
+    }
+  }
+ 
+  @media screen and (min-width: 768px) {
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 350px;
+      height:450px;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 420px;
+      height:520px;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 650px;
+      height:580px;
+    }
   }
   

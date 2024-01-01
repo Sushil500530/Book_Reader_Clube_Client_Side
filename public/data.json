@@ -1,0 +1,15 @@
+[
+     {
+      "image": "path/to/product1_image.jpg",
+      "category": "Electronics",
+      "price": 499.99,
+      "title": "Smartphone XYZ",
+      "description": "A powerful and feature-rich smartphone for your daily needs.",
+      "thumbnail1": "path/to/product1_thumbnail1.jpg",
+      "thumbnail2": "path/to/product1_thumbnail2.jpg",
+      "rating": 4.5,
+      "quantity": 100,
+      "discount": 10
+    }
+]
+  
