@@ -1,13 +1,13 @@
 .my-swap{
   width: 100%;
-  height: 83vh;
+  height: 85vh;
  
 
 }
 
 .swap {
   position: relative;
-  top: -25%;
+  top: -50px;
   width: 100%;
   height: 90vh;
   text-align: center;
@@ -18,3 +18,15 @@
   align-items: center;
 }
 
+.oooer{
+  width: 100%;
+  height: 450px;
+}
+
+.swiper-button-prev, .swiper-button-next{
+  color:#1d41f8;
+
+}
+.swiper-button-prev:hover, .swiper-button-next:hover{
+  color: #000000;
+}

@@ -3,9 +3,8 @@
 import { IoMdShare } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const FurniCategCard = ({ refetch, category }) => {
+const FurniCategCard = ({ category }) => {
     // console.log(category);
-    refetch()
     return (
         <div>
             <div className="m-5 cursor-pointer w-auto h-[400px] relative group rounded-lg hover:rounded-lg overflow-hidden">

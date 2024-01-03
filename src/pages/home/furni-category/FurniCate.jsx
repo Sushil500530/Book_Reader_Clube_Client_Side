@@ -5,6 +5,7 @@ import Container from "../../../shared/container/Container";
 import Loader from "../../../shared/Loader";
 const FurniCate = () => {
     const [category ,refetch , ] = useFurCategory();
+    refetch()
     // console.log(category);
     // AOS.init({
     //     offset: 200,
@@ -15,12 +16,11 @@ const FurniCate = () => {
     // AOS.refresh();
     return (
         <Container>
-            <h1 className="text-3xl font-bold text-center my-8">Find Your Fevourite Furniture</h1>
+            <h1 className="text-3xl text-black font-bold text-center my-8">Find Your Fevourite Furniture</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {
                     category?.map(category => <FurniCategCard
                         key={category._id}
-                        refetch={refetch}
                         category={category}
                     ></FurniCategCard>)
                 }
