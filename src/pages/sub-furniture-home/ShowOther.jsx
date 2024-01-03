@@ -38,7 +38,7 @@ const ShowOther = () => {
                   </figure>
                   <h1 className='absolute left-10 w-1/2 h-auto mx-auto text-center bottom-10 text-3xl font-bold text-blue-800 translate-x-20'>
                     {furni?.title} <br />
-                     <Link to={`furni-details/${furni?._id}`}>
+                     <Link to={`/furni-details/${furni?._id}`}>
                     <button className='text-base bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] outline-none border-none text-white btn btn-sm mt-3'>View <span><MdDescription /></span></button>
                        </Link>
                     </h1>

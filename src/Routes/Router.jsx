@@ -7,6 +7,7 @@ import SignupPage from "../pages/signup/SignupPage";
 import LoginPage from "../pages/login/LoginPage";
 import CreateShop from "../pages/create shop/CreateShop";
 import SubFurniHome from "../pages/sub-furniture-home/SubFurniHome";
+import FurniDetails from "../pages/sub-furniture-home/furni details/FurniDetails";
 
 const Router = createBrowserRouter([
     {
@@ -38,6 +39,11 @@ const Router = createBrowserRouter([
                 path:'category/:category',
                 loader: ({params}) => fetch(`http://localhost:5000/furniture/${params?.category}`),
                 element: <SubFurniHome />
+            },
+            {
+                path:'furni-details/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/furnitures/${params?.id}`),
+                element: <FurniDetails />
             },
         ]
     }

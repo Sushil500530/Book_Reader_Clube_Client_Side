@@ -11,7 +11,7 @@ import image4 from '../../assets/image/feature/banner-6.jpg'
 
 
 const SubFurniBanner = ({features}) => {
-    console.log(Object.keys(features).join(','), features);
+    // console.log(Object.keys(features).join(','), features);
     const { feature_1,feature_2,feature_3,feature_4,feature_5} = features || {} ;
     return (
         <div>
