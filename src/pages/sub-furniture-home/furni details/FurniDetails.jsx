@@ -14,6 +14,7 @@ import { FaStepBackward } from "react-icons/fa";
 import { IoIosShareAlt } from "react-icons/io";
 import { MdContactSupport } from "react-icons/md";
 import SubDetails from "./SubDetails";
+import RelatedProducts from "./RelatedProducts";
 
 
 const FurniDetails = () => {
@@ -61,7 +62,7 @@ const FurniDetails = () => {
                     <div className="mt-5">
                         <h1 className="text-xl font-bold text-start flex items-center gap-2">Home Delivery to Contact Us Now... <MdContactSupport className="text-2xl" /></h1>
                         <hr className="w-2/3 h-[3px] bg-[#ff0fdb] my-3" />
-                       <div className="w-2/3 lg:w-[500px] h-[170px] mb-5">
+                       <div className="w-[100%] lg:w-[500px] h-[170px] mb-5">
                        <img src={deliver}  className="w-full h-full" alt="deliver-image" />
                        </div>
                         <p className="font-bold">Mobile: +8801767122497</p>
@@ -88,6 +89,8 @@ const FurniDetails = () => {
                 </div>
             </div>
             <SubDetails />
+            <RelatedProducts />
+
         </Container>
     );
 };
