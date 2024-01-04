@@ -50,4 +50,7 @@
       height:580px;
     }
   }
-  
+  .slideHeight{
+    width: 100%;
+    height: auto;
+  }

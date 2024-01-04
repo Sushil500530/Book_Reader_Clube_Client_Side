@@ -15,6 +15,7 @@ import { IoIosShareAlt } from "react-icons/io";
 import { MdContactSupport } from "react-icons/md";
 import SubDetails from "./SubDetails";
 import RelatedProducts from "./RelatedProducts";
+import FooterPage from "../../footer/FooterPage";
 
 
 const FurniDetails = () => {
@@ -24,6 +25,7 @@ const FurniDetails = () => {
     const currentPrice = Math.round((price - discountPrice).toFixed(2));
     // console.log(currentPrice);
     return (
+      <>
         <Container>
             <h1 className="text-3xl font-bold text-center">Details of {title}....</h1>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full h-auto gap-8 mt-10">
@@ -90,8 +92,9 @@ const FurniDetails = () => {
             </div>
             <SubDetails />
             <RelatedProducts />
-
         </Container>
+        <FooterPage />
+      </>
     );
 };
 

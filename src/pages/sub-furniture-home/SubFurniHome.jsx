@@ -4,6 +4,8 @@ import SubFurniBanner from "./SubFurniBanner";
 import './index.css';
 import FurniCard from "./FurniCard";
 import ShowOther from "./ShowOther";
+import FooterPage from "../footer/FooterPage";
+import AboutFurni from "./about/AboutFurni";
 const SubFurniHome = () => {
     const data = useLoaderData()
     const features = (data[0]?.features);
@@ -23,7 +25,9 @@ const SubFurniHome = () => {
                 </div>
                 <h1 className="text-3xl text-start font-bold top-12 ">Show More Furniture Products....</h1>
                 <ShowOther />
+                <AboutFurni />
             </Container>
+            <FooterPage />
         </>
     );
 };

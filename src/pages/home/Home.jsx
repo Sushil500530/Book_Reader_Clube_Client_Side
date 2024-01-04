@@ -1,9 +1,11 @@
 import Banner from '../../components/banner/Banner';
+import FooterPage from '../footer/FooterPage';
 import FurniCate from './furni-category/FurniCate';
 import './home.css'
 import LocationStatus from './location/LocationStatus';
 import Other from './other/Other';
 import ServiceFeature from './service feature/ServiceFeature';
+import Testimonials from './testimonials/Testimonials';
 
 const Home = () => {
     return (
@@ -15,6 +17,8 @@ const Home = () => {
             <LocationStatus />
             <Other />
             <ServiceFeature />
+            <Testimonials />
+            <FooterPage />
         </div>
     );
 };
