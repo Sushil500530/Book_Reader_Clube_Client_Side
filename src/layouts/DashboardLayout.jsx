@@ -11,7 +11,7 @@ import { IoMdSettings } from "react-icons/io";
 import ManuList from "../shared/manuItems/ManuList";
 import { FaHome } from "react-icons/fa";
 import DManuList from "../shared/dashboard manulist/DManuList";
-import FooterManu from "../components/dashboard/FooterManu";
+import FooterManu from "./dashboard/FooterManu";
 const DashboardLayout = () => {
     const [isActive, setIsActive] = useState(true);
     const handleReverse = () => {
@@ -27,7 +27,7 @@ const DashboardLayout = () => {
                     </Link>
                 </div>
                 <button onClick={handleReverse} className='btn w-auto h-full dark:bg-zinc-800 relative top-3 bg-transparent border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
-                    isActive === true ? <IoMenuOutline className='h-8 w-8 font-bold text-black focus focus:text-blue-500' /> : <RxCross1 className='h-7 w-8 font-bold text-black focus focus:text-blue-500' />
+                    isActive === true ? <IoMenuOutline className='h-8 w-8 font-bold text-black dark:text-white' /> : <RxCross1 className='h-7 w-8 font-bold text-black  dark:text-white' />
                 }
                 </button>
             </div>
@@ -50,7 +50,7 @@ const DashboardLayout = () => {
                       <FooterManu />
                     </div>
                 </div>
-                <div className="w-full h-[100vh] bg-white">
+                <div className="ml-0 md:ml-0 lg:ml-[260px] w-full h-[100vh] p-5 dark:text-white bg-white dark:bg-zinc-800">
                     <Outlet></Outlet>
                 </div>
             </div>

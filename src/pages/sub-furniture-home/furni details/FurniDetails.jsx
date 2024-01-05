@@ -90,7 +90,7 @@ const FurniDetails = () => {
                     </div>
                 </div>
             </div>
-            <SubDetails />
+            <d />
             <RelatedProducts />
         </Container>
         <FooterPage />

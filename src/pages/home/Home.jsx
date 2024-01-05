@@ -1,4 +1,3 @@
-import PrivetRoute from '../../Routes/PrivetRoute';
 import Banner from '../../components/banner/Banner';
 import FooterPage from '../footer/FooterPage';
 import FurniCate from './furni-category/FurniCate';

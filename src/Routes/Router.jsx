@@ -2,20 +2,21 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
-import About from "../pages/about/About";
-import SignupPage from "../pages/signup/SignupPage";
+import About from './../pages/about/About';
 import LoginPage from "../pages/login/LoginPage";
+import SignupPage from "../pages/signup/SignupPage";
+import PrivetRoute from "./PrivetRoute";
 import CreateShop from "../pages/create shop/CreateShop";
 import SubFurniHome from "../pages/sub-furniture-home/SubFurniHome";
 import FurniDetails from "../pages/sub-furniture-home/furni details/FurniDetails";
-import PrivetRoute from "./PrivetRoute";
 import MyCart from "../pages/my cart/MyCart";
 import DashboardLayout from "../layouts/DashboardLayout";
-import DCreateShop from "../components/dashboard/create shop/DCreateShop";
-import PaymentDetails from "../components/dashboard/payment details/PaymentDetails";
-import Promotion from "../components/dashboard/promotion/Promotion";
-import Setting from "../components/dashboard/setting/Setting";
-import ManageAccount from "../components/dashboard/manage account/ManageAccount";
+import DCreateShop from "../layouts/dashboard/create shop/DCreateShop";
+import PaymentDetails from "../layouts/dashboard/payment details/PaymentDetails";
+import Promotion from "../layouts/dashboard/promotion/Promotion";
+import Setting from "../layouts/dashboard/setting/Setting";
+import ManageAccount from "../layouts/dashboard/manage account/ManageAccount";
+
 
 const Router = createBrowserRouter([
     {
