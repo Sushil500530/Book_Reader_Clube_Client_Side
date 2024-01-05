@@ -11,7 +11,7 @@ const SubDetails = () => {
                     </p>
                     <div className="space-y-3 mt-8">
                         <div className="collapse collapse-arrow bg-base-200">
-                            <input type="radio" name="my-accordion-2" checked="checked" />
+                            <input type="radio" name="my-accordion-2" checked="checked" readOnly />
                             <div className="collapse-title text-xl font-medium">
                                 <ul className="list-disc ml-6">
                                     <li>Define Objectives and Scope</li>
@@ -22,7 +22,7 @@ const SubDetails = () => {
                             </div>
                         </div>
                         <div className="collapse collapse-arrow bg-base-200">
-                            <input type="radio" name="my-accordion-2" />
+                            <input type="radio" name="my-accordion-2" checked="checked" readOnly />
                             <div className="collapse-title text-xl font-medium">
                                 <ul className="list-disc ml-6">
                                     <li>Inventory Assessment</li>
@@ -33,7 +33,7 @@ const SubDetails = () => {
                             </div>
                         </div>
                         <div className="collapse collapse-arrow bg-base-200">
-                            <input type="radio" name="my-accordion-2" />
+                            <input type="radio" name="my-accordion-2" checked="checked" readOnly />
                             <div className="collapse-title text-xl font-medium">
                                 <ul className="list-disc ml-6">
                                     <li>Choose a Tracking Method</li>
@@ -44,7 +44,7 @@ const SubDetails = () => {
                             </div>
                         </div>
                         <div className="collapse collapse-arrow bg-base-200">
-                            <input type="radio" name="my-accordion-2" />
+                            <input type="radio" name="my-accordion-2" checked="checked" readOnly />
                             <div className="collapse-title text-xl font-medium">
                                 <ul className="list-disc ml-6">
                                     <li>Implement Tracking System</li>
@@ -55,7 +55,7 @@ const SubDetails = () => {
                             </div>
                         </div>
                         <div className="collapse collapse-arrow bg-base-200">
-                            <input type="radio" name="my-accordion-2" />
+                            <input type="radio" name="my-accordion-2" readOnly />
                             <div className="collapse-title text-xl font-medium">
                                 <ul className="list-disc ml-6">
                                     <li>Training and Awareness</li>
@@ -68,7 +68,7 @@ const SubDetails = () => {
                     </div>
                 </div>
                 <div className="w-full lg:w-1/2 h-[550px] mt-40 md:mt-0 lg:mt-0">
-                <iframe className="h-full w-full" src="https://www.youtube.com/embed/TGHOYfjwf7g" title="Furniture: Modern (Official Trailer)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe className="h-full w-full" src="https://www.youtube.com/embed/TGHOYfjwf7g" title="Furniture: Modern (Official Trailer)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen={false}></iframe>
                 </div>
             </div>
         </div>

@@ -16,18 +16,63 @@ import { MdContactSupport } from "react-icons/md";
 import RelatedProducts from "./RelatedProducts";
 import FooterPage from "../../footer/FooterPage";
 import SubDetails from "./SubDetails";
+import { useAuth } from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 
 const FurniDetails = () => {
     const data = useLoaderData();
+    const axiosSecure = useAxiosSecure();
+    const {user} = useAuth();
     const navigate = useNavigate();
-    const { _id, image, category, price, title, description, thumbnail1, thumbnail2, rating, quantity, discount } = data || {};
+    const { image, category, price, title, description, thumbnail1, thumbnail2, rating, quantity, discount } = data || {};
     const discountPrice = discount / 100 * price;
     const currentPrice = Math.round((price - discountPrice).toFixed(2));
     // console.log(currentPrice);
+    const buyProduct = {
+        image,
+        category,
+        price:currentPrice,
+        title,
+        description,
+        thumbnail1,
+        thumbnail2,
+        rating,
+        quantity,
+        discount,
+        email:user?.email,
+        date: new Date()
+    }
+    // console.log(user?.email, buyProduct);
+    const handleSetData = async () => {
+       try{
+        console.log(user?.email, buyProduct);
+        // await axiosSecure.post('',buyProduct)
+        // .then(res => {
+        //     console.log(res.data);
+        // })
+       }
+        catch(error){
+            toast.error(error.message)
+        }
+    }
     const handleBack = () => {
         return navigate(-1)
     }
+    const handleFavoriteData = async () => {
+       try{
+        console.log(user?.email, buyProduct);
+        // await axiosSecure.post('',buyProduct)
+        // .then(res => {
+        //     console.log(res.data);
+        // })
+       }
+        catch(error){
+            toast.error(error.message)
+        }
+    }
+
     return (
         <>
             <Container>
@@ -61,8 +106,8 @@ const FurniDetails = () => {
                             </div>
                             <div className="flex items-center gap-3">
                                 <button onClick={handleBack} className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2 "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><FaStepBackward className="text-2xl" /> Back</span></button>
-                                <button className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal border tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-2xl" /></span></button>
-                                <button className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">Add to Cart <MdAddShoppingCart className="text-2xl" /></span></button>
+                                <button onClick={handleFavoriteData} className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal border tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-2xl" /></span></button>
+                                <button onClick={handleSetData} className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">Add to Cart <MdAddShoppingCart className="text-2xl" /></span></button>
                             </div>
                         </div>
                         <div className="mt-5">
