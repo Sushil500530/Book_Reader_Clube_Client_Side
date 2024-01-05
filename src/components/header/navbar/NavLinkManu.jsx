@@ -9,8 +9,6 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdShoppingBasket } from "react-icons/md";
 import { useAuth } from './../../../hooks/useAuth';
 import toast from "react-hot-toast";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
 
 const NavLinkManu = ({ handleToggle }) => {
     const { user, logoutUser } = useAuth();
@@ -26,7 +24,6 @@ const NavLinkManu = ({ handleToggle }) => {
                 <ul className="menu menu-horizontal flex text-black">
                     {/* Navbar menu content here */}
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
-
                     {
                         user?.email && <>
                             <ManuList address={'/dashboard'} linkTitle={"Dashboard"} icon={MdOutlineDashboardCustomize} />
@@ -69,7 +66,6 @@ const NavLinkManu = ({ handleToggle }) => {
                             </>
                     }
                 </ul>
-
             </div>
         </>
     );

@@ -11,6 +11,7 @@ import FurniDetails from "../pages/sub-furniture-home/furni details/FurniDetails
 import PrivetRoute from "./PrivetRoute";
 import MyCart from "../pages/my cart/MyCart";
 import DashboardLayout from "../layouts/DashboardLayout";
+import DCreateShop from "../components/dashboard/create shop/DCreateShop";
 
 const Router = createBrowserRouter([
     {
@@ -61,7 +62,13 @@ const Router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout />
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: 'create-shop',
+                element: <DCreateShop />
+            }
+        ]
     }
 ])
 
