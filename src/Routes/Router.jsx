@@ -12,6 +12,10 @@ import PrivetRoute from "./PrivetRoute";
 import MyCart from "../pages/my cart/MyCart";
 import DashboardLayout from "../layouts/DashboardLayout";
 import DCreateShop from "../components/dashboard/create shop/DCreateShop";
+import PaymentDetails from "../components/dashboard/payment details/PaymentDetails";
+import Promotion from "../components/dashboard/promotion/Promotion";
+import Setting from "../components/dashboard/setting/Setting";
+import ManageAccount from "../components/dashboard/manage account/ManageAccount";
 
 const Router = createBrowserRouter([
     {
@@ -62,12 +66,28 @@ const Router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout />,
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
             {
                 path: 'create-shop',
-                element: <DCreateShop />
-            }
+                element:<PrivetRoute><DCreateShop /></PrivetRoute>
+            },
+            {
+                path: 'payment-details',
+                element: <PrivetRoute><PaymentDetails /></PrivetRoute>
+            },
+            {
+                path: 'promotion',
+                element: <PrivetRoute><Promotion /></PrivetRoute>
+            },
+            {
+                path: 'settings',
+                element: <PrivetRoute><Setting /></PrivetRoute>
+            },
+            {
+                path: 'manage-account',
+                element: <PrivetRoute><ManageAccount /></PrivetRoute>
+            },
         ]
     }
 ])

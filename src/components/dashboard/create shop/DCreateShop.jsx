@@ -11,7 +11,6 @@ const DCreateShop = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
     const [loading, setLoading] = useState(false);
-
     const handleCreateShop = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -20,7 +19,7 @@ const DCreateShop = () => {
         const image = form.image.files[0];
         const description = form.description.value;
         const location = form.location.value;
-        console.log(shop_name,description);
+        console.log(shop_name, description);
         try {
             const loadImage = await imageUpload(image);
             const create_shop = {
@@ -54,9 +53,9 @@ const DCreateShop = () => {
     }
     return (
         <div className='lg:w-1/2 w-full bg-base-100 shadow mx-auto pt-3 px-10 pb-12 '>
-            {/* <Helmet>
-        <title>Create Shop | Inventory M </title>
-    </Helmet> */}
+                {/* <Helmet>
+            <title>Create Shop | Inventory M </title>
+        </Helmet> */}
             <h2 className="text-2xl font-bold text-center dark:text-white my-12 flex items-center justify-center gap-2">Create a New Shop   <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
             <form onSubmit={handleCreateShop}>
                 <div className='grid grid-cols-1 dark:text-white '>

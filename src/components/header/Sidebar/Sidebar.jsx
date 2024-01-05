@@ -18,7 +18,7 @@ const Sidebar = ({ handleToggle }) => {
         <>
             <div className="drawer-side z-30">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu w-80 min-h-full bg-blue-50 flex items-center text-black">
+                <ul className="menu w-80 min-h-full bg-blue-50 flex items-start pl-12 text-black">
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
                     {
                         user?.email && <>
