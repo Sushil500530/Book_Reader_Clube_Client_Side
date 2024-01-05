@@ -8,11 +8,11 @@ const RelatedCard = ({furniture}) => {
     const { _id, image, price, title, description, rating, discount } = furniture || {};
     return (
         <div className="card bg-base-100 shadow-xl">
-        <figure className="w-full h-[350px] relative">
+        <figure className="w-full h-[320px] relative">
             <Link to={`/furnitures/${_id}`}>
                 <img src={image} className="w-full h-full rounded-xl hover:scale-110 transition-all cursor-pointer" alt="furniture-image" />
             </Link>
-            <h1 className="px-5 py-2 text-white bg-red-600 rounded-md absolute right-2 top-2">{discount}% OFF</h1>
+            <h1 className="px-3 py-1 text-white bg-red-600 rounded-md absolute right-2 top-3">{discount}% OFF</h1>
         </figure>
         <div className="card-body">
             <div className="flex items-center justify-between">

@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import image1 from '../../assets/image/banner/banner-image.jpg'
 import image2 from '../../assets/image/feature/banner-3.webp'
 import image3 from '../../assets/image/feature/banner-4.jpg'
@@ -22,11 +21,8 @@ const SubFurniBanner = ({features}) => {
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                pagination={{
-                    clickable: true,
-                }}
                 navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                modules={[Autoplay, Navigation]}
                 className="mySwiper my-swap"
             >
                 <SwiperSlide className='swap'>

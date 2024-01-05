@@ -1,10 +1,13 @@
+/* eslint-disable react/prop-types */
 import toast from "react-hot-toast";
 import { useAuth } from "../../../hooks/useAuth";
 import ManuList from "../../../shared/manuItems/ManuList";
-import {FaHome, FaSignOutAlt, FaUserPlus} from 'react-icons/fa';
-import { MdAddShoppingCart, MdLogin } from "react-icons/md";
-const Sidebar = () => {
-    const {user,logoutUser} = useAuth()
+import { FaHome, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
+import { MdAddShoppingCart, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
+import { FcAbout } from "react-icons/fc";
+import { NavLink } from "react-router-dom";
+const Sidebar = ({ handleToggle }) => {
+    const { user, logoutUser } = useAuth()
     const handleLogout = () => {
         logoutUser()
             .then(() => {
@@ -16,17 +19,26 @@ const Sidebar = () => {
             <div className="drawer-side z-30">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu w-80 min-h-full bg-blue-50 flex items-center text-black">
-                    {/* Sidebar content here */}
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
+                    {
+                        user?.email && <>
+                            <ManuList address={'/dashboard'} linkTitle={"Dashboard"} icon={MdOutlineDashboardCustomize} />
+                            <span className="block md:hidden lg:hidden">
+                                <NavLink
+                                    to='my-cart'
+                                    className={` flex items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                                    `} >
+                                    <span>{<MdShoppingBasket className="w-5 h-8 mr-1 " />}</span>
+                                    My Cart
+                                    <div className="badge text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute -top-2 border-none outline-none left-1/2 text-[18px]">+99</div>
+                                </NavLink>
+                            </span>
+                        </>
+                    }
                     <ManuList address={'about'} linkTitle={"About"} icon={FaHome} />
                     <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
                     {
                         user?.email ? <div className="flex gap-3 mt-5">
-                            {/* <div className="avatar">
-                                <div className="w-12 rounded-full ring ring-white ring-offset-base-100 ring-offset-1">
-                                    <img src={user?.photoURL} alt="profile" />
-                                </div>
-                            </div> */}
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button " className="btn btn-ghost btn-circle avatar ring ring-white">
                                     <div className="rounded-full">

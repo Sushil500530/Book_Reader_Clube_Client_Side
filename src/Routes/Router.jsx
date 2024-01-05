@@ -8,6 +8,9 @@ import LoginPage from "../pages/login/LoginPage";
 import CreateShop from "../pages/create shop/CreateShop";
 import SubFurniHome from "../pages/sub-furniture-home/SubFurniHome";
 import FurniDetails from "../pages/sub-furniture-home/furni details/FurniDetails";
+import PrivetRoute from "./PrivetRoute";
+import MyCart from "../pages/my cart/MyCart";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const Router = createBrowserRouter([
     {
@@ -33,24 +36,32 @@ const Router = createBrowserRouter([
             },
             {
                 path:'create-shop',
-                element: <CreateShop />
+                element: <PrivetRoute><CreateShop /></PrivetRoute>
             },
             {
                 path:'category/:category',
                 loader: ({params}) => fetch(`http://localhost:5000/furniture/${params?.category}`),
-                element: <SubFurniHome />
+                element: <PrivetRoute><SubFurniHome /></PrivetRoute>
             },
             {
                 path:'furni-details/:id',
                 loader: ({params}) => fetch(`http://localhost:5000/furnitures/${params?.id}`),
-                element: <FurniDetails />
+                element: <PrivetRoute> <FurniDetails /></PrivetRoute>
             },
             {
                 path:'furnitures/:id',
                 loader: ({params}) => fetch(`http://localhost:5000/furnitures/${params?.id}`),
-                element: <FurniDetails />
+                element: <PrivetRoute><FurniDetails /></PrivetRoute>
             },
+            {
+                path:'my-cart',
+                element: <PrivetRoute><MyCart /></PrivetRoute>
+            }
         ]
+    },
+    {
+        path: "/dashboard",
+        element: <DashboardLayout />
     }
 ])
 

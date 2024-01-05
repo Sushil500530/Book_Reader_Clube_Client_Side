@@ -12,7 +12,7 @@ const FooterPage = () => {
             return toast.error('Please enter Your Email')
         }
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            return  Swal.fire({
+              return  Swal.fire({
                 title: "Congrates!🎉",
                 text: "Your Submissions have been submitted",
                 icon: "success",

@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/image/authentication/undraw_fingerprint_login_re_t71l.svg'
 import Container from '../../shared/container/Container';
 import SocialAccount from '../../shared/socialAccount/SocialAccount';
@@ -13,7 +13,7 @@ const LoginPage = () => {
     const { loginUser, googleSignIn } = useAuth();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const location = useLoaderData();
+    const location = useLocation();
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
@@ -24,7 +24,7 @@ const LoginPage = () => {
         await loginUser(email, password)
             .then(res => {
                 if (res.user) {
-                    navigate(location?.state ? location.pathname : '/')
+                    navigate(location?.state ? location?.state : '/')
                     toast.success('Logged in successfully');
                     return setLoading(false)
                 }
@@ -47,7 +47,8 @@ const LoginPage = () => {
                 axiosPbulic.post('/users', userInfo)
                     .then(() => {})
                     .catch(error => toast.error(error.message))
-                navigate(location?.state ? location?.pathname : '/');
+                    // console.log(location?.state);
+                navigate(location?.state ? location?.state : '/');
                 return toast.success('Login Successfull...!');
 
             })

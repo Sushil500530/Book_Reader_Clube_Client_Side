@@ -44,7 +44,7 @@ const SignupPage = () => {
 
                 if (res.user) {
                     setLoading(false)
-                    navigate(location.state ? location.pathname : '/')
+                    navigate(location.state ? location?.state : '/')
                     return toast.success('Login Successfull...!');
                 }
             })
@@ -68,7 +68,7 @@ const SignupPage = () => {
                             console.log(res.data);
                         })
                         .catch(error => toast.error(error.message))
-                    navigate(location.state ? location.pathname : '/');
+                    navigate(location.state ? location?.state : '/');
                     return toast.success('Login Successfull...!');
                 }
             })

@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../logo/Logo";
 import NavLinkManu from "./NavLinkManu";
+import { useState } from "react";
+import { RxCross1 } from 'react-icons/rx';
 
 const Navbar = ({ children }) => {
+    const [active, setActive] = useState(true);
+    const handleToggle = () => {
+        setActive(!active)
+    }
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle text-white" />
@@ -22,11 +28,17 @@ const Navbar = ({ children }) => {
                             <Logo />
                         </Link>
                     </div>
-                    <NavLinkManu />
+                    <NavLinkManu handleToggle={handleToggle} />
                 </div>
                 {children}
             </div>
-            <Sidebar />
+            <Sidebar handleToggle={handleToggle} />
+            <div className={`z-10 fixed pb-6 pt-6 bg-blue-50 -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform ${active && 'translate-x-full'} dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out`}>
+                <div className="flex items-center justify-between">
+                    <button onClick={handleToggle} className="btn outline-none border-none bg-transparent"><RxCross1 className="text-2xl" /></button>
+                    <button></button>
+                </div>
+            </div>
         </div>
     );
 };
