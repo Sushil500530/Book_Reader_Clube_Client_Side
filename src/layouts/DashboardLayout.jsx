@@ -3,17 +3,21 @@ import { IoMenuOutline } from "react-icons/io5";
 import Logo from "../components/header/logo/Logo";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
-import { FiLogOut } from "react-icons/fi";
-import { MdOutlineAddShoppingCart, MdOutlinePayments, MdAccountCircle, MdDashboardCustomize } from "react-icons/md"
-import { GiLevelFourAdvanced } from "react-icons/gi";
-import { } from "react-icons/md";
-import { IoMdSettings } from "react-icons/io";
-import ManuList from "../shared/manuItems/ManuList";
-import { FaHome } from "react-icons/fa";
-import DManuList from "../shared/dashboard manulist/DManuList";
+import { MdDashboardCustomize } from "react-icons/md";
 import FooterManu from "./dashboard/FooterManu";
+import useRole from './../hooks/useRole';
+import GuestManu from "./dashboard/manu/GuestManu";
+import ManagerManu from "./dashboard/manu/ManagerManu";
+import AdminManu from "./dashboard/manu/AdminManu";
+import Loader from "../shared/Loader";
 const DashboardLayout = () => {
+    const [users,refetch,isLoading] = useRole();
     const [isActive, setIsActive] = useState(true);
+    refetch();
+    if(isLoading){
+        return <Loader />
+    }
+    console.log(users);
     const handleReverse = () => {
         setIsActive(!isActive)
     }
@@ -42,9 +46,15 @@ const DashboardLayout = () => {
                             <span>{<MdDashboardCustomize className="w-5 h-8 mr-1 " />}</span>
                             Dashboard
                         </NavLink>
-                        <DManuList address={'promotion'} linkTitle={'Promotion'} icon={GiLevelFourAdvanced} />
-                        <DManuList address={'create-shop'} linkTitle={'Add Shop'} icon={MdOutlineAddShoppingCart} />
-                        <DManuList address={'payment-details'} linkTitle={'Payment Details'} icon={MdOutlinePayments} />
+                     {
+                        users?.role ==='guest' && <GuestManu />
+                     }
+                     {
+                        users?.role ==='manager' && <ManagerManu />
+                     }
+                     {
+                        users?.role ==='admin' && <AdminManu />
+                     }
                     </div>
                     <div>
                       <FooterManu />
