@@ -11,10 +11,10 @@ import ManagerManu from "./dashboard/manu/ManagerManu";
 import AdminManu from "./dashboard/manu/AdminManu";
 import Loader from "../shared/Loader";
 const DashboardLayout = () => {
-    const [users,refetch,isLoading] = useRole();
+    const [users, refetch, isLoading] = useRole();
     const [isActive, setIsActive] = useState(true);
     refetch();
-    if(isLoading){
+    if (isLoading) {
         return <Loader />
     }
     console.log(users);
@@ -46,18 +46,18 @@ const DashboardLayout = () => {
                             <span>{<MdDashboardCustomize className="w-5 h-8 mr-1 " />}</span>
                             Dashboard
                         </NavLink>
-                     {
-                        users?.role ==='guest' && <GuestManu />
-                     }
-                     {
-                        users?.role ==='manager' && <ManagerManu />
-                     }
-                     {
-                        users?.role ==='admin' && <AdminManu />
-                     }
+                        {
+                            users?.role === 'guest' && <GuestManu />
+                        }
+                        {
+                            users?.role === 'manager' && <ManagerManu />
+                        }
+                        {
+                            users?.role === 'admin' && <AdminManu />
+                        }
                     </div>
                     <div>
-                      <FooterManu />
+                        <FooterManu />
                     </div>
                 </div>
                 <div className="ml-0 md:ml-0 lg:ml-[260px] w-full h-[100vh] p-5 dark:text-white bg-white dark:bg-zinc-800">

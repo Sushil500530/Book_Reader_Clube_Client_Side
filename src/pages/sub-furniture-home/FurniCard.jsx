@@ -3,10 +3,45 @@ import { Link } from "react-router-dom";
 import { MdDescription } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import { Rating } from "@smastrom/react-rating";
+import { useAuth } from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const FurniCard = ({ furniture }) => {
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
     // console.log(Object.keys(furniture).join(','));
-    const { _id, image, price, title, description, rating, discount } = furniture || {};
+    const { _id, image, price, title, description, rating, discount, category, quantity, thumbnail1, thumbnail2, } = furniture || {};
+
+    const favorite = {
+        image,
+        category,
+        price,
+        title,
+        description,
+        thumbnail1,
+        thumbnail2,
+        rating,
+        quantity,
+        discount,
+        email: user?.email,
+        date: new Date()
+    }
+    const handleFavorite = async () => {
+        try {
+            // console.log(user?.email, buyProduct);
+            await axiosSecure.post('/favorites', favorite)
+                .then(res => {
+                    if (res.data?.insertedId) {
+                        toast.success('added successfully')
+                    }
+                })
+        }
+        catch (error) {
+            toast.error(error.message)
+        }
+    }
+
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure className="w-full h-[350px] relative">
@@ -33,7 +68,7 @@ const FurniCard = ({ furniture }) => {
                         />
                     </div>
                     <div className="flex items-center gap-2">
-                        <button className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-2xl" /></span></button>
+                        <button onClick={() => handleFavorite(_id)} className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-2xl" /></span></button>
                         <Link to={`/furni-details/${_id}`}>
                             <button className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
                                 Show Details<MdDescription className="text-2xl" /></span></button>

@@ -5,9 +5,11 @@ import toast from "react-hot-toast";
 import { MdDescription, MdFavorite } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const RelatedCard = ({ furniture }) => {
     const {user} = useAuth();
+    const axiosSecure = useAxiosSecure();
     const { _id, image, category, price,thumbnail1, thumbnail2, quantity, title, description, rating, discount } = furniture || {};
     const favoriteData = {
         image,
@@ -24,11 +26,13 @@ const RelatedCard = ({ furniture }) => {
     }
     const handleFavoriteData = async () => {
         try {
-            console.log(favoriteData);
-            // await axiosSecure.post('',buyProduct)
-            // .then(res => {
-            //     console.log(res.data);
-            // })
+            // console.log(favoriteData);
+            await axiosSecure.post('/favorites',favoriteData)
+            .then(res => {
+                if(res.data?.insertedId){
+                    toast.success('added successfully')
+                }
+            })
         }
         catch (error) {
             toast.error(error.message)
@@ -59,7 +63,7 @@ const RelatedCard = ({ furniture }) => {
                             readOnly
                         />
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center flex-col md:flex-row lg:flex-row gap-2">
                         <button onClick={handleFavoriteData} className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-2xl" /></span></button>
                         <Link to={`/furnitures/${_id}`}>
                             <button className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">

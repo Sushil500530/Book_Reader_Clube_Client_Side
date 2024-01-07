@@ -19,6 +19,7 @@ import SubDetails from "./SubDetails";
 import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 const FurniDetails = () => {
@@ -47,11 +48,18 @@ const FurniDetails = () => {
     // console.log(user?.email, buyProduct);
     const handleSetData = async () => {
        try{
-        console.log(user?.email, buyProduct);
-        // await axiosSecure.post('',buyProduct)
-        // .then(res => {
-        //     console.log(res.data);
-        // })
+        // console.log(user?.email, buyProduct);
+        await axiosSecure.post('/sales',buyProduct)
+        .then(res => {
+            if(res.data?.insertedId){
+                Swal.fire({
+                    title: "Successfully",
+                    text: `${title} added successfully`,
+                    icon: "success",
+                    timer: 1500
+                  });
+            }
+        })
        }
         catch(error){
             toast.error(error.message)
@@ -62,11 +70,13 @@ const FurniDetails = () => {
     }
     const handleFavoriteData = async () => {
        try{
-        console.log(user?.email, buyProduct);
-        // await axiosSecure.post('',buyProduct)
-        // .then(res => {
-        //     console.log(res.data);
-        // })
+        // console.log(user?.email, buyProduct);
+        await axiosSecure.post('/favorites',buyProduct)
+        .then(res => {
+            if(res.data?.insertedId){
+                toast.success('added successfully')
+            }
+        })
        }
         catch(error){
             toast.error(error.message)
