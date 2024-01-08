@@ -1,5 +1,6 @@
 import Banner from '../../components/banner/Banner';
 import FooterPage from '../footer/FooterPage';
+import SomeDetails from '../some/SomeDetails';
 import FurniCate from './furni-category/FurniCate';
 import './home.css'
 import LocationStatus from './location/LocationStatus';
@@ -16,6 +17,7 @@ const Home = () => {
             <FurniCate />
             <LocationStatus />
             <Other />
+            <SomeDetails />
             <ServiceFeature />
             <Testimonials />
             <FooterPage />

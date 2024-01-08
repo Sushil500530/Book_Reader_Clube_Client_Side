@@ -23,9 +23,9 @@ const FooterPage = () => {
     }
 
     return (
-        <footer className=" bg-gray-300 mt-12 p-10">
+        <footer className="  bg-gradient-to-b from-[#2241b0] to-[#000000] dark:bg-zinc-800 mt-12 p-10">
             <Container>
-                <div className="footer text-base-content flex flex-wrap justify-between items-center">
+                <div className="footer  text-white flex flex-wrap justify-between items-center pb-10">
                     <Logo />
                     <nav>
                         <header className="footer-title">Services</header>
@@ -51,11 +51,11 @@ const FooterPage = () => {
                         <header className="footer-title">Newsletter</header>
                         <fieldset className="form-control">
                             <label className="label">
-                                <span className="label-text">Enter your email address</span>
+                                <span className="label-text text-white dark:text-white">Enter your email address</span>
                             </label>
                             <div className="join flex items-center flex-col md:flex-row lg:flex-row w-auto h-auto gap-5 md:gap-0 lg:gap-0">
-                                <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="username@site.com" className="input input-bordered input-info join-item w-full" required />
-                                <input type="submit" onClick={handleSubscribe} className="btn text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] join-item" value='Subscribe' />
+                                <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="username@site.com" className="input text-black input-bordered input-info join-item w-full" required />
+                                <input type="submit" onClick={handleSubscribe} className="btn  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] join-item" value='Subscribe' />
                             </div>
                         </fieldset>
                     </form>

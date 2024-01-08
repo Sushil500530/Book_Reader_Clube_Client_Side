@@ -7,23 +7,25 @@ import { FaSpinner } from 'react-icons/fa';
 import { MdAddShoppingCart } from 'react-icons/md';
 import Container from '../../shared/container/Container';
 import { useAuth } from '../../hooks/useAuth';
+import useRole from '../../hooks/useRole';
 
 const CreateShop = () => {
     const axiosSecure = useAxiosSecure();
-    const { user } = useAuth()
+    const { user } = useAuth();
+    const [users, ,] = useRole();
     const [loading, setLoading] = useState(false);
-
+    
     const handleCreateShop = async (e) => {
         e.preventDefault();
         setLoading(true);
-        // if (users?.role === 'manager') {
-        //     Swal.fire({
-        //         icon: "error",
-        //         title: "Oops...",
-        //         text: "Your Shop is Existed in!",
-        //     });
-        //     return setLoading(false)
-        // }
+        if (users?.role === 'manager') {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Your Shop is Existed in!",
+            });
+            return setLoading(false)
+        }
         const form = e.target;
         const shop_name = form.shop_name.value;
         const image = form.image.files[0];
@@ -40,10 +42,10 @@ const CreateShop = () => {
                 email: user?.email,
                 role: 'manager',
             };
-            console.log(create_shop);
+            // console.log(create_shop);
             await axiosSecure.patch('/managers', create_shop)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     setLoading(false)
                     if (res.data?.insertedId) {
                         Swal.fire({

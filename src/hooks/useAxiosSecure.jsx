@@ -20,7 +20,7 @@ const useAxiosSecure = () => {
             if (error?.response?.status === 401 || error?.response?.status === 403) {
                 logoutUser()
                     .then(() => {
-                        toast.error('cannot find your token! log out the user');
+                        toast.error('cannot find your token! please log in again...');
                         return navigate('/login')
                     })
                     .catch(error => console.error(error))

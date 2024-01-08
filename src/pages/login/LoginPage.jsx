@@ -28,10 +28,14 @@ const LoginPage = () => {
                     toast.success('Logged in successfully');
                     return setLoading(false)
                 }
-               
+
             })
-            .catch(error => toast.error(error.message))
-        
+            .catch(error => {
+                setLoading(false)
+                toast.error(error.message)
+            }
+            )
+
     }
 
     const handleGoogleSignIn = () => {
@@ -45,14 +49,17 @@ const LoginPage = () => {
                     status: 'Verified',
                 };
                 axiosPbulic.post('/users', userInfo)
-                    .then(() => {})
+                    .then(() => { })
                     .catch(error => toast.error(error.message))
-                    // console.log(location?.state);
+                // console.log(location?.state);
                 navigate(location?.state ? location?.state : '/');
                 return toast.success('Login Successfull...!');
 
             })
-            .catch(error => toast.error(error.message))
+            .catch(error => {
+                setLoading(false)
+                toast.error(error.message)
+            })
 
     }
 
