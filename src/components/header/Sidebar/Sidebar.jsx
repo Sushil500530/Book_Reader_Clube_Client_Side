@@ -6,8 +6,9 @@ import { FaHome, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
 import { MdAddShoppingCart, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
-const Sidebar = ({ handleToggle }) => {
+const Sidebar = ({ handleToggle,sales,refetch }) => {
     const { user, logoutUser } = useAuth()
+    refetch();
     const handleLogout = () => {
         logoutUser()
             .then(() => {
@@ -29,14 +30,14 @@ const Sidebar = ({ handleToggle }) => {
                                     className={` flex items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
                                     `} >
                                     <span>{<MdShoppingBasket className="w-5 h-8 mr-1 " />}</span>
-                                    My Cart  <div className="badge w-14 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute top-2 border-none outline-none left-[90%] text-[18px] p-4">0</div>
+                                    My Cart  <div className="badge w-14 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute top-2 border-none outline-none left-[90%] text-[18px] p-4">{sales?.length}</div>
                                 </NavLink>
                             </span>
                             <span className="hidden md:block lg:block">
                                 <button onClick={handleToggle}
                                     className={`flex items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative`}>
                                     <span>{<MdShoppingBasket className="w-5 h-8 mr-1 " />}</span>
-                                    My Cart <div className="badge w-14 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute top-2 border-none outline-none left-[90%] text-[18px] p-4">0</div>
+                                    My Cart <div className="badge w-14 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute top-2 border-none outline-none left-[90%] text-[18px] p-4">{sales?.length}</div>
                                 </button>
                             </span>
                         </>
