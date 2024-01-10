@@ -7,9 +7,9 @@ const FurniCategCard = ({ category }) => {
     // console.log(category);
     return (
         <div>
-            <div className="m-5 cursor-pointer w-auto h-[400px] relative group rounded-lg hover:rounded-lg overflow-hidden">
+            <div className="m-5 cursor-pointer w-auto h-[280px] md:h-[320px] lg:h-[350px] relative group rounded-lg hover:rounded-lg overflow-hidden">
                 <figure>
-                    <img src={category?.image} className='w-full h-[400px]' alt="" />
+                    <img src={category?.image} className='w-full h-[280px] md:h-[320px] lg:h-[350px] ' alt="category-image" />
                 </figure>
                 <div className='bg-gradient-to-b from-[#2241b0] to-[#000000] z-10 pb-6 absolute w-full h-auto inset-y-0 flex items-center hover:opacity-90 justify-center flex-col transform lg:block translate-y-full group-hover:translate-y-0 dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out'>
                     <div

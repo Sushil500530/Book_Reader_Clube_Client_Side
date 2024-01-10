@@ -10,9 +10,8 @@ import { MdShoppingBasket } from "react-icons/md";
 import { useAuth } from './../../../hooks/useAuth';
 import toast from "react-hot-toast";
 
-const NavLinkManu = ({ handleToggle,refetch,sales }) => {
+const NavLinkManu = ({ handleToggle,sales }) => {
     const { user, logoutUser } = useAuth();
-    refetch();
     const handleLogout = () => {
         logoutUser()
             .then(() => {

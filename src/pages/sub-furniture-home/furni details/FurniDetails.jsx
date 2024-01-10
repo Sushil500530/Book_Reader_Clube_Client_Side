@@ -20,18 +20,21 @@ import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import useSale from "../../../hooks/useSale";
 
 
 const FurniDetails = () => {
     const data = useLoaderData();
+    const [ ,refetch, ] = useSale();
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth();
     const navigate = useNavigate();
-    const { image, category, price, title, description, thumbnail1, thumbnail2, rating, quantity, discount } = data || {};
+    const {_id, image, category, price, title, description, thumbnail1, thumbnail2, rating, quantity, discount } = data || {};
     const discountPrice = discount / 100 * price;
     const currentPrice = Math.round((price - discountPrice).toFixed(2));
     // console.log(currentPrice);
     const buyProduct = {
+        furniId: _id,
         image,
         category,
         price:currentPrice,
@@ -42,8 +45,7 @@ const FurniDetails = () => {
         rating,
         quantity,
         discount,
-        email:user?.email,
-        date: new Date()
+        email:user?.email
     }
     // console.log(user?.email, buyProduct);
     const handleSetData = async () => {
@@ -58,6 +60,7 @@ const FurniDetails = () => {
                     icon: "success",
                     timer: 1500
                   });
+                  refetch();
             }
         })
        }

@@ -6,9 +6,8 @@ import { FaHome, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
 import { MdAddShoppingCart, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
-const Sidebar = ({ handleToggle,sales,refetch }) => {
+const Sidebar = ({ handleToggle,sales }) => {
     const { user, logoutUser } = useAuth()
-    refetch();
     const handleLogout = () => {
         logoutUser()
             .then(() => {

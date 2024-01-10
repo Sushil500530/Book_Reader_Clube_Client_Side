@@ -16,6 +16,8 @@ import PaymentDetails from "../layouts/dashboard/payment details/PaymentDetails"
 import Promotion from "../layouts/dashboard/promotion/Promotion";
 import Setting from "../layouts/dashboard/setting/Setting";
 import ManageAccount from "../layouts/dashboard/manage account/ManageAccount";
+import CheckoutForm from "../pages/checkout/CheckoutForm";
+import PaymentSection from "../pages/checkout/PaymentSection";
 
 
 const Router = createBrowserRouter([
@@ -62,6 +64,10 @@ const Router = createBrowserRouter([
             {
                 path:'my-cart',
                 element: <PrivetRoute><MyCart /></PrivetRoute>
+            },
+            {
+                path:'checkout',
+                element: <PrivetRoute><PaymentSection /></PrivetRoute>
             }
         ]
     },
