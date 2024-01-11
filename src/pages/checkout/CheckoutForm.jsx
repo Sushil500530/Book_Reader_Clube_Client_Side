@@ -16,12 +16,12 @@ const CheckoutForm = () => {
     const elements = useElements();
     const { user } = useAuth();
     const navigate = useNavigate();
-    const { loading, setLoading } = useState(false);
+    const [loading, setLoading] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
-    const [translateId,setTranslateId] = useState('');
+    const [translateId, setTranslateId] = useState('');
 
     const totalPrice = sales?.reduce((total, currentItem) => total + (currentItem?.price), 0);
-    console.log(sales);
+    // console.log(sales);
     const handleReturn = (e) => {
         e.preventDefault();
         return navigate('/dashboard')
@@ -39,6 +39,7 @@ const CheckoutForm = () => {
 
     const handlePayment = async (e) => {
         e.preventDefault();
+        setLoading(true);
         if (!stripe || !elements) {
             return toast.error('something went wrong!')
         }
@@ -56,10 +57,10 @@ const CheckoutForm = () => {
             toast.error(error?.message)
         }
         else {
-            console.log('payment method of condition is=======>', paymentMethod);
+            // console.log('payment method of condition is=======>', paymentMethod);
             setClientSecret('')
         }
-        setLoading(true);
+
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -87,15 +88,15 @@ const CheckoutForm = () => {
                     date: new Date(),
                     saleIds: sales?.map(item => item?._id),
                     furniItemIds: sales?.map(item => item?.furniId),
-                    status:'pending'
+                    status: 'pending'
                 }
                 const response = await axiosSecure.post('payments', paymentInfo);
                 refetch();
                 console.log('what is feedback in database', response?.data);
-                if(response?.data?.paymentResult?.insertedId){
+                if (response?.data?.paymentResult?.insertedId) {
                     setLoading(false);
                     Swal.fire({
-                        title: "Payment Success!",
+                        title: "Payment Success🎉!",
                         text: "Thenak you for Paymented!",
                         icon: "success",
                         timer: 1000,
@@ -139,10 +140,29 @@ const CheckoutForm = () => {
                 <div className="flex flex-row my-8 items-center justify-between gap-5 ">
                     <button onClick={handleReturn} className="btn btn-error flex items-center gap-2 text-[17px] text-white"><RiDeleteBack2Line className="text-2xl" />Cencel</button>
                     <button disabled={!stripe || !clientSecret} onClick={handlePayment} type="submit" className="btn bg-green-600 text-white text-[17px] hover:text-black">{
-                          loading ? <ImSpinner9 className='m-auto animate-spin' size={24} /> : `Pay $ ${totalPrice}`
+                        loading ? <ImSpinner9 className='m-auto animate-spin' size={24} /> : `Pay $ ${totalPrice}`
                     } </button>
                 </div>
                 <h1 className="text-center font-medium text-[17px] text-green-500">{translateId}</h1>
+            </div>
+            <div className="divider divider-x text-xl font-bold mt-10">Other Your Offer!🎉</div>
+            <div className="card-container">
+                <div className="card">
+                    <div className="">
+                        <h1 className="">Entry</h1>
+                        <h1 className="">
+                            $14 <span className="card-expired">/month</span>
+                            <button className="off-btn">10% OFF</button>
+                        </h1>
+                        <p className="">Easy start on the cloud</p>
+                    </div>
+                    <div className="">
+                        {/* benifits */}
+                        <div className="btn-cart">
+                            <button className="card-btn">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
