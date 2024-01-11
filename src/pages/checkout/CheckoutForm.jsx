@@ -2,6 +2,8 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useSale from "../../hooks/useSale";
 import { ImSpinner9 } from "react-icons/im";
+import { BsCheck2 } from "react-icons/bs";
+import { IoIosCreate } from "react-icons/io";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -106,8 +108,15 @@ const CheckoutForm = () => {
             }
         }
     }
+
+    const handleBuy= () => {
+       toast.error('somthing went wrong!')
+  }
+
+
+
     return (
-        <div className="my-12 p-5 w-full h-full">
+        <div className="mt-12 p-5 w-full h-full">
             <div className="lg:w-[550px] md:w-[550px] w-full h-auto mx-auto">
                 <form >
                     <CardElement className="border border-black px-5 py-2 focus:border-[#f3f3f3] text-[20px]"
@@ -146,20 +155,77 @@ const CheckoutForm = () => {
                 <h1 className="text-center font-medium text-[17px] text-green-500">{translateId}</h1>
             </div>
             <div className="divider divider-x text-xl font-bold mt-10">Other Your Offer!🎉</div>
-            <div className="card-container">
-                <div className="card">
-                    <div className="">
-                        <h1 className="">Entry</h1>
-                        <h1 className="">
-                            $14 <span className="card-expired">/month</span>
-                            <button className="off-btn">10% OFF</button>
-                        </h1>
-                        <p className="">Easy start on the cloud</p>
+            <div>
+                <h1 className="flex items-center justify-center gap-2 text-2xl">Create a Furni Track Shop <IoIosCreate className="w-8 h-8 text-fuchsia-500" /></h1>
+                <h1 className="text-2xl my-3">Get <span className="text-fuchsia-500">Discount</span> Offer🎉</h1>
+            </div>
+            <div className="w-full lg:w-[80%] mx-auto h-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-between mt-12 gap-8">
+                <div className="col-span-1 border pb-12">
+                    <div className="w-full h-auto rounded-t-xl bg-green-700 text-white p-5">
+                        <h1 className="text-2xl text-start mb-1">Entry</h1>
+                        <h1 className="text-6xl flex gap-3 items-center justify-center ">
+                            $14 <span className="text-base">/month</span> <button className="text-xl bg-[#fafcfa] px-5 py-2 rounded-full text-black border-2 border-fuchsia-500 md:border-none lg:border-none">10% OFF</button> </h1>
+                           
+                        <p className="mt-5">Easy Start on Your Bussiness</p>
                     </div>
-                    <div className="">
+                    <div className="flex flex-col items-center justify-between ">
                         {/* benifits */}
-                        <div className="btn-cart">
-                            <button className="card-btn">BUY NOW</button>
+                        <div className="mt-5 px-6 h-auto">
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" /> Discounted Annual Pricing</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Flexible Payment Options</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Priority Access to New Products</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" /> Exclusive Promotions</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Early Renewal Discounts</h1>
+                        </div>
+                        <div className=" px-5 pt-10 w-full">
+                            <button onClick={handleBuy} className="btn w-full text-white bg-green-700 hover:text-black">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-span-1 border pb-12">
+                    <div className="w-full h-auto rounded-t-xl bg-green-700 text-white px-4 py-8">
+                        <h1 className="text-2xl text-start mb-1">Bussiness</h1>
+                        <h1 className="text-6xl flex gap-3 items-center justify-center ">
+                            $124 <span className="text-base">/yearly</span>
+                            <button className="text-xl bg-[#fafcfa] px-5 py-2 rounded-full text-black border-2 border-fuchsia-500 md:border-none lg:border-none">20% OFF</button>
+                        </h1>
+                        <p className="mt-5">Easy Start on Your Bussiness</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-between ">
+                        {/* benifits */}
+                        <div className="mt-5 px-6 w-full h-auto">
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" /> Discounted Annual Pricing</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Flexible Payment Options</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Priority Access to New Products</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" /> Exclusive Promotions</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Early Renewal Discounts</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Early Renewal Discounts</h1>
+                        </div>
+                        <div className=" px-5 pt-10 w-full">
+                            <button onClick={handleBuy} className="btn w-full text-white bg-green-700 hover:text-black">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-span-1 border pb-12">
+                    <div className="w-full h-auto rounded-t-xl bg-green-700 text-white p-5">
+                        <h1 className="text-2xl text-start mb-1">Entry</h1>
+                        <h1 className="text-6xl flex gap-3 items-center justify-center ">
+                            $14 <span className="text-base">/month</span>
+                            <button className="text-xl bg-[#fafcfa] px-5 py-2 rounded-full text-black border-2 border-fuchsia-500 md:border-none lg:border-none">10% OFF</button>
+                        </h1>
+                        <p className="mt-5">Easy Start on Your Bussiness</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-between ">
+                        {/* benifits */}
+                        <div className="mt-5 px-6 h-auto">
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" /> Discounted Annual Pricing</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Flexible Payment Options</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Priority Access to New Products</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" /> Exclusive Promotions</h1>
+                            <h1 className="flex items-center gap-2"><BsCheck2 className="w-8 h-8 text-green-500" />Early Renewal Discounts</h1>
+                        </div>
+                        <div className=" px-5 pt-10 w-full">
+                            <button onClick={handleBuy} className="btn w-full text-white bg-green-700 hover:text-black">BUY NOW</button>
                         </div>
                     </div>
                 </div>
