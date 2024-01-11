@@ -33,7 +33,7 @@ const ForSaleData = ({ sale, refetch }) => {
     }
     return (
         <div>
-            <div className='grid grid-cols-3 justify-between items-center'>
+            <div className='grid grid-cols-3 justify-between items-center gap-3'>
                 <figure className='flex flex-col items-center justify-center mt-2 w-full h-24'>
                     <img src={sale?.image} className='w-full h-full' alt="sale-image" />
                 </figure>
