@@ -17,7 +17,7 @@ const DashboardLayout = () => {
     if (isLoading) {
         return <Loader />
     }
-    console.log(users);
+    // console.log(users);
     const handleReverse = () => {
         setIsActive(!isActive)
     }

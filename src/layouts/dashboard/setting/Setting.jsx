@@ -1,20 +1,23 @@
-import coverImage from '../../../assets/image/setting2..gif'
 import { FcBusinessman } from "react-icons/fc";
 import useRole from '../../../hooks/useRole';
 import toast from 'react-hot-toast';
+import { FiLoader } from "react-icons/fi";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { imageUpload } from '../../../api/getData';
+import { useState } from "react";
 
 const Setting = () => {
-    const [users, refetch, ] = useRole();
+    const [users, refetch,] = useRole();
     const axiosSecure = useAxiosSecure();
+    const [loading, setLoading] = useState(false)
     // console.log(users);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
         const form = e.target;
         const name = form.name.value;
-        const email = form.name.value;
+        const email = form.email.value;
         const image = form.image.files[0];
         const status = form.status.value;
 
@@ -32,8 +35,10 @@ const Setting = () => {
                     console.log(res.data);
                     if (res.data?.modifiedCount > 0) {
                         refetch()
+
                         toast.success('updated successfully')
                     }
+                    setLoading(false)
                 })
         }
         catch (error) {
@@ -73,7 +78,11 @@ const Setting = () => {
                     </div>
                     <label>Status*</label>
                     <input type="text" name='status' defaultValue={users?.status} className="input input-bordered input-info w-full max-w-xs" />
-                    <button className='btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] my-3 text-[17px] hover:text-blue-300' type='submit'>Save Chnages</button>
+                    <button className='btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] my-3 text-[17px] hover:text-blue-300' type='submit'>
+                        {
+                            loading === true ? <div className="text-[17px] flex items-center gap-2"><FiLoader className="w-6 h-6 animate-spin" /> processing</div> : 'Save Chnages'
+                        }
+                    </button>
                 </form>
             </div>
         </div>
