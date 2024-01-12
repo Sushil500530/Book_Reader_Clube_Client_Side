@@ -114,9 +114,8 @@ const CheckoutForm = () => {
   }
 
 
-
     return (
-        <div className="mt-12 p-5 w-full h-full">
+        <div className="mt-10 p-5 w-full h-full">
             <div className="lg:w-[550px] md:w-[550px] w-full h-auto mx-auto">
                 <form >
                     <CardElement className="border border-black px-5 py-2 focus:border-[#f3f3f3] text-[20px]"
@@ -154,7 +153,7 @@ const CheckoutForm = () => {
                 </div>
                 <h1 className="text-center font-medium text-[17px] text-green-500">{translateId}</h1>
             </div>
-            <div className="divider divider-x text-xl font-bold mt-10">Other Your Offer!🎉</div>
+            <div className="divider divider-x text-xl font-bold mt-20">Other Your Offer!🎉</div>
             <div>
                 <h1 className="flex items-center justify-center gap-2 text-2xl">Create a Furni Track Shop <IoIosCreate className="w-8 h-8 text-fuchsia-500" /></h1>
                 <h1 className="text-2xl my-3">Get <span className="text-fuchsia-500">Discount</span> Offer🎉</h1>
