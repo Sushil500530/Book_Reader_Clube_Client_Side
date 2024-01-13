@@ -18,6 +18,8 @@ import Setting from "../layouts/dashboard/setting/Setting";
 import ManageAccount from "../layouts/dashboard/manage account/ManageAccount";
 import CheckoutForm from "../pages/checkout/CheckoutForm";
 import PaymentSection from "../pages/checkout/PaymentSection";
+import UserHome from "../layouts/dashboard/user/UserHome";
+import FavoriteProduct from "../layouts/dashboard/user/favorite/FavoriteProduct";
 
 
 const Router = createBrowserRouter([
@@ -75,6 +77,28 @@ const Router = createBrowserRouter([
         path: "/dashboard",
         element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
+            {
+                path: '/dashboard',
+                element:<PrivetRoute><UserHome /></PrivetRoute>,
+                children: [
+                    {
+                        path: "favorites",
+                        element:<FavoriteProduct />
+                    },
+                    {
+                        path: "buy-products",
+                        element:<FavoriteProduct />
+                    },
+                    {
+                        path: "add-shop",
+                        element:<FavoriteProduct />
+                    },
+                    {
+                        path: "profile",
+                        element:<FavoriteProduct />
+                    },
+                ]
+            },
             {
                 path: 'create-shop',
                 element:<PrivetRoute><DCreateShop /></PrivetRoute>

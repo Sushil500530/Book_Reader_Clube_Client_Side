@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdDescription } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import { Rating } from "@smastrom/react-rating";
 import { useAuth } from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const FurniCard = ({ furniture }) => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
     // console.log(Object.keys(furniture).join(','));
     const { _id, image, price, title, description, rating, discount, category, quantity, thumbnail1, thumbnail2, } = furniture || {};
 
@@ -28,17 +30,34 @@ const FurniCard = ({ furniture }) => {
         date: new Date()
     }
     const handleFavorite = async () => {
-        try {
-            // console.log(user?.email, buyProduct);
-            await axiosSecure.post('/favorites', favorite)
-                .then(res => {
-                    if (res.data?.insertedId) {
-                        toast.success('added successfully')
-                    }
-                })
+        if (!user?.email) {
+            return Swal.fire({
+                title: "Pleaase Login first",
+                text: "Do you want to login?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, i does it"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  return navigate('/login')
+                }
+            });
         }
-        catch (error) {
-            toast.error(error.message)
+        else {
+            try {
+                // console.log(user?.email, buyProduct);
+                await axiosSecure.post('/favorites', favorite)
+                    .then(res => {
+                        if (res.data?.insertedId) {
+                            toast.success('added successfully')
+                        }
+                    })
+            }
+            catch (error) {
+                toast.error(error.message)
+            }
         }
     }
 

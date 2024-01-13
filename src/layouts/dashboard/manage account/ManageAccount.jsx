@@ -3,6 +3,7 @@ import useAllUsers from "../../../hooks/useAllUsers";
 import { MdAnnouncement } from "react-icons/md";
 import img from '../../../assets/image/feature/banner-1.png'
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 
 const ManageAccount = () => {
@@ -15,6 +16,9 @@ const ManageAccount = () => {
         const searchValue = form.search.value;
         setSearch(searchValue)
         console.log(searchValue);
+    }
+    const handleAdd = () => {
+        toast.error('Does not exist!')
     }
 
     return (
@@ -32,18 +36,18 @@ const ManageAccount = () => {
                             <h1 className="text-2xl mt-10">Not Found Your Account <span className="text-fuchsia-600 text-4xl">!</span></h1>
                             <div><MdAnnouncement className="w-10 h-10 text-fuchsia-600" /></div>
                         </div>
-                    </> : allUsers?.map(user => <div key={user._id} className="flex items-center justify-between w-full md:w-[70%] lg:w-[30%] mx-auto mt-10">
+                    </> : allUsers?.map(user => <div key={user?._id} className="flex items-center justify-between w-full md:w-[70%] lg:w-[30%] mx-auto mt-10">
                         <div className=" flex items-center justify-center gap-5 flex-1 py-1">
                             <figure className="w-20 h-20">
-                                <img src={img} className="w-full h-full rounded-full" alt="account-image" />
+                                <img src={user?.image} className="w-full h-full rounded-full" alt="account-image" />
                             </figure>
                             <div className="flex flex-col gap-2 items-start justify-center">
-                                <h1 className="text-xl">Sushil</h1>
-                                <p>sushil500530@gmail.com</p>
+                                <h1 className="text-xl">{user?.name}</h1>
+                                <p>{user?.email}</p>
                             </div>
                         </div>
                         <div>
-                            <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Add Your Account</button>
+                            <button onClick={handleAdd} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Add Your Account</button>
                         </div>
                     </div>)
                 }
