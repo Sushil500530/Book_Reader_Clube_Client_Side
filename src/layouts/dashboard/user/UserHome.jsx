@@ -70,23 +70,18 @@ const UserHome = () => {
                                         <dt className="order-last text-lg font-medium p__opensans">
                                             Total Sales
                                         </dt>
-
                                         <dd className="text-4xl font-extrabold text-first md:text-5xl">
                                             $4.8m
                                         </dd>
                                     </div>
-
                                     <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
                                         <dt className="order-last p__opensans">Total Teacher</dt>
-
                                         <dd className="text-4xl font-extrabold text-first md:text-5xl">
                                             24
                                         </dd>
                                     </div>
-
                                     <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center  ">
                                         <dt className="order-last  p__opensans">Total Students</dt>
-
                                         <dd className="text-4xl font-extrabold text-first md:text-5xl">
                                             86
                                         </dd>

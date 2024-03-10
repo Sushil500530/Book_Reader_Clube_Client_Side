@@ -73,7 +73,6 @@ const FurniDetails = () => {
     }
     const handleFavoriteData = async () => {
        try{
-        // console.log(user?.email, buyProduct);
         await axiosSecure.post('/favorites',buyProduct)
         .then(res => {
             if(res.data?.insertedId){
