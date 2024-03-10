@@ -1,18 +1,16 @@
+/* eslint-disable no-unused-vars */
 import { MdOutlineFavorite } from "react-icons/md";
 import { BiSolidCommentDetail } from "react-icons/bi";
 import { MdDateRange } from "react-icons/md";
 import { FcManager } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import useFavorite from "../../../hooks/useFavorite";
-import ShowFavorite from "./showBuyProduct/ShowFavorite";
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 import { Bar } from "recharts";
 // import Revenue from "./Revenue/Revenue";
 // import Analytic from "./Revenue/Analytic/Analytic";
 
 const UserHome = () => {
-    const [favorites, refetch,] = useFavorite();
-    // console.log(favorites);
+
     const data = [
         { name: "Students", value: 400 },
         { name: "Teachers", value: 300 },
