@@ -65,7 +65,7 @@ const FurniCard = ({ furniture }) => {
         <div className="card bg-base-100 shadow-xl">
             <figure className="w-full h-[350px] relative">
                 <Link to={`/furni-details/${_id}`}>
-                    <img src={image} className="w-full h-full rounded-xl hover:scale-110 transition-all cursor-pointer" alt="furniture-image" />
+                    <img src={image} className="w-full h-full rounded-xl hover:scale-105 transition-all duration-200 cursor-pointer" alt="furniture-image" />
                 </Link>
                 <h1 className="px-5 py-2 text-white bg-red-600 rounded-md absolute right-2 top-2">{discount}% OFF</h1>
             </figure>

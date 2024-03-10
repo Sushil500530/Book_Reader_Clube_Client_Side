@@ -1,5 +1,5 @@
 import SubDetails from "../../../pages/sub-furniture-home/furni details/SubDetails";
-import createImage from '../../../assets/image/create-furni.gif'
+import createImage from '../../../assets/image/banner2.gif'
 import FooterPage from "../../../pages/footer/FooterPage";
 import { Link } from "react-router-dom";
 

@@ -14,7 +14,7 @@ const CreateShop = () => {
     const { user } = useAuth();
     const [users, ,] = useRole();
     const [loading, setLoading] = useState(false);
-    
+
     const handleCreateShop = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -91,14 +91,10 @@ const CreateShop = () => {
                                     />
                                 </div>
                             </div>
-                            <div className=' p-4 bg-white w-full m-auto rounded-lg'>
+                            <div className=' py-4 bg-white w-full m-auto rounded-lg'>
                                 <label className="block text-black font-medium dark:text-white"> Shop Logo</label>
-                                <div className=' bg-white w-full m-auto rounded-lg mt-3'>
-                                    <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        <div className='flex flex-col w-max dark:text-white mx-auto text-center overflow-hidden'>
-                                            <input type='file' name='image' id='image' accept='image/*' className="file-input file-input-info focus:border-none " />
-                                        </div>
-                                    </div>
+                                <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                    <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                 </div>
                             </div>
                             <div className='space-y-1 '>

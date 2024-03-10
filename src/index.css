@@ -8,3 +8,6 @@
     background: #fbfbfb;
     color: black;
   }
+  .green_gradient_text {
+    @apply bg-gradient-to-b from-[#2241b0] to-[#000000] bg-clip-text text-transparent;
+  }

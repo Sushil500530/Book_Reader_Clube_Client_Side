@@ -96,9 +96,7 @@ const AddProducts = () => {
                             </div>
                             <div className=' bg-white w-full m-auto rounded-lg'>
                                 <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                    <div className='flex flex-col w-max mx-auto text-center overflow-hidden'>
-                                        <input type='file' name='image' id='image' accept='image/*' className="file-input file-input-secondary focus:border-none " />
-                                    </div>
+                                    <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-secondary focus:border-none " />
                                 </div>
                             </div>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">

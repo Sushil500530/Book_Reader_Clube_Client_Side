@@ -1,14 +1,16 @@
+import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
-import { useEffect, useState } from "react";
 
-const useAllUsers = (search) => {
+const useAllUsers = () => {
     const axiosSecure = useAxiosSecure();
-    const [allUsers,setAllUsers] = useState([]);
-     useEffect(() => {
-        axiosSecure.get(`/users?search=${search}`)
-        .then(res => setAllUsers(res.data))
-    },[axiosSecure,search]);
-    return allUsers;
+   const {data:allUsers,refetch,isLoading} = useQuery({
+    queryKey: ['users'],
+    queryFn: async() => {
+       const res = await axiosSecure.get('/users')
+        return res.data;
+    }
+   })
+   return [allUsers,refetch,isLoading]
 };
 
 export default useAllUsers;

@@ -18,6 +18,11 @@ import Setting from "../layouts/dashboard/setting/Setting";
 import ManageAccount from "../layouts/dashboard/manage account/ManageAccount";
 import PaymentSection from "../pages/checkout/PaymentSection";
 import UserHome from "../layouts/dashboard/user/UserHome";
+import AddProducts from "../pages/add-product/AddProducts";
+import ManageProduct from './../layouts/dashboard/manager/manage product/ManageProduct';
+import MyProduct from "../layouts/dashboard/manager/my product/MyProduct";
+import SaleProduct from "../layouts/dashboard/manager/sale product/SaleProduct";
+import SaleSummary from "../layouts/dashboard/manager/sale product/SaleSummary";
 
 
 const Router = createBrowserRouter([
@@ -98,6 +103,27 @@ const Router = createBrowserRouter([
             {
                 path: 'manage-account',
                 element: <PrivetRoute><ManageAccount /></PrivetRoute>
+            },
+            // managers 
+            {
+                path: 'add-product',
+                element: <PrivetRoute><AddProducts /></PrivetRoute>
+            },
+            {
+                path: 'my-product',
+                element: <PrivetRoute><MyProduct /></PrivetRoute>
+            },
+            {
+                path: 'manage-product',
+                element: <PrivetRoute><ManageProduct /></PrivetRoute>
+            },
+            {
+                path: 'sales-product',
+                element: <PrivetRoute><SaleProduct /></PrivetRoute>
+            },
+            {
+                path: 'sale-summary',
+                element: <PrivetRoute><SaleSummary /></PrivetRoute>
             },
         ]
     }

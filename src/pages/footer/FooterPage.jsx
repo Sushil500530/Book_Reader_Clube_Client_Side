@@ -11,7 +11,7 @@ const FooterPage = () => {
         if(!email){
             return toast.error('Please enter Your Email')
         }
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
               return  Swal.fire({
                 title: "Congrates!🎉",
                 text: "Your Submissions have been submitted",
@@ -23,7 +23,7 @@ const FooterPage = () => {
     }
 
     return (
-        <footer className="  bg-gradient-to-b from-[#2241b0] to-[#000000] dark:bg-zinc-800 mt-12 p-10">
+        <footer className=" bg-gradient-to-b from-[#2241b0] to-[#000000] dark:bg-zinc-800 mt-12 p-10">
             <Container>
                 <div className="footer  text-white flex flex-wrap justify-between items-center pb-10">
                     <Logo />

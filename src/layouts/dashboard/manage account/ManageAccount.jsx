@@ -2,14 +2,24 @@ import { MdManageAccounts } from "react-icons/md";
 import useAllUsers from "../../../hooks/useAllUsers";
 import { MdAnnouncement } from "react-icons/md";
 import img from '../../../assets/image/feature/banner-1.png'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 
 const ManageAccount = () => {
     const [search, setSearch] = useState('')
-    const allUsers = useAllUsers(search)
-    console.log(allUsers);
+    const [findUsers, setFindUsers] = useState([]);
+    const [allUsers,refetch] = useAllUsers()
+    // console.log(search);
+    refetch();
+    useEffect(()=> {
+        // const searchItems = allUsers?.filter(item =>console.log(item?.name.includes(search)));
+        const searchItem = allUsers?.filter((item) => item?.name.includes(search.toLocaleLowerCase()));
+        console.log(searchItem);
+        setFindUsers(searchItem)
+    },[allUsers,search])
+
+
     const handleSearch = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -31,12 +41,12 @@ const ManageAccount = () => {
                 </form>
 
                 {
-                    allUsers?.length <= 0 ? <>
+                    findUsers?.length <= 0 ? <>
                         <div className="flex flex-col gap-3 items-center justify-center w-full h-[40vh]">
                             <h1 className="text-2xl mt-10">Not Found Your Account <span className="text-fuchsia-600 text-4xl">!</span></h1>
                             <div><MdAnnouncement className="w-10 h-10 text-fuchsia-600" /></div>
                         </div>
-                    </> : allUsers?.map(user => <div key={user?._id} className="flex items-center justify-between w-full md:w-[70%] lg:w-[30%] mx-auto mt-10">
+                    </> : findUsers?.map(user => <div key={user?._id} className="flex items-center justify-between w-full md:w-[70%] lg:w-[30%] mx-auto mt-10">
                         <div className=" flex items-center justify-center gap-5 flex-1 py-1">
                             <figure className="w-20 h-20">
                                 <img src={user?.image} className="w-full h-full rounded-full" alt="account-image" />

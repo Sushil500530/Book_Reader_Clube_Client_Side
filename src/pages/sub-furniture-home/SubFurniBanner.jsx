@@ -26,19 +26,19 @@ const SubFurniBanner = ({features}) => {
                 className="mySwiper my-swap"
             >
                 <SwiperSlide className='swap'>
-                    <img className='w-full h-full' src={feature_1} alt="image-banner" />
+                    <img className='w-full h-full' src={feature_1 ||image4 } alt="image-banner" />
                 </SwiperSlide>
                 <SwiperSlide className='swap'>
-                    <img className='w-full h-full' src={feature_2} alt="image-banner" />
+                    <img className='w-full h-full' src={feature_2 || image3} alt="image-banner" />
                 </SwiperSlide>
                 <SwiperSlide className='swap'>
-                    <img className='w-full h-full' src={feature_3} alt="image-banner" />
+                    <img className='w-full h-full' src={feature_3 || image2} alt="image-banner" />
                 </SwiperSlide>
                 <SwiperSlide className='swap'>
-                    <img className='w-full h-full' src={feature_4} alt="image-banner" />
+                    <img className='w-full h-full' src={feature_4 || image1} alt="image-banner" />
                 </SwiperSlide>
                 <SwiperSlide className='swap'>
-                    <img className='w-full h-full' src={feature_5} alt="image-banner" />
+                    <img className='w-full h-full' src={feature_5 || image4} alt="image-banner" />
                 </SwiperSlide>
                 <SwiperSlide className='swap'>
                     <img className='w-full h-full' src={image1} alt="image-banner" />

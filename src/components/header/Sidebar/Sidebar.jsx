@@ -57,7 +57,7 @@ const Sidebar = ({ handleToggle,sales }) => {
                                     <li onClick={handleLogout}><a>Logout</a></li>
                                 </ul>
                             </div>
-                            <button onClick={handleLogout} className="bg-[#ef0d4d] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                            <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
                                 <span><FaSignOutAlt /></span>
                                 Logout
                             </button>

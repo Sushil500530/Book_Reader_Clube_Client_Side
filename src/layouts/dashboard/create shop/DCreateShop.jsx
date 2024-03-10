@@ -53,7 +53,7 @@ const DCreateShop = () => {
     }
     return (
         <div className='lg:w-1/2 w-full bg-base-100 shadow mx-auto pt-3 px-10 pb-12 '>
-                {/* <Helmet>
+            {/* <Helmet>
             <title>Create Shop | Inventory M </title>
         </Helmet> */}
             <h2 className="text-2xl font-bold text-center dark:text-white my-12 flex items-center justify-center gap-2">Create a New Shop   <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
@@ -83,9 +83,7 @@ const DCreateShop = () => {
                             <label className="block text-black font-medium dark:text-white"> Shop Logo</label>
                             <div className=' bg-white w-full m-auto rounded-lg mt-3'>
                                 <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                    <div className='flex flex-col w-max dark:text-white mx-auto text-center overflow-hidden'>
-                                        <input type='file' name='image' id='image' accept='image/*' className="file-input file-input-info focus:border-none " />
-                                    </div>
+                                    <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                 </div>
                             </div>
                         </div>
