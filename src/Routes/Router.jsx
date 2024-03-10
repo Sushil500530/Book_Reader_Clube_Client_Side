@@ -11,7 +11,7 @@ import SubFurniHome from "../pages/sub-furniture-home/SubFurniHome";
 import FurniDetails from "../pages/sub-furniture-home/furni details/FurniDetails";
 import MyCart from "../pages/my cart/MyCart";
 import DashboardLayout from "../layouts/DashboardLayout";
-import DCreateShop from "../layouts/dashboard/create shop/DCreateShop";
+import DCreateShop from "../layouts/dashboard/user/create shop/DCreateShop";
 import PaymentDetails from "../layouts/dashboard/payment details/PaymentDetails";
 import Promotion from "../layouts/dashboard/promotion/Promotion";
 import Setting from "../layouts/dashboard/setting/Setting";
@@ -23,6 +23,7 @@ import ManageProduct from './../layouts/dashboard/manager/manage product/ManageP
 import MyProduct from "../layouts/dashboard/manager/my product/MyProduct";
 import SaleProduct from "../layouts/dashboard/manager/sale product/SaleProduct";
 import SaleSummary from "../layouts/dashboard/manager/sale product/SaleSummary";
+import FavoriteProduct from "../layouts/dashboard/user/favorite/FavoriteProduct";
 
 
 const Router = createBrowserRouter([
@@ -84,9 +85,14 @@ const Router = createBrowserRouter([
                 path: '/dashboard',
                 element:<PrivetRoute><UserHome /></PrivetRoute>
             },
+            // general user dashboard 
             {
                 path: 'create-shop',
                 element:<PrivetRoute><DCreateShop /></PrivetRoute>
+            },
+            {
+                path: 'favorites',
+                element:<PrivetRoute><FavoriteProduct /></PrivetRoute>
             },
             {
                 path: 'payment-details',

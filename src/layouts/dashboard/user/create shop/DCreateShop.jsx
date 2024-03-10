@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
-import { imageUpload } from "../../../api/getData";
+import { imageUpload } from "../../../../api/getData";
 import toast from "react-hot-toast";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useAuth } from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { useAuth } from "../../../../hooks/useAuth";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
