@@ -14,7 +14,7 @@ const RelatedProducts = () => {
     return (
         <div className="p-5">
             <h1 className="text-3xl font-bold text-start">Show Related Products</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 mt-10 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-10 gap-5">
                 {
                     furnitures?.length > 0 && furnitures?.slice(number ,15)?.map(furniture => <RelatedCard
                         key={furniture?._id}
