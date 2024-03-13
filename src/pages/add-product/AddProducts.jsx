@@ -32,6 +32,8 @@ const AddProducts = () => {
         const image = form.image.files[0];
         const description = form.description.value;
         const quantity = form.quantity.value;
+        const category = form.category.value;
+        const rating = form.rating.value;
         const product_cost = form.product_cost.value;
         const product_profit = form.product_profit.value;
         const discount = form.discount.value;
@@ -54,6 +56,8 @@ const AddProducts = () => {
             const addProducts = {
                 product_name,
                 quantity,
+                category,
+                rating,
                 product_cost,
                 image: loadImage?.data?.display_url,
                 product_profit,
@@ -66,19 +70,19 @@ const AddProducts = () => {
                 owner_name
             };
             console.log(addProducts);
-            axiosSecure.post('/products', addProducts)
-                .then(res => {
-                    setLoading(false)
-                    if (res.data?.insertedId) {
-                        Swal.fire({
-                            title: "Added Successfull!",
-                            text: "You clicked the button!",
-                            icon: "success",
-                            timer: 1000
-                        });
-                    }
-                    navigate('/dashboard/manager')
-                })
+            // axiosSecure.post('/products', addProducts)
+            //     .then(res => {
+            //         setLoading(false)
+            //         if (res.data?.insertedId) {
+            //             Swal.fire({
+            //                 title: "Added Successfull!",
+            //                 text: "You clicked the button!",
+            //                 icon: "success",
+            //                 timer: 1000
+            //             });
+            //         }
+            //         navigate('/dashboard/manager')
+            //     })
 
         }
         catch (error) {
@@ -140,11 +144,13 @@ const AddProducts = () => {
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Category
                                     </label>
-                                    <select className="select select-info w-full max-w-xs">
-                                        <option disabled selected>Select language</option>
-                                        <option>English</option>
-                                        <option>Japanese</option>
-                                        <option>Italian</option>
+                                    <select name="category" id="category" className="select select-info w-full max-w-xs">
+                                        <option disabled selected>Select Category</option>
+                                        {
+                                        category?.length > 0 && category.map(categ => <option key={categ?._id}>
+                                            {categ?.category}
+                                        </option>)
+                                        }
                                     </select>
 
                                 </div>
