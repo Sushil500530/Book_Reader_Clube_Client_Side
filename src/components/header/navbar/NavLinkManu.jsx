@@ -9,6 +9,7 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdShoppingBasket } from "react-icons/md";
 import { useAuth } from './../../../hooks/useAuth';
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const NavLinkManu = ({ handleToggle, sales }) => {
     const { user, logoutUser } = useAuth();
@@ -47,9 +48,9 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                                         <img src={user?.photoURL} alt="profile" className="w-full h-full" />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                    <li><a>Dashboard</a></li>
-                                    <li><a>Profile</a></li>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-[#d344ff]">
+                                    <li><a><Link to='/dashboard'>Dashboard</Link></a></li>
+                                    <li><a><Link to='/dashboard/settings'>Profile</Link></a></li>
                                     <li onClick={handleLogout}><a>Logout</a></li>
                                 </ul>
                             </div>
