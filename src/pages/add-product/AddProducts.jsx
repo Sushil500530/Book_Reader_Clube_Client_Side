@@ -6,6 +6,8 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useFindMananger from "../../hooks/useFindMananger";
+import Loader from "../../shared/Loader";
 
 
 const AddProducts = () => {
@@ -13,7 +15,11 @@ const AddProducts = () => {
     const [loading, setLoading] = useState(false);
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
+    const [currentManager,,isLoading] = useFindMananger();
 
+    if(isLoading){
+        return <Loader />
+    }
     const handleAddedProduct = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -25,8 +31,8 @@ const AddProducts = () => {
         const product_cost = form.product_cost.value;
         const product_profit = form.product_profit.value;
         const discount = form.discount.value;
-        // const shop_logo = findEmail[0]?.shop_logo;
-        // const shop_name = findEmail[0]?.shop_name;
+        const shop_logo = currentManager[0]?.shop_logo;
+        const shop_name = currentManager[0]?.shop_name;
         const owner_name = user?.displayName;
         const email = user?.email;
         const location = form.location.value;
@@ -42,11 +48,12 @@ const AddProducts = () => {
                 discount,
                 description,
                 location,
-                // shop_logo,
-                // shop_name,
+                shop_logo,
+                shop_name,
                 email,
                 owner_name
             };
+            console.log(addProducts);
             axiosSecure.post('/products', addProducts)
                 .then(res => {
                     setLoading(false)
@@ -61,9 +68,9 @@ const AddProducts = () => {
                     navigate('/dashboard/manager')
                 })
 
-
         }
         catch (error) {
+            setLoading(false);
             toast.error(error.message)
         }
     }

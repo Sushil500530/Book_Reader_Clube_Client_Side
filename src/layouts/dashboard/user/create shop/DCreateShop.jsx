@@ -31,7 +31,7 @@ const DCreateShop = () => {
                 email: user?.email,
                 role: 'manager',
             };
-            console.log(create_shop);
+            // console.log(create_shop);
             await axiosSecure.patch('/managers', create_shop)
                 .then(res => {
                     console.log(res.data);
