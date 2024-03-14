@@ -5,11 +5,15 @@ import Loader from "../../../../shared/Loader";
 import { FiEdit } from "react-icons/fi";
 import { AiFillDelete } from "react-icons/ai";
 import { FaRegEye } from "react-icons/fa";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const MyProduct = () => {
+    const axiosPublic = useAxiosPublic();
     const [furnitures, refetch, isLoading] = useFurnitures();
-    const { user } = useAuth();
     const [myProducts, setMyProducts] = useState([]);
+    const { user } = useAuth();
     refetch();
 
     useEffect(() => {
@@ -20,6 +24,40 @@ const MyProduct = () => {
     if (isLoading) {
         return <Loader />
     }
+
+    const handleDelete = async ({ id, title }) => {
+        console.log(id, title);
+        try {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axiosPublic.delete(`/furniture-delete/${id}`)
+                        .then(res => {
+                            if (res.data?.insertedId) {
+                                toast.success(title)
+
+                            }
+                            refetch();
+                        })
+                }
+            });
+
+
+        }
+        catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
+
     return (
         <div>
             <h1 className="text-2xl font-bold text-center my-5">My Product {myProducts?.length} is Comming Here Soon!🎉❗❗❗🎉</h1>
@@ -31,9 +69,9 @@ const MyProduct = () => {
                         </figure>
                         <div className="mt-5">
                             <h1 className="text-start font-bold">{item?.product_name}</h1>
-                            <p>{item?.description?.slice(0,50)}......</p>
+                            <p>{item?.description?.slice(0, 50)}......</p>
                             <div className="flex items-center justify-between pt-5 gap-5">
-                                <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-red-500"><AiFillDelete className="text-3xl" /></button>
+                                <button onClick={() => handleDelete({ id: item?._id, title: item?.product_name })} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-red-500"><AiFillDelete className="text-3xl" /></button>
                                 <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FaRegEye className="text-3xl" /></button>
                                 <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FiEdit className="text-3xl" /></button>
                             </div>
