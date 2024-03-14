@@ -8,11 +8,20 @@ import { FaRegEye } from "react-icons/fa";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment } from 'react'
+import MyProductModal from "./MyProductModal";
+
+
+
 
 const MyProduct = () => {
     const axiosPublic = useAxiosPublic();
     const [furnitures, refetch, isLoading] = useFurnitures();
     const [myProducts, setMyProducts] = useState([]);
+    let [isOpen, setIsOpen] = useState(true);
+    const [findItem, setFindItem] = useState([]);
+
     const { user } = useAuth();
     refetch();
 
@@ -26,7 +35,6 @@ const MyProduct = () => {
     }
 
     const handleDelete = async ({ id, title }) => {
-        console.log(id, title);
         try {
             Swal.fire({
                 title: "Are you sure?",
@@ -48,18 +56,28 @@ const MyProduct = () => {
                         })
                 }
             });
-
-
         }
         catch (error) {
             toast.error(error.message)
         }
     }
+    function openModal() {
+        setIsOpen(true)
+    }
 
+    function closeModal() {
+        setIsOpen(false)
+    }
+    const handleShow = (idItem) => {
+        openModal();
+        const findData = myProducts?.find(item => item._id === idItem);
+        setFindItem(findData);
+    }
 
 
     return (
         <div>
+            <MyProductModal isOpen={isOpen} closeModal={closeModal} findItem={findItem} />
             <h1 className="text-2xl font-bold text-center my-5">My Product {myProducts?.length} is Comming Here Soon!🎉❗❗❗🎉</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-10 gap-5">
                 {
@@ -72,7 +90,7 @@ const MyProduct = () => {
                             <p>{item?.description?.slice(0, 50)}......</p>
                             <div className="flex items-center justify-between pt-5 gap-5">
                                 <button onClick={() => handleDelete({ id: item?._id, title: item?.product_name })} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-red-500"><AiFillDelete className="text-3xl" /></button>
-                                <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FaRegEye className="text-3xl" /></button>
+                                <button onClick={() => handleShow(item?._id)} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FaRegEye className="text-3xl" /></button>
                                 <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FiEdit className="text-3xl" /></button>
                             </div>
                         </div>
