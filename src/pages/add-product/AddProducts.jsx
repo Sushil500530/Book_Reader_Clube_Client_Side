@@ -43,20 +43,11 @@ const AddProducts = () => {
         const owner_name = user?.displayName;
         const email = user?.email;
         const location = form.location.value;
-        // {
 
-        //         category,
-        //         thumbnail1,
-        //         thumbnail2,
-        //         rating,
-
-
-        // }
         try {
             const loadImage = await imageUpload(image);
             const thmbnl1 = await imageUpload(thumb1);
             const thmbnl2 = await imageUpload(thumb2);
-            console.log(thmbnl1,thmbnl2);
             const addProducts = {
                 product_name,
                 quantity,
@@ -65,8 +56,8 @@ const AddProducts = () => {
                 product_cost,
                 image: loadImage?.data?.display_url,
                 product_profit,
-                thumbnail1:thmbnl1?.data?.display_url,
-                thumbnail2:thmbnl2?.data?.display_url,
+                thumbnail1: thmbnl1?.data?.display_url,
+                thumbnail2: thmbnl2?.data?.display_url,
                 discount,
                 description,
                 location,
@@ -75,20 +66,20 @@ const AddProducts = () => {
                 email,
                 owner_name
             };
-            console.log(addProducts);
-            // axiosSecure.post('/products', addProducts)
-            //     .then(res => {
-            //         setLoading(false)
-            //         if (res.data?.insertedId) {
-            //             Swal.fire({
-            //                 title: "Added Successfull!",
-            //                 text: "You clicked the button!",
-            //                 icon: "success",
-            //                 timer: 1000
-            //             });
-            //         }
-            //         navigate('/dashboard/manager')
-            //     })
+            // console.log(addProducts);
+            axiosSecure.post('/furniture', addProducts)
+                .then(res => {
+                    setLoading(false)
+                    if (res.data?.insertedId) {
+                        Swal.fire({
+                            title: "Added Successfull!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1000
+                        });
+                    }
+                    navigate('/dashboard')
+                })
 
         }
         catch (error) {
@@ -126,7 +117,7 @@ const AddProducts = () => {
 
                             <div className='space-y-1 w-full'>
                                 <label htmlFor='location' className='block dark:text-white text-black font-medium'>
-                                    Image 
+                                    Image
                                 </label>
                                 <div className=' bg-white w-full m-auto rounded-lg'>
                                     <label className="my-5"></label>
@@ -177,21 +168,23 @@ const AddProducts = () => {
                                     />
                                 </div>
                             </div>
+                        </div>
 
+
+                        <div className='space-y-6'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Category
                                     </label>
                                     <select name="category" id="category" className="select select-info w-full max-w-xs">
-                                        <option disabled selected>Select Category</option>
+                                        <option disabled selected required>Select Category</option>
                                         {
-                                            category?.length > 0 && category.map(categ => <option key={categ?._id}>
+                                            category?.length > 0 && category.map(categ => <option key={categ?._id} required>
                                                 {categ?.category}
                                             </option>)
                                         }
                                     </select>
-
                                 </div>
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
@@ -201,9 +194,6 @@ const AddProducts = () => {
                                     />
                                 </div>
                             </div>
-
-                        </div>
-                        <div className='space-y-6'>
                             <div className='space-y-1'>
                                 <label htmlFor='description' className='block font-medium'>
                                     Description
