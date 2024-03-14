@@ -18,7 +18,6 @@ const AddProducts = () => {
     const navigate = useNavigate();
     const [currentManager, , isLoading] = useFindMananger();
     const [category, ,] = useFurCategory();
-    console.log(category);
 
 
     if (isLoading) {
@@ -29,7 +28,9 @@ const AddProducts = () => {
         setLoading(true);
         const form = e.target;
         const product_name = form.product_name.value;
-        const image = form.image.files[0];
+        const image = form.image?.files[0];
+        const thumb1 = form.thumbnail1.files[0];
+        const thumb2 = form.thumbnail2.files[0];
         const description = form.description.value;
         const quantity = form.quantity.value;
         const category = form.category.value;
@@ -53,6 +54,9 @@ const AddProducts = () => {
         // }
         try {
             const loadImage = await imageUpload(image);
+            const thmbnl1 = await imageUpload(thumb1);
+            const thmbnl2 = await imageUpload(thumb2);
+            console.log(thmbnl1,thmbnl2);
             const addProducts = {
                 product_name,
                 quantity,
@@ -61,6 +65,8 @@ const AddProducts = () => {
                 product_cost,
                 image: loadImage?.data?.display_url,
                 product_profit,
+                thumbnail1:thmbnl1?.data?.display_url,
+                thumbnail2:thmbnl2?.data?.display_url,
                 discount,
                 description,
                 location,
@@ -117,11 +123,44 @@ const AddProducts = () => {
                                     />
                                 </div>
                             </div>
-                            <div className=' bg-white w-full m-auto rounded-lg'>
-                                <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                    <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+
+                            <div className='space-y-1 w-full'>
+                                <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    Image 
+                                </label>
+                                <div className=' bg-white w-full m-auto rounded-lg'>
+                                    <label className="my-5"></label>
+                                    <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                        <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                    </div>
                                 </div>
                             </div>
+
+                            <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
+                                <div className='space-y-1 w-full'>
+                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                        Set Thumbnail1
+                                    </label>
+                                    <div className=' bg-white w-full m-auto rounded-lg'>
+                                        <label className="my-5"></label>
+                                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                            <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='space-y-1 w-full'>
+                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                        Set Thumbnail2
+                                    </label>
+                                    <div className=' bg-white w-full m-auto rounded-lg'>
+                                        <label className="my-5"></label>
+                                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                            <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
@@ -147,9 +186,9 @@ const AddProducts = () => {
                                     <select name="category" id="category" className="select select-info w-full max-w-xs">
                                         <option disabled selected>Select Category</option>
                                         {
-                                        category?.length > 0 && category.map(categ => <option key={categ?._id}>
-                                            {categ?.category}
-                                        </option>)
+                                            category?.length > 0 && category.map(categ => <option key={categ?._id}>
+                                                {categ?.category}
+                                            </option>)
                                         }
                                     </select>
 
