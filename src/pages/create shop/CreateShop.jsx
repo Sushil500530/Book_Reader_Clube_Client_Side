@@ -8,12 +8,14 @@ import { MdAddShoppingCart } from 'react-icons/md';
 import Container from '../../shared/container/Container';
 import { useAuth } from '../../hooks/useAuth';
 import useRole from '../../hooks/useRole';
+import { useNavigate } from 'react-router-dom';
 
 const CreateShop = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const [users, ,] = useRole();
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleCreateShop = async (e) => {
         e.preventDefault();
@@ -54,6 +56,7 @@ const CreateShop = () => {
                             icon: "success",
                             timer: 1000
                         });
+                        return navigate('/dashboard/add-product')
                     }
                 })
         }

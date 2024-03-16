@@ -5,37 +5,19 @@ import { Fragment } from 'react'
 
 const MyProductModal = ({ isOpen, closeModal, findItem }) => {
     // console.log(Object.keys(findItem).join(","));
-    const { product_name, quantity, category, rating, product_cost, image, product_profit, discount, description, location } = findItem || {};
+    const { product_name, quantity, category, rating, price, image, product_profit, discount, description, location } = findItem || {};
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
+                    <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0" >
                         <div className="fixed inset-0 bg-black/25" />
                     </Transition.Child>
-
                     <div className="fixed inset-0 overflow-y-auto">
                         <div className="flex min-h-full items-center justify-center p-4 text-center">
-                            <Transition.Child
-                                as={Fragment}
-                                enter="ease-out duration-300"
-                                enterFrom="opacity-0 scale-95"
-                                enterTo="opacity-100 scale-100"
-                                leave="ease-in duration-200"
-                                leaveFrom="opacity-100 scale-100"
-                                leaveTo="opacity-0 scale-95"
-                            >
+                            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95" >
                                 <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    <Dialog.Title
-                                        as="h3" className="text-lg font-bold leading-6 black">
+                                    <Dialog.Title as="h3" className="text-lg font-bold leading-6 black">
                                         {product_name}
                                     </Dialog.Title>
                                     <div className="mt-2">
@@ -44,9 +26,8 @@ const MyProductModal = ({ isOpen, closeModal, findItem }) => {
                                         </p>
                                     </div>
                                     <div>
-
-                                        <figure>
-                                            <img src={image} alt="product-image" />
+                                        <figure className='w-full h-[300px]'>
+                                            <img src={image} alt="product-image" className='w-full h-full' />
                                         </figure>
                                         <div className='space-y-3 my-5'>
                                             <div className='flex items-center justify-between flex-wrap'>
@@ -59,7 +40,7 @@ const MyProductModal = ({ isOpen, closeModal, findItem }) => {
                                             </div>
                                             <div className='flex items-center justify-between flex-wrap'>
                                                 <h1 className='text-xl font-bold'>Category : <span className='font-medium text-gray-800'>{category}</span></h1>
-                                                <h1 className='text-xl font-bold'>Product Cost : <span className='font-medium text-gray-800'>{product_cost} tk</span></h1>
+                                                <h1 className='text-xl font-bold'>Product Cost : <span className='font-medium text-gray-800'>{price} tk</span></h1>
                                             </div>
                                             <div className="w-full flex items-center justify-start my-3">
                                                 <h1 className='text-xl font-bold'>Rating: </h1>

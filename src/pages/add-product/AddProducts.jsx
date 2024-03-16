@@ -35,9 +35,12 @@ const AddProducts = () => {
         const quantity = form.quantity.value;
         const category = form.category.value;
         const rating = form.rating.value;
-        const product_cost = form.product_cost.value;
-        const product_profit = form.product_profit.value;
+        const price = form.product_cost.value;
+        // const product_cost = parseInt(product_co)
+        const product_prof = form.product_profit.value;
+        const product_profit = parseInt(product_prof)
         const discount = form.discount.value;
+        // const discount = parseInt(disc);
         const shop_logo = currentManager[0]?.shop_logo;
         const shop_name = currentManager[0]?.shop_name;
         const owner_name = user?.displayName;
@@ -49,11 +52,11 @@ const AddProducts = () => {
             const thmbnl1 = await imageUpload(thumb1);
             const thmbnl2 = await imageUpload(thumb2);
             const addProducts = {
-                product_name,
+                title: product_name,
                 quantity,
                 category,
                 rating,
-                product_cost,
+                price,
                 image: loadImage?.data?.display_url,
                 product_profit,
                 thumbnail1: thmbnl1?.data?.display_url,
@@ -66,7 +69,7 @@ const AddProducts = () => {
                 email,
                 owner_name
             };
-            // console.log(addProducts);
+            console.log(addProducts);
             axiosSecure.post('/furniture', addProducts)
                 .then(res => {
                     setLoading(false)
@@ -77,8 +80,8 @@ const AddProducts = () => {
                             icon: "success",
                             timer: 1000
                         });
+                        navigate('/dashboard/add-product')
                     }
-                    navigate('/dashboard')
                 })
 
         }
@@ -162,7 +165,7 @@ const AddProducts = () => {
                                 </div>
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
-                                        Product Cost
+                                        Product Price
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_cost' id='product_cost' type='number' placeholder='Product Cost' required
                                     />

@@ -8,18 +8,14 @@ import { FaRegEye } from "react-icons/fa";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
 import MyProductModal from "./MyProductModal";
-
-
 
 
 const MyProduct = () => {
     const axiosPublic = useAxiosPublic();
     const [furnitures, refetch, isLoading] = useFurnitures();
     const [myProducts, setMyProducts] = useState([]);
-    let [isOpen, setIsOpen] = useState(true);
+    let [isOpen, setIsOpen] = useState(false);
     const [findItem, setFindItem] = useState([]);
 
     const { user } = useAuth();
@@ -48,11 +44,11 @@ const MyProduct = () => {
                 if (result.isConfirmed) {
                     axiosPublic.delete(`/furniture-delete/${id}`)
                         .then(res => {
+                          
                             if (res.data?.insertedId) {
-                                toast.success(title)
-
+                               return toast.success(title)
                             }
-                            refetch();
+                              refetch();
                         })
                 }
             });
