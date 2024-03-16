@@ -36,11 +36,9 @@ const AddProducts = () => {
         const category = form.category.value;
         const rating = form.rating.value;
         const price = form.product_cost.value;
-        // const product_cost = parseInt(product_co)
         const product_prof = form.product_profit.value;
         const product_profit = parseInt(product_prof)
         const discount = form.discount.value;
-        // const discount = parseInt(disc);
         const shop_logo = currentManager[0]?.shop_logo;
         const shop_name = currentManager[0]?.shop_name;
         const owner_name = user?.displayName;
@@ -69,7 +67,7 @@ const AddProducts = () => {
                 email,
                 owner_name
             };
-            console.log(addProducts);
+            // console.log(addProducts);
             axiosSecure.post('/furniture', addProducts)
                 .then(res => {
                     setLoading(false)
@@ -80,10 +78,9 @@ const AddProducts = () => {
                             icon: "success",
                             timer: 1000
                         });
-                        navigate('/dashboard/add-product')
+                          return navigate('/dashboard/add-product')
                     }
                 })
-
         }
         catch (error) {
             setLoading(false);
@@ -223,7 +220,7 @@ const AddProducts = () => {
                             <button type='submit' className='btn w-full mt-5 p-3 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black '
                             >
                                 {loading ? (
-                                    <FaSpinner className='m-auto animate-spin' size={24} />
+                                    <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
                                     'Added Product'
                                 )}

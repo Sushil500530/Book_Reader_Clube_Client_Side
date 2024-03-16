@@ -5,7 +5,7 @@ import { Fragment } from 'react'
 
 const MyProductModal = ({ isOpen, closeModal, findItem }) => {
     // console.log(Object.keys(findItem).join(","));
-    const { product_name, quantity, category, rating, price, image, product_profit, discount, description, location } = findItem || {};
+    const { title, quantity, category, rating, price, image, product_profit, discount, description, location } = findItem || {};
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -18,7 +18,7 @@ const MyProductModal = ({ isOpen, closeModal, findItem }) => {
                             <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95" >
                                 <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title as="h3" className="text-lg font-bold leading-6 black">
-                                        {product_name}
+                                        {title}
                                     </Dialog.Title>
                                     <div className="mt-2">
                                         <p className="text-sm text-gray-500">

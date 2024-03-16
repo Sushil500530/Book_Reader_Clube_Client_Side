@@ -44,11 +44,11 @@ const MyProduct = () => {
                 if (result.isConfirmed) {
                     axiosPublic.delete(`/furniture-delete/${id}`)
                         .then(res => {
-                          
                             if (res.data?.insertedId) {
-                               return toast.success(title)
+                                // toast.success(`${title} deleted successfully`)
                             }
-                              refetch();
+                            refetch();
+                            toast.success(`${title} deleted successfully`)
                         })
                 }
             });
@@ -82,7 +82,7 @@ const MyProduct = () => {
                             <img src={item?.image} className="w-full h-full rounded-xl hover:scale-105 transition-all cursor-pointer" alt="furniture-image" />
                         </figure>
                         <div className="mt-5">
-                            <h1 className="text-start font-bold">{item?.product_name}</h1>
+                            <h1 className="text-start font-bold">{item?.title}</h1>
                             <p>{item?.description?.slice(0, 50)}......</p>
                             <div className="flex items-center justify-between pt-5 gap-5">
                                 <button onClick={() => handleDelete({ id: item?._id, title: item?.product_name })} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-red-500"><AiFillDelete className="text-3xl" /></button>
