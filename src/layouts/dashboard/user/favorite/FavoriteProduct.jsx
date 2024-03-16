@@ -27,11 +27,7 @@ const FavoriteProduct = () => {
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch()
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: `${title} has been deleted.`,
-                                icon: "success"
-                            });
+                            toast.success( `${title} has been deleted.`)
                         }
                     })
             }
