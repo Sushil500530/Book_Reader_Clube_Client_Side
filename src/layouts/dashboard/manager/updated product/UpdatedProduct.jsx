@@ -1,5 +1,90 @@
+import { useState } from "react";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
+import useFurCategory from "../../../../hooks/useFurCategory";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import { imageUpload } from "../../../../api/getData";
+import { useAuth } from "../../../../hooks/useAuth";
+import { FaSpinner } from "react-icons/fa";
+import Loader from "../../../../shared/Loader";
 
 const UpdatedProduct = () => {
+    const [loading, setLoading] = useState(false);
+    const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
+    const { user } = useAuth();
+    const [category, ,isLoading] = useFurCategory();
+
+    if (isLoading) {
+        return <Loader />
+    }
+    const handleAddedProduct = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        const form = e.target;
+        const product_name = form.product_name.value;
+        const image = form.image?.files[0];
+        const thumb1 = form.thumbnail1.files[0];
+        const thumb2 = form.thumbnail2.files[0];
+        const description = form.description.value;
+        const quantity = form.quantity.value;
+        const category = form.category.value;
+        const rating = form.rating.value;
+        const price = form.product_cost.value;
+        const product_prof = form.product_profit.value;
+        const product_profit = parseInt(product_prof)
+        const discount = form.discount.value;
+        const owner_name = user?.displayName;
+        const email = user?.email;
+        const location = form.location.value;
+
+        try {
+            const loadImage = await imageUpload(image);
+            const thmbnl1 = await imageUpload(thumb1);
+            const thmbnl2 = await imageUpload(thumb2);
+            const updatedProducts = {
+                title: product_name,
+                quantity,
+                category,
+                rating,
+                price,
+                image: loadImage?.data?.display_url,
+                product_profit,
+                thumbnail1: thmbnl1?.data?.display_url,
+                thumbnail2: thmbnl2?.data?.display_url,
+                discount,
+                description,
+                location,
+                email,
+                owner_name
+            };
+            console.log(updatedProducts);
+            // axiosSecure.post('/furniture', addProducts)
+            //     .then(res => {
+            //         setLoading(false)
+            //         if (res.data?.insertedId) {
+            //             Swal.fire({
+            //                 title: "Added Successfull!",
+            //                 text: "You clicked the button!",
+            //                 icon: "success",
+            //                 timer: 1000
+            //             });
+            //               return navigate('/dashboard/add-product')
+            //         }
+            //     })
+        }
+        catch (error) {
+            setLoading(false);
+            toast.error(error.message)
+        }
+    }
+
+
+
+
+
+
     return (
         <div className="w-[90%] mx-auto dark:text-white">
             {/* <Helmet>
@@ -90,7 +175,14 @@ const UpdatedProduct = () => {
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Category
                                     </label>
-                                  {/* select options  */}
+                                    <select name="category" id="category" className="select select-info w-full max-w-xs">
+                                        <option disabled selected required>Select Category</option>
+                                        {
+                                            category?.length > 0 && category.map(categ => <option key={categ?._id} required>
+                                                {categ?.category}
+                                            </option>)
+                                        }
+                                    </select>
                                 </div>
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
@@ -124,8 +216,11 @@ const UpdatedProduct = () => {
                                 </div>
                             </div>
                             <button type='submit' className='btn w-full mt-5 p-3 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black '>
-                                {/* button is here  */}
-                           
+                                {loading ? (
+                                    <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
+                                ) : (
+                                    'Update Product'
+                                )}
                             </button>
                         </div>
                     </div>
