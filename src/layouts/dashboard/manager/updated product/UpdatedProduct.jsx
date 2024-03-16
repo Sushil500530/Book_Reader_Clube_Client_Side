@@ -11,13 +11,11 @@ import Loader from "../../../../shared/Loader";
 
 const UpdatedProduct = () => {
     const findUpdataData = useLoaderData();
-    console.log(findUpdataData);
     const [loading, setLoading] = useState(false);
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
     const { user } = useAuth();
     const [category, ,isLoading] = useFurCategory();
-    // console.log(Object.keys(findUpdataData).join(","));
 
     if (isLoading) {
         return <Loader />
@@ -62,30 +60,26 @@ const UpdatedProduct = () => {
                 email,
                 owner_name
             };
-            console.log(updatedProducts);
-            // axiosSecure.post('/furniture', addProducts)
-            //     .then(res => {
-            //         setLoading(false)
-            //         if (res.data?.insertedId) {
-            //             Swal.fire({
-            //                 title: "Added Successfull!",
-            //                 text: "You clicked the button!",
-            //                 icon: "success",
-            //                 timer: 1000
-            //             });
-            //               return navigate('/dashboard/add-product')
-            //         }
-            //     })
+            // console.log(updatedProducts);
+            axiosSecure.patch(`/updated/${findUpdataData?._id}`, updatedProducts)
+                .then(res => {
+                    setLoading(false)
+                    if (res.data?.modifiedCount > 0) {
+                        Swal.fire({
+                            title: "Updated Successfull!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            timer: 1000
+                        });
+                          return navigate('/dashboard/my-product')
+                    }
+                })
         }
         catch (error) {
             setLoading(false);
             toast.error(error.message)
         }
     }
-
-
-
-
 
 
     return (
@@ -123,7 +117,7 @@ const UpdatedProduct = () => {
                                 <div className=' bg-white w-full m-auto rounded-lg'>
                                     <label className="my-5"></label>
                                     <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        <input type='file' name='image' defaultValue={findUpdataData?.image} id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                        <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +130,7 @@ const UpdatedProduct = () => {
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <label className="my-5"></label>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='thumbnail1' defaultValue={findUpdataData?.thumbnail1} id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +141,7 @@ const UpdatedProduct = () => {
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <label className="my-5"></label>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='thumbnail2' defaultValue={findUpdataData?.thumbnail2} id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +173,7 @@ const UpdatedProduct = () => {
                                         Category
                                     </label>
                                     <select name="category" defaultValue={findUpdataData?.category} id="category" className="select select-info w-full max-w-xs">
-                                        <option disabled selected required>Select Category</option>
+                                        <option disabled selected required>{findUpdataData?.category}</option>
                                         {
                                             category?.length > 0 && category.map(categ => <option key={categ?._id}  required>
                                                 {categ?.category}
