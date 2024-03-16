@@ -88,7 +88,7 @@ const MyProduct = () => {
                             <div className="flex items-center justify-between pt-5 gap-5">
                                 <button onClick={() => handleDelete({ id: item?._id, title: item?.product_name })} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-red-500"><AiFillDelete className="text-3xl" /></button>
                                 <button onClick={() => handleShow(item?._id)} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FaRegEye className="text-3xl" /></button>
-                                <Link to="/dashboard/update-product"> <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FiEdit className="text-3xl" /></button></Link>
+                                <Link to={`/dashboard/update-product/${item?._id}`}> <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500"><FiEdit className="text-3xl" /></button></Link>
                             </div>
                         </div>
                     </div>
