@@ -25,6 +25,7 @@ import SaleProduct from "../layouts/dashboard/manager/sale product/SaleProduct";
 import SaleSummary from "../layouts/dashboard/manager/sale product/SaleSummary";
 import FavoriteProduct from "../layouts/dashboard/user/favorite/FavoriteProduct";
 import UpdatedProduct from "../layouts/dashboard/manager/updated product/UpdatedProduct";
+import AllManagers from "../layouts/dashboard/admin/all managers/AllManagers";
 
 
 const Router = createBrowserRouter([
@@ -137,6 +138,11 @@ const Router = createBrowserRouter([
                 path: 'sale-summary',
                 element: <PrivetRoute><SaleSummary /></PrivetRoute>
             },
+            // adimin category route 
+            {
+                path:'shop-managers',
+                element: <PrivetRoute><AllManagers /></PrivetRoute>
+            }
         ]
     }
 ])
