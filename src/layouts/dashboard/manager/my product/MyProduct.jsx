@@ -75,7 +75,7 @@ const MyProduct = () => {
     return (
         <div>
             <MyProductModal isOpen={isOpen} closeModal={closeModal} findItem={findItem} />
-            <h1 className="text-2xl font-bold text-center my-5">My Product {myProducts?.length} is Comming Here Soon!🎉❗❗❗🎉</h1>
+            <h1 className="font-bold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center ">My Product({myProducts?.length})</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-10 gap-5">
                 {
                     myProducts?.length > 0 && myProducts?.map(item => <div key={item?._id} className="bg-white shadow-xl p-5 rounded">
