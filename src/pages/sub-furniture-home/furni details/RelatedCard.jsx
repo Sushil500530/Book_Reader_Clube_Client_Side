@@ -46,15 +46,15 @@ const RelatedCard = ({ furniture }) => {
                 </Link>
                 <h1 className="px-3 py-1 text-white bg-red-600 rounded-md absolute right-2 top-3">{discount}% OFF</h1>
             </figure>
-            <div className="card-body">
-                <div className="flex items-center justify-between">
+            <div className="p-3 flex items-center justify-between flex-col gap-2">
+                <div className="flex justify-between items-center w-full">
                     <h2 className="card-title">
                         {title}
                         <div className="badge badge-secondary">NEW</div>
                     </h2>
                     <h1 className="card-title">$ {price}</h1>
                 </div>
-                <p>{description.slice(0, 70)}</p>
+                <p>{description.slice(0, 50)}</p>
                 <div className="card-actions flex items-center justify-between">
                     <div>
                         <Rating

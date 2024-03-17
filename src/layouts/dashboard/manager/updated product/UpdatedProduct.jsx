@@ -87,7 +87,7 @@ const UpdatedProduct = () => {
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}
-            <h3 className="text-3xl text-center font-bold mt-12 mb-5 flex items-center justify-center gap-2">Add Product  </h3>
+            <h3 className="text-3xl text-center font-bold mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Update Product  </h3>
             <div className="container mx-auto mt-12">
                 <form onSubmit={handleAddedProduct}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
