@@ -22,10 +22,14 @@ import AddProducts from "../pages/add-product/AddProducts";
 import ManageProduct from './../layouts/dashboard/manager/manage product/ManageProduct';
 import MyProduct from "../layouts/dashboard/manager/my product/MyProduct";
 import SaleProduct from "../layouts/dashboard/manager/sale product/SaleProduct";
-import SaleSummary from "../layouts/dashboard/manager/sale product/SaleSummary";
+import SaleSummary from "../layouts/dashboard/admin/sale summaray/SaleSummary";
 import FavoriteProduct from "../layouts/dashboard/user/favorite/FavoriteProduct";
 import UpdatedProduct from "../layouts/dashboard/manager/updated product/UpdatedProduct";
 import AllManagers from "../layouts/dashboard/admin/all managers/AllManagers";
+import AllProducts from "../layouts/dashboard/admin/all products/AllProducts";
+import ManageProductAdmin from "../layouts/dashboard/admin/manage products/ManageProductAdmin";
+import SaleSummaryAdmin from "../layouts/dashboard/admin/sale summaray/SaleSummary";
+import AllUsers from "../layouts/dashboard/admin/all user/AllUsers";
 
 
 const Router = createBrowserRouter([
@@ -142,7 +146,23 @@ const Router = createBrowserRouter([
             {
                 path:'shop-managers',
                 element: <PrivetRoute><AllManagers /></PrivetRoute>
-            }
+            },
+            {
+                path:'all-products',
+                element: <PrivetRoute><AllProducts /></PrivetRoute>
+            },
+            {
+                path:'manage-products',
+                element: <PrivetRoute><ManageProductAdmin /></PrivetRoute>
+            },
+            {
+                path:'sale-summary',
+                element: <PrivetRoute><SaleSummaryAdmin /></PrivetRoute>
+            },
+            {
+                path:'all-users',
+                element: <PrivetRoute><AllUsers /></PrivetRoute>
+            },
         ]
     }
 ])
