@@ -16,6 +16,7 @@ const CreateShop = () => {
     const [users, ,] = useRole();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    console.log(user?.photoURL);
 
     const handleCreateShop = async (e) => {
         e.preventDefault();
@@ -40,7 +41,8 @@ const CreateShop = () => {
                 shop_logo: loadImage?.data?.display_url,
                 description,
                 location,
-                owner: user?.displayName,
+                image: user?.photoURL,
+                owner_name: user?.displayName,
                 email: user?.email,
                 role: 'manager',
             };
