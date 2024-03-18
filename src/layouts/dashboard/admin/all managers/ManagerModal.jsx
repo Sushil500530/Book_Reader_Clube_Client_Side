@@ -2,7 +2,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
-const ManagerModal = ({ isOpen, setIsOpen ,title}) => {
+const ManagerModal = ({ isOpen, setIsOpen ,children}) => {
 
 
     function closeModal() {
@@ -38,27 +38,8 @@ const ManagerModal = ({ isOpen, setIsOpen ,title}) => {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    <Dialog.Title
-                                        as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900"
-                                    >
-                                     {title}
-                                    </Dialog.Title>
-                                    <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
-                                            Your payment has been successfully submitted. We’ve sent
-                                            you an email with all of the details of your order.
-                                        </p>
-                                    </div>
-
-                                    <div className="mt-4">
-                                        <button
-                                            type="button"
-                                            className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"
-                                            onClick={closeModal}>
-                                            Got it, thanks!
-                                        </button>
-                                    </div>
+                                   {children}
+                                    
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
