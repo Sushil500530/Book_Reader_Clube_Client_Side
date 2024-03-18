@@ -17,8 +17,8 @@ const AllUsers = () => {
         e.preventDefault();
         const form = e.target;
         const role = form.role.value;
-        if(role === 'Change Here'){
-           return toast.error("Please select a role !")
+        if (role === 'Change Here') {
+            return toast.error("Please select a role !")
         }
         const roleChangeData = {
             email: roleData?.email,
@@ -28,20 +28,22 @@ const AllUsers = () => {
             status: roleData?.status
 
         }
-
-        console.log(roleChangeData);
+        // console.log(roleChangeData);
         try {
-            await axiosSecure.patch(`/`)
+            await axiosSecure.patch(`/change-role/${roleData?._id}`, roleChangeData)
                 .then(res => {
-                    console.log(res.data);
-                    setIsOpen(false)
+                    if (res.data?.modifiedCount) {
+                        console.log(res.data);
+                        toast.success('Role changed successfully!')
+                        setIsOpen(false)
+                    }
                 })
         }
         catch (error) {
             toast.error(error.message)
         }
-
     }
+
     const handleRoleChange = async (id) => {
         setIsOpen(true)
         const findRole = allUsers?.find(user => user?._id === id);
@@ -68,7 +70,6 @@ const AllUsers = () => {
                 </div>
             </ManagerModal>
             <h1 className="text-3xl text-center font-bold my-5 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Users</h1>
-
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
@@ -88,11 +89,10 @@ const AllUsers = () => {
                                 <td>{user?.name}</td>
                                 <td>{user?.email}</td>
                                 <td><span className=" bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-white px-3 py-2 rounded-full">{user?.role}</span></td>
-                                <td onClick={() => handleRoleChange(user?._id)}><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 link-hover cursor-pointer font-bold">Click Here</span></td>
+                                <td><span onClick={() => handleRoleChange(user?._id)} className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 link-hover cursor-pointer font-bold">Click Here</span></td>
                                 <td><span><MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" /></span></td>
                             </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>
