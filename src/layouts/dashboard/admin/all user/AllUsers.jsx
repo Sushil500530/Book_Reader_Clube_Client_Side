@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import Loader from "../../../../shared/Loader";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
     const [allUsers, refetch, isLoading] = useAllUsers();
@@ -50,6 +51,30 @@ const AllUsers = () => {
         setRoleData(findRole);
     }
 
+    const deleteUser = (id) => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/user-delete/${id}`)
+                    .then(res => {
+                        if (res?.data?.deletedCount > 0)
+                            refetch();
+                        toast.success('Deleted successfully!');
+                    })
+
+            }
+        });
+        console.log(id);
+    }
+
     if (isLoading) {
         return <Loader />
     }
@@ -90,7 +115,7 @@ const AllUsers = () => {
                                 <td>{user?.email}</td>
                                 <td><span className=" bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-white px-3 py-2 rounded-full">{user?.role}</span></td>
                                 <td><span onClick={() => handleRoleChange(user?._id)} className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 link-hover cursor-pointer font-bold">Click Here</span></td>
-                                <td><span><MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" /></span></td>
+                                <td><span onClick={() => deleteUser(user?._id)}><MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" /></span></td>
                             </tr>)
                         }
                     </tbody>
