@@ -2,7 +2,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
-const ManagerModal = ({ isOpen, setIsOpen }) => {
+const ManagerModal = ({ isOpen, setIsOpen ,title}) => {
 
 
     function closeModal() {
@@ -42,7 +42,7 @@ const ManagerModal = ({ isOpen, setIsOpen }) => {
                                         as="h3"
                                         className="text-lg font-medium leading-6 text-gray-900"
                                     >
-                                        Payment successful
+                                     {title}
                                     </Dialog.Title>
                                     <div className="mt-2">
                                         <p className="text-sm text-gray-500">
@@ -54,9 +54,8 @@ const ManagerModal = ({ isOpen, setIsOpen }) => {
                                     <div className="mt-4">
                                         <button
                                             type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={closeModal}
-                                        >
+                                            className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"
+                                            onClick={closeModal}>
                                             Got it, thanks!
                                         </button>
                                     </div>
