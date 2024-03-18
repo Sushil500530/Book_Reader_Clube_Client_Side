@@ -8,7 +8,7 @@ const useFindMananger = () => {
     const { data: currentManager = [], refetch, isLoading } = useQuery({
         queryKey: ["managers"],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/managers?email=${user?.email}`);
+            const res = await axiosPublic.get(`/manager?email=${user?.email}`);
             return res.data;
         }
     })
