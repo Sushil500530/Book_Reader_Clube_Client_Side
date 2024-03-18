@@ -11,7 +11,7 @@ import ManagerModal from "./ManagerModal";
 const AllManagers = () => {
     const [managers, refetch, isLoading] = useAllManagers();
     const axiosSecure = useAxiosSecure();
-    let [isOpen, setIsOpen] = useState(true);
+    let [isOpen, setIsOpen] = useState(false);
     refetch();
     function openModal() {
         setIsOpen(true)
@@ -29,11 +29,11 @@ const AllManagers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/manager-delete/${id}`)
-                .then(res=> {
-                    if(res?.data?.deletedCount > 0)
-                    console.log(res);
-                      toast.success('Removed successfully!');
-                })
+                    .then(res => {
+                        if (res?.data?.deletedCount > 0)
+                            console.log(res);
+                        toast.success('Removed successfully!');
+                    })
                 refetch();
             }
         });
@@ -47,8 +47,10 @@ const AllManagers = () => {
 
     return (
         <div>
-            <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen} title={'Waiting a Good New For this Person!'} />
-            <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers is Comming here</h1>
+            <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
+                <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Promotion is Comming here Soon!</h1>
+            </ManagerModal>
+            <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers({managers?.length})</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
                     managers?.map(item =>
