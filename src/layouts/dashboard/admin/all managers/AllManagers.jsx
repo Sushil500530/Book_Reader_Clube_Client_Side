@@ -5,12 +5,17 @@ import { IoFlowerOutline } from "react-icons/io5";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { useState } from "react";
+import ManagerModal from "./ManagerModal";
 
 const AllManagers = () => {
     const [managers, refetch, isLoading] = useAllManagers();
     const axiosSecure = useAxiosSecure();
+    let [isOpen, setIsOpen] = useState(true);
     refetch();
-
+    function openModal() {
+        setIsOpen(true)
+    }
 
     const handleRemove = (id) => {
         Swal.fire({
@@ -42,6 +47,7 @@ const AllManagers = () => {
 
     return (
         <div>
+            <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen} />
             <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers is Comming here</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
@@ -56,7 +62,7 @@ const AllManagers = () => {
                             <p className='text-[17px] '>Shop Name: {item?.shop_name}</p>
                             <p className='text-[17px] '>Address: {item?.location}</p>
                             <div className="grid grid-cols-2 gap-5 p-5">
-                                <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><IoFlowerOutline className="text-2xl" />Promotional</button>
+                                <button onClick={openModal} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><IoFlowerOutline className="text-2xl" />Promotional</button>
                                 <button onClick={() => handleRemove(item?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" />Remove</button>
                             </div>
                         </div>)
