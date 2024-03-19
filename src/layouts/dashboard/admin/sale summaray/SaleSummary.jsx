@@ -1,11 +1,41 @@
 import { MdDelete } from "react-icons/md";
 import useAllSale from "../../../../hooks/useAllSale";
+import Loader from "../../../../shared/Loader";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const SaleSummaryAdmin = () => {
     const [allSales, refetch, isLoading] = useAllSale();
-        console.log(allSales);
+    const axiosSecute = useAxiosSecure();
+
+
+    console.log(allSales);
     const handleDelete = (id) => {
-        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Remove"
+        }).then((result) => {
+            console.log(result);
+        //     if (result.isConfirmed) {
+        //         axiosSecure.delete(`/manager-delete/${id}`)
+        //             .then(res => {
+        //                 if (res?.data?.deletedCount > 0)
+        //                     console.log(res);
+        //                 toast.success('Removed successfully!');
+        //             })
+        //         refetch();
+        //     }
+        });
+    }
+
+
+    if (isLoading) {
+        return <Loader />
     }
     return (
         <div>

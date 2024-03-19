@@ -37,7 +37,6 @@ const AllManagers = () => {
                 refetch();
             }
         });
-        console.log(id);
     }
 
 
