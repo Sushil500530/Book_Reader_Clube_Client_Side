@@ -9,10 +9,10 @@ const AllProducts = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
                     furnitures?.length > 0 && furnitures?.map(furniture => 
-                    <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] transition ease-in-out text-white text-2xl text-center w-full h-auto bg-white shadow-2xl relative rounded-md ">
+                    <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] hover:text-white text-white transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
                         <div className="flex items-center justify-center w-full py-3 -mt-12">
-                            <figure className="w-24 h-24 ">
-                                <img src='' alt="love-image" className="w-full h-full rounded-full border border-purple-500" />
+                            <figure className="w-32 h-32 ">
+                                <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
                             </figure>
                         </div>
                         <h3 className="text-xl">Product Name:</h3>
