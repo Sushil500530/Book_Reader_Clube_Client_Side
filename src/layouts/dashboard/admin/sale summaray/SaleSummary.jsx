@@ -3,13 +3,12 @@ import useAllSale from "../../../../hooks/useAllSale";
 import Loader from "../../../../shared/Loader";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const SaleSummaryAdmin = () => {
     const [allSales, refetch, isLoading] = useAllSale();
-    const axiosSecute = useAxiosSecure();
+    const axiosSecure = useAxiosSecure();
 
-
-    console.log(allSales);
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -20,16 +19,15 @@ const SaleSummaryAdmin = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, Remove"
         }).then((result) => {
-            console.log(result);
-        //     if (result.isConfirmed) {
-        //         axiosSecure.delete(`/manager-delete/${id}`)
-        //             .then(res => {
-        //                 if (res?.data?.deletedCount > 0)
-        //                     console.log(res);
-        //                 toast.success('Removed successfully!');
-        //             })
-        //         refetch();
-        //     }
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/all-sale/${id}`)
+                    .then(res => {
+                        if (res?.data?.deletedCount > 0)
+                            refetch();
+                        toast.success('Removed successfully!');
+                    })
+
+            }
         });
     }
 
