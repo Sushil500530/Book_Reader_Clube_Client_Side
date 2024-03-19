@@ -26,7 +26,6 @@ const SaleSummaryAdmin = () => {
                             refetch();
                         toast.success('Removed successfully!');
                     })
-
             }
         });
     }
@@ -52,7 +51,7 @@ const SaleSummaryAdmin = () => {
                     </thead>
                     <tbody>
                         {
-                            allSales?.length > 0 && allSales?.map((sale, index) => <tr key={sale?._id}>
+                            allSales?.length > 0 && allSales?.map((sale, index) => <tr key={sale?._id} className="text-[18px]">
                                 <th>{index + 1}</th>
                                 <td><img src={sale?.image} alt="product_image" className="w-20 h-20 rounded-md" /> </td>
                                 <td>{sale?.title}</td>
