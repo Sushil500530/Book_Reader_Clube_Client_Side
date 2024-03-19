@@ -69,7 +69,6 @@ const AllUsers = () => {
                             refetch();
                         toast.success('Deleted successfully!');
                     })
-
             }
         });
         console.log(id);
