@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useFurnitures from './../../../../hooks/useFurnitures';
 import Loader from "../../../../shared/Loader";
+import SpecificData from "./SpecificData";
 
 const AllProducts = () => {
     const axiosSecure = useAxiosSecure();
@@ -16,6 +17,7 @@ const AllProducts = () => {
     const [filteredItems, setFilteredItems] = useState(furnitures);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(8);
+    const [findData,setFindData] = useState([]);
 
     useEffect(() => {
         const filtered = furnitures.filter((item) => item.title.toLowerCase().includes(searchFurniture.toLowerCase()));
@@ -31,7 +33,7 @@ const AllProducts = () => {
     if (isLoading) {
         return <Loader />
     }
-    
+
     const handleProductDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -52,8 +54,13 @@ const AllProducts = () => {
         });
     }
 
+    const handleFindData = (findId) =>{
+        const currentData = filteredItems?.find(item =>item?._id === findId);
+        setFindData(currentData)
+    }
     return (
         <div className="mb-20">
+            <SpecificData findData={findData} />
             <div className=" flex items-center justify-between flex-col lg:flex-row container mx-auto">
                 <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Products({furnitures?.length})</h1>
                 <form className="  h-auto relative flex items-center gap-3">
@@ -76,7 +83,7 @@ const AllProducts = () => {
                             <p className='text-[17px] '>Shop Name: {furniture?.shop_name ? furniture?.shop_name : "Anonymous Shop"}</p>
                             <p className='text-[17px] '>Owner Name: {furniture?.owner_name ? furniture?.owner_name : "Anonymous Owner"}</p>
                             <div className=" grid grid-cols-2 gap-5 p-5">
-                                <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><FaRegEye className="text-2xl" /></button>
+                                <button onClick={()=>handleFindData(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><FaRegEye className="text-2xl" /></button>
                                 <button onClick={() => handleProductDelete(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" /></button>
                             </div>
                         </div>)
