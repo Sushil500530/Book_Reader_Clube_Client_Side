@@ -5,8 +5,12 @@ import { useEffect, useState } from "react";
 const AllProducts = () => {
     const [furnitures, setFurnitures] = useState([]);
     const [searchFurniture, setSearchFurniture] = useState("");
-
-    // load data
+    const [filteredItems, setFilteredItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(8);
+    
+    
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -14,13 +18,19 @@ const AllProducts = () => {
                 const data = await res.json();
                 //    console.log(data);
                 setFurnitures(data);
-                // setFilteredItems(data);
+                setFilteredItems(data);
             } catch (error) {
                 console.log(error);
             }
         };
         fetchData();
     }, []);
+    
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredItems?.slice(indexOfFirstItem, indexOfLastItem);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 
     return (
         <div>
@@ -34,7 +44,7 @@ const AllProducts = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
-                    furnitures?.length > 0 && furnitures?.map(furniture =>
+                    currentItems?.length > 0 && currentItems?.map(furniture =>
                         <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] hover:text-white text-white transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
                                 <figure className="w-32 h-32 ">
