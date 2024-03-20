@@ -8,16 +8,19 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useFurnitures from './../../../../hooks/useFurnitures';
 import Loader from "../../../../shared/Loader";
 import SpecificData from "./SpecificData";
+import { Rating } from "@smastrom/react-rating";
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment } from 'react'
 
 const AllProducts = () => {
     const axiosSecure = useAxiosSecure();
     const [furnitures, refetch, isLoading] = useFurnitures();
-    // const [furnitures, setFurnitures] = useState([]);
+    let [isOpen, setIsOpen] = useState(false);
     const [searchFurniture, setSearchFurniture] = useState("");
     const [filteredItems, setFilteredItems] = useState(furnitures);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(8);
-    const [findData,setFindData] = useState([]);
+    const [findData, setFindData] = useState([]);
 
     useEffect(() => {
         const filtered = furnitures.filter((item) => item.title.toLowerCase().includes(searchFurniture.toLowerCase()));
@@ -53,14 +56,21 @@ const AllProducts = () => {
             }
         });
     }
+    function openModal() {
+        setIsOpen(true)
+    }
 
-    const handleFindData = (findId) =>{
-        const currentData = filteredItems?.find(item =>item?._id === findId);
+    function closeModal() {
+        setIsOpen(false)
+    }
+    const handleFindData = (findId) => {
+        openModal();
+        const currentData = filteredItems?.find(item => item?._id === findId);
         setFindData(currentData)
     }
     return (
         <div className="mb-20">
-            <SpecificData findData={findData} />
+            <SpecificData isOpen={isOpen} closeModal={closeModal} findData={findData} />
             <div className=" flex items-center justify-between flex-col lg:flex-row container mx-auto">
                 <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Products({furnitures?.length})</h1>
                 <form className="  h-auto relative flex items-center gap-3">
