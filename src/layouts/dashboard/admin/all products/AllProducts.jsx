@@ -2,7 +2,11 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 const AllProducts = () => {
+    const axiosSecure = useAxiosSecure();
     const [furnitures, setFurnitures] = useState([]);
     const [searchFurniture, setSearchFurniture] = useState("");
     const [filteredItems, setFilteredItems] = useState([]);
@@ -36,6 +40,27 @@ const AllProducts = () => {
     const currentItems = filteredItems?.slice(indexOfFirstItem, indexOfLastItem);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+    const handleProductDelete = (id) => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete"
+        }).then((result) => {
+            console.log(result);
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/user-delete/${id}`)
+                    .then(res => {
+                        if (res?.data?.deletedCount > 0)
+                        toast.success('Deleted successfully!');
+                    })
+            }
+        });
+    }
 
     return (
         <div className="mb-20">
@@ -62,7 +87,7 @@ const AllProducts = () => {
                             <p className='text-[17px] '>Owner Name: {furniture?.owner_name ? furniture?.owner_name : "Anonymous Owner"}</p>
                             <div className=" grid grid-cols-2 gap-5 p-5">
                                 <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><FaRegEye className="text-2xl" /></button>
-                                <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" /></button>
+                                <button onClick={()=>handleProductDelete(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" /></button>
                             </div>
                         </div>)
                 }
