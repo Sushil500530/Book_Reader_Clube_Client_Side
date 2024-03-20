@@ -8,9 +8,8 @@ const AllProducts = () => {
     const [filteredItems, setFilteredItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(8);
-    
-    
-    
+
+    // fetch furniture data 
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -25,7 +24,13 @@ const AllProducts = () => {
         };
         fetchData();
     }, []);
-    
+    // search furnitures 
+    useEffect(() => {
+        const filtered = furnitures.filter((item) => item.title.toLowerCase().includes(searchFurniture.toLowerCase()));
+        setFilteredItems(filtered);
+        setCurrentPage(1);
+    }, [searchFurniture, furnitures]);
+
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredItems?.slice(indexOfFirstItem, indexOfLastItem);
@@ -33,9 +38,9 @@ const AllProducts = () => {
 
 
     return (
-        <div>
+        <div className="mb-20">
             <div className=" flex items-center justify-between flex-col lg:flex-row container mx-auto">
-                    <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Products({furnitures?.length})</h1>
+                <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Products({furnitures?.length})</h1>
                 <form className="  h-auto relative flex items-center gap-3">
                     <h1 className="hidden lg:block">Find Product : </h1>
                     <input type="text" name="search" className="rounded-md relative w-auto h-auto" onChange={() => setSearchFurniture(event.target.value)} id="search" placeholder="Search Here....." />
@@ -62,7 +67,7 @@ const AllProducts = () => {
                         </div>)
                 }
             </div>
-            <div className="flex justify-center items-center mb-8">
+            <div className="flex justify-center items-center mb-20">
                 {Array.from({
                     length: Math.ceil(filteredItems.length / itemsPerPage),
                 }).map((_, index) => (
