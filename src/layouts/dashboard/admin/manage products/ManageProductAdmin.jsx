@@ -1,10 +1,16 @@
 /* eslint-disable react/no-unknown-property */
 import { FaArrowRight } from "react-icons/fa";
 import useFurnitures from "../../../../hooks/useFurnitures";
+import Loader from "../../../../shared/Loader";
+import { Link } from "react-router-dom";
 
 
 const ManageProductAdmin = () => {
     const [furnitures, refetch, isLoading] = useFurnitures();
+    if(isLoading){
+        refetch();
+        return <Loader />
+    }
     return (
         <div>
             <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Manage All Products</h1>
@@ -17,7 +23,9 @@ const ManageProductAdmin = () => {
                                 <h1 className="text-xl font-bold mb-2">{furniture?.title}</h1>
                                 <p>{furniture?.description?.length > 60 ? furniture?.description?.slice(0, 60) : furniture?.description}</p>
                                 <div className="flex items-center justify-end mr-5 mt-2">
-                                    <span className="btn btn-sm px-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white hover:text-purple-500">Show <FaArrowRight className="text-xl  hover:black" /></span>
+                                    <Link to={`/furnitures/${furniture?._id}`}>
+                                      <span className="btn btn-sm px-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white hover:text-purple-500">Show <FaArrowRight className="text-xl  hover:black" /></span>
+                                    </Link>
                                 </div>
                             </div>
                         </div>)
