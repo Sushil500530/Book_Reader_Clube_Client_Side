@@ -36,8 +36,13 @@ const DashboardLayout = () => {
                 </button>
             </div>
             <div className="flex w-auto h-full">
-                <div className={`z-10 pt-20 fixed flex flex-col justify-between pb-12  bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out`}>
+                <div className={`z-10 fixed flex flex-col justify-between pb-12  bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out`}>
                     <div className="">
+                        <div className="mb-12 pt-2 px-4">
+                            <Link to="/">
+                                <Logo />
+                            </Link>
+                        </div>
                         <NavLink
                             to='/dashboard'
                             className={({ isActive }) =>
