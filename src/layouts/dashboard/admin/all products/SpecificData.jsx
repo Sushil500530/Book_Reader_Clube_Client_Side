@@ -1,13 +1,9 @@
 /* eslint-disable react/prop-types */
-
 import { Rating } from "@smastrom/react-rating";
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react'
 
-
 const SpecificData = ({ isOpen, closeModal, findData }) => {
-    console.log(Object.keys(findData).join(","));
-    // {id,image,category,price,title,description,thumbnail1,thumbnail2,rating,quantity,discount}
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -16,7 +12,7 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                         <div className="fixed inset-0 bg-black/25" />
                     </Transition.Child>
                     <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                        <div className="flex min-h-full items-center justify-center p-4">
                             <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95" >
                                 <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title as="h3" className="text-lg font-bold leading-6 black">
@@ -31,10 +27,10 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                                         <figure className='w-full h-[300px]'>
                                             <img src={findData?.image} alt="product-image" className='w-full h-full' />
                                         </figure>
-                                        <div className='grid grid-cols-2 my-5 gap-3'>
-                                            <div className=" text-start space-y-1">
+                                        <div className='grid grid-cols-2 my-5 gap-3 !text-start'>
+                                            <div className=" space-y-1 flex flex-col items-start justify-start text-start">
                                                 <h1 className='text-xl font-bold'>Product Cost : <span className='font-medium text-gray-800'>{findData?.price} tk</span></h1>
-                                                <h1 className='text-xl font-bold'>Discount : {findData?.discount}%</h1>
+                                                <h1 className='text-xl font-bold'>Discount : <span className='font-medium text-gray-800'>{findData?.discount}%</span></h1>
                                                 <h1 className='text-xl font-bold'>Category : <span className='font-medium text-gray-800'>{findData?.category}</span></h1>
                                                 <h1 className='text-xl font-bold'>Product Quantity : <span className='font-medium text-gray-800'>{findData?.quantity}</span></h1>
                                                 <div className="w-full flex items-center justify-start my-3">
