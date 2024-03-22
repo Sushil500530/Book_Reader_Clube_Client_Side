@@ -1,12 +1,13 @@
 import { FaSearch } from "react-icons/fa";
 // import image from '../../assets/image/banner/banner-image.jpg'
 // import image from '../../assets/image/AgeE.gif'
-import image from '../../assets/image/banner5.gif'
+import image from '../../assets/image/banner5.gif';
+import banner1 from "../../assets/image/banner1.gif"
 const Banner = () => {
     return (
         <div className='w-full -z-40 h-screen'>
-             <div className="w-full h-full absolute top-0 left-0 bg-black  opacity-90 ">
-                <img src={image} className="w-full h-full opacity-70" alt="banner-image" />
+             <div className="w-full h-full absolute -top-2 left-0 bg-black  opacity-90 overflow-hidden ">
+                <img src={banner1} className="w-full h-full opacity-70 scale-105" alt="banner-image" />
             </div>
             <div className="absolute top-[43%] w-full space-y-3">
                 <h1 className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center absolute -top-32 left-0 right-0">Your New Collection <br />is Ready</h1>
