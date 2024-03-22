@@ -8,9 +8,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useFurnitures from './../../../../hooks/useFurnitures';
 import Loader from "../../../../shared/Loader";
 import SpecificData from "./SpecificData";
-import { Rating } from "@smastrom/react-rating";
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react'
+
 
 const AllProducts = () => {
     const axiosSecure = useAxiosSecure();
