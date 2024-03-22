@@ -82,7 +82,7 @@ const AllProducts = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
                     currentItems?.length > 0 && currentItems?.map(furniture =>
-                        <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] hover:text-white text-white transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
+                        <div key={furniture?._id} className="bg-gray-100 text-black transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
                                 <figure className="w-32 h-32 ">
                                     <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
@@ -93,7 +93,10 @@ const AllProducts = () => {
                             <p className='text-[17px] '>Shop Name: {furniture?.shop_name ? furniture?.shop_name : "Anonymous Shop"}</p>
                             <p className='text-[17px] '>Owner Name: {furniture?.owner_name ? furniture?.owner_name : "Anonymous Owner"}</p>
                             <div className=" grid grid-cols-2 gap-5 p-5">
-                                <button onClick={()=>handleFindData(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><FaRegEye className="text-2xl" /></button>
+                                <button onClick={()=>handleFindData(furniture?._id)} className="border border-2 rounded-md border-r-[#0939e8] border-l-[#ff0fdb] border-t-[#0939e8] border-b-[#ff0fdb] text-black w-full flex items-center justify-center gap-3 text-base hover:text-blue-500 hover:text-black"><FaRegEye className="text-2xl" /></button>
+                                {/* <button className="border-2 border-transparent bg-gradient-to-r from-purple-400 to-pink-500 hover:from-pink-500 hover:to-purple-400 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                                    My Button
+                                </button> */}
                                 <button onClick={() => handleProductDelete(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" /></button>
                             </div>
                         </div>)
