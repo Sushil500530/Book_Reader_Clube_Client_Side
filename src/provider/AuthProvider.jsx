@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase/firebase.config";
 import useAxiosPublic from "../hooks/useAxiosPublic";
@@ -52,10 +52,6 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     },[axiosPublic,user?.email])
-
-
-
-
 
     
     const authInfo = {

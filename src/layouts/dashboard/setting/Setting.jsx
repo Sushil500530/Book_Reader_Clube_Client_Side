@@ -13,7 +13,13 @@ const Setting = () => {
     const axiosSecure = useAxiosSecure();
     const [loading, setLoading] = useState(false);
     // console.log(users);
-   
+    const updataUserProfile = (name, photo) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo,
+        });
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,6 +45,9 @@ const Setting = () => {
                     if (res.data?.modifiedCount > 0) {
                         refetch()
                         toast.success('Profile updated successfully')
+                        return updataUserProfile(name, photo)
+                            .then(() => { })
+                            .catch(() => { })
                     }
                     setLoading(false)
                 })
