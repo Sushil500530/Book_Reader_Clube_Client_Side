@@ -5,12 +5,15 @@ import { FiLoader } from "react-icons/fi";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { imageUpload } from '../../../api/getData';
 import { useState } from "react";
+import { updateProfile } from "firebase/auth";
+import auth from './../../../provider/firebase/firebase.config';
 
 const Setting = () => {
     const [users, refetch,] = useRole();
     const axiosSecure = useAxiosSecure();
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     // console.log(users);
+   
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,25 +26,25 @@ const Setting = () => {
 
         try {
             const loadImage = await imageUpload(image);
+            const photo = loadImage?.data?.display_url;
             const changeData = {
                 name,
                 email,
-                image: loadImage?.data?.display_url,
+                image: photo,
                 status,
             }
-            console.log(changeData);
+
             await axiosSecure.put(`/user/${users?._id}`, changeData)
                 .then(res => {
-                    console.log(res.data);
                     if (res.data?.modifiedCount > 0) {
                         refetch()
-
-                        toast.success('updated successfully')
+                        toast.success('Profile updated successfully')
                     }
                     setLoading(false)
                 })
         }
         catch (error) {
+            setLoading(false)
             toast.error('Please Choose file or select Image!');
         }
     }
@@ -56,20 +59,19 @@ const Setting = () => {
             <h1 className="text-2xl font-bold text-center flex items-center gap-2 justify-center mt-8"> Settings to Your Profile <FcBusinessman className="w-6 h-6" /></h1>
             <div className='flex flex-col md:flex-row lg:flex-row gap-8 w-full md:w-[90%] lg:w-[70%] mx-auto mt-10'>
                 <div className='flex flex-col gap-2 items-center justify-center border py-8 w-full h-[350px] mt-6'>
-                    <h1 className='text-xl font-bold'>Name: {users?.name}</h1>
-                    <h1 className='text-xl font-bold'>Email: {users?.email}</h1>
-                    <h1 className='text-xl font-bold'>Profile Photo</h1>
                     <figure className='w-20 h-20'>
                         <img src={users?.image} alt="profile_image" className='w-full h-full rounded-full' />
                     </figure>
-                    <h1 className='px-8 py-3 bg-fuchsia-600 text-white rounded-full text-xl font-bold mb-3'>Role: {users?.role}</h1>
+                    <h1 className='font-bold'>Name: {users?.name}</h1>
+                    <h1 className='font-bold'>Email: {users?.email}</h1>
+                    <h1 className='px-8 py-1 bg-fuchsia-600 text-white rounded-full text-xl font-bold mb-3'>Role: {users?.role}</h1>
                     <h1 className='text-xl font-bold'>Status: {users?.status}</h1>
                 </div>
                 <form onSubmit={handleSubmit} className='flex flex-col gap-2 items-start justify-center border py-8 text-xl px-3 md:px-4 lg:px-7 w-full h-auto mb-20'>
                     <label>Name*</label>
                     <input type="text" name='name' defaultValue={users?.name} className="input input-bordered input-info w-full max-w-xs" required />
                     <label>Email*</label>
-                    <input type="text" name='email' defaultValue={users?.email} className="input input-bordered input-info w-full max-w-xs" required />
+                    <input type="text" name='email' disabled defaultValue={users?.email} className="input input-bordered input-info w-full max-w-xs" required />
                     <div>
                         <h1 className='text-xl mb-2'>Profile Photo</h1>
                         <div className="bg-clip-content p-6 bg-violet-600 border-4 border-violet-300 border-dashed w-full">

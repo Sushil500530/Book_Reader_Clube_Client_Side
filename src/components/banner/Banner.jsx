@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 // import image from '../../assets/image/banner/banner-image.jpg'
 // import image from '../../assets/image/AgeE.gif'
-import image from '../../assets/image/banner5.gif';
+// import image from '../../assets/image/banner5.gif';
 import banner1 from "../../assets/image/banner1.gif"
 const Banner = () => {
     return (
