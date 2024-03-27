@@ -3,7 +3,7 @@ import ManuList from "../../../shared/manuItems/ManuList";
 import { FaHome, FaSignOutAlt, } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { MdAddShoppingCart } from "react-icons/md";
-import { FaUserPlus } from "react-icons/fa6";
+import { FaUserPlus, FaBagShopping } from "react-icons/fa6";
 import { MdLogin } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdShoppingBasket } from "react-icons/md";
@@ -25,6 +25,7 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                 <ul className="menu menu-horizontal flex">
                     {/* Navbar menu content here */}
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
+                    <ManuList address={'all-shop'} linkTitle={"All Shop"} icon={FaBagShopping} />
                     {
                         user?.email && <>
                             <ManuList address={'/dashboard'} linkTitle={"Dashboard"} icon={MdOutlineDashboardCustomize} />
@@ -38,6 +39,7 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                             </span>
                         </>
                     }
+
                     <ManuList address={'about'} linkTitle={"About"} icon={FcAbout} />
                     <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
                     {
@@ -49,15 +51,15 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-[#d344ff]">
-                                    <li><a><Link to='/dashboard'>Dashboard</Link></a></li>
-                                    <li><a><Link to='/dashboard/settings'>Profile</Link></a></li>
-                                    <li onClick={handleLogout}><a>Logout</a></li>
+                                    <Link to='/dashboard'><li><a>Dashboard</a></li></Link>
+                                    <Link to='/dashboard/settings'><li><a>Profile</a></li></Link>
+                                    <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                        <span><FaSignOutAlt /></span>
+                                        Logout
+                                    </button>
                                 </ul>
                             </div>
-                            <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
-                                <span><FaSignOutAlt /></span>
-                                Logout
-                            </button>
+
                         </div> :
                             <>
                                 <ManuList address={'login'} linkTitle={"Login"} icon={MdLogin} />
