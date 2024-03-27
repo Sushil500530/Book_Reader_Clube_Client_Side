@@ -41,7 +41,7 @@ const Navbar = ({ children }) => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle text-white" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
-                <div className={`w-full navbar flex items-center justify-between lg:flex-row flex-row-reverse fixed z-10 ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " : "bg-transparent text-[#d344ff] "}`} >
+                <div className={`w-full navbar flex items-center justify-between lg:flex-row flex-row-reverse fixed z-10 ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " : "bg-transparent text-purple-400"}`} >
                     <div className="flex-none lg:hidden text-white">
                         <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
