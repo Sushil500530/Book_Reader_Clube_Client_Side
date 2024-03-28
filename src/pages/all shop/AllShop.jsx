@@ -1,9 +1,10 @@
 import Container from "../../shared/container/Container";
-import { FaSearch,FaRegEye ,FaShoppingCart} from "react-icons/fa";
+import { FaSearch, FaRegEye, FaShoppingCart } from "react-icons/fa";
 import useFurnitures from './../../hooks/useFurnitures';
 import useFurCategory from "../../hooks/useFurCategory";
 import { useEffect, useState } from "react";
 import Loader from "../../shared/Loader";
+import { Link } from "react-router-dom";
 
 
 
@@ -39,7 +40,7 @@ const AllShop = () => {
                         <input type="text" name="search" onChange={() => setSearchValue(event.target.value)} className="w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 " placeholder="search your product here....." />
                         <FaSearch className="text-2xl absolute top-3  right-2" />
                     </div>
-                    <select onChange={() => setFilterValue(event.target.value)} className="input-bordered w-[60%] lg:w-1/3 px-4 py-3 text-gray-800 border rounded-md border-blue-400 ">
+                    <select onChange={() => setFilterValue(event.target.value)} defaultValue={category} className="input-bordered w-[60%] lg:w-1/3 px-4 py-3 text-gray-800 border rounded-md border-blue-400 ">
                         <option selected disabled>Filter By Category</option>
                         <option value='all-products'>All Product</option>
                         {
@@ -63,10 +64,12 @@ const AllShop = () => {
                                         <h3 className="text-2xl">{furniture?.title}</h3>
                                         <h3 className="text-xl text-fuchsia-500">Price: $ {furniture?.price}</h3>
                                     </div>
-                                    <p className="text-gray-300">{furniture?.description?.length > 90 ? furniture?.description?.slice(0,90)+"...." : furniture?.description}</p>
+                                    <p className="text-gray-300">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
                                     <p className='text-[17px] '>Category: {furniture?.category}</p>
                                     <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
-                                        <button className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600"><FaRegEye /> View Details</button>
+                                        <Link to={`/furni-details/${furniture?._id}`} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600">
+                                            <FaRegEye /> View Details
+                                        </Link>
                                         <button className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-red-400"><FaShoppingCart /> Add to Cart</button>
                                     </div>
                                 </div>
