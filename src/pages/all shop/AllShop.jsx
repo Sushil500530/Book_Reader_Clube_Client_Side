@@ -1,9 +1,10 @@
 import Container from "../../shared/container/Container";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch,FaRegEye ,FaShoppingCart} from "react-icons/fa";
 import useFurnitures from './../../hooks/useFurnitures';
 import useFurCategory from "../../hooks/useFurCategory";
 import { useEffect, useState } from "react";
 import Loader from "../../shared/Loader";
+
 
 
 const AllShop = () => {
@@ -12,7 +13,7 @@ const AllShop = () => {
     const [category, ,] = useFurCategory();
     const [searchValue, setSearchValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
-    
+
     refetch();
     useEffect(() => {
         const findData = furnitures?.filter(furniture => furniture?.title.toLowerCase().includes(searchValue.toLowerCase()));
@@ -21,12 +22,12 @@ const AllShop = () => {
             const filteredData = findData?.filter(furniture => furniture?.category === filterValue);
             setCurrentFurnitures(filteredData);
         }
-        if(filterValue ==='all-products'){
-           setCurrentFurnitures(furnitures)
+        if (filterValue === 'all-products') {
+            setCurrentFurnitures(furnitures)
         }
     }, [furnitures, searchValue, filterValue]);
 
-    if(isLoading){
+    if (isLoading) {
         return <Loader />
     }
 
@@ -48,23 +49,26 @@ const AllShop = () => {
                         }
                     </select>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                     {
                         currentFurnitures?.length > 0 && currentFurnitures?.map(furniture =>
-                            <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] text-white transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
+                            <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
                                 <div className="flex items-center justify-center w-full py-3 -mt-12">
-                                    <figure className="w-32 h-32 ">
+                                    <figure className="w-40 h-40 ">
                                         <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
                                     </figure>
                                 </div>
-                                <h3 className="text-xl">Product Name: {furniture?.title}</h3>
-                                <h3 className="text-xl">Price: $ {furniture?.price}</h3>
-                                <p className='text-[17px] '>Shop Name: {furniture?.shop_name ? furniture?.shop_name : "Anonymous Shop"}</p>
-                                <p className='text-xl '>Shop Name: {furniture?.category}</p>
-                                <p className='text-[17px] '>Owner Name: {furniture?.owner_name ? furniture?.owner_name : "Anonymous Owner"}</p>
-                                <div className=" grid grid-cols-2 gap-5 p-5">
-                                    <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-blue-600">View Details</button>
-                                    <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400">Add to Cart</button>
+                                <div className="px-5 space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="text-2xl">{furniture?.title}</h3>
+                                        <h3 className="text-xl text-fuchsia-500">Price: $ {furniture?.price}</h3>
+                                    </div>
+                                    <p className="text-gray-300">{furniture?.description?.length > 90 ? furniture?.description?.slice(0,90)+"...." : furniture?.description}</p>
+                                    <p className='text-[17px] '>Category: {furniture?.category}</p>
+                                    <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
+                                        <button className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600"><FaRegEye /> View Details</button>
+                                        <button className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-red-400"><FaShoppingCart /> Add to Cart</button>
+                                    </div>
                                 </div>
                             </div>)
                     }
