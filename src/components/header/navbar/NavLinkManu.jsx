@@ -2,8 +2,9 @@
 import ManuList from "../../../shared/manuItems/ManuList";
 import { FaHome, FaSignOutAlt, } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
+import { GiFurnace } from "react-icons/gi";
 import { MdAddShoppingCart } from "react-icons/md";
-import { FaUserPlus, FaBagShopping } from "react-icons/fa6";
+import { FaUserPlus } from "react-icons/fa6";
 import { MdLogin } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdShoppingBasket } from "react-icons/md";
@@ -25,7 +26,7 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                 <ul className="menu menu-horizontal flex">
                     {/* Navbar menu content here */}
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
-                    <ManuList address={'all-shop'} linkTitle={"All Shop"} icon={FaBagShopping} />
+                    <ManuList address={'all-shop'} linkTitle={"All Shop"} icon={GiFurnace} />
                     {
                         user?.email && <>
                             <ManuList address={'/dashboard'} linkTitle={"Dashboard"} icon={MdOutlineDashboardCustomize} />
