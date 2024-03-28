@@ -5,6 +5,7 @@ import useFurCategory from "../../hooks/useFurCategory";
 import { useEffect, useState } from "react";
 import Loader from "../../shared/Loader";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 
 
@@ -12,6 +13,7 @@ const AllShop = () => {
     const [furnitures, refetch, isLoading] = useFurnitures();
     const [currentFurnitures, setCurrentFurnitures] = useState([]);
     const [category, ,] = useFurCategory();
+    const { user } = useAuth();
     const [searchValue, setSearchValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
 
@@ -31,6 +33,50 @@ const AllShop = () => {
     if (isLoading) {
         return <Loader />
     }
+
+
+    const handleSetData = async (data) => {
+        console.log(data);
+        const discountPrice = data?.discount / 100 * parseFloat(data?.price);
+        const currentPrice = Math.round((data?.price - discountPrice).toFixed(2));
+      
+        const buyProduct = {
+            furniId: data?._id,
+            image: data?.image,
+            category: data?.image,
+            price: currentPrice,
+            title: data?.title,
+            description: data?.description,
+            thumbnail1: data?.thumbnail1,
+            thumbnail2: data?.thumbnail2,
+            rating: data?.rating,
+            quantity: data?.quantity,
+            discount: data?.discount,
+            email: user?.email
+        }
+          console.log(buyProduct);
+        // try {
+        //     // console.log(user?.email, buyProduct);
+        //     await axiosSecure.post('/sales', buyProduct)
+        //         .then(res => {
+        //             if (res.data?.insertedId) {
+        //                 Swal.fire({
+        //                     title: "Successfully",
+        //                     text: `${title} added successfully`,
+        //                     icon: "success",
+        //                     timer: 1500
+        //                 });
+        //                 refetch();
+        //             }
+        //         })
+        // }
+        // catch (error) {
+        //     toast.error(error.message)
+        // }
+    }
+
+
+
 
     return (
         <Container>
@@ -66,11 +112,12 @@ const AllShop = () => {
                                     </div>
                                     <p className="text-gray-300">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
                                     <p className='text-[17px] '>Category: {furniture?.category}</p>
+                                    <h1 className='text-[17px] bg-fuchsia-500 px-3 py-1 w-[120px] rounded-full'>{furniture?.discount} % OFF</h1>
                                     <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
                                         <Link to={`/furni-details/${furniture?._id}`} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600">
                                             <FaRegEye /> View Details
                                         </Link>
-                                        <button className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-red-400"><FaShoppingCart /> Add to Cart</button>
+                                        <button onClick={() => handleSetData(furniture)} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-red-400"><FaShoppingCart /> Add to Cart</button>
                                     </div>
                                 </div>
                             </div>)
