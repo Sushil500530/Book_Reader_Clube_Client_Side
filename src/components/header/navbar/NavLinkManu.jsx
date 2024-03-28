@@ -41,8 +41,8 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                         </>
                     }
 
-                    <ManuList address={'about'} linkTitle={"About"} icon={FcAbout} />
                     <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
+                    <ManuList address={'about'} linkTitle={"About"} icon={FcAbout} />
                     {
                         user?.email ? <div className="flex gap-3 ml-3">
                             <div className="dropdown dropdown-end">

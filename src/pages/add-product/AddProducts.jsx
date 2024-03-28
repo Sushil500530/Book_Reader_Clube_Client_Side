@@ -92,7 +92,7 @@ const AddProducts = () => {
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}
-            <h3 className="text-3xl text-center font-bold mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Add Product  </h3>
+            <h3 className="text-3xl text-center mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Add Product  </h3>
             <div className="container mx-auto mt-12">
                 <form onSubmit={handleAddedProduct}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
@@ -102,14 +102,14 @@ const AddProducts = () => {
                                     <label htmlFor='location' className='dark:text-white block text-black font-medium'>
                                         Product Name
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_name' id='product_name' type='text' placeholder='Product name' required
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='product_name' id='product_name' type='text' placeholder='Product name' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Location
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info '
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
                                         name='location' id='location' type='text' placeholder='Location' required
                                     />
                                 </div>
@@ -157,14 +157,14 @@ const AddProducts = () => {
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Quantity
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='quantity' id='quantity' type='number' placeholder='Enter quantiey' required
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='quantity' id='quantity' type='number' placeholder='Enter quantiey' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Product Price
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_cost' id='product_cost' type='number' placeholder='Product Cost' required
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='product_cost' id='product_cost' type='number' placeholder='Product Cost' required
                                     />
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ const AddProducts = () => {
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Category
                                     </label>
-                                    <select name="category" id="category" className="select select-info w-full max-w-xs">
+                                    <select name="category" id="category" className=" w-full max-w-xs border rounded-md border-blue-400">
                                         <option disabled selected required>Select Category</option>
                                         {
                                             category?.length > 0 && category.map(categ => <option key={categ?._id} required>
@@ -190,7 +190,7 @@ const AddProducts = () => {
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Rating
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='rating' id='rating' type='number' placeholder='Product Cost' required
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='rating' id='rating' type='number' placeholder='Product Cost' required
                                     />
                                 </div>
                             </div>
@@ -198,7 +198,7 @@ const AddProducts = () => {
                                 <label htmlFor='description' className='block font-medium'>
                                     Description
                                 </label>
-                                <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md input input-info  ' name='description' placeholder="Write description"
+                                <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md border-blue-400  ' name='description' placeholder="Write description"
                                 ></textarea>
                             </div>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
@@ -206,14 +206,14 @@ const AddProducts = () => {
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Product Profit
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_profit' id='product_profit' type='number' placeholder='Product Profit' required
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='product_profit' id='product_profit' type='number' placeholder='Product Profit' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block dark:text-white text-black font-medium'>
                                         Discount %
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='discount' id='discount' type='number' placeholder='Discount %' required
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='discount' id='discount' type='number' placeholder='Discount %' required
                                     />
                                 </div>
                             </div>

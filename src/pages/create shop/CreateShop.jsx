@@ -83,7 +83,7 @@ const CreateShop = () => {
                                         Shop Name
                                     </label>
                                     <input
-                                        className='input input-bordered input-info w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
+                                        className=' w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
                                         name='shop_name' id='shop_name' type='text' placeholder='shop name' required
                                     />
                                 </div>
@@ -91,7 +91,7 @@ const CreateShop = () => {
                                     <label htmlFor='location' className='block text-black font-medium dark:text-white'>
                                         Location
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-bordered input-info border-blue-400 '
+                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md  border-blue-400 '
                                         name='location' id='location' type='text' placeholder='Location' required
                                     />
                                 </div>
@@ -106,7 +106,7 @@ const CreateShop = () => {
                                 <label htmlFor='description' className='block font-medium'>
                                     Description
                                 </label>
-                                <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md input input-bordered input-info border-blue-400 ' name='description' placeholder="Write description"
+                                <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md  border-blue-400 ' name='description' placeholder="Write description"
                                 ></textarea>
                             </div>
                         </div>
