@@ -1,5 +1,8 @@
 import Container from "../../shared/container/Container";
 import FooterPage from "../footer/FooterPage";
+import { FaFacebookF,FaInstagram,FaTwitter  } from "react-icons/fa";
+import { MdStarRate } from "react-icons/md";
+
 
 const About = () => {
     const data = [
@@ -38,21 +41,20 @@ const About = () => {
                 </div>
                 <Container>
                     <div>
-                        <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">Meet Up Our Team...! </h1>
-                        <div className="card w-96 bg-base-100 shadow-xl hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black hover:text-white">
-                            <figure className="w-full h-full">
-                                <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="w-32 h-32 rounded-full hover:border-fuchsia-500 border-4" />
-                            </figure>
-                            <div className="flex items-center justify-center gap-2">
-                                <span className=""></span>
 
+                        <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">Meet Up Our Team...! </h1>
+                        <div className=" w-96 bg-base-100 shadow-xl hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black hover:text-white rounded-md">
+                            <figure className="w-full h-full relative flex items-center justify-center">
+                                <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="w-36 h-36 rounded-full hover:border-fuchsia-500 border-4 hover:scale-110 transition ease-in-out relative -top-10" />
+                            </figure>
+                            <div className="flex items-center justify-center gap-2 -mt-5 relative">
+                                <FaFacebookF className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
+                                <FaInstagram  className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
+                                <FaTwitter  className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
                             </div>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Buy Now</button>
-                                </div>
+                            <div className="flex items-center justify-center gap-2 flex-col p-5">
+                               <h2 className="text-2xl font-bold ">Sushil Apurbo(4/5)</h2>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, quaerat libero, vero beatae praesentium voluptatum molestias inventore nostrum amet, ad pariatur enim. Alias facere odio recusandae, laudantium repudiandae eligendi itaque?</p>
                             </div>
                         </div>
                     </div>
