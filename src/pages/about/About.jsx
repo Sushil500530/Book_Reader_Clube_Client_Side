@@ -53,7 +53,8 @@ const About = () => {
                                 <FaTwitter  className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
                             </div>
                             <div className="flex items-center justify-center gap-2 flex-col p-5">
-                               <h2 className="text-2xl font-bold ">Sushil Apurbo(4/5)</h2>
+                               <h2 className="text-2xl font-bold flex items-center justify-center">Sushil Apurbo(4/5<MdStarRate className="text-xl relative -top-2 text-amber-600" />)</h2>
+                               <p className="relative -mt-2 font-bold text-fuchsia-500">CEO || Co-Founder</p>
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, quaerat libero, vero beatae praesentium voluptatum molestias inventore nostrum amet, ad pariatur enim. Alias facere odio recusandae, laudantium repudiandae eligendi itaque?</p>
                             </div>
                         </div>
