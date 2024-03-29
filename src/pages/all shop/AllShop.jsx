@@ -7,6 +7,9 @@ import Loader from "../../shared/Loader";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import FooterPage from './../footer/FooterPage';
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 
@@ -14,11 +17,12 @@ const AllShop = () => {
     const [furnitures, refetch, isLoading] = useFurnitures();
     const [currentFurnitures, setCurrentFurnitures] = useState([]);
     const [category, ,] = useFurCategory();
+    const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
     const [searchValue, setSearchValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
 
-    refetch();
+
     useEffect(() => {
         const findData = furnitures?.filter(furniture => furniture?.title.toLowerCase().includes(searchValue.toLowerCase()));
         setCurrentFurnitures(findData);
@@ -51,27 +55,28 @@ const AllShop = () => {
             rating: data?.rating,
             quantity: data?.quantity,
             discount: data?.discount,
-            email: user?.email
+            email: user?.email,
+            userName: user?.displayName
         }
-        console.log(buyProduct);
-        // try {
-        //     // console.log(user?.email, buyProduct);
-        //     await axiosSecure.post('/sales', buyProduct)
-        //         .then(res => {
-        //             if (res.data?.insertedId) {
-        //                 Swal.fire({
-        //                     title: "Successfully",
-        //                     text: `${title} added successfully`,
-        //                     icon: "success",
-        //                     timer: 1500
-        //                 });
-        //                 refetch();
-        //             }
-        //         })
-        // }
-        // catch (error) {
-        //     toast.error(error.message)
-        // }
+
+        try {
+            await axiosPublic.post('/sales', buyProduct)
+                .then(res => {
+                     refetch();
+                    if (res.data?.insertedId) {
+                        Swal.fire({
+                            title: "Successfully",
+                            text: `${data?.title} added successfully`,
+                            icon: "success",
+                            timer: 1500
+                        });
+                          refetch()
+                    }
+                })
+        }
+        catch (error) {
+            toast.error(error.message)
+        }
     }
 
 

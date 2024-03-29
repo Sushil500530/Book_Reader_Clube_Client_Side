@@ -45,7 +45,8 @@ const FurniDetails = () => {
         rating,
         quantity,
         discount,
-        email:user?.email
+        email:user?.email,
+        userName: user?.displayName
     }
     // console.log(user?.email, buyProduct);
     const handleSetData = async () => {
