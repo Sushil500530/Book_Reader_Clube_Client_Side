@@ -17,7 +17,6 @@ const CreateShop = () => {
     const [users, ,] = useRole();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    console.log(user?.photoURL);
 
     const handleCreateShop = async (e) => {
         e.preventDefault();
@@ -51,8 +50,8 @@ const CreateShop = () => {
             await axiosSecure.patch('/managers', create_shop)
                 .then(res => {
                     // console.log(res.data);
-                    setLoading(false)
                     if (res.data?.insertedId) {
+                           setLoading(false)
                         Swal.fire({
                             title: "Create Successfull!",
                             text: "You clicked the button!",

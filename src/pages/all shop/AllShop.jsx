@@ -1,6 +1,7 @@
 import Container from "../../shared/container/Container";
 import { FaSearch, FaRegEye, FaShoppingCart } from "react-icons/fa";
 import useFurnitures from './../../hooks/useFurnitures';
+import { FcCancel } from "react-icons/fc";
 import useFurCategory from "../../hooks/useFurCategory";
 import { useEffect, useState } from "react";
 import Loader from "../../shared/Loader";
@@ -10,18 +11,21 @@ import FooterPage from './../footer/FooterPage';
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import useSale from "../../hooks/useSale";
 
 
 
 const AllShop = () => {
-    const [furnitures, refetch, isLoading] = useFurnitures();
-    const [currentFurnitures, setCurrentFurnitures] = useState([]);
     const [category, ,] = useFurCategory();
     const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
+    const [furnitures, , isLoading] = useFurnitures();
+    const [currentFurnitures, setCurrentFurnitures] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
+    const [, refetch,] = useSale();
 
+    // console.log('find filtered value---------->', filterValue);
 
     useEffect(() => {
         const findData = furnitures?.filter(furniture => furniture?.title.toLowerCase().includes(searchValue.toLowerCase()));
@@ -62,15 +66,14 @@ const AllShop = () => {
         try {
             await axiosPublic.post('/sales', buyProduct)
                 .then(res => {
-                     refetch();
                     if (res.data?.insertedId) {
+                        refetch();
                         Swal.fire({
                             title: "Successfully",
                             text: `${data?.title} added successfully`,
                             icon: "success",
                             timer: 1500
                         });
-                          refetch()
                     }
                 })
         }
@@ -100,6 +103,7 @@ const AllShop = () => {
                                 </option>)
                             }
                         </select>
+
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                         {
@@ -126,6 +130,14 @@ const AllShop = () => {
                                         </div>
                                     </div>
                                 </div>)
+                        }
+                    </div>
+                    <div>
+                        {
+                            currentFurnitures?.length <= 0 && <div className="flex items-center justify-center flex-col gap-5 w-full h-[40vh] pb-12">
+                                <h1 className="font-medium text-transparent text-xl md:text-2xl lg:text-3xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-start">Products is Not Found!</h1>
+                               <h1> <FcCancel className="text-6xl" /></h1>
+                            </div>
                         }
                     </div>
                 </div>
