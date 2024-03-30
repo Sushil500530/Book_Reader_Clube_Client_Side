@@ -126,7 +126,7 @@ const AllShop = () => {
                                             <Link to={`/furni-details/${furniture?._id}`} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600">
                                                 <FaRegEye /> View Details
                                             </Link>
-                                            <button onClick={() => handleSetData(furniture)} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-red-400"><FaShoppingCart /> Add to Cart</button>
+                                            <button onClick={() => handleSetData(furniture)} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button>
                                         </div>
                                     </div>
                                 </div>)
