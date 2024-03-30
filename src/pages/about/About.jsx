@@ -89,16 +89,16 @@ const About = () => {
                             }
                         </div>
                         <h1 className=" mt-32 mb-8 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">Why Our Furni-Track</h1>
-                        <div className="flex items-center justify-center w-full gap-8 flex-col lg:flex-row">
+                        <div className="flex items-center justify-center w-full gap-8 flex-col lg:flex-row mb-32">
                             <div className="w-full h-[600px] lg:w-1/2">
                                 <img src="https://i.ibb.co/2WfSk7s/furniture1.jpg" alt="image" className="w-full h-full rounded-3xl" />
                             </div>
                             <div className="w-full h-auto lg:w-1/2">
                                 <h1 className="text-4xl font-bold text-fuchsia-500 text-start">Summary</h1>
                                 <hr className="w-[200px] h-[3px] bg-fuchsia-500 my-3" />
-                                <p>At Furni-Track, we are dedicated to simplifying your furniture shopping experience. Our platform offers comprehensive tracking tools, ensuring seamless delivery and satisfaction.</p>
+                                <p className="text-gray-500">At Furni-Track, we are dedicated to simplifying your furniture shopping experience. Our platform offers comprehensive tracking tools, ensuring seamless delivery and satisfaction.</p>
                                 <br /> <br />
-                                <p className="text-ellipsis">"Welcome to Furni-Track, where we revolutionize the furniture shopping experience. At Furni-Track, we understand the challenges and frustrations that can arise when purchasing furniture online. That's why we've developed a comprehensive platform designed to streamline every step of the process.
+                                <p className=" text-gray-500">"Welcome to Furni-Track, where we revolutionize the furniture shopping experience. At Furni-Track, we understand the challenges and frustrations that can arise when purchasing furniture online. That's why we've developed a comprehensive platform designed to streamline every step of the process.
                                     <br /> <br />
                                     From browsing to delivery, Furni-Track is committed to providing you with the tools and support you need to make informed decisions and ensure a seamless shopping experience. Our user-friendly interface allows you to explore a wide range of furniture options, from stylish sofas to elegant dining sets, all from the comfort of your home.
                                     <br /> <br />
