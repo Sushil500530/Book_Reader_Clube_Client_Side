@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import ManuList from "../../../shared/manuItems/ManuList";
 import { FaHome, FaSignOutAlt, } from "react-icons/fa";
-import { FcAbout } from "react-icons/fc";
 import { GiFurnace } from "react-icons/gi";
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart, MdExpandLess } from "react-icons/md";
 import { FaUserPlus } from "react-icons/fa6";
 import { MdLogin } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdShoppingBasket } from "react-icons/md";
 import { useAuth } from './../../../hooks/useAuth';
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { FcAbout } from "react-icons/fc";
 
 const NavLinkManu = ({ handleToggle, sales }) => {
     const { user, logoutUser } = useAuth();
@@ -42,7 +42,20 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                     }
 
                     <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
-                    <ManuList address={'about'} linkTitle={"About"} icon={FcAbout} />
+                    <div className="group relative ">
+                        <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group">Pages <MdExpandLess className="text-2xl rotate-180 hover:rotate-0 w-full group-hover:visible" /></button>
+                        <div className="transition transform translate-y-8 ease-in-out invisible absolute group-hover:visible top-8 left-0 w-full h-auto text-white group-hover:translate-y-5 bg-base-300 pb-5">
+                            <NavLink to='about' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                                <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
+                                About
+                            </NavLink>
+                            <NavLink to='contact' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                                <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
+                                Contact
+                            </NavLink>
+                        </div>
+                    </div>
+                    {/* <ManuList address={''} linkTitle={""} icon={} /> */}
                     {
                         user?.email ? <div className="flex gap-3 ml-3">
                             <div className="dropdown dropdown-end">

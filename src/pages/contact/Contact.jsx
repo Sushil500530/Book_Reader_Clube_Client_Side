@@ -7,9 +7,15 @@ import { useState } from "react";
 
 const Contact = () => {
     const [loading,setLoading] = useState(false);
+    
     const handleSubmit =(e)=> {
+        setLoading(true);
         e.preventDefault();
         const form = e.target;
+        const fullName = form.full_name.value;
+        const email = form.email.value;
+        const message = form.message.value;
+        console.log(fullName,email, message);
     }
     return (
         <div>
