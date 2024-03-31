@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import ManuList from "../../../shared/manuItems/ManuList";
-import { FaHome, FaSignOutAlt, } from "react-icons/fa";
+import { FaHome, FaSignOutAlt,FaBlog } from "react-icons/fa";
 import { GiFurnace } from "react-icons/gi";
 import { MdAddShoppingCart, MdExpandLess } from "react-icons/md";
 import { FaUserPlus } from "react-icons/fa6";
@@ -10,7 +10,7 @@ import { MdShoppingBasket } from "react-icons/md";
 import { useAuth } from './../../../hooks/useAuth';
 import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
-import { FcAbout } from "react-icons/fc";
+import { FcAbout,FcContacts } from "react-icons/fc";
 
 const NavLinkManu = ({ handleToggle, sales }) => {
     const { user, logoutUser } = useAuth();
@@ -50,8 +50,12 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                                 About
                             </NavLink>
                             <NavLink to='contact' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
-                                <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
+                                <span>{<FcContacts className="w-5 h-8 mr-1 " />}</span>
                                 Contact
+                            </NavLink>
+                            <NavLink to='blog' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                                <span>{<FaBlog className="w-5 h-8 mr-1 " />}</span>
+                                Blog
                             </NavLink>
                         </div>
                     </div>

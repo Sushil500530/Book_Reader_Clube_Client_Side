@@ -2,28 +2,29 @@ import { MdLocationPin, MdLocalPhone, MdEmail } from "react-icons/md";
 import { BsStopwatch } from "react-icons/bs";
 import { FaSpinner } from "react-icons/fa";
 import { useState } from "react";
+import FooterPage from "../footer/FooterPage";
 
 
 
 const Contact = () => {
-    const [loading,setLoading] = useState(false);
-    
-    const handleSubmit =(e)=> {
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = (e) => {
         setLoading(true);
         e.preventDefault();
         const form = e.target;
         const fullName = form.full_name.value;
         const email = form.email.value;
         const message = form.message.value;
-        console.log(fullName,email, message);
+        console.log(fullName, email, message);
     }
     return (
         <div>
-            <div className="flex items-center justify-center w-full h-[60vh] flex-col relative py-20">
+            <div className="flex items-center justify-center w-full h-[60vh] flex-col relative">
                 <img src="https://i.ibb.co/4NcsDvW/contact.jpg" alt="contact image" className="w-full h-full" />
-                <div className="absolute top-0 right-0 left-0 w-full h-full bg-black opacity-30 flex items-center justify-center pt-20"> </div>
+                <div className="absolute top-0 right-0 left-0 w-full h-full bg-black opacity-30 flex items-center justify-center"> </div>
             </div>
-            <div className="flex items-start justify-center gap-6 flex-col lg:flex-row-reverse p-5 w-[90%] mx-auto">
+            <div className="flex items-start justify-center gap-6 flex-col lg:flex-row-reverse p-5 w-[90%] mx-auto mt-14 mb-32">
                 <div className="w-full h-full lg:w-[35%] space-y-4 text-start flex items-center justify-center lg:items-start lg:justify-center flex-col">
                     <h1 className=" my-5 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">Contact Us</h1>
                     <div className="flex items-center justify-center gap-6">
@@ -57,7 +58,7 @@ const Contact = () => {
                                 <div className='flex gap-4 items-center justify-center'>
                                     <div className='space-y-2 w-full'>
                                         <label className='block text-black font-medium dark:text-white'>
-                                             Full Name *
+                                            Full Name *
                                         </label>
                                         <input
                                             className=' w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
@@ -73,7 +74,7 @@ const Contact = () => {
                                         />
                                     </div>
                                 </div>
-                              
+
                                 <div className='space-y-1 '>
                                     <label htmlFor='description' className='block font-medium'>
                                         Message *
@@ -94,6 +95,7 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
+            <FooterPage />
         </div>
     );
 };

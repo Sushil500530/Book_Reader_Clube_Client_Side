@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../logo/Logo";
 import NavLinkManu from "./NavLinkManu";
 import { useEffect, useState } from "react";
-import { FaDollarSign } from "react-icons/fa";
+import { FaDollarSign  } from "react-icons/fa";
 import { RxCross1 } from 'react-icons/rx';
 import useSale from "../../../hooks/useSale";
 import ForSaleData from './../../../layouts/dashboard/user/ForSaleData';
