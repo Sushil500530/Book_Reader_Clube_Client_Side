@@ -1,4 +1,5 @@
 import Container from "../../shared/container/Container";
+import Contact from "../contact/Contact";
 import FooterPage from "../footer/FooterPage";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { MdStarRate } from "react-icons/md";
@@ -109,6 +110,7 @@ const About = () => {
                         </div>
                     </div>
                 </Container>
+                <Contact />
             </div>
             <FooterPage />
         </>
