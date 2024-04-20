@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import Loader from "../../shared/Loader";
 
 const CheckoutForm = () => {
     const [sales, refetch, isLoading] = useSale();
@@ -39,6 +40,9 @@ const CheckoutForm = () => {
         }
     }, [axiosSecure, totalPrice]);
 
+    if (isLoading) {
+        return <Loader />
+    }
     const handlePayment = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -59,7 +63,7 @@ const CheckoutForm = () => {
             toast.error(error?.message)
         }
         else {
-            // console.log('payment method of condition is=======>', paymentMethod);
+            console.log('payment method of condition is=======>', paymentMethod);
             setClientSecret('')
         }
 
@@ -74,12 +78,12 @@ const CheckoutForm = () => {
         })
 
         if (confirmError) {
-            console.log('confirm error is=======>', confirmError)
+            // console.log('confirm error is=======>', confirmError)
             return toast.error('Your card number is incomplete');
         }
         else {
             if (paymentIntent?.status === 'succeeded') {
-                console.log('payment intent id is=======>', paymentIntent?.id);
+                // console.log('payment intent id is=======>', paymentIntent?.id);
                 setTranslateId(paymentIntent?.id);
 
                 // payment details store to database 
@@ -109,16 +113,16 @@ const CheckoutForm = () => {
         }
     }
 
-    const handleBuy= () => {
-       toast.error('somthing went wrong!')
-  }
+    const handleBuy = () => {
+        toast.error('somthing went wrong!')
+    }
 
 
     return (
         <div className="mt-10 p-5 w-full h-full">
             <div className="lg:w-[550px] md:w-[550px] w-full h-auto mx-auto">
                 <form >
-                    <CardElement className="border border-black px-5 py-2 focus:border-[#f3f3f3] text-[20px]"
+                    <CardElement className="border border-black px-5 py-2 focus:border-[#f3f3f3] text-[20px] rounded"
                         options={{
                             style: {
                                 base: {
@@ -135,14 +139,14 @@ const CheckoutForm = () => {
                         }}
                     />
                 </form>
-                <div className="flex flex-col md:flex-row lg:flex-row my-5 items-center justify-between gap-5 md:gap-0 lg:gap-0">
+                <div className="flex flex-col md:flex-row lg:flex-row my-5 items-center justify-between gap-5  ">
                     <div className="flex flex-col gap-1">
                         <label htmlFor="">Name*</label>
-                        <input className="text-xl font-bold text-black" type="text" name="" id="" disabled placeholder={`${user?.displayName}`} />
+                        <input className="text-xl font-bold text-black rounded hover:cursor-not-allowed" type="text" name="" id="" disabled placeholder={`${user?.displayName}`} />
                     </div>
                     <div className="flex flex-col gap-1">
                         <label htmlFor="">Email*</label>
-                        <input className="text-xl font-bold text-black" type="text" name="" id="" disabled placeholder={`${user?.email}`} />
+                        <input className="text-xl font-bold text-black rounded hover:cursor-not-allowed" type="text" name="" id="" disabled placeholder={`${user?.email}`} />
                     </div>
                 </div>
                 <div className="flex flex-row my-8 items-center justify-between gap-5 ">
@@ -164,7 +168,7 @@ const CheckoutForm = () => {
                         <h1 className="text-2xl text-start mb-1">Entry</h1>
                         <h1 className="text-6xl flex gap-3 items-center justify-center ">
                             $14 <span className="text-base">/month</span> <button className="text-xl bg-[#fafcfa] px-5 py-2 rounded-full text-black border-2 border-fuchsia-500 md:border-none lg:border-none">10% OFF</button> </h1>
-                           
+
                         <p className="mt-5">Easy Start on Your Bussiness</p>
                     </div>
                     <div className="flex flex-col items-center justify-between ">

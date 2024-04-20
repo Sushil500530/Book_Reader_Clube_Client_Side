@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Container from "../../shared/container/Container";
 import FooterPage from "../footer/FooterPage";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";

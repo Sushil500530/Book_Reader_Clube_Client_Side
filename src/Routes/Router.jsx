@@ -32,6 +32,7 @@ import SaleSummaryAdmin from "../layouts/dashboard/admin/sale summaray/SaleSumma
 import AllUsers from "../layouts/dashboard/admin/all user/AllUsers";
 import AllShop from "../pages/all shop/AllShop";
 import Contact from "../pages/contact/Contact";
+import Blog from "../pages/blog/Blog";
 
 
 const Router = createBrowserRouter([
@@ -55,6 +56,10 @@ const Router = createBrowserRouter([
             {
                 path:'contact',
                 element: <Contact />
+            },
+            {
+                path:'blog',
+                element: <Blog />
             },
             {
                 path:'login',
