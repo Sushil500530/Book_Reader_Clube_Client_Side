@@ -7,6 +7,7 @@ import { MdStarRate } from "react-icons/md";
 const About = () => {
     const data = [
         {
+            "id": 1,
             "name": "Sushil Hemrom",
             "role": "CEO || Administrator",
             "image": "https://i.ibb.co/WfPnV0V/sushil-bg.png",
@@ -14,6 +15,7 @@ const About = () => {
             "rating": 4.6
         },
         {
+            "id": 2,
             "name": "Proshanta Roy",
             "role": "Co-Founder",
             "image": "https://i.ibb.co/C05qsq4/proshanta.jpg",
@@ -21,6 +23,7 @@ const About = () => {
             "rating": 4.7
         },
         {
+            "id": 3,
             "name": "Shamim Hassan",
             "role": "Accounting",
             "image": "https://i.ibb.co/7Rt391K/shamim.jpg",
@@ -28,6 +31,7 @@ const About = () => {
             "rating": 4.5
         },
         {
+            "id": 4,
             "name": "Lotika Yani",
             "role": "Developer",
             "image": "https://i.ibb.co/M2V49sL/lotika.jpg",
@@ -35,6 +39,7 @@ const About = () => {
             "rating": 4.8
         },
         {
+            "id": 5,
             "name": "Justin Stainee",
             "role": "Program Mentor",
             "image": "https://i.ibb.co/VNdq2yq/justin.jpg",
@@ -42,6 +47,7 @@ const About = () => {
             "rating": 4.9
         },
         {
+            "id": 6,
             "name": "MD Khalid Akbar",
             "role": "Social Developer",
             "image": "https://i.ibb.co/xDQ4THL/khalid.jpg",
@@ -49,6 +55,7 @@ const About = () => {
             "rating": 4.9
         },
         {
+            "id": 7,
             "name": "Sonali Grill",
             "role": "Assistant Manager",
             "image": "https://i.ibb.co/tLzSjYK/sonali.jpg",
@@ -62,7 +69,7 @@ const About = () => {
             <div className="">
                 <div className="flex items-center justify-center w-full h-[60vh] flex-col relative py-20">
                     <img src="https://i.ibb.co/VTmTvXt/about.jpg" alt="contact image" className="w-full h-full" />
-                    <div className="absolute top-0 right-0 left-0 w-full h-full bg-black opacity-70 flex items-center justify-center pt-20"> </div>
+                    <div className="absolute top-0 right-0 left-0 w-full h-full bg-gradient-to-t from-[#2241b0] to-[#000000] opacity-70 flex items-center justify-center pt-20"> </div>
                 </div>
                 <Container>
                     <div>
