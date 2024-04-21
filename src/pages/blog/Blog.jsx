@@ -29,7 +29,14 @@ const Blog = () => {
                         <img src="https://i.ibb.co/M2V49sL/lotika.jpg" alt="post-image" className="w-full h-full" />
                     </figure>
                     <div className="flex items-center justify-around mt-5">
-                        <button className="flex items-center gap-2 text-xl text-neutral-700"><AiOutlineLike className="text-2xl" />Like</button>
+                        <div className="group relative">
+                            <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group"><AiOutlineLike className="text-2xl" />Like </button>
+                            <div className="transition transform translate-y-2 ease-in-out invisible absolute group-hover:visible -left-20 w-[300px] h-auto text-white group-hover:-translate-y-16 bg-slate-200 flex items-center gap-5 p-3">
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 ">👍</button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 ">❤️</button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 ">🤣</button>
+                            </div>
+                        </div>
                         <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><FaRegComment className="text-2xl" />Comment</button>
                         <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><PiShareFat className="text-2xl" />Share</button>
                     </div>

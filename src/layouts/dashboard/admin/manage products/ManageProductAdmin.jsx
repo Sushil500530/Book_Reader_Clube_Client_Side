@@ -13,7 +13,7 @@ const ManageProductAdmin = () => {
     }
     return (
         <div>
-            <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Manage All Products</h1>
+            <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Manage All Products</h1>
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
                     {
@@ -24,7 +24,7 @@ const ManageProductAdmin = () => {
                                 <p>{furniture?.description?.length > 60 ? furniture?.description?.slice(0, 60) : furniture?.description}</p>
                                 <div className="flex items-center justify-end mr-5 mt-2">
                                     <Link to={`/furnitures/${furniture?._id}`}>
-                                      <span className="btn btn-sm px-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white hover:text-purple-500">Show <FaArrowRight className="text-xl  hover:black" /></span>
+                                      <span className="btn btn-sm px-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl  hover:black hover:translate-x-1 transition" /></span>
                                     </Link>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@ const ManageProductAdmin = () => {
                     }
                 </div>
                 <div className=" mt-12">
-                    <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Process Of Manage Products</h1>
+                    <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Process Of Manage Products</h1>
                     <div className="flex items-center justify-center gap-5 flex-col lg:flex-row mt-8">
                         <div className="w-full lg:w-1/2 h-auto">
                             <h1 className="text-2xl font-bold">How To Manage My Product(Secrete)</h1>
