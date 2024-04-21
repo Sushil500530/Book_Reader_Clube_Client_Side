@@ -3,6 +3,7 @@ import { BsStopwatch } from "react-icons/bs";
 import { FaSpinner } from "react-icons/fa";
 import { useState } from "react";
 import FooterPage from "../footer/FooterPage";
+import SimpleMap from "./map/SimpleMap";
 
 
 
@@ -95,6 +96,7 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
+            <SimpleMap />
             <FooterPage />
         </div>
     );
