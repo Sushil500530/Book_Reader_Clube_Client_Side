@@ -1,5 +1,12 @@
 import Container from "../../shared/container/Container";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import like from "../../assets/image/emoji/like.gif";
+import love from "../../assets/image/emoji/love.gif";
+import angry from "../../assets/image/emoji/angry.gif";
+import sad from "../../assets/image/emoji/sad.gif";
+import care from "../../assets/image/emoji/care.gif";
+import haha from "../../assets/image/emoji/haha.gif";
+import wow from "../../assets/image/emoji/wow1.gif";
 import { RxCross2 } from "react-icons/rx";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
@@ -31,10 +38,28 @@ const Blog = () => {
                     <div className="flex items-center justify-around mt-5">
                         <div className="group relative">
                             <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group"><AiOutlineLike className="text-2xl" />Like </button>
-                            <div className="transition transform translate-y-2 ease-in-out invisible absolute group-hover:visible -left-20 w-[300px] h-auto text-white group-hover:-translate-y-16 bg-slate-200 flex items-center gap-5 p-3">
-                                <button className="flex items-center gap-2 text-xl text-neutral-700 ">👍</button>
-                                <button className="flex items-center gap-2 text-xl text-neutral-700 ">❤️</button>
-                                <button className="flex items-center gap-2 text-xl text-neutral-700 ">🤣</button>
+                            <div className="transition transform translate-y-2 ease-in-out invisible absolute group-hover:visible -left-20 w-[300px] h-auto text-white group-hover:-translate-y-20 bg-white shadow flex items-center gap-2 p-0 rounded-full">
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={like} alt="like" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={love} alt="love" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={care} alt="care" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={haha} alt="haha" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={wow} alt="wow" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={sad} alt="sad" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
+                                <button className="flex items-center gap-2 text-xl text-neutral-700 p-1">
+                                    <img src={angry} alt="angry" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
+                                </button>
                             </div>
                         </div>
                         <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><FaRegComment className="text-2xl" />Comment</button>
