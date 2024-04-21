@@ -23,7 +23,6 @@ import { useState } from "react";
 
 const Blog = () => {
     const [emoji, setEmoji] = useState([]);
-    console.log(emoji);
     return (
         <Container>
             <div className="w-full md:w-2/3 lg:w-2/3 mx-auto flex flex-col gap-5">
@@ -72,13 +71,13 @@ const Blog = () => {
                                 }
                             </div>
                             <div>
-                                <h1>Comment</h1>
+                                <h1 className="hover:underline text-neutral-500 cursor-pointer">1 Comment</h1>
                             </div>
                         </div>
                         <hr className="bg-neutral-300 w-full h-[2px] my-3" />
                         <div className="flex items-center justify-around ">
                             <div className="group relative">
-                                <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group"><AiOutlineLike className="text-2xl" />Like </button>
+                                <button className=" flex items-center gap-2 text-xl font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group text-neutral-700 active:bg-slate-200"><AiOutlineLike className="text-2xl" />Like </button>
                                 <div className="transition transform translate-y-2 ease-in-out invisible absolute group-hover:visible -left-20 w-[300px] h-auto text-white group-hover:-translate-y-20 bg-white shadow flex items-center gap-2 p-0 rounded-full">
                                     <button onClick={() => setEmoji('like')} className="flex items-center gap-2 text-xl text-neutral-700 p-1">
                                         <img src={like} alt="like" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
