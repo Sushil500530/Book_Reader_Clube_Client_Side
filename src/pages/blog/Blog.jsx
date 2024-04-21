@@ -15,8 +15,8 @@ import { PiShareFat } from "react-icons/pi";
 const Blog = () => {
     return (
         <Container>
-            <div className="w-full md:w-2/3 lg:w-2/3 mx-auto">
-                <div className="flex items-center justify-between px-5 mb-5">
+            <div className="w-full md:w-2/3 lg:w-2/3 mx-auto flex flex-col gap-5">
+                <div className="flex items-center justify-between px-5">
                     <div className="flex items-center gap-3">
                         <figure className="w-12 h-12">
                             <img src="https://i.ibb.co/WfPnV0V/sushil-bg.png" alt="person-image" className="w-full h-full rounded-full" />
@@ -31,11 +31,21 @@ const Blog = () => {
                         <RxCross2 className="text-3xl cursor-pointer" />
                     </div>
                 </div>
-                <div>
+                <div className="px-3">
                     <figure className="w-full h-[500px]">
                         <img src="https://i.ibb.co/M2V49sL/lotika.jpg" alt="post-image" className="w-full h-full" />
                     </figure>
-                    <div className="flex items-center justify-around mt-5">
+                    <div className=" p-3">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <h1>Counter</h1>
+                            </div>
+                            <div>
+                                <h1>Comment</h1>
+                            </div>
+                        </div>
+                        <hr className="bg-neutral-300 w-full h-[2px] my-3" />
+                    <div className="flex items-center justify-around ">
                         <div className="group relative">
                             <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group"><AiOutlineLike className="text-2xl" />Like </button>
                             <div className="transition transform translate-y-2 ease-in-out invisible absolute group-hover:visible -left-20 w-[300px] h-auto text-white group-hover:-translate-y-20 bg-white shadow flex items-center gap-2 p-0 rounded-full">
@@ -64,6 +74,8 @@ const Blog = () => {
                         </div>
                         <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><FaRegComment className="text-2xl" />Comment</button>
                         <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><PiShareFat className="text-2xl" />Share</button>
+                    </div>
+                    <hr className="bg-neutral-300 w-full h-[2px]" />
                     </div>
                 </div>
             </div>
