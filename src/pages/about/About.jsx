@@ -4,6 +4,7 @@ import FooterPage from "../footer/FooterPage";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { MdStarRate } from "react-icons/md";
 import StructImage from "../../assets/image/ibj8mk0i.svg"
+import { FaDatabase } from "react-icons/fa";
 
 
 const About = () => {
@@ -119,23 +120,39 @@ const About = () => {
                             </div>
                         </div>
                         <div>
-                            <h1 className=" mt-32 mb-8 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">What will meet the needs...!</h1>
+                            <div className="mb-8 mt-32 ">
+                                <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] mb-1 text-center">What will meet the needs and Flow...!</h1>
+                                <p className="text-center text-neutral-500">Furni-Track is designed to meet the comprehensive needs of furniture asset management, ensuring efficient tracking, organization, and maintenance of furniture items.</p>
+                            </div>
                             <div className="flex items-center justify-center w-full gap-5 lg:gap-16 flex-col lg:flex-row-reverse mb-32">
                                 <div className="w-full h-[600px] lg:w-1/2">
                                     <img src={StructImage} alt="structure-image" className="w-full h-full rounded-3xl" />
                                 </div>
-                                <div className="w-full h-auto lg:w-1/2">
-                                    <h1 className="text-4xl font-bold text-fuchsia-500 text-start">Summary</h1>
-                                    <hr className="w-[200px] h-[3px] bg-fuchsia-500 my-3" />
-                                    <p className="text-gray-500">At Furni-Track, we are dedicated to simplifying your furniture shopping experience. Our platform offers comprehensive tracking tools, ensuring seamless delivery and satisfaction.</p>
-                                    <br /> <br />
-                                    <p className=" text-gray-500">"Welcome to Furni-Track, where we revolutionize the furniture shopping experience. At Furni-Track, we understand the challenges and frustrations that can arise when purchasing furniture online. That's why we've developed a comprehensive platform designed to streamline every step of the process.
-                                        <br /> <br />
-                                        From browsing to delivery, Furni-Track is committed to providing you with the tools and support you need to make informed decisions and ensure a seamless shopping experience. Our user-friendly interface allows you to explore a wide range of furniture options, from stylish sofas to elegant dining sets, all from the comfort of your home.
-                                        <br /> <br />
-                                        But our commitment to your satisfaction doesn't stop there. With Furni-Track, you can track your orders in real-time, ensuring that you're always in the loop about the status of your delivery. Whether you're eagerly awaiting your new bedroom set or patiently anticipating the arrival of your sectional sofa, Furni-Track keeps you informed every step of the way.
-                                        <br /> <br />
-                                        At Furni-Track, we believe that shopping for furniture should be convenient, stress-free, and enjoyable. That's why we're dedicated to providing you with an exceptional online shopping experience from start to finish. So sit back, relax, and let Furni-Track take the hassle out of furniture shopping."</p>
+                                <div className="w-full h-auto lg:w-1/2 space-y-4">
+                                    <div>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Comprehensive Data Storage <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <p className="text-gray-500">Furni-Track's Furniture Table serves as a centralized database, accommodating a wide range of attributes including Name, Type, Location, Condition, Purchase Date, Cost, and Unique Identifier. This comprehensive data storage ensures that all essential information about each furniture item is readily accessible and well-organized.</p>
+                                    </div>
+                                    <div>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Spatial Tracking <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <p className="text-gray-500">The Movement History Table enables spatial tracking of furniture movements over time. By recording MovementID, FurnitureID, and Date Moved, Furni-Track provides a clear historical record of furniture relocations, facilitating efficient spatial management and optimization of furniture layouts.</p>
+                                    </div>
+                                    <div>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Maintenance Recordkeeping <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <p className="text-gray-500">With the Maintenance Log Table, Furni-Track allows users to maintain detailed records of maintenance activities performed on furniture items. By capturing MaintenanceID, FurnitureID, Maintenance Type, Date Performed, Description, and Cost, the system enables proactive maintenance planning, timely repairs, and cost-effective upkeep of furniture assets.</p>
+                                    </div>
+                                    <div>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Efficient Management and Analysis <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <p className="text-gray-500">Furni-Track's structured data storage and robust tracking capabilities empower users to efficiently manage and analyze furniture assets. By providing comprehensive insights into the lifecycle, spatial history, and maintenance status of furniture items, the system facilitates informed decision-making, resource optimization, and effective budget management.</p>
+                                    </div>
+                                    <div>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">User-Friendly Interface <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <p className="text-gray-500">Furni-Track offers a user-friendly interface, making it easy for users to access, input, and analyze furniture data. Whether tracking individual items, viewing movement histories, or managing maintenance records, the system provides intuitive tools and features that streamline workflow and enhance productivity.</p>
+                                    </div>
+
+                                    <div>
+                                        <p>In summary, Furni-Track is a versatile and reliable solution that meets the diverse needs of furniture asset management, providing comprehensive data storage, spatial tracking, maintenance recordkeeping, efficient management and analysis, and a user-friendly interface for seamless operation.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
