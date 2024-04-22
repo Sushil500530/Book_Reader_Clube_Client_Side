@@ -2,9 +2,11 @@
 import Container from "../../shared/container/Container";
 import FooterPage from "../footer/FooterPage";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import { MdStarRate } from "react-icons/md";
+import { MdStarRate,MdManageHistory,MdManageAccounts   } from "react-icons/md";
 import StructImage from "../../assets/image/ibj8mk0i.svg"
 import { FaDatabase } from "react-icons/fa";
+import { IoIosContract } from "react-icons/io";
+import { GrVmMaintenance } from "react-icons/gr";
 
 
 const About = () => {
@@ -134,24 +136,24 @@ const About = () => {
                                         <p className="text-gray-500">Furni-Track's Furniture Table serves as a centralized database, accommodating a wide range of attributes including Name, Type, Location, Condition, Purchase Date, Cost, and Unique Identifier. This comprehensive data storage ensures that all essential information about each furniture item is readily accessible and well-organized.</p>
                                     </div>
                                     <div>
-                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Spatial Tracking <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Spatial Tracking <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><IoIosContract /></span></h1>
                                         <p className="text-gray-500">The Movement History Table enables spatial tracking of furniture movements over time. By recording MovementID, FurnitureID, and Date Moved, Furni-Track provides a clear historical record of furniture relocations, facilitating efficient spatial management and optimization of furniture layouts.</p>
                                     </div>
                                     <div>
-                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Maintenance Recordkeeping <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Maintenance Recordkeeping <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><GrVmMaintenance /></span></h1>
                                         <p className="text-gray-500">With the Maintenance Log Table, Furni-Track allows users to maintain detailed records of maintenance activities performed on furniture items. By capturing MaintenanceID, FurnitureID, Maintenance Type, Date Performed, Description, and Cost, the system enables proactive maintenance planning, timely repairs, and cost-effective upkeep of furniture assets.</p>
                                     </div>
                                     <div>
-                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Efficient Management and Analysis <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">Efficient Management and Analysis <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><MdManageHistory  /></span></h1>
                                         <p className="text-gray-500">Furni-Track's structured data storage and robust tracking capabilities empower users to efficiently manage and analyze furniture assets. By providing comprehensive insights into the lifecycle, spatial history, and maintenance status of furniture items, the system facilitates informed decision-making, resource optimization, and effective budget management.</p>
                                     </div>
                                     <div>
-                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">User-Friendly Interface <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><FaDatabase /></span></h1>
+                                        <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">User-Friendly Interface <span className="flex items-center justify-center w-10 h-10 p-2 bg-blue-100 rounded-full text-start"><MdManageAccounts  /></span></h1>
                                         <p className="text-gray-500">Furni-Track offers a user-friendly interface, making it easy for users to access, input, and analyze furniture data. Whether tracking individual items, viewing movement histories, or managing maintenance records, the system provides intuitive tools and features that streamline workflow and enhance productivity.</p>
                                     </div>
 
                                     <div>
-                                        <p>In summary, Furni-Track is a versatile and reliable solution that meets the diverse needs of furniture asset management, providing comprehensive data storage, spatial tracking, maintenance recordkeeping, efficient management and analysis, and a user-friendly interface for seamless operation.</p>
+                                        <p className="text-gray-600"><span className="text-lg text-purple-500 italic font-bold">In summary</span>, Furni-Track is a versatile and reliable solution that meets the diverse needs of furniture asset management, providing comprehensive data storage, spatial tracking, maintenance recordkeeping, efficient management and analysis, and a user-friendly interface for seamless operation.</p>
                                     </div>
                                 </div>
                             </div>
