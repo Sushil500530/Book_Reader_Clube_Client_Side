@@ -66,7 +66,7 @@ const Navbar = ({ children }) => {
                 <hr className="w-[80%] h-[2px] bg-fuchsia-600 mx-auto mb-5" />
                 {
                     sales?.length === 0 && <div className="flex flex-col w-full h-auto p-8 gap-5">
-                        <h1 className="text-xl font-bold">Sorry! <br /> Your Product is not found</h1>
+                        <h1 className="text-xl font-bold"><span className="text-2xl text-purple-600">Oops</span>! <br /> Your Product is not found</h1>
                         <img src={notImage} className="w-full h-[40vh]" alt="not-found-product" />
                     </div>
                 }

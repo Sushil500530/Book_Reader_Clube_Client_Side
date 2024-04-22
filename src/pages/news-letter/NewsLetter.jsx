@@ -1,9 +1,10 @@
+import toast from "react-hot-toast";
 
 
 const NewsLetter = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('ok boss!')
+        toast.success('Thanks for following our Institution!')
     }
     return (
         <div className="lg:max-w-[2520px] h-auto mx-auto xl:px-20 w-full mt-12">
