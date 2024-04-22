@@ -1,5 +1,5 @@
 
-import image from '../../../assets/image/feature/banner-1.png'
+// import image from '../../../assets/image/feature/banner-1.png'
 import { Parallax, } from 'react-parallax';
 
 const ServiceFeature = () => {
@@ -11,12 +11,12 @@ const ServiceFeature = () => {
                 <div>
                     <Parallax
                         blur={{ min: -50, max: 50 }}
-                        bgImage={image}
+                        bgImage='https://i.ibb.co/Ky6L4KG/furniture.jpg'
                         bgImageAlt="the menu"
                         strength={-200}
                         Radius={100}
                     >
-                        <div className=" h-[60vh] lg:h-[80vh] hero" >
+                        <div className=" h-[60vh] lg:h-[90vh] hero" >
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-center text-neutral-content">
                                 <div className="w-3/5">
