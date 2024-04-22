@@ -1,5 +1,6 @@
 import Banner from '../../components/banner/Banner';
 import FooterPage from '../footer/FooterPage';
+import NewsLetter from '../news-letter/NewsLetter';
 import SomeDetails from '../some/SomeDetails';
 import FurniCate from './furni-category/FurniCate';
 import './home.css'
@@ -20,6 +21,7 @@ const Home = () => {
             <SomeDetails />
             <ServiceFeature />
             <Testimonials />
+            <NewsLetter />
             <FooterPage />
         </div>
     );

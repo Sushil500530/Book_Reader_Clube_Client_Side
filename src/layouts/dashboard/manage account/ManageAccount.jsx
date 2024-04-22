@@ -56,7 +56,7 @@ const ManageAccount = () => {
                         </div>
                     </div>
                     <div>
-                        <button onClick={handleAdd} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Add Your Account</button>
+                        <button onClick={handleAdd} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-base hover:text-blue-300">Add Your Account</button>
                     </div>
                 </div>)
             }

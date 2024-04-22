@@ -122,7 +122,7 @@ const About = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="mb-8 mt-32 ">
+                            <div className="my-32 ">
                                 <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] mb-1 text-center">What will meet the needs and Flow...!</h1>
                                 <p className="text-center text-neutral-500">Furni-Track is designed to meet the comprehensive needs of furniture asset management, ensuring efficient tracking, organization, and maintenance of furniture items.</p>
                             </div>

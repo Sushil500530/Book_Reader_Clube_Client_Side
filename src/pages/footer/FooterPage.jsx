@@ -53,7 +53,7 @@ const FooterPage = () => {
                             <label className="label">
                                 <span className="label-text text-white dark:text-white">Enter your email address</span>
                             </label>
-                            <div className="join flex items-center flex-col md:flex-row lg:flex-row w-auto h-auto gap-5 md:gap-0 lg:gap-0">
+                            <div className="join flex items-center flex-row md:flex-row lg:flex-row w-full h-auto gap-0">
                                 <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="username@site.com" className="input text-black input-bordered input-info join-item w-full" required />
                                 <input type="submit" onClick={handleSubscribe} className="btn  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] join-item" value='Subscribe' />
                             </div>
