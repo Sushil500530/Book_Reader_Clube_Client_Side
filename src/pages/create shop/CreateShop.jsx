@@ -51,7 +51,7 @@ const CreateShop = () => {
                 .then(res => {
                     // console.log(res.data);
                     if (res.data?.insertedId) {
-                           setLoading(false)
+                        setLoading(false)
                         Swal.fire({
                             title: "Create Successfull!",
                             text: "You clicked the button!",
@@ -68,63 +68,65 @@ const CreateShop = () => {
         }
     }
     return (
-        <div className='bg-zinc-500'>
-            <Container>
-                <div className='lg:w-1/2 w-full bg-base-100 shadow mx-auto pt-3 px-10 pb-12'>
-                    {/* <Helmet>
+        <>
+            <div className="bg-[url('https://i.postimg.cc/vmSBBBsB/bg-image2.webp')] w-full min-h-screen bg-cover bg-no-repeat ">
+                <Container>
+                    <div className='lg:w-1/2 w-full bg-gradient-to-t from-zinc-700 text-gray-200 shadow mx-auto pt-3 px-10 pb-14'>
+                        {/* <Helmet>
                 <title>Create Shop | Inventory M </title>
             </Helmet> */}
-                    <h2 className="text-2xl font-bold text-center dark:text-white my-12 flex items-center justify-center gap-2">Create a New Shop   <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
-                    <form onSubmit={handleCreateShop}>
-                        <div className='grid grid-cols-1 dark:text-white '>
-                            <div className='space-y-6'>
-                                <div className='flex gap-4 items-center justify-center'>
-                                    <div className='space-y-2 w-full'>
-                                        <label htmlFor='location' className='block text-black font-medium dark:text-white'>
-                                            Shop Name
+                        <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold text-center text-gray-200 dark:text-gray-200 my-12 flex items-center justify-center gap-2 ">Create a New <span className='text-fuchsia-500'>Shop</span> <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
+                        <form onSubmit={handleCreateShop}>
+                            <div className='grid grid-cols-1 dark:text-gray-200  text-gray-200'>
+                                <div className='space-y-6'>
+                                    <div className='flex gap-4 items-center justify-center'>
+                                        <div className='space-y-2 w-full'>
+                                            <label htmlFor='location' className='block text-gray-200 font-medium dark:text-gray-200'>
+                                                Shop Name
+                                            </label>
+                                            <input
+                                                className=' w-full px-4 py-3  text-gray-200 bg-transparent border rounded-md border-blue-400 '
+                                                name='shop_name' id='shop_name' type='text' placeholder='shop name...' required
+                                            />
+                                        </div>
+                                        <div className='space-y-1 w-full'>
+                                            <label htmlFor='location' className='block text-gray-200 font-medium dark:text-gray-200'>
+                                                Location
+                                            </label>
+                                            <input className='w-full px-4 py-3 bg-transparent text-gray-800 border rounded-md  border-blue-400 '
+                                                name='location' id='location' type='text' placeholder='Location...' required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className=' py-4 bg-transparent w-full m-auto rounded-lg'>
+                                        <label className="block text-gray-200 font-medium dark:text-gray-200"> Shop Logo</label>
+                                        <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                            <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                        </div>
+                                    </div>
+                                    <div className='space-y-1 '>
+                                        <label htmlFor='description' className='block font-medium'>
+                                            Description
                                         </label>
-                                        <input
-                                            className=' w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
-                                            name='shop_name' id='shop_name' type='text' placeholder='shop name' required
-                                        />
-                                    </div>
-                                    <div className='space-y-1 w-full'>
-                                        <label htmlFor='location' className='block text-black font-medium dark:text-white'>
-                                            Location
-                                        </label>
-                                        <input className='w-full px-4 py-3 text-gray-800 border rounded-md  border-blue-400 '
-                                            name='location' id='location' type='text' placeholder='Location' required
-                                        />
+                                        <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 bg-transparent text-gray-200  border rounded-md  border-blue-400 ' name='description' placeholder="Write description...."
+                                        ></textarea>
                                     </div>
                                 </div>
-                                <div className=' py-4 bg-white w-full m-auto rounded-lg'>
-                                    <label className="block text-black font-medium dark:text-white"> Shop Logo</label>
-                                    <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
-                                    </div>
-                                </div>
-                                <div className='space-y-1 '>
-                                    <label htmlFor='description' className='block font-medium'>
-                                        Description
-                                    </label>
-                                    <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md  border-blue-400 ' name='description' placeholder="Write description"
-                                    ></textarea>
-                                </div>
-                            </div>
 
-                            <button type='submit' className='btn w-full p-3 mt-5 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black ' >
-                                {loading ? (
-                                    <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
-                                ) : (
-                                    'Create Shop'
-                                )}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </Container>
+                                <button type='submit' className='btn w-full p-3 mt-5 text-[18px] text-center font-medium hover:text-gray-200 transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-gray-200 ' >
+                                    {loading ? (
+                                        <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
+                                    ) : (
+                                        'Create Shop'
+                                    )}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </Container>
+            </div>
             <FooterPage />
-        </div>
+        </>
     );
 };
 
