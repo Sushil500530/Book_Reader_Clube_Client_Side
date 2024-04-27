@@ -71,7 +71,7 @@ const CreateShop = () => {
         <>
             <div className="bg-[url('https://i.postimg.cc/vmSBBBsB/bg-image2.webp')] w-full min-h-screen bg-cover bg-no-repeat ">
                 <Container>
-                    <div className='lg:w-1/2 w-full bg-gradient-to-t from-zinc-700 text-gray-200 shadow mx-auto pt-3 px-10 pb-14'>
+                    <div className='lg:w-1/2 w-full bg-gradient-to-t from-zinc-800 text-gray-200 shadow mx-auto pt-3 px-10 pb-14'>
                         {/* <Helmet>
                 <title>Create Shop | Inventory M </title>
             </Helmet> */}

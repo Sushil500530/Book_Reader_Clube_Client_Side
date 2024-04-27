@@ -79,10 +79,10 @@ const SignupPage = () => {
         <div className="bg-[url('https://i.postimg.cc/RFDMMbwn/bg-image1.jpg')] w-full min-h-screen bg-cover bg-no-repeat ">
             <Container>
                 <div className="container mx-auto dark:text-white mb-12 flex flex-col lg:flex-row items-center justify-center gap-5">
-                    <div className="bg-[url('https://i.ibb.co/VHvdndf/Animated-Shape.png')] w-full lg:w-3/5 h-[80vh] bg-no-repeat bg-center bg-cover flex items-center justify-center p-5 rounded-md">
+                    <div className="w-full lg:w-3/5 min-h-[70vh] bg-no-repeat bg-center bg-cover flex items-center justify-center p-5 rounded-md">
                         <img src={loginImage} alt="" />
                     </div>
-                    <div className="card-body p-0 lg:p-8 border m-5 w-full lg:w-1/2">
+                    <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gradient-to-t from-zinc-800 pb-8 ">
                         <form onSubmit={handleSubmit(handleSignIn)} className="p-5 space-y-3 text-gray-200">
                             <h1 className="text-3xl font-bold mb-12 text-white">Please Register Now🤠</h1>
                             <div className="space-y-3">
@@ -121,9 +121,11 @@ const SignupPage = () => {
                                 )}
                             </button>
                         </form>
-                        <div className="w-3/5 mx-auto pb-6">
+                        <div className="w-[90%] md:w-2/3 lg:w-[80%] mx-auto pb-6">
                             <div className="divider text-2xl">Or</div>
-                            <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
+                            <div className="space-y-3 mt-6 w-full">
+                                <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
+                            </div>
                         </div>
                     </div>
                 </div>
