@@ -109,11 +109,11 @@ const SignupPage = () => {
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Set Your Profile Picture</label>
-                                <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full border dark:text-black mb-1" id="" />
+                                <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full border dark:text-black mb-1 bg-transparent" id="" />
                                 {errors.image && <span className="text-red-500 mt-1">image is required!</span>}
                             </div>
                             <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 underline">Sign In</Link></p>
-                            <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full">
+                            <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full  outline-none border-none">
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
