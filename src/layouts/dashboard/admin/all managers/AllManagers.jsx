@@ -43,13 +43,13 @@ const AllManagers = () => {
     if (isLoading) {
         return <Loader />
     }
-
+console.log(managers);
     return (
         <div>
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
-                <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Promotion is Comming here Soon!</h1>
+                <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Promotion is Comming here Soon!</h1>
             </ManagerModal>
-            <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers({managers?.length})</h1>
+            <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers({managers?.length})</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
                     managers?.map(item =>
@@ -57,7 +57,7 @@ const AllManagers = () => {
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
                                 <figure className="w-24 h-24 ">
                                     <img src={item?.shop_logo} alt="love-image" className="w-full h-full rounded-full border border-purple-500" />
-                                </figure>
+                                </figure>   
                             </div>
                             <h3 className="text-xl">Name: {item?.owner}</h3>
                             <p className='text-[17px] '>Shop Name: {item?.shop_name}</p>

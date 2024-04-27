@@ -64,41 +64,43 @@ const LoginPage = () => {
     }
 
     return (
-        <Container>
-            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 dark:text-white mb-12">
-                <div className="bg-[url('https://i.ibb.co/VHvdndf/Animated-Shape.png')] w-full min-h-[50vh] lg:w-3/5 lg:h-[80vh] bg-no-repeat bg-center bg-cover flex items-center justify-center p-5 rounded-md">
-                    <img src={loginImage} alt="" />
-                </div>
-                <div className="card-body p-0 lg:p-8 border m-5 w-full lg:w-1/2">
-                    <form onSubmit={handleSubmit} className="p-5 space-y-3">
-                        <h1 className="text-3xl font-bold mb-12">Please Login🤔</h1>
-                        <div className="space-y-3">
-                            <label className="text-[18px]  font-medium">Email Address</label>
-                            <input type="email" name="email" className="input input-bordered input-info bg-[#F3F3F3] w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address" required />
-                        </div>
-                        <div className="space-y-3">
-                            <label className="text-[18px] font-medium">Password</label>
-                            <input type="password" name="password" className="input input-bordered input-info bg-[#F3F3F3] w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password" required />
-                        </div>
-                        <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline">Sign up</Link></p>
-                        <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full">
-                            {loading ? (
-                                <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
-                            ) : (
-                                'Sign in'
-                            )}
+        <div className="bg-[url('https://i.postimg.cc/RFDMMbwn/bg-image1.jpg')] w-full min-h-screen bg-cover bg-no-repeat ">
+            <Container> 
+                <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 dark:bg-zinc-800 dark:text-white mb-12">
+                    <div className="bg-[url('https://i.ibb.co/VHvdndf/Animated-Shape.png')] w-full min-h-[50vh] lg:w-3/5 lg:h-[80vh] bg-no-repeat bg-center bg-cover flex items-center justify-center p-5 rounded-md">
+                        <img src={loginImage} alt="" />
+                    </div>
+                    <div className="card-body p-0 lg:p-8 border m-5 w-full lg:w-1/2 text-white">
+                        <form onSubmit={handleSubmit} className="p-5 space-y-3">
+                            <h1 className="text-3xl  font-bold mb-12">Please Login🤔</h1>
+                            <div className="space-y-3">
+                                <label className="text-[18px]  font-medium">Email Address</label>
+                                <input type="email" name="email" className="input input-bordered input-info bg-[#F3F3F3] text-black w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address" required />
+                            </div>
+                            <div className="space-y-3">
+                                <label className="text-[18px] font-medium">Password</label>
+                                <input type="password" name="password" className="input input-bordered input-info bg-[#F3F3F3] text-black w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password" required />
+                            </div>
+                            <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline">Sign up</Link></p>
+                            <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full">
+                                {loading ? (
+                                    <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
+                                ) : (
+                                    'Sign in'
+                                )}
 
-                        </button>
-                    </form>
-                    <div className="w-3/5 mx-auto pb-6">
-                        <div className="divider text-2xl">Or</div>
-                        <div className="space-y-3 mt-6">
-                            <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
+                            </button>
+                        </form>
+                        <div className="w-3/5 mx-auto pb-6">
+                            <div className="divider text-2xl">Or</div>
+                            <div className="space-y-3 mt-6">
+                                <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </Container>
+            </Container >
+        </div>
     );
 };
 

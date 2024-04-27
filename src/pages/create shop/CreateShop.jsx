@@ -68,9 +68,9 @@ const CreateShop = () => {
         }
     }
     return (
-        <>
+        <div className='bg-zinc-500'>
             <Container>
-                <div className='lg:w-1/2 w-full bg-base-100 shadow mx-auto pt-3 px-10 pb-12 '>
+                <div className='lg:w-1/2 w-full bg-base-100 shadow mx-auto pt-3 px-10 pb-12'>
                     {/* <Helmet>
                 <title>Create Shop | Inventory M </title>
             </Helmet> */}
@@ -124,7 +124,7 @@ const CreateShop = () => {
                 </div>
             </Container>
             <FooterPage />
-        </>
+        </div>
     );
 };
 
