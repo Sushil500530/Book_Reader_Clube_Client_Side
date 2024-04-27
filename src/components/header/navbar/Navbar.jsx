@@ -41,7 +41,7 @@ const Navbar = ({ children }) => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle text-white" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
-                <div className={`w-full navbar fixed z-10 ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " : "bg-transparent text-purple-500"}`} > 
+                <div className={`w-full navbar fixed z-10 ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " : "bg-transparent text-purple-500"}`} >
                     <div className="lg:max-w-[2520px] h-auto mx-auto xl:px-20 w-full  flex items-center justify-between lg:flex-row flex-row-reverse">
                         <div className="flex-none lg:hidden text-fuchsia-500 ">
                             <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">

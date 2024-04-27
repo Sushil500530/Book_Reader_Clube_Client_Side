@@ -27,6 +27,7 @@ const AllShop = () => {
 
     // console.log('find filtered value---------->', filterValue);
 
+
     useEffect(() => {
         const findData = furnitures?.filter(furniture => furniture?.title.toLowerCase().includes(searchValue.toLowerCase()));
         setCurrentFurnitures(findData);
@@ -44,7 +45,11 @@ const AllShop = () => {
     }
 
 
+
     const handleSetData = async (data) => {
+        if (!user) {
+            return toast.error("please login first, then add to cart or other....!")
+        }
         const discountPrice = data?.discount / 100 * parseFloat(data?.price);
         const currentPrice = Math.round((data?.price - discountPrice).toFixed(2));
         const buyProduct = {
@@ -95,7 +100,7 @@ const AllShop = () => {
                             <FaSearch className="text-2xl absolute top-3  right-2" />
                         </div>
                         <select onChange={() => setFilterValue(event.target.value)} defaultValue={category} className="input-bordered w-[60%] lg:w-1/3 px-4 py-3 text-gray-800 border rounded-md border-blue-400 ">
-                            <option selected disabled>Filter By Category</option>   
+                            <option selected disabled>Filter By Category</option>
                             <option value='all-products'>All Product</option>
                             {
                                 category?.length > 0 && category.map(categ => <option key={categ?._id} required>
@@ -107,7 +112,7 @@ const AllShop = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                         {
-                            currentFurnitures?.length > 0 && currentFurnitures?.map((furniture,idx) =>
+                            currentFurnitures?.length > 0 && currentFurnitures?.map((furniture, idx) =>
                                 <div key={idx} className="bg-gradient-to-b from-[#2241b0] to-[#000000] text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
                                     <div className="flex items-center justify-center w-full py-3 -mt-12">
                                         <figure className="w-40 h-40 ">
@@ -136,7 +141,7 @@ const AllShop = () => {
                         {
                             currentFurnitures?.length <= 0 && <div className="flex items-center justify-center flex-col gap-5 w-full h-[40vh] pb-12">
                                 <h1 className="font-medium text-transparent text-xl md:text-2xl lg:text-3xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-start">Products is Not Found!</h1>
-                               <h1> <FcCancel className="text-6xl" /></h1>
+                                <h1> <FcCancel className="text-6xl" /></h1>
                             </div>
                         }
                     </div>

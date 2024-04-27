@@ -2,9 +2,9 @@
 import toast from "react-hot-toast";
 import { useAuth } from "../../../hooks/useAuth";
 import ManuList from "../../../shared/manuItems/ManuList";
-import { FaHome, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
-import { MdAddShoppingCart, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
-import { FcAbout } from "react-icons/fc";
+import { FaBlog, FaHome, FaSignOutAlt, } from 'react-icons/fa';
+import { MdAddShoppingCart, MdExpandLess, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
+import { FcAbout, FcContacts } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
 const Sidebar = ({ handleToggle,sales }) => {
     const { user, logoutUser } = useAuth()
@@ -43,6 +43,23 @@ const Sidebar = ({ handleToggle,sales }) => {
                     }
                     <ManuList address={'about'} linkTitle={"About"} icon={FcAbout} />
                     <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
+                    <div className="group relative ">
+                        <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group">Pages <MdExpandLess className="text-2xl rotate-180 hover:rotate-0 w-full group-hover:visible" /></button>
+                        <div className="transition transform translate-y-8 ease-in-out invisible absolute group-hover:visible top-0 left-32 w-full h-auto text-white group-hover:translate-y-5 bg-base-300 pb-5">
+                            <NavLink to='about' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                                <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
+                                About
+                            </NavLink>
+                            <NavLink to='contact' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                                <span>{<FcContacts className="w-5 h-8 mr-1 " />}</span>
+                                Contact
+                            </NavLink>
+                            <NavLink to='blog' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                                <span>{<FaBlog className="w-5 h-8 mr-1 " />}</span>
+                                Blog
+                            </NavLink>
+                        </div>
+                    </div>
                     {
                         user?.email ? <div className="flex gap-3 mt-5">
                             <div className="dropdown dropdown-end">
@@ -64,9 +81,6 @@ const Sidebar = ({ handleToggle,sales }) => {
                         </div> :
                             <>
                                 <ManuList address={'login'} linkTitle={"Login"} icon={MdLogin} />
-                                <span className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] rounded-md text-white animate-bounce hover:animate-none mt-5">
-                                    <ManuList address={'signup'} linkTitle={"Signup"} icon={FaUserPlus} />
-                                </span>
                             </>
                     }
                 </ul>
