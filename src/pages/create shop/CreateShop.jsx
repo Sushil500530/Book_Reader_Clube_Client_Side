@@ -113,7 +113,7 @@ const CreateShop = () => {
                                     </div>
                                 </div>
 
-                                <button type='submit' className='btn w-full p-3 mt-5 text-[18px] text-center font-medium hover:text-gray-200 transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-gray-200 ' >
+                                <button type='submit' className='btn w-full p-3 mt-5 text-[18px] text-center font-medium hover:text-gray-200 transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-gray-200  outline-none border-none' >
                                     {loading ? (
                                         <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                     ) : (

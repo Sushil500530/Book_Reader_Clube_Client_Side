@@ -75,14 +75,14 @@ const LoginPage = () => {
                             <h1 className="text-3xl  font-bold mb-12">Please Login🤔</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Email Address</label>
-                                <input type="email" name="email" className="input input-bordered input-info bg-[#F3F3F3] text-black w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address" required />
+                                <input type="email" name="email" className="input input-bordered input-info bg-transparent text-gray-200 w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address..." required />
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px] font-medium">Password</label>
-                                <input type="password" name="password" className="input input-bordered input-info bg-[#F3F3F3] text-black w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password" required />
+                                <input type="password" name="password" className="input input-bordered input-info bg-transparent text-gray-200 w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password..." required />
                             </div>
                             <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline">Sign up</Link></p>
-                            <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full">
+                            <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] outline-none border-none font-medium hover:text-blue-500 w-full">
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
