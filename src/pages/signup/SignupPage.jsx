@@ -83,16 +83,16 @@ const SignupPage = () => {
                         <img src={loginImage} alt="" />
                     </div>
                     <div className="card-body p-0 lg:p-8 border m-5 w-full lg:w-1/2">
-                        <form onSubmit={handleSubmit(handleSignIn)} className="p-5 space-y-3">
-                            <h1 className="text-3xl font-bold mb-12">Please Register Now🤠</h1>
+                        <form onSubmit={handleSubmit(handleSignIn)} className="p-5 space-y-3 text-gray-200">
+                            <h1 className="text-3xl font-bold mb-12 text-white">Please Register Now🤠</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Username </label>
-                                <input type="text"  {...register("name", { required: true })} name="name" className="input input-bordered input-info bg-[#F3F3F3] w-full border-blue-500 dark:text-black mb-2" id="" placeholder="Enter your name" />
+                                <input type="text"  {...register("name", { required: true })} name="name" className="input input-bordered input-info bg-transparent w-full border-blue-500 dark:text-black mb-2" id="" placeholder="Enter your name...." />
                                 {errors.name && <span className="text-red-500 mt-2">name is required!</span>}
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Email Address</label>
-                                <input type="email"  {...register("email", { required: true })} name="email" className="input input-bordered input-info bg-[#F3F3F3] w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address" />
+                                <input type="email"  {...register("email", { required: true })} name="email" className="input input-bordered input-info bg-transparent w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address" />
                                 {errors.email && <span className="text-red-500 mt-1">email is required!</span>}
                             </div>
                             <div className="space-y-3">
@@ -100,7 +100,7 @@ const SignupPage = () => {
                                 <input type="password"  {...register("password", {
                                     required: true, minLength: 6,
                                     pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-                                })} name="password" className="input input-bordered input-info bg-[#F3F3F3] w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password" />
+                                })} name="password" className="input input-bordered input-info bg-transparent w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password" />
                                 {errors.password?.type === "minLength" && <span className="text-red-600">password length must be 6 characters or longer!</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-600">password must have one uppercase one lowercase one number and one special character!</span>}
                                 {errors.password?.type === "required" && (
