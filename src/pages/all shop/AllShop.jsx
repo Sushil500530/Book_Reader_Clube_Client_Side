@@ -95,7 +95,7 @@ const AllShop = () => {
                             <FaSearch className="text-2xl absolute top-3  right-2" />
                         </div>
                         <select onChange={() => setFilterValue(event.target.value)} defaultValue={category} className="input-bordered w-[60%] lg:w-1/3 px-4 py-3 text-gray-800 border rounded-md border-blue-400 ">
-                            <option selected disabled>Filter By Category</option>
+                            <option selected disabled>Filter By Category</option>   
                             <option value='all-products'>All Product</option>
                             {
                                 category?.length > 0 && category.map(categ => <option key={categ?._id} required>
@@ -107,8 +107,8 @@ const AllShop = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                         {
-                            currentFurnitures?.length > 0 && currentFurnitures?.map(furniture =>
-                                <div key={furniture?._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
+                            currentFurnitures?.length > 0 && currentFurnitures?.map((furniture,idx) =>
+                                <div key={idx} className="bg-gradient-to-b from-[#2241b0] to-[#000000] text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
                                     <div className="flex items-center justify-center w-full py-3 -mt-12">
                                         <figure className="w-40 h-40 ">
                                             <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />

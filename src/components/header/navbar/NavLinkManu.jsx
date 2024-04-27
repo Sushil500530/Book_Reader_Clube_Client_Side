@@ -3,7 +3,7 @@ import ManuList from "../../../shared/manuItems/ManuList";
 import { FaHome, FaSignOutAlt,FaBlog } from "react-icons/fa";
 import { GiFurnace } from "react-icons/gi";
 import { MdAddShoppingCart, MdExpandLess } from "react-icons/md";
-import { FaUserPlus } from "react-icons/fa6";
+// import { FaUserPlus } from "react-icons/fa6";
 import { MdLogin } from "react-icons/md";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdShoppingBasket } from "react-icons/md";
@@ -81,9 +81,9 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                         </div> :
                             <>
                                 <ManuList address={'login'} linkTitle={"Login"} icon={MdLogin} />
-                                <span className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] rounded-md text-white animate-bounce hover:animate-none ">
+                                {/* <span className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] rounded-md text-white animate-bounce hover:animate-none ">
                                     <ManuList address={'signup'} linkTitle={"Signup"} icon={FaUserPlus} />
-                                </span>
+                                </span> */}
                             </>
                     }
                 </ul>

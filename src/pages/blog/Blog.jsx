@@ -118,7 +118,6 @@ const Blog = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </Container>
     );
