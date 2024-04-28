@@ -93,7 +93,7 @@ const CreateShop = () => {
                                             <label htmlFor='location' className='block text-gray-200 font-medium dark:text-gray-200'>
                                                 Location
                                             </label>
-                                            <input className='w-full px-4 py-3 bg-transparent text-gray-800 border rounded-md  border-blue-400 '
+                                            <input className='w-full px-4 py-3 bg-transparent text-gray-200 border rounded-md  border-blue-400 '
                                                 name='location' id='location' type='text' placeholder='Location...' required
                                             />
                                         </div>

@@ -63,7 +63,7 @@ const DashboardLayout = () => {
                         <FooterManu />
                     </div>
                 </div>
-                <div className="ml-0 md:ml-0 lg:ml-[260px] w-full h-[100vh] px-5 dark:text-white bg-[#f0f2f5] dark:bg-zinc-800">
+                <div className="ml-0 md:ml-0 lg:ml-[260px] w-full min-h-[100vh] px-5 dark:text-white bg-[#f0f2f5] dark:bg-zinc-800">
                     <Outlet></Outlet>
                 </div>
             </div>

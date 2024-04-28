@@ -31,9 +31,9 @@ const ManageAccount = () => {
     }
 
     return (
-        <div className="mt-12">
+        <div className="">
             <div className="w-full h-auto bg-white shadow-xl pb-3 sticky inset-0 top-0">
-                <h1 className="text-2xl py-3 font-bold text-center flex items-center justify-center gap-3">Manage Account <MdManageAccounts className="w-8 h-8 text-fuchsia-500" /></h1>
+                <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-3 py-8">Manage Account <MdManageAccounts className="w-8 h-8 text-fuchsia-500" /></h1>
                 <form onSubmit={handleSearch} className="flex items-center justify-center gap-2 relative w-full md:w-[70%] lg:w-1/2 mx-auto mt-5">
                     <input onChange={() => setSearch(event.target.value)} type="search" name="search" placeholder="Search Your Account......" className="input input-bordered input-info w-full pr-28" />
                     <button type="submit" className="btn  absolute right-0 top-0 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Search</button>
