@@ -35,8 +35,11 @@ const PaymentDetails = () => {
                  }
           });
     }
+    if(isLoading){
+        return <Loader />
+    }
     return (
-        <div>
+        <div className="mt-12">
             <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-2">Payment Details <BiSolidCommentDetail className="w-8 h-8 text-fuchsia-500" /></h1>
             <div className="my-12">
                 <div className="overflow-x-auto">

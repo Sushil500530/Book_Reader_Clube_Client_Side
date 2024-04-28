@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Promotion = () => {
     return (
-        <div>
-            <h1 className="text-2xl font-bold text-center mt-5 mb-8 flex items-center gap-2 justify-center">Do You Want to Sell Your Product? Upgrade Now🎉<Link to='/dashboard/create-shop'> <button className="animate animate-pulse text-fuchsia-600">Click Here</button></Link></h1>
+        <div className="mt-12">
+            <h1 className="text-2xl font-bold text-center flex items-center gap-2 justify-center mb-8">Do You Want to Sell Your Product? Upgrade Now🎉<Link to='/dashboard/create-shop'> <button className="animate animate-pulse text-fuchsia-600">Click Here</button></Link></h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div className="w-full h-[550px]">
                     <img src={createImage} className="w-full h-full" alt="image" />

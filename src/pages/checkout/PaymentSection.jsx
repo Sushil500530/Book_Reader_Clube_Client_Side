@@ -9,11 +9,13 @@ const PaymentSection = () => {
     const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GET_KEY_TOKEN)
     return (
         <Container>
-            <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-2">Please <FaAmazonPay className="w-14 h-14 text-fuchsia-500" /> Now!</h1>
-            <h1 className="text-xl font-bold text-center flex items-center mt-3 justify-center gap-2">Give Your Card <FaIdCard className="w-7 h-7 text-fuchsia-500" /> Number!</h1>
-            <Elements stripe={stripePromise}>
-               <CheckoutForm />
-            </Elements>
+            <div className="mt-12">
+                <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-2">Please <FaAmazonPay className="w-14 h-14 text-fuchsia-500" /> Now!</h1>
+                <h1 className="text-xl font-bold text-center flex items-center mt-3 justify-center gap-2">Give Your Card <FaIdCard className="w-7 h-7 text-fuchsia-500" /> Number!</h1>
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm />
+                </Elements>
+            </div>
         </Container>
     );
 };
