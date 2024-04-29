@@ -8,6 +8,7 @@ import LocationStatus from './location/LocationStatus';
 import Other from './other/Other';
 import ServiceFeature from './service feature/ServiceFeature';
 import Testimonials from './testimonials/Testimonials';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
             <Testimonials />
             <NewsLetter />
             <FooterPage />
+            <MessengerCustomerChat  pageId="132608119925178"  appId="2655250701318445" />
         </div>
     );
 };

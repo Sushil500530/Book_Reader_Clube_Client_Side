@@ -12,7 +12,7 @@ const SubFurniHome = () => {
     console.log(data);
     return (
         <>
-            <SubFurniBanner features={features} />
+            <SubFurniBanner features={features} data={data} />
             <Container>
                 <h1 className="text-3xl font-bold relative -top-12 ">{data[0]?.category} is Here....</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 mb-12">
