@@ -67,7 +67,10 @@ const SignupPage = () => {
                         .then(res => {
                             console.log(res.data);
                         })
-                        .catch(error => toast.error(error.message))
+                        .catch(error => {
+                            setLoading(false);
+                            toast.error(error.message)
+                        })
                     navigate(location.state ? location?.state : '/');
                     return toast.success('Login Successfull...!');
                 }

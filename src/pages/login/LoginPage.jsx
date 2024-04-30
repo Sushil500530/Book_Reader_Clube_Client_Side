@@ -39,6 +39,7 @@ const LoginPage = () => {
     }
 
     const handleGoogleSignIn = () => {
+        setLoading(true);
         googleSignIn()
             .then(res => {
                 const userInfo = {
@@ -50,7 +51,10 @@ const LoginPage = () => {
                 };
                 axiosPbulic.post('/users', userInfo)
                     .then(() => { })
-                    .catch(error => toast.error(error.message))
+                    .catch(error =>{
+                        setLoading(false);
+                        toast.error(error.message)
+                    })
                 // console.log(location?.state);
                 navigate(location?.state ? location?.state : '/');
                 return toast.success('Login Successfull...!');
