@@ -119,7 +119,7 @@ const CheckoutForm = () => {
 
 
     return (
-        <div className="mt-10 p-5 w-full h-full">
+        <div className="mt-10 p-5 w-full h-full mb-12">
             <div className="lg:w-[550px] md:w-[550px] w-full h-auto mx-auto">
                 <form >
                     <CardElement className="border border-black px-5 py-2 focus:border-[#f3f3f3] text-[20px] rounded"
@@ -162,13 +162,12 @@ const CheckoutForm = () => {
                 <h1 className="flex items-center justify-center gap-2 text-2xl">Create a Furni Track Shop <IoIosCreate className="w-8 h-8 text-fuchsia-500" /></h1>
                 <h1 className="text-2xl my-3">Get <span className="text-fuchsia-500">Discount</span> Offer🎉</h1>
             </div>
-            <div className="w-full lg:w-[80%] mx-auto h-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-between mt-12 gap-8">
+            <div className="w-full lg:w-full xl:w-[80%] mx-auto h-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-between mt-12 gap-8">
                 <div className="col-span-1 border pb-12">
                     <div className="w-full h-auto rounded-t-xl bg-green-700 text-white p-5">
                         <h1 className="text-2xl text-start mb-1">Entry</h1>
                         <h1 className="text-6xl flex gap-3 items-center justify-center ">
                             $14 <span className="text-base">/month</span> <button className="text-xl bg-[#fafcfa] px-5 py-2 rounded-full text-black border-2 border-fuchsia-500 md:border-none lg:border-none">10% OFF</button> </h1>
-
                         <p className="mt-5">Easy Start on Your Bussiness</p>
                     </div>
                     <div className="flex flex-col items-center justify-between ">

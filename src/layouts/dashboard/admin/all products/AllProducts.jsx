@@ -67,7 +67,7 @@ const AllProducts = () => {
         setFindData(currentData)
     }
     return (
-        <div className="mb-20">
+        <div className="mb-20 mt-8">
             <SpecificData isOpen={isOpen} closeModal={closeModal} findData={findData} />
             <div className=" flex items-center justify-between flex-col lg:flex-row container mx-auto">
                 <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Products({furnitures?.length})</h1>

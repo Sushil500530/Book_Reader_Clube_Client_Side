@@ -1,14 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { MdOutlineFavorite } from "react-icons/md";
-import { BiSolidCommentDetail } from "react-icons/bi";
-import { MdDateRange } from "react-icons/md";
-import { FcManager } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
-import { Bar } from "recharts";
+
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+
 import CustomChart from "./charts/CustomChart";
 // import Revenue from "./Revenue/Revenue";
-// import Analytic from "./Revenue/Analytic/Analytic";
 
 const UserHome = () => {
 

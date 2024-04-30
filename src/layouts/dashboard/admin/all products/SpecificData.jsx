@@ -19,7 +19,7 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                                         {findData?.title}
                                     </Dialog.Title>
                                     <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
+                                        <p className="text-sm text-gray-500 pb-2">
                                             {findData?.description}
                                         </p>
                                     </div>
