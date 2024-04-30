@@ -10,6 +10,12 @@ const PaymentDetails = () => {
     const [payments, refetch, isLoading] = usePaymentD();
     const axiosSecure = useAxiosSecure();
     console.log(payments);
+    const sortData = [...payments].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
+    console.log(sortData);
+
+    // ['65945a52ce557628b9b1223b', '65945a52ce557628b9b12253', '65945a52ce557628b9b1223c', '65945a52ce557628b9b12248']
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -19,23 +25,23 @@ const PaymentDetails = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                 axiosSecure.delete(`/payment/${id}`)
-                 .then(res => {
-                    if(res.data?.deletedCount > 0 ){
-                        refetch()
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                          });
+                axiosSecure.delete(`/payment/${id}`)
+                    .then(res => {
+                        if (res.data?.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
                         }
                     })
-                 }
-          });
+            }
+        });
     }
-    if(isLoading){
+    if (isLoading) {
         return <Loader />
     }
     return (
@@ -57,24 +63,24 @@ const PaymentDetails = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                payments?.map((payment, index) => 
-                                <tr key={payment?._id} className="text-[17px]">
-                                    <th>{index + 1}</th>
-                                    <th>{payment?.email} </th>
-                                    <td>${payment?.price}</td>
-                                    <td>{payment?.date?.slice(0,10)}</td>
-                                    <td>
-                                        <button onClick={() => handleDelete(payment?._id)} className="btn bg-red-600 text-white hover:text-red-600"><MdDelete className="w-9 h-9" /></button>
-                                    </td>
-                                   
-                                </tr>)
+                                sortData?.map((payment, index) =>
+                                    <tr key={payment?._id} className="text-[17px]">
+                                        <th>{index + 1}</th>
+                                        <th>{payment?.email} </th>
+                                        <td>${payment?.price}</td>
+                                        <td>{payment?.date?.slice(0, 10)}</td>
+                                        <td>
+                                            <button onClick={() => handleDelete(payment?._id)} className="btn bg-red-600 text-white hover:text-red-600"><MdDelete className="w-9 h-9" /></button>
+                                        </td>
+
+                                    </tr>)
                             }
                         </tbody>
                     </table>
                     {
-                        payments?.length <= 0 && <div className="flex items-center justify-center gap-3 flex-col w-full h-[50vh]">
-                        <h1 className="text-2xl font-bold">Not Found Your Payment Details <span className="text-fuchsia-600 text-3xl font-bold">!</span></h1>
-                        <BiSolidFileFind className="text-7xl text-fuchsia-600" />
+                        sortData?.length <= 0 && <div className="flex items-center justify-center gap-3 flex-col w-full h-[50vh]">
+                            <h1 className="text-2xl font-bold">Not Found Your Payment Details <span className="text-fuchsia-600 text-3xl font-bold">!</span></h1>
+                            <BiSolidFileFind className="text-7xl text-fuchsia-600" />
                         </div>
                     }
                 </div>

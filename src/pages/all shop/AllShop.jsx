@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import FooterPage from './../footer/FooterPage';
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useSale from "../../hooks/useSale";
 
@@ -73,12 +72,7 @@ const AllShop = () => {
                 .then(res => {
                     if (res.data?.insertedId) {
                         refetch();
-                        Swal.fire({
-                            title: "Successfully",
-                            text: `${data?.title} added successfully`,
-                            icon: "success",
-                            timer: 1500
-                        });
+                        toast.success(`${data?.title} added successfully...!`);
                     }
                 })
         }
