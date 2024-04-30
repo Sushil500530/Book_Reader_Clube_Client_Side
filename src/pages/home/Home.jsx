@@ -24,7 +24,10 @@ const Home = () => {
             <Testimonials />
             <NewsLetter />
             <FooterPage />
-            <MessengerCustomerChat  pageId="132608119925178"  appId="2655250701318445" />
+            <MessengerCustomerChat
+                pageId="2655250701318445"
+                appId="132608119925178"
+            />
         </div>
     );
 };
