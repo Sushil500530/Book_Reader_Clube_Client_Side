@@ -72,7 +72,6 @@ const PaymentDetails = () => {
                                         <td>
                                             <button onClick={() => handleDelete(payment?._id)} className="btn bg-red-600 text-white hover:text-red-600"><MdDelete className="w-9 h-9" /></button>
                                         </td>
-
                                     </tr>)
                             }
                         </tbody>
