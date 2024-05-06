@@ -5,7 +5,7 @@ import useAxiosSecure from './useAxiosSecure';
 const useFavorite = () => {
   const {user} = useAuth();
   const axiosSecure = useAxiosSecure();
-  const {data:favorites,refetch,isLoading} = useQuery({
+  const {data:favorites=[],refetch,isLoading} = useQuery({
     queryKey:['favorites', user],
     queryFn: async () => {
         const res = await axiosSecure.get(`/favorites?email=${user.email}`)

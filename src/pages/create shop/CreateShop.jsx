@@ -82,11 +82,11 @@ const CreateShop = () => {
                                     <div className='flex gap-4 items-center justify-center'>
                                         <div className='space-y-2 w-full'>
                                             <label htmlFor='location' className='block text-gray-200 font-medium dark:text-gray-200'>
-                                                Shop Name
+                                               Your Shop Name
                                             </label>
                                             <input
                                                 className=' w-full px-4 py-3  text-gray-200 bg-transparent border rounded-md border-blue-400 '
-                                                name='shop_name' id='shop_name' type='text' placeholder='shop name...' required
+                                                name='shop_name' id='shop_name' type='text' placeholder='your shop name...' required
                                             />
                                         </div>
                                         <div className='space-y-1 w-full'>

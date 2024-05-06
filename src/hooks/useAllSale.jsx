@@ -3,7 +3,7 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useAllSale = () => {
    const axiosSecure = useAxiosSecure();
-   const {data:allSales,refetch,isLoading} = useQuery({
+   const {data:allSales=[],refetch,isLoading} = useQuery({
     queryKey: ["allSales"],
     queryFn: async()=>{
         const res = await axiosSecure.get("sales")

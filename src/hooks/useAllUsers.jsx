@@ -3,7 +3,7 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useAllUsers = () => {
     const axiosSecure = useAxiosSecure();
-   const {data:allUsers,refetch,isLoading} = useQuery({
+   const {data:allUsers=[],refetch,isLoading} = useQuery({
     queryKey: ['userses'],
     queryFn: async() => {
        const res = await axiosSecure.get('/users')
