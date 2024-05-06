@@ -8,9 +8,9 @@ import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const RelatedCard = ({ furniture }) => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { _id, image, category, price,thumbnail1, thumbnail2, quantity, title, description, rating, discount } = furniture || {};
+    const { _id, image, category, price, thumbnail1, thumbnail2, quantity, title, description, rating, discount } = furniture || {};
     const favoriteData = {
         image,
         category,
@@ -22,27 +22,27 @@ const RelatedCard = ({ furniture }) => {
         rating,
         quantity,
         discount,
-        email:user?.email,
+        email: user?.email,
     }
     const handleFavoriteData = async () => {
         try {
             // console.log(favoriteData);
-            await axiosSecure.post('/favorites',favoriteData)
-            .then(res => {
-                if(res.data?.insertedId){
-                    toast.success('added successfully')
-                }
-            })
+            await axiosSecure.post('/favorites', favoriteData)
+                .then(res => {
+                    if (res.data?.insertedId) {
+                        toast.success('added successfully')
+                    }
+                })
         }
         catch (error) {
             toast.error(error.message)
         }
     }
     return (
-        <div className="card bg-base-100 shadow-xl">
-            <figure className="w-full h-[320px] relative">
+        <div className=" overflow-hidden bg-base-100 shadow-xl rounded-xl">
+            <figure className="w-full h-[280px] relative overflow-hidden rounded-xl ">
                 <Link to={`/furnitures/${_id}`}>
-                    <img src={image} className="w-full h-full rounded-xl hover:scale-105 transition-all cursor-pointer" alt="furniture-image" />
+                    <img src={image} className="w-full h-[280px] hover:scale-105 transition-all cursor-pointer" alt="furniture-image" />
                 </Link>
                 <h1 className="px-3 py-1 text-white bg-red-600 rounded-md absolute right-2 top-3">{discount}% OFF</h1>
             </figure>

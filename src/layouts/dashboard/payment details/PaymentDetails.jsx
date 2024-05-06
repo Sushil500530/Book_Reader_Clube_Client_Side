@@ -9,13 +9,43 @@ import Swal from "sweetalert2";
 const PaymentDetails = () => {
     const [payments, refetch, isLoading] = usePaymentD();
     const axiosSecure = useAxiosSecure();
-    console.log(payments);
     const sortData = [...payments].sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
     });
     console.log(sortData);
-
-    // ['65945a52ce557628b9b1223b', '65945a52ce557628b9b12253', '65945a52ce557628b9b1223c', '65945a52ce557628b9b12248']
+    const mainArray = [
+        '65ed8b1acc7967b620507cb1',
+        '65945a52ce557628b9b12234',
+        '65945a52ce557628b9b12236',
+        '65945a52ce557628b9b12237',
+        '65945a52ce557628b9b12238',
+        '65945a52ce557628b9b12239',
+        '65945a52ce557628b9b1223b',
+        '65945a52ce557628b9b1223c',
+        '65945a52ce557628b9b1223d',
+        '65945a52ce557628b9b1223e',
+        '65945a52ce557628b9b1223f',
+        '65945a52ce557628b9b12240',
+        '65945a52ce557628b9b12241',
+        '65945a52ce557628b9b12243',
+        '65945a52ce557628b9b12244',
+        '65945a52ce557628b9b12245',
+        '65945a52ce557628b9b12246',
+        '65945a52ce557628b9b12248',
+        '65945a52ce557628b9b12247',
+        '65945a52ce557628b9b12249'
+    ];
+    
+    const filterArray = [
+        '65ed8b1acc7967b620507cb1',
+        '65edd7fcd948cfd86be2800c',
+        '65945a52ce557628b9b12242'
+    ];
+    
+    const extractedArray = mainArray.filter(item => !filterArray.includes(item));
+    
+    console.log(extractedArray);
+    
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
