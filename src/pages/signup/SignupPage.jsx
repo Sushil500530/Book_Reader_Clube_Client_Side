@@ -90,12 +90,12 @@ const SignupPage = () => {
                             <h1 className="text-3xl font-bold mb-12 text-white">Please Register Now🤠</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Username </label>
-                                <input type="text"  {...register("name", { required: true })} name="name" className="input input-bordered input-info bg-transparent w-full border-blue-500 dark:text-black mb-2" id="" placeholder="Enter your name...." />
+                                <input type="text"  {...register("name", { required: true })} name="name" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-2" id="" placeholder="Enter your name...." />
                                 {errors.name && <span className="text-red-500 mt-2">name is required!</span>}
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Email Address</label>
-                                <input type="email"  {...register("email", { required: true })} name="email" className="input input-bordered input-info bg-transparent w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address" />
+                                <input type="email"  {...register("email", { required: true })} name="email" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1" id="" placeholder="Enter your username or address" />
                                 {errors.email && <span className="text-red-500 mt-1">email is required!</span>}
                             </div>
                             <div className="space-y-3">
@@ -103,7 +103,7 @@ const SignupPage = () => {
                                 <input type="password"  {...register("password", {
                                     required: true, minLength: 6,
                                     pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-                                })} name="password" className="input input-bordered input-info bg-transparent w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password" />
+                                })} name="password" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1" id="" placeholder="Enter your password" />
                                 {errors.password?.type === "minLength" && <span className="text-red-600">password length must be 6 characters or longer!</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-600">password must have one uppercase one lowercase one number and one special character!</span>}
                                 {errors.password?.type === "required" && (
@@ -112,7 +112,7 @@ const SignupPage = () => {
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Set Your Profile Picture</label>
-                                <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full border dark:text-black mb-1 bg-transparent" id="" />
+                                <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full bordermb-1 bg-transparent" id="" />
                                 {errors.image && <span className="text-red-500 mt-1">image is required!</span>}
                             </div>
                             <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 underline">Sign In</Link></p>
@@ -125,7 +125,7 @@ const SignupPage = () => {
                             </button>
                         </form>
                         <div className="w-[90%] md:w-2/3 lg:w-[80%] mx-auto pb-6">
-                            <div className="divider text-2xl">Or</div>
+                        <div className="divider divide-x-0 divider-primary text-2xl">Or</div>
                             <div className="space-y-3 mt-6 w-full">
                                 <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
                             </div>

@@ -70,7 +70,7 @@ const LoginPage = () => {
     return (
         <div className="bg-[url('https://i.postimg.cc/RFDMMbwn/bg-image1.jpg')] w-full min-h-screen bg-cover bg-no-repeat ">
             <Container> 
-                <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 dark:bg-zinc-800 dark:text-white mb-12">
+                <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 mb-12">
                     <div className="w-full min-h-[70vh] lg:w-3/5 flex items-center justify-center p-5 rounded-md">
                         <img src={loginImage} alt="" />
                     </div>
@@ -79,11 +79,11 @@ const LoginPage = () => {
                             <h1 className="text-3xl  font-bold mb-12">Please Login🤔</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Email Address</label>
-                                <input type="email" name="email" className="input input-bordered input-info bg-transparent text-gray-200 w-full border-blue-500 dark:text-black mb-1" id="" placeholder="Enter your username or address..." required />
+                                <input type="email" name="email" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400  mb-1" id="" placeholder="Enter your username or address..." required />
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px] font-medium">Password</label>
-                                <input type="password" name="password" className="input input-bordered input-info bg-transparent text-gray-200 w-full border-blue-500 dark:text-black" id="" placeholder="Enter your password..." required />
+                                <input type="password" name="password" className=" bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 " id="" placeholder="Enter your password..." required />
                             </div>
                             <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline">Sign up</Link></p>
                             <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] outline-none border-none font-medium hover:text-blue-500 w-full">
@@ -96,7 +96,7 @@ const LoginPage = () => {
                             </button>
                         </form>
                         <div className="w-[90%] md:w-2/3 lg:w-[80%] mx-auto pb-6">
-                            <div className="divider text-2xl">Or</div>
+                            <div className="divider divide-x-0 divider-primary text-2xl">Or</div>
                             <div className="space-y-3 mt-6 w-full">
                                 <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
                             </div>
