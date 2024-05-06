@@ -1,4 +1,6 @@
 import Banner from '../../components/banner/Banner';
+import WhatsApp from '../../shared/WhatsApp';
+import MessengerChat from '../../shared/socialAccount/MessengerChat';
 import FooterPage from '../footer/FooterPage';
 import NewsLetter from '../news-letter/NewsLetter';
 import SomeDetails from '../some/SomeDetails';
@@ -8,7 +10,6 @@ import LocationStatus from './location/LocationStatus';
 import Other from './other/Other';
 import ServiceFeature from './service feature/ServiceFeature';
 import Testimonials from './testimonials/Testimonials';
-import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
     return (
@@ -24,10 +25,8 @@ const Home = () => {
             <Testimonials />
             <NewsLetter />
             <FooterPage />
-            <MessengerCustomerChat
-                pageId="2655250701318445"
-                appId="132608119925178"
-            />
+           <MessengerChat />
+           <WhatsApp />
         </div>
     );
 };
