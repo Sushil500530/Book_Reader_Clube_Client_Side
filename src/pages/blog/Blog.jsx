@@ -77,7 +77,7 @@ const Blog = () => {
                         <hr className="bg-neutral-300 w-full h-[2px] my-3" />
                         <div className="flex items-center justify-around ">
                             <div className="group relative">
-                                <button className=" flex items-center gap-2 text-xl font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group text-neutral-700 active:bg-slate-200"><AiOutlineLike className="text-2xl" />Like </button>
+                                <button className=" flex items-center gap-2 lg:text-xl md:text-lg text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group text-neutral-700 active:bg-slate-200 "><AiOutlineLike className="text-2xl" />Like </button>
                                 <div className="transition transform translate-y-2 ease-in-out invisible absolute group-hover:visible -left-20 w-[300px] h-auto text-white group-hover:-translate-y-20 bg-white shadow flex items-center gap-2 p-0 rounded-full">
                                     <button onClick={() => setEmoji('like')} className="flex items-center gap-2 text-xl text-neutral-700 p-1">
                                         <img src={like} alt="like" className="w-10 h-10 hover:scale-105 hover:-translate-y-2 duration-200 transition" />
@@ -102,14 +102,14 @@ const Blog = () => {
                                     </button>
                                 </div>
                             </div>
-                            <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><FaRegComment className="text-2xl" />Comment</button>
-                            <button className="flex items-center gap-2 text-xl text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><PiShareFat className="text-2xl" />Share</button>
+                            <button className="flex items-center gap-2 lg:text-xl md:text-lg text-base text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><FaRegComment className="text-2xl" />Comment</button>
+                            <button className="flex items-center gap-2 lg:text-xl md:text-lg text-base text-neutral-700 active:bg-slate-200 px-4 py-2 rounded-full"><PiShareFat className="text-2xl" />Share</button>
                         </div>
                         <hr className="bg-neutral-300 w-full h-[2px] mb-3" />
                         <p className="hover:underline text-neutral-500 cursor-pointer inline-block">View More Comments</p>
                         <div className="flex items-start gap-3">
-                            <figure className="w-9 h-9">
-                                <img src="https://i.ibb.co/WfPnV0V/sushil-bg.png" alt="person-image" className="w-full h-full rounded-full" />
+                            <figure className="h-auto w-1/3">
+                                <img src="https://i.ibb.co/WfPnV0V/sushil-bg.png" alt="person-image" className="lg:w-14 h-14 w-40  rounded-full" />
                             </figure>
                             <div className="bg-slate-100 rounded-2xl shadow-md p-3">
                                 <h1 className="text-base font-semibold text-start hover:underline cursor-pointer inline-block">Sushil Apurbo</h1>
