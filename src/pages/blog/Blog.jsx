@@ -23,34 +23,15 @@ import { useState } from "react";
 
 const Blog = () => {
     const [emoji, setEmoji] = useState([]);
-    const [imageName,setImageName] = useState('');
-    const [showImage, setShowImage] = useState('');
-    
+   
 
     return (
         <Container>
             <div className=" w-full md:w-2/3 lg:w-2/3 mx-auto flex items-end justify-end my-8">
                 <div className=" w-32 h-auto bg-base-100 shadow-xl p-2 cursor-pointer rounded-full text-center">Create Post</div>
             </div>
-
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Image</span>
-                                </label>
-                                <input type="file" placeholder="email" className="" required />
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            {/* <div className=" w-full md:w-2/3 lg:w-2/3 mx-auto flex flex-col gap-5">
+       
+            <div className=" w-full md:w-2/3 lg:w-2/3 mx-auto flex flex-col gap-5">
                 <div className="flex items-center justify-between px-5">
                     <div className="flex items-center gap-3">
                         <figure className="w-12 h-12 rounded-full">
@@ -145,7 +126,7 @@ const Blog = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div> 
 
         </Container>
     );
