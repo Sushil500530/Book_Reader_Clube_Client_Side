@@ -49,14 +49,11 @@ const Navbar = ({ children }) => {
                             </label>
                         </div>
                         <div className="flex-1 px-2 mx-2">
-                            <Link to="/">
                                 <Logo />
-                            </Link>
                         </div>
                         <NavLinkManu handleToggle={handleToggle} sales={sales} />
                     </div>
                 </div>
-
                 {children}
             </div>
             <Sidebar handleToggle={handleToggle} sales={sales} />
