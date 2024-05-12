@@ -1,6 +1,7 @@
 
 // import image from '../../../assets/image/feature/banner-1.png'
 import { Parallax, } from 'react-parallax';
+import { Link } from 'react-router-dom';
 
 const ServiceFeature = () => {
     return (
@@ -22,7 +23,10 @@ const ServiceFeature = () => {
                                 <div className="w-3/5">
                                     <h1 className="mb-5 text-5xl font-bold uppercase">Furniture</h1>
                                     <p className="mb-5 text-base font-semibold">Furniture refers to objects intended to support various human activities such as seating or stools, chairs, and sofas, eating, storing items, working, and sleeping .</p>
-                                    <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] border-none px-8 hover:text-white transition ease-in-out text-[18px]">Get Started</button>
+                                    <Link to='/all-shop'>
+                                        <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] border-none px-8 hover:text-white transition ease-in-out text-[18px]">Get Started</button>
+                                    </Link>
+
                                 </div>
                             </div>
                         </div>

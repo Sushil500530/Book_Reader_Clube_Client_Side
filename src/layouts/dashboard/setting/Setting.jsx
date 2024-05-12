@@ -7,11 +7,25 @@ import { imageUpload } from '../../../api/getData';
 import { useState } from "react";
 import { updateProfile } from "firebase/auth";
 import auth from './../../../provider/firebase/firebase.config';
+import { MdDeleteForever } from "react-icons/md";
 
 const Setting = () => {
     const [users, refetch,] = useRole();
     const axiosSecure = useAxiosSecure();
     const [loading, setLoading] = useState(false);
+    const [showImage, setShowImage] = useState('');
+
+    // showImageDelete 
+    const handleRemoveImage = () => {
+        setShowImage('');
+    }
+    // show image load 
+    const handleImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const imageFind = e.target.files[0];
+            setShowImage(URL.createObjectURL(imageFind));
+        }
+    }
     // console.log(users);
     const updataUserProfile = (name, photo) => {
         setLoading(true);
@@ -78,17 +92,19 @@ const Setting = () => {
                 </div>
                 <form onSubmit={handleSubmit} className='flex flex-col gap-2 items-start justify-center border py-8 text-xl px-3 md:px-4 lg:px-7 w-full h-auto mb-20'>
                     <label>Name*</label>
-                    <input type="text" name='name' defaultValue={users?.name} className="input input-bordered input-info w-full max-w-xs" required />
+                    <input type="text" name='name' defaultValue={users?.name} className="input input-bordered input-info w-full" required />
                     <label>Email*</label>
-                    <input type="text" name='email' disabled defaultValue={users?.email} className="input input-bordered input-info w-full max-w-xs" required />
-                    <div>
-                        <h1 className='text-xl mb-2'>Profile Photo</h1>
+                    <input type="text" name='email' disabled defaultValue={users?.email} className="input input-bordered input-info w-full" required />
+                    <div className="w-full space-y-2">
+                        <h1 className='text-xl mb-2 text-start'>Profile Photo</h1>
                         <div className="bg-clip-content p-6 bg-violet-600 border-4 border-violet-300 border-dashed w-full">
-                            <input type="file" name='image' className="file-input file-input-bordered file-input-primary w-full max-w-xs" required />
+                            {
+                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent rounded-md" placeholder='choose your image.....' required />
+                            }
                         </div>
                     </div>
                     <label>Status*</label>
-                    <input type="text" name='status' defaultValue={users?.status} className="input input-bordered input-info w-full max-w-xs" />
+                    <input type="text" name='status' defaultValue={users?.status} className="input input-bordered input-info w-full" required />
                     <button className='btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] my-3 text-[17px] hover:text-blue-300' type='submit'>
                         {
                             loading === true ? <div className="text-[17px] flex items-center gap-2"><FiLoader className="w-6 h-6 animate-spin" /> processing</div> : 'Save Chnages'

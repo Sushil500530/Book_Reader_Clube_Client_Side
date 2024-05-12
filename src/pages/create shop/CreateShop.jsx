@@ -20,13 +20,19 @@ const CreateShop = () => {
     const navigate = useNavigate();
     const [imageName, setImageName] = useState('');
     const [showImage, setShowImage] = useState('');
+
+
+    // showImageDelete 
+    const handleRemoveImage = ()=>{
+        setImageName('');
+        setShowImage('');
+    }
     // show image load 
     const handleImage = (e) => {
         if (e.target.files && e.target.files[0]) {
             const imageFind = e.target.files[0];
             setImageName(imageFind.name);
             setShowImage(URL.createObjectURL(imageFind));
-
         }
     }
 
@@ -114,7 +120,7 @@ const CreateShop = () => {
                                         <label className="block text-gray-200 font-medium dark:text-gray-200"> Shop Logo</label>
                                         <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                             {
-                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
                                             }
                                             <p>
                                                 {
