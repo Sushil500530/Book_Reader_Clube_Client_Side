@@ -10,6 +10,7 @@ import { useAuth } from '../../hooks/useAuth';
 import useRole from '../../hooks/useRole';
 import { useNavigate } from 'react-router-dom';
 import FooterPage from '../footer/FooterPage';
+import { MdDeleteForever } from "react-icons/md";
 
 const CreateShop = () => {
     const axiosSecure = useAxiosSecure();
@@ -17,6 +18,17 @@ const CreateShop = () => {
     const [users, ,] = useRole();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [imageName, setImageName] = useState('');
+    const [showImage, setShowImage] = useState('');
+    // show image load 
+    const handleImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const imageFind = e.target.files[0];
+            setImageName(imageFind.name);
+            setShowImage(URL.createObjectURL(imageFind));
+
+        }
+    }
 
     const handleCreateShop = async (e) => {
         e.preventDefault();
@@ -69,7 +81,7 @@ const CreateShop = () => {
     }
     return (
         <>
-            <div className="bg-[url('https://i.postimg.cc/vmSBBBsB/bg-image2.webp')] w-full min-h-screen bg-cover bg-no-repeat ">
+            <div className="bg-[url('https://i.postimg.cc/vmSBBBsB/bg-image2.webp')] w-full min-h-screen bg-cover bg-no-repeat pb-12">
                 <Container>
                     <div className='lg:w-1/2 w-full bg-gradient-to-t from-zinc-800 text-gray-200 shadow mx-auto pt-3 px-10 pb-14'>
                         {/* <Helmet>
@@ -82,7 +94,7 @@ const CreateShop = () => {
                                     <div className='flex gap-4 items-center justify-center'>
                                         <div className='space-y-2 w-full'>
                                             <label htmlFor='location' className='block text-gray-200 font-medium dark:text-gray-200'>
-                                               Your Shop Name
+                                                Your Shop Name
                                             </label>
                                             <input
                                                 className=' w-full px-4 py-3  text-gray-200 bg-transparent border rounded-md border-blue-400 '
@@ -101,7 +113,14 @@ const CreateShop = () => {
                                     <div className=' py-4 bg-transparent w-full m-auto rounded-lg'>
                                         <label className="block text-gray-200 font-medium dark:text-gray-200"> Shop Logo</label>
                                         <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                            {
+                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                            }
+                                            <p>
+                                                {
+                                                    imageName && "Upload Image"
+                                                }
+                                            </p>
                                         </div>
                                     </div>
                                     <div className='space-y-1 '>
