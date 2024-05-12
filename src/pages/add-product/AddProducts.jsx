@@ -19,6 +19,8 @@ const AddProducts = () => {
     const [currentManager, , isLoading] = useFindMananger();
     const [category, ,] = useFurCategory();
     const [showImage, setShowImage] = useState('');
+    const [showThumbnail1,setShowThumbnail1] = useState('');
+    const [showThumbnail2,setShowThumbnail2] = useState('');
 
 
 
@@ -26,11 +28,32 @@ const AddProducts = () => {
     const handleRemoveImage = () => {
         setShowImage('');
     }
+    const handleRemoveThumb1 = () => {
+        setShowThumbnail1('');
+    }
+    const handleRemoveThumb2 = () => {
+        setShowThumbnail2('');
+    }
     // show image load 
     const handleImage = (e) => {
         if (e.target.files && e.target.files[0]) {
             const imageFind = e.target.files[0];
             setShowImage(URL.createObjectURL(imageFind));
+        }
+    }
+
+    // thumbnail functionality is here 
+    const handleShowThumb1 = (e) => {
+        if(e.target.files && e.target.files[0]){
+            const thumbName1 = e.target.files[0];
+            setShowThumbnail1(URL.createObjectURL(thumbName1));
+        }
+    }
+
+    const handleShowThumb2 = (e) => {
+        if(e.target.files && e.target.files[0]){
+            const thumbName2 = e.target.files[0];
+            setShowThumbnail2(URL.createObjectURL(thumbName2));
         }
     }
 
@@ -151,7 +174,12 @@ const AddProducts = () => {
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            {
+                                                showThumbnail1 ? <div className="relative">
+                                                    <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                                </div> : <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            }
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +189,12 @@ const AddProducts = () => {
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            {
+                                                showThumbnail2 ?<div className="relative">
+                                                <img src={showThumbnail2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                            </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            }
+                                           
                                         </div>
                                     </div>
                                 </div>
