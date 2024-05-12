@@ -5,12 +5,29 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useAuth } from "../../../../hooks/useAuth";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart, MdDeleteForever } from "react-icons/md";
 
 const DCreateShop = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
     const [loading, setLoading] = useState(false);
+    const [showImage, setShowImage] = useState('');
+
+
+
+    // showImageDelete 
+    const handleRemoveImage = () => {
+        setShowImage('');
+    }
+    // show image load 
+    const handleImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const imageFind = e.target.files[0];
+            setShowImage(URL.createObjectURL(imageFind));
+        }
+    }
+
+    // create shop function 
     const handleCreateShop = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -64,7 +81,7 @@ const DCreateShop = () => {
                             <div className='flex gap-4 items-center justify-center'>
                                 <div className='space-y-2 w-full'>
                                     <label htmlFor='location' className='block text-black font-medium dark:text-white'>
-                                       Your Shop Name
+                                        Your Shop Name
                                     </label>
                                     <input
                                         className='input input-bordered input-info w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
@@ -84,6 +101,9 @@ const DCreateShop = () => {
                                 <label className="block text-black font-medium dark:text-white"> Shop Logo</label>
                                 <div className=' bg-white w-full m-auto rounded-lg mt-3'>
                                     <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                    {
+                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                            }
                                         <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                     </div>
                                 </div>

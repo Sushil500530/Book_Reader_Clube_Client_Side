@@ -12,8 +12,8 @@ const ManageProductAdmin = () => {
         return <Loader />
     }
     return (
-        <div>
-            <h1 className="text-3xl text-center font-bold my-5 flex items-center justify-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Manage All Products</h1>
+        <div className="pb-12">
+            <h1 className="text-3xl text-center font-bold my-10 flex items-center justify-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Manage All Products</h1>
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
                     {
@@ -108,7 +108,7 @@ const ManageProductAdmin = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full lg:w-1/2 h-auto">
+                        <div className="w-full lg:w-1/2 h-auto overflow-hidden">
                             <img src="https://i.ibb.co/1bS7hSz/managment.webp" alt="manage-image" className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer" />
                         </div>
                     </div>

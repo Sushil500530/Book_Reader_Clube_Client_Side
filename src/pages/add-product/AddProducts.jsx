@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import useFindMananger from "../../hooks/useFindMananger";
 import Loader from "../../shared/Loader";
 import useFurCategory from "../../hooks/useFurCategory";
-
+import { MdDeleteForever,MdAddShoppingCart } from "react-icons/md";
 
 const AddProducts = () => {
     const { user } = useAuth();
@@ -18,6 +18,21 @@ const AddProducts = () => {
     const navigate = useNavigate();
     const [currentManager, , isLoading] = useFindMananger();
     const [category, ,] = useFurCategory();
+    const [showImage, setShowImage] = useState('');
+
+
+
+    // showImageDelete 
+    const handleRemoveImage = () => {
+        setShowImage('');
+    }
+    // show image load 
+    const handleImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const imageFind = e.target.files[0];
+            setShowImage(URL.createObjectURL(imageFind));
+        }
+    }
 
 
     if (isLoading) {
@@ -92,7 +107,7 @@ const AddProducts = () => {
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}
-            <h3 className="text-3xl text-center mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Add Product  </h3>
+            <h3 className="text-3xl text-center mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] flex items-center gap-2">Add Product <span><MdAddShoppingCart className="text-7xl text-black" /></span> </h3>
             <div className="container mx-auto mt-12">
                 <form onSubmit={handleAddedProduct}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
@@ -120,9 +135,11 @@ const AddProducts = () => {
                                     Image
                                 </label>
                                 <div className=' bg-white w-full m-auto rounded-lg'>
-                                    <label className="my-5"></label>
-                                    <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                   <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                        {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
+                                        {
+                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                            }
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +150,6 @@ const AddProducts = () => {
                                         Set Thumbnail1
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
-                                        <label className="my-5"></label>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                             <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                         </div>
@@ -144,7 +160,6 @@ const AddProducts = () => {
                                         Set Thumbnail2
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
-                                        <label className="my-5"></label>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                             <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
                                         </div>
