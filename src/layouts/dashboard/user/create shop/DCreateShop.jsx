@@ -101,9 +101,9 @@ const DCreateShop = () => {
                                 <label className="block text-black font-medium dark:text-white"> Shop Logo</label>
                                 <div className=' bg-white w-full m-auto rounded-lg mt-3'>
                                     <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                    {
-                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
-                                            }
+                                        {
+                                            showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                        }
                                         {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                     </div>
                                 </div>

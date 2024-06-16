@@ -7,8 +7,9 @@ import { imageUpload } from '../../api/getData';
 import toast from 'react-hot-toast';
 import SocialAccount from '../../shared/socialAccount/SocialAccount';
 import { useState } from 'react';
-import { FaSpinner,FaRegEye,FaEyeSlash} from 'react-icons/fa';
+import { FaSpinner, FaRegEye, FaEyeSlash } from 'react-icons/fa';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { MdDeleteForever } from 'react-icons/md';
 
 const SignupPage = () => {
     const axiosPbulic = useAxiosPublic();
@@ -16,12 +17,18 @@ const SignupPage = () => {
     const location = useLocation();
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [showImage, setShowImage] = useState('');
     const { createUser, updataUserProfile, googleSignIn } = useAuth();
     const { register, handleSubmit, formState: { errors }, } = useForm();
+    const [imageProperty, setImageProperty] = useState("");
+
+
+
     const handleSignIn = async (data) => {
         setLoading(true)
-        const imageFile = data?.image[0];
-        const loadImage = await imageUpload(imageFile)
+        // const imageFile = data?.image[0];
+        // console.log('image file is here----->', imageFile)
+        const loadImage = await imageUpload(imageProperty)
         const image = loadImage?.data?.display_url;
         console.log('this image component---->', image)
         console.log('load image is---->', loadImage)
@@ -53,7 +60,7 @@ const SignupPage = () => {
             .catch(error => toast.error(error.message));
 
     }
-    const handleShowPassword =()=> {
+    const handleShowPassword = () => {
         setShowPassword(!showPassword)
     }
     const handleGoogleSignIn = async () => {
@@ -81,6 +88,19 @@ const SignupPage = () => {
                 }
             })
             .catch(error => toast.error(error.message))
+    }
+    // showImageDelete 
+    const handleRemoveImage = () => {
+        setShowImage('');
+    }
+    // show image load 
+    const handleImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const imageFind = e.target.files[0];
+            setImageProperty(imageFind)
+            console.log('image file show here', imageFind)
+            setShowImage(URL.createObjectURL(imageFind));
+        }
     }
 
     return (
@@ -115,16 +135,27 @@ const SignupPage = () => {
                                     <p className="text-red-600">password is required!</p>
                                 )}
                                 <span onClick={handleShowPassword} className='absolute top-9 right-2 cursor-pointer'>{
-                                    showPassword ? 
-                                    <FaRegEye className='text-2xl text-white' /> 
-                                    : 
-                                    <FaEyeSlash className='text-2xl text-white' /> 
+                                    showPassword ?
+                                        <FaRegEye className='text-2xl text-white' />
+                                        :
+                                        <FaEyeSlash className='text-2xl text-white' />
                                 }</span>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Set Your Profile Picture</label>
-                                <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full bordermb-1 bg-transparent" id="" />
+                                {/* <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full bordermb-1 bg-transparent" id="" /> */}
                                 {errors.image && <span className="text-red-500 mt-1">image is required!</span>}
+                                {
+                                    showImage ? 
+                                    <div className='relative'>
+                                        <img src={showImage} alt="imageShow" className='w-full h-44' />
+                                         <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' />
+                                         </span>
+                                        </div>
+                                     :
+                                     
+                                     <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....'/>
+                                }
                             </div>
                             <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 underline">Sign In</Link></p>
                             <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full  outline-none border-none">
