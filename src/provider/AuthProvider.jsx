@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase/firebase.config";
 import useAxiosPublic from "../hooks/useAxiosPublic";
@@ -20,6 +20,13 @@ const AuthProvider = ({ children }) => {
     const loginUser = (email,password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth,email,password)
+    }
+    const updataUserProfile = (name,photo)=> {
+        setLoading(true);
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo,
+        });
     }
    
     const googleSignIn = () => {
@@ -61,7 +68,7 @@ const AuthProvider = ({ children }) => {
         loginUser,
         logoutUser,
         googleSignIn,
-
+        updataUserProfile,
 
     }
     return (

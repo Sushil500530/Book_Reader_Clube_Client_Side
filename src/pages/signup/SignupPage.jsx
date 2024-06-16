@@ -6,13 +6,13 @@ import { useAuth } from '../../hooks/useAuth';
 import { imageUpload } from '../../api/getData';
 import toast from 'react-hot-toast';
 import SocialAccount from '../../shared/socialAccount/SocialAccount';
-import useaxiosPbulic from '../../hooks/useAxiosSecure';
 import { useState } from 'react';
 import { FaSpinner } from 'react-icons/fa';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 
 const SignupPage = () => {
-    const axiosPbulic = useaxiosPbulic();
+    const axiosPbulic = useAxiosPublic();
     const navigate = useNavigate();
     const location = useLocation();
     const [loading, setLoading] = useState(false)
@@ -23,6 +23,8 @@ const SignupPage = () => {
         const imageFile = data?.image[0];
         const loadImage = await imageUpload(imageFile)
         const image = loadImage?.data?.display_url;
+        console.log('this image component---->', image)
+        console.log('load image is---->', loadImage)
         await createUser(data?.email, data?.password)
             .then(res => {
                 updataUserProfile(data?.name, image)
@@ -125,7 +127,7 @@ const SignupPage = () => {
                             </button>
                         </form>
                         <div className="w-[90%] md:w-2/3 lg:w-[80%] mx-auto pb-6">
-                        <div className="divider divide-x-0 divider-primary text-2xl">Or</div>
+                            <div className="divider divide-x-0 divider-primary text-2xl">Or</div>
                             <div className="space-y-3 mt-6 w-full">
                                 <SocialAccount handleGoogleSignIn={handleGoogleSignIn} name={'Sign in With Google'} />
                             </div>
