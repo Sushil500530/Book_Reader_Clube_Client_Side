@@ -20,6 +20,7 @@ const CreateShop = () => {
     const navigate = useNavigate();
     const [imageName, setImageName] = useState('');
     const [showImage, setShowImage] = useState('');
+    const [imageProperty, setImageProperty] = useState('');
 
 
     // showImageDelete 
@@ -31,6 +32,7 @@ const CreateShop = () => {
     const handleImage = (e) => {
         if (e.target.files && e.target.files[0]) {
             const imageFind = e.target.files[0];
+            setImageProperty(imageFind)
             setImageName(imageFind.name);
             setShowImage(URL.createObjectURL(imageFind));
         }
@@ -49,11 +51,10 @@ const CreateShop = () => {
         }
         const form = e.target;
         const shop_name = form.shop_name.value;
-        const image = form.image.files[0];
         const description = form.description.value;
         const location = form.location.value;
         try {
-            const loadImage = await imageUpload(image);
+            const loadImage = await imageUpload(imageProperty);
             const create_shop = {
                 shop_name,
                 shop_logo: loadImage?.data?.display_url,

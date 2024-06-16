@@ -8,14 +8,60 @@ import { imageUpload } from "../../../../api/getData";
 import { useAuth } from "../../../../hooks/useAuth";
 import { FaSpinner } from "react-icons/fa";
 import Loader from "../../../../shared/Loader";
+import { MdDeleteForever } from "react-icons/md";
 
 const UpdatedProduct = () => {
+    const [showImage, setShowImage] = useState('');
     const findUpdataData = useLoaderData();
     const [loading, setLoading] = useState(false);
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
     const { user } = useAuth();
     const [category, , isLoading] = useFurCategory();
+    const [showThumbnail1, setShowThumbnail1] = useState('');
+    const [showThumbnail2, setShowThumbnail2] = useState('');
+    const [imageProperty, setImageProperty] = useState('');
+    const [thumb1, setThumb1] = useState('');
+    const [thumb2, setThumb2] = useState('');
+
+
+
+
+    // showImageDelete 
+    const handleRemoveImage = () => {
+        setShowImage('');
+    }
+    const handleRemoveThumb1 = () => {
+        setShowThumbnail1('');
+    }
+    const handleRemoveThumb2 = () => {
+        setShowThumbnail2('');
+    }
+    // show image load 
+    const handleImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const imageFind = e.target.files[0];
+            setImageProperty(imageFind)
+            setShowImage(URL.createObjectURL(imageFind));
+        }
+    }
+
+    // thumbnail functionality is here 
+    const handleShowThumb1 = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const thumbName1 = e.target.files[0];
+            setThumb1(thumbName1)
+            setShowThumbnail1(URL.createObjectURL(thumbName1));
+        }
+    }
+
+    const handleShowThumb2 = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const thumbName2 = e.target.files[0];
+            setThumb2(thumbName2)
+            setShowThumbnail2(URL.createObjectURL(thumbName2));
+        }
+    }
 
     if (isLoading) {
         return <Loader />
@@ -25,9 +71,9 @@ const UpdatedProduct = () => {
         setLoading(true);
         const form = e.target;
         const product_name = form.product_name.value;
-        const image = form.image?.files[0];
-        const thumb1 = form.thumbnail1.files[0];
-        const thumb2 = form.thumbnail2.files[0];
+        //   const loadImage = await imageUpload(imageProperty);
+        //     const thmbnl1 = await imageUpload(thumb1);
+        //     const thmbnl2 = await imageUpload(thumb2);
         const description = form.description.value;
         const quantity = form.quantity.value;
         const category = form.category.value;
@@ -40,13 +86,13 @@ const UpdatedProduct = () => {
         const email = user?.email;
         const location = form.location.value;
 
-        if (!image || !thumb1 || !thumb2) {
+        if (!imageProperty || !thumb1 || !thumb2) {
             setLoading(false)
             return toast.error("Please select image...!");
         }
 
         try {
-            const loadImage = await imageUpload(image);
+            const loadImage = await imageUpload(imageProperty);
             const thmbnl1 = await imageUpload(thumb1);
             const thmbnl2 = await imageUpload(thumb2);
             const updatedProducts = {
@@ -122,7 +168,17 @@ const UpdatedProduct = () => {
                                 <div className=' bg-white w-full m-auto rounded-lg'>
                                     <label className="my-5"></label>
                                     <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                        {
+                                            showImage
+                                                ?
+                                                <div className='relative'>
+                                                    <img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' />
+                                                    </span>
+                                                </div>
+                                                :
+                                                <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                        }
+                                        {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +191,17 @@ const UpdatedProduct = () => {
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <label className="my-5"></label>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            {
+                                                showThumbnail1
+                                                    ?
+                                                    <div className="relative">
+                                                        <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                                    </div>
+                                                    :
+                                                    <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            }
+
+                                            {/* <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +212,15 @@ const UpdatedProduct = () => {
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <label className="my-5"></label>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            {
+                                                showThumbnail2 ? <div className="relative">
+                                                    <img src={showThumbnail2} defaultValue={findUpdataData?.thumb2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' />
+                                                    </span>
+                                                </div>
+                                                    :
+                                                    <input onChange={handleShowThumb2} defaultValue={findUpdataData?.thumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            }
+                                            {/* <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                         </div>
                                     </div>
                                 </div>
