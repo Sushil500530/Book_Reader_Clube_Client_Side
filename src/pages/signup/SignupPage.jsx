@@ -7,15 +7,15 @@ import { imageUpload } from '../../api/getData';
 import toast from 'react-hot-toast';
 import SocialAccount from '../../shared/socialAccount/SocialAccount';
 import { useState } from 'react';
-import { FaSpinner } from 'react-icons/fa';
+import { FaSpinner,FaRegEye,FaEyeSlash} from 'react-icons/fa';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-
 
 const SignupPage = () => {
     const axiosPbulic = useAxiosPublic();
     const navigate = useNavigate();
     const location = useLocation();
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const { createUser, updataUserProfile, googleSignIn } = useAuth();
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const handleSignIn = async (data) => {
@@ -52,6 +52,9 @@ const SignupPage = () => {
             })
             .catch(error => toast.error(error.message));
 
+    }
+    const handleShowPassword =()=> {
+        setShowPassword(!showPassword)
     }
     const handleGoogleSignIn = async () => {
         setLoading(true)
@@ -100,17 +103,23 @@ const SignupPage = () => {
                                 <input type="email"  {...register("email", { required: true })} name="email" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1" id="" placeholder="Enter your username or address" />
                                 {errors.email && <span className="text-red-500 mt-1">email is required!</span>}
                             </div>
-                            <div className="space-y-3">
+                            <div className="space-y-3 relative">
                                 <label className="text-[18px] font-medium">Password</label>
-                                <input type="password"  {...register("password", {
+                                <input type={`${showPassword ? "password" : "text"}`}  {...register("password", {
                                     required: true, minLength: 6,
                                     pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-                                })} name="password" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1" id="" placeholder="Enter your password" />
+                                })} name="password" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1 relative" id="" placeholder="Enter your password" />
                                 {errors.password?.type === "minLength" && <span className="text-red-600">password length must be 6 characters or longer!</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-600">password must have one uppercase one lowercase one number and one special character!</span>}
                                 {errors.password?.type === "required" && (
                                     <p className="text-red-600">password is required!</p>
                                 )}
+                                <span onClick={handleShowPassword} className='absolute top-9 right-2 cursor-pointer'>{
+                                    showPassword ? 
+                                    <FaRegEye className='text-2xl text-white' /> 
+                                    : 
+                                    <FaEyeSlash className='text-2xl text-white' /> 
+                                }</span>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Set Your Profile Picture</label>

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-    baseURL: "https://furni-track-project-server-side.vercel.app",
+    baseURL: "http://localhost:5000",
     withCredentials: true,
 })
 const useAxiosSecure = () => {
