@@ -5,13 +5,14 @@ import SocialAccount from '../../shared/socialAccount/SocialAccount';
 import { useAuth } from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-import { FaSpinner } from 'react-icons/fa';
+import { FaEyeSlash, FaRegEye, FaSpinner } from 'react-icons/fa';
 import { useState } from 'react';
 
 const LoginPage = () => {
     const axiosPbulic = useAxiosPublic();
     const { loginUser, googleSignIn } = useAuth();
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const handleSubmit = async (e) => {
@@ -36,6 +37,10 @@ const LoginPage = () => {
             }
             )
 
+    }
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword)
     }
 
     const handleGoogleSignIn = () => {
@@ -81,9 +86,15 @@ const LoginPage = () => {
                                 <label className="text-[18px]  font-medium">Email Address</label>
                                 <input type="email" name="email" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400  mb-1" id="" placeholder="Enter your username or address..." required />
                             </div>
-                            <div className="space-y-3">
+                            <div className="space-y-3 relative">
                                 <label className="text-[18px] font-medium">Password</label>
-                                <input type="password" name="password" className=" bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 " id="" placeholder="Enter your password..." required />
+                                <input type={`${showPassword ? "text" : "password"}`} name="password" className=" bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 " id="" placeholder="Enter your password..." required />
+                                <span onClick={handleShowPassword} className='absolute top-9 right-2 cursor-pointer'>{
+                                    showPassword ?
+                                        <FaRegEye className='text-2xl text-white' />
+                                        :
+                                        <FaEyeSlash className='text-2xl text-white' />
+                                }</span>
                             </div>
                             <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline">Sign up</Link></p>
                             <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] outline-none border-none font-medium hover:text-blue-500 w-full">

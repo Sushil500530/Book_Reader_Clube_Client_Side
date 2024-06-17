@@ -125,7 +125,7 @@ const SignupPage = () => {
                             </div>
                             <div className="space-y-3 relative">
                                 <label className="text-[18px] font-medium">Password</label>
-                                <input type={`${showPassword ? "password" : "text"}`}  {...register("password", {
+                                <input type={`${showPassword ? "text" : "password"}`}  {...register("password", {
                                     required: true, minLength: 6,
                                     pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
                                 })} name="password" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1 relative" id="" placeholder="Enter your password" />
