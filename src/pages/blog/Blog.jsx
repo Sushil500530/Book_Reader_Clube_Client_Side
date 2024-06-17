@@ -114,7 +114,7 @@ const Blog = () => {
                         <hr className="bg-neutral-300 w-full h-[2px] mb-3" />
                         <p className="hover:underline text-neutral-500 cursor-pointer inline-block">View More Comments</p>
                         <div className="flex items-start gap-3">
-                            <div className="w-64">
+                            <div className="w-20">
                                 <figure className="w-12 h-12 rounded-full">
                                     <img src="https://i.ibb.co/WfPnV0V/sushil-bg.png" alt="person-image" className="w-full h-full rounded-full" />
                                 </figure>

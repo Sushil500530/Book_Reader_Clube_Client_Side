@@ -54,9 +54,9 @@ const Contact = () => {
                 <div className="w-full h-full lg:w-[65%] ">
                     <h1 className="mt-5 mb-12 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">Send A Message</h1>
                     <form onSubmit={handleSubmit}>
-                        <div className='grid grid-cols-1 dark:text-white  w-2/3 mx-auto'>
+                        <div className='grid grid-cols-1 dark:text-white w-full lg:w-2/3 mx-auto'>
                             <div className='space-y-6'>
-                                <div className='flex gap-4 items-center justify-center'>
+                                <div className='flex flex-col md:flex-row lg:flex-row gap-4 items-center justify-center'>
                                     <div className='space-y-2 w-full'>
                                         <label className='block text-black font-medium dark:text-white'>
                                             Full Name *
