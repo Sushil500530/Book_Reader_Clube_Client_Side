@@ -45,8 +45,9 @@ const ManageAccount = () => {
                         <h1 className="text-2xl mt-10">Not Found Your Account <span className="text-fuchsia-600 text-4xl">!</span></h1>
                         <div><MdAnnouncement className="w-10 h-10 text-fuchsia-600" /></div>
                     </div>
-                </> : findUsers?.map(user => <div key={user?._id} className="flex items-center justify-between w-full md:w-[70%] lg:w-[30%] mx-auto mt-10">
-                    <div className=" flex items-center justify-center gap-5 flex-1 py-1">
+                </> : findUsers?.map(user => 
+                <div key={user?._id} className="flex flex-col md:flex-row gap-3 md:gap-0 lg:gap-0 lg:flex-row items-center justify-between w-full md:w-[70%] lg:w-[550px] mx-auto mt-10 hover:bg-gray-100 p-3 rounded-md hover:shadow-md hover:border-b-2 border border-b-2 hover:border-b-fuchsia-500 cursor-pointer">
+                    <div className=" flex flex-col md:flex-row lg:flex-row items-center justify-center gap-5 flex-1 py-1">
                         <figure className="w-20 h-20">
                             <img src={user?.image} className="w-full h-full rounded-full" alt="account-image" />
                         </figure>
