@@ -14,6 +14,7 @@ const Setting = () => {
     const axiosSecure = useAxiosSecure();
     const [loading, setLoading] = useState(false);
     const [showImage, setShowImage] = useState('');
+    const [imageProperty, setImageProperty] = useState('');
 
     // showImageDelete 
     const handleRemoveImage = () => {
@@ -23,6 +24,7 @@ const Setting = () => {
     const handleImage = (e) => {
         if (e.target.files && e.target.files[0]) {
             const imageFind = e.target.files[0];
+            setImageProperty(imageFind)
             setShowImage(URL.createObjectURL(imageFind));
         }
     }
@@ -41,11 +43,10 @@ const Setting = () => {
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        const image = form.image.files[0];
         const status = form.status.value;
 
         try {
-            const loadImage = await imageUpload(image);
+            const loadImage = await imageUpload(imageProperty);
             const photo = loadImage?.data?.display_url;
             const changeData = {
                 name,
@@ -53,15 +54,14 @@ const Setting = () => {
                 image: photo,
                 status,
             }
-
             await axiosSecure.put(`/user/${users?._id}`, changeData)
                 .then(res => {
                     if (res.data?.modifiedCount > 0) {
                         refetch()
                         toast.success('Profile updated successfully')
                         return updataUserProfile(name, photo)
-                            .then(() => { })
-                            .catch(() => { })
+                            .then(() => { setShowImage('')})
+                            .catch((error) => {console.log(error.message) })
                     }
                     setLoading(false)
                 })
