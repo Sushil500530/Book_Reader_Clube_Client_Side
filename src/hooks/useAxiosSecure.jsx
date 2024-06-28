@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 const axiosSecure = axios.create({
     baseURL: "https://furni-track-project-server-side.vercel.app",
+    // baseURL: "https://furni-track-project-server-side.vercel.app",
     withCredentials: true,
 })
 const useAxiosSecure = () => {
@@ -16,7 +17,7 @@ const useAxiosSecure = () => {
            // console.log(res);
             return res;
         }, error => {
-           // console.log(error);
+        //    console.log('error is find here----->',error);
             if (error?.response?.status === 401 || error?.response?.status === 403) {
                 logoutUser()
                     .then(() => {
