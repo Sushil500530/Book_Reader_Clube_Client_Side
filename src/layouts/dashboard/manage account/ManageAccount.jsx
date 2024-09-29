@@ -32,11 +32,11 @@ const ManageAccount = () => {
 
     return (
         <div className="px-3">
-            <div className="w-full h-auto bg-white shadow-xl pb-3 sticky inset-0 top-0 p-3">
+            <div className="w-full h-auto bg-blue-50 shadow-xl pb-3 sticky inset-0 top-0 p-3">
                 <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-3 py-8">Manage Account <MdManageAccounts className="w-8 h-8 text-fuchsia-500" /></h1>
                 <form onSubmit={handleSearch} className="flex items-center justify-center gap-2 relative w-full md:w-[70%] lg:w-1/2 mx-auto mt-5">
                     <input onChange={() => setSearch(event.target.value)} type="search" name="search" placeholder="Search Your Account......" className="input input-bordered input-info w-full pr-28" />
-                    <button type="submit" className="btn  absolute right-0 top-0 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Search</button>
+                    <button type="submit" className="btn absolute right-0 top-0 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Search</button>
                 </form>
             </div>
             {
@@ -46,7 +46,7 @@ const ManageAccount = () => {
                         <div><MdAnnouncement className="w-10 h-10 text-fuchsia-600" /></div>
                     </div>
                 </> : findUsers?.map(user =>
-                    <div key={user?._id} className="flex flex-col md:flex-row gap-3 md:gap-0 lg:gap-0 lg:flex-row items-center justify-between w-full md:w-[70%] lg:w-[550px] mx-auto mt-10 hover:bg-gray-100 p-3 rounded-md hover:shadow-md hover:border-b-2 border border-b-2 hover:border-b-fuchsia-500 cursor-pointer">
+                    <div key={user?._id} className="flex flex-col md:flex-row gap-3 md:gap-0 lg:gap-0 lg:flex-row items-center justify-between w-full md:w-[70%] lg:w-[550px] mx-auto mt-10 p-3 rounded-md hover:shadow-md hover:border-b-2 border border-b-2 hover:border-b-fuchsia-500 cursor-pointer">
                         <div className=" flex flex-col md:flex-row lg:flex-row items-center justify-center gap-5 flex-1 py-1">
                             <figure className="w-20 h-20">
                                 <img src={user?.image} className="w-full h-full rounded-full" alt="account-image" />

@@ -1,14 +1,14 @@
 import { GiLevelFourAdvanced } from "react-icons/gi";
 import DManuList from "../../../shared/dashboard manulist/DManuList";
-import { MdOutlineAddShoppingCart, MdOutlinePayments, MdOutlineFavorite} from "react-icons/md";
-import {  } from "react-icons/md";
-const GuestManu = () => {
+import { MdOutlineAddShoppingCart, MdOutlinePayments, MdOutlineFavorite } from "react-icons/md";
+import { } from "react-icons/md";
+const GuestManu = ({ setIsActive }) => {
     return (
         <>
-            <DManuList address={'promotion'} linkTitle={'Promotion'} icon={GiLevelFourAdvanced} />
-            <DManuList address={'favorites'} linkTitle={'Favorite Products'} icon={MdOutlineFavorite} />
-            <DManuList address={'create-shop'} linkTitle={'Add Shop'} icon={MdOutlineAddShoppingCart} />
-            <DManuList address={'payment-details'} linkTitle={'Payment Details'} icon={MdOutlinePayments} />
+            <DManuList address={'promotion'} linkTitle={'Promotion'} icon={GiLevelFourAdvanced} setIsActive={setIsActive} />
+            <DManuList address={'favorites'} linkTitle={'Favorite Products'} icon={MdOutlineFavorite} setIsActive={setIsActive} />
+            <DManuList address={'create-shop'} linkTitle={'Add Shop'} icon={MdOutlineAddShoppingCart} setIsActive={setIsActive} />
+            <DManuList address={'payment-details'} linkTitle={'Payment Details'} icon={MdOutlinePayments} setIsActive={setIsActive} />
         </>
     );
 };

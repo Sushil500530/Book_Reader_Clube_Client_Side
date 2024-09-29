@@ -50,7 +50,7 @@ console.log(managers);
                 <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Promotion is Comming here Soon!</h1>
             </ManagerModal>
             <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers({managers?.length})</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 lg:gap-5 mt-12">
                 {
                     managers?.map(item =>
                         <div key={item._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] transition ease-in-out text-white text-2xl text-center w-full h-auto bg-white shadow-2xl relative rounded-md ">
@@ -62,9 +62,11 @@ console.log(managers);
                             <h3 className="text-xl">Name: {item?.owner}</h3>
                             <p className='text-[17px] '>Shop Name: {item?.shop_name}</p>
                             <p className='text-[17px] '>Address: {item?.location}</p>
-                            <div className="grid grid-cols-2 gap-5 p-5">
-                                <button onClick={openModal} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black"><IoFlowerOutline className="text-2xl" />Promotional</button>
-                                <button onClick={() => handleRemove(item?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" />Remove</button>
+                            <div className="flex items-center gap-5 p-5">
+                                <button onClick={openModal} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-max flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black">
+                                    <IoFlowerOutline size={18} />Promotional</button>
+                                <button onClick={() => handleRemove(item?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-max flex items-center justify-center gap-3 border-none outline-none text-sm text-white hover:text-red-400">
+                                    <MdDelete size={32} /></button>
                             </div>
                         </div>)
                 }

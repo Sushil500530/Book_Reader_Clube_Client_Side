@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
   body{
     font-family: 'Poppins', sans-serif;
-    background: #fbfbfb;
-    color: black;
+    background: #fbfbfb !important;
+    color: black !important;
   }
   .green_gradient_text {
     @apply bg-gradient-to-b from-[#2241b0] to-[#000000] bg-clip-text text-transparent;

@@ -86,7 +86,7 @@ const AllProducts = () => {
                                     <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
                                 </figure>
                             </div>
-                            <h3 className="text-xl">Product Name: {furniture?.title}</h3>
+                            <h3 className="text-xl">{furniture?.title}</h3>
                             <h3 className="text-xl">Price: $ {furniture?.price}</h3>
                             <p className='text-[17px] '>Shop Name: {furniture?.shop_name ? furniture?.shop_name : "Anonymous Shop"}</p>
                             <p className='text-[17px] '>Owner Name: {furniture?.owner_name ? furniture?.owner_name : "Anonymous Owner"}</p>

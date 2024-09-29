@@ -75,13 +75,13 @@ const DCreateShop = () => {
                 {/* <Helmet>
             <title>Create Shop | Inventory M </title>
         </Helmet> */}
-                <h2 className="text-2xl lg:text-4xl font-bold text-center dark:text-white my-12 flex items-center justify-center gap-2">Create a New Shop   <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
+                <h2 className="text-2xl lg:text-4xl font-bold text-center my-12 flex items-center justify-center gap-2">Create a New Shop   <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
                 <form onSubmit={handleCreateShop}>
-                    <div className='grid grid-cols-1 dark:text-white '>
+                    <div className='grid grid-cols-1 '>
                         <div className='space-y-6'>
                             <div className='flex gap-4 items-center justify-center'>
                                 <div className='space-y-2 w-full'>
-                                    <label htmlFor='location' className='block text-black font-medium dark:text-white'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Your Shop Name
                                     </label>
                                     <input
@@ -90,7 +90,7 @@ const DCreateShop = () => {
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block text-black font-medium dark:text-white'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Location
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-bordered input-info border-blue-400 '
@@ -99,7 +99,7 @@ const DCreateShop = () => {
                                 </div>
                             </div>
                             <div className=' p-4 bg-white w-full m-auto rounded-lg'>
-                                <label className="block text-black font-medium dark:text-white"> Shop Logo</label>
+                                <label className="block text-black font-medium"> Shop Logo</label>
                                 <div className=' bg-white w-full m-auto rounded-lg mt-3'>
                                     <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                         {

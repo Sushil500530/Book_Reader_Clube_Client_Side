@@ -143,14 +143,14 @@ const AddProducts = () => {
                         <div className='space-y-6'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='dark:text-white block text-black font-medium'>
+                                    <label htmlFor='location' className=' block text-black font-medium'>
                                         Product Name
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='product_name' id='product_name' type='text' placeholder='Product name' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block  text-black font-medium'>
                                         Location
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 '
@@ -160,10 +160,10 @@ const AddProducts = () => {
                             </div>
 
                             <div className='space-y-1 w-full'>
-                                <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                <label htmlFor='location' className='block text-black font-medium'>
                                     Image
                                 </label>
-                                <div className=' bg-white w-full m-auto rounded-lg'>
+                                <div className=' w-full text-black bg-white m-auto rounded-lg'>
                                    <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                         {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                         {
@@ -175,10 +175,10 @@ const AddProducts = () => {
 
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Set Thumbnail1
                                     </label>
-                                    <div className=' bg-white w-full m-auto rounded-lg'>
+                                    <div className=' bg-white w-full m-auto text-black rounded-lg'>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                             {
                                                 showThumbnail1
@@ -187,14 +187,14 @@ const AddProducts = () => {
                                                     <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
                                                 </div>
                                                  : 
-                                                 <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                                 <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white " />
                                             }
                                           
                                         </div>
                                     </div>
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Set Thumbnail2
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
@@ -202,7 +202,7 @@ const AddProducts = () => {
                                             {
                                                 showThumbnail2 ?<div className="relative">
                                                 <img src={showThumbnail2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
-                                            </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                            </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white text-black" />
                                             }
                                            
                                         </div>
@@ -212,14 +212,14 @@ const AddProducts = () => {
 
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Quantity
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='quantity' id='quantity' type='number' placeholder='Enter quantiey' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Product Price
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='product_cost' id='product_cost' type='number' placeholder='Product Cost' required
@@ -232,10 +232,10 @@ const AddProducts = () => {
                         <div className='space-y-6'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Category
                                     </label>
-                                    <select name="category" id="category" className=" w-full max-w-xs border rounded-md border-blue-400">
+                                    <select name="category" id="category" className=" w-full text-black max-w-xs border rounded-md border-blue-400">
                                         <option disabled selected required>Select Category</option>
                                         {
                                             category?.length > 0 && category.map(categ => <option key={categ?._id} required>
@@ -245,7 +245,7 @@ const AddProducts = () => {
                                     </select>
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Rating
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='rating' id='rating' type='number' placeholder='Product Cost' required
@@ -261,14 +261,14 @@ const AddProducts = () => {
                             </div>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Product Profit
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='product_profit' id='product_profit' type='number' placeholder='Product Profit' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Discount %
                                     </label>
                                     <input className='w-full px-4 py-3 text-gray-800 border rounded-md border-blue-400 ' name='discount' id='discount' type='number' placeholder='Discount %' required
