@@ -38,44 +38,101 @@ const Navbar = ({ children }) => {
     }
     return (
         <div className="drawer">
-            <input id="my-drawer-3" type="checkbox" className="drawer-toggle text-white" />
+            <input
+                id="my-drawer-3"
+                type="checkbox"
+                className="drawer-toggle text-white"
+            />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
-                <div className={`w-full navbar fixed z-10 ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " : "bg-transparent text-purple-500"}`} >
+                <div className={`w-full navbar fixed z-10 
+                    ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " :
+                        "bg-transparent text-purple-500"}`}
+                >
                     <div className="lg:max-w-[2520px] h-auto mx-auto lg:px-10 xl:px-20 w-full flex items-center justify-between lg:flex-row flex-row-reverse">
                         <div className="flex-none lg:hidden text-fuchsia-500 ">
                             <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    className="inline-block w-8 h-8 stroke-current"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4 6h16M4 12h16M4 18h16"
+                                    >
+                                    </path>
+                                </svg>
                             </label>
                         </div>
                         <div className="flex-1 px-2 md:mx-2">
                             <Logo />
                         </div>
-                        <NavLinkManu handleToggle={handleToggle} sales={sales} />
+                        <NavLinkManu
+                            handleToggle={handleToggle}
+                            sales={sales}
+                        />
                     </div>
                 </div>
                 {children}
             </div>
-            <Sidebar handleToggle={handleToggle} sales={sales} />
-            {!active && <div onClick={()=>setActive(true)} className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-transform duration-500 ease-in-out"></div>}
+            <Sidebar
+                handleToggle={handleToggle}
+                sales={sales}
+            />
+            {
+                !active && <div
+                    onClick={() => setActive(true)}
+                    className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-transform duration-500 ease-in-out"
+                >
+                </div>
+            }
             <div className="relative h-auto">
-                <div className={`z-10 fixed pb-6 pt-6 !bg-blue-50 text-black -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform ${active && 'translate-x-full'} transition duration-200 ease-in-out`}>
+                <div className={`
+                z-10 fixed pb-6 pt-6 !bg-blue-50 text-black -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform
+                     ${active && 'translate-x-full'} 
+                     transition duration-200 ease-in-out`
+                }>
                     <div className="flex items-center justify-between">
-                        <button onClick={handleToggle} className="btn outline-none border-none bg-transparent"><RxCross1 className="text-2xl" /></button>
+                        <button
+                            onClick={handleToggle}
+                            className="btn outline-none border-none bg-transparent">
+                            <RxCross1 className="text-2xl" />
+                        </button>
                         <button></button>
                     </div>
-                    <h1 className="text-xl font-bold my-5 ">Show Your Buy Products</h1>
+                    <h1 className="text-xl font-bold my-5 ">
+                        Show Your Buy Products
+                    </h1>
                     <hr className="w-[80%] h-[2px] bg-fuchsia-600 mx-auto mb-5" />
                     {
                         sales?.length === 0 && <div className="flex flex-col w-full h-auto p-8 gap-5">
-                            <h1 className="text-xl font-bold "><span className="text-2xl text-purple-600">Oops</span>! <br /> Your Product is not found</h1>
-                            <img src={notImage} className="w-full h-[40vh]" alt="not-found-product" />
+                            <h1 className="text-xl font-bold ">
+                                <span className="text-2xl text-purple-600">
+                                    Oops
+                                </span>!
+                                <br />
+                                Your Product is not found
+                            </h1>
+                            <img
+                                src={notImage}
+                                className="w-full h-[40vh]"
+                                alt="not-found-product"
+                            />
                         </div>
                     }
                     <div className="w-full h-[70vh] flex flex-col items-center justify-between ">
                         <div>
                             {
-                                sales?.length > 0 && sales?.map(sale => <ForSaleData key={sale?._id} sale={sale} refetch={refetch} />)
+                                sales?.length > 0 && sales?.map(sale =>
+                                    <ForSaleData
+                                        key={sale?._id}
+                                        sale={sale}
+                                        refetch={refetch}
+                                    />)
                             }
                         </div>
                         <div className=" flex items-center justify-center flex-col gap-5">
@@ -83,7 +140,13 @@ const Navbar = ({ children }) => {
                                 <h1 className="text-xl font-bold">Total Price : $ {getPrice}</h1>
                             </div>
                             <Link to='/checkout'>
-                                <button onClick={() => handleToggle(!active)} disabled={sales?.length === 0} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300"><FaDollarSign className="text-2xl font-bold" />Checkout Now</button>
+                                <button
+                                    onClick={() => handleToggle(!active)}
+                                    disabled={sales?.length === 0}
+                                    className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300">
+                                    <FaDollarSign className="text-2xl font-bold" />
+                                    Checkout Now
+                                </button>
                             </Link>
                         </div>
                     </div>

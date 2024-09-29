@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <div>
             <Navbar>
-                <Outlet></Outlet>
+                <Outlet />
             </Navbar>
         </div>
     );

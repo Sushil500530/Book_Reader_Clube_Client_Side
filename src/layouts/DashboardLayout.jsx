@@ -10,7 +10,6 @@ import GuestManu from "./dashboard/manu/GuestManu";
 import ManagerManu from "./dashboard/manu/ManagerManu";
 import AdminManu from "./dashboard/manu/AdminManu";
 import Loader from "../shared/Loader";
-import { RiMenu3Line } from "react-icons/ri";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../hooks/useAuth";
 
@@ -62,35 +61,58 @@ const DashboardLayout = () => {
                                 <Logo />
                             </Link>
                         </div>
-                        <NavLink to='/dashboard' className={({ isActive }) =>
-                            ` flex items-center text-[18px] font-medium px-4 py-2 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100  ${isActive ? 'text-blue-500 ' : ''
+                        <NavLink
+                         to='/dashboard' 
+                         className={({ isActive }) =>
+                            ` flex items-center text-[18px] font-medium px-4 py-2 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100  
+                         ${isActive ? 'text-blue-500 ' : ''
                             }`} >
-                            <span>{<MdDashboardCustomize className="w-5 h-8 mr-1 " />}</span>
+                            <span><MdDashboardCustomize className="w-5 h-8 mr-1 " /></span>
                             Dashboard
                         </NavLink>
                         {
-                            users?.role === 'guest' && <GuestManu setIsActive={setIsActive} />
+                            users?.role === 'guest'&& 
+                            <GuestManu 
+                             setIsActive={setIsActive} 
+                             />
                         }
                         {
-                            users?.role === 'manager' && <ManagerManu setIsActive={setIsActive} />
+                            users?.role === 'manager' && 
+                            <ManagerManu 
+                            setIsActive={setIsActive} 
+                            />
                         }
                         {
-                            users?.role === 'admin' && <AdminManu setIsActive={setIsActive} />
+                            users?.role === 'admin' &&
+                             <AdminManu 
+                             setIsActive={setIsActive} 
+                             />
                         }
                     </div>
                     <div>
-                        <FooterManu setIsActive={setIsActive} />
+                        <FooterManu 
+                        setIsActive={setIsActive} 
+                        />
                     </div>
                 </div>
                 <div className="hidden lg:block">
                     <div className="z-10 fixed top-0 pt-1 bg-blue-50 shadow-xl text-white right-0 flex items-center justify-end h-16 w-full lg:w-[calc(100%-256px)] px-5">
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button " className="btn btn-ghost btn-circle avatar ring ring-fuchsia-500">
+                            <div 
+                            abIndex={0}
+                             role="button "
+                              className="btn btn-ghost btn-circle avatar ring ring-fuchsia-500">
                                 <div className="rounded-full">
-                                    <img src={user?.photoURL} alt="profile" className="w-full h-full" />
+                                    <img 
+                                    src={user?.photoURL} 
+                                    alt="profile" 
+                                    className="w-full h-full"
+                                     />
                                 </div>
                             </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 space-y-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
+                            <ul 
+                            tabIndex={0} 
+                            className="mt-3 z-[1] p-2 space-y-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
                                 <h2 className="text-xl font-bold capitalize">{user?.displayName}</h2>
                                 <h4 className="text-lg font-medium capitalize text-fuchsia-400">{users?.role}</h4>
                                 <hr />
@@ -105,8 +127,11 @@ const DashboardLayout = () => {
                         </div>
                     </div>
                 </div>
-                <div onClick={() => setIsActive(true)} className="ml-0 md:ml-0 lg:ml-[260px] w-full h-full min-h-[calc(100vh-80px)] px-5 bg-blue-50  text:bg-zinc-800 mt-20">
-                    <Outlet></Outlet>
+                <div 
+                onClick={() => setIsActive(true)} 
+                className="ml-0 md:ml-0 lg:ml-[260px] w-full h-full min-h-[calc(100vh-80px)] px-5 bg-blue-50  text:bg-zinc-800 mt-20"
+                >
+                    <Outlet />
                 </div>
             </div>
         </div>

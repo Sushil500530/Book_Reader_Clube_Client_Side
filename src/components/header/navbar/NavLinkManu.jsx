@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import ManuList from "../../../shared/manuItems/ManuList";
-import { FaHome, FaSignOutAlt,FaBlog } from "react-icons/fa";
+import { FaHome, FaSignOutAlt, FaBlog } from "react-icons/fa";
 import { GiFurnace } from "react-icons/gi";
 import { MdAddShoppingCart, MdExpandLess } from "react-icons/md";
 // import { FaUserPlus } from "react-icons/fa6";
@@ -10,7 +10,7 @@ import { MdShoppingBasket } from "react-icons/md";
 import { useAuth } from './../../../hooks/useAuth';
 import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
-import { FcAbout,FcContacts } from "react-icons/fc";
+import { FcAbout, FcContacts } from "react-icons/fc";
 
 const NavLinkManu = ({ handleToggle, sales }) => {
     const { user, logoutUser } = useAuth();
@@ -25,11 +25,23 @@ const NavLinkManu = ({ handleToggle, sales }) => {
             <div className="flex-none hidden lg:block ">
                 <ul className="menu menu-horizontal flex">
                     {/* Navbar menu content here */}
-                    <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
-                    <ManuList address={'all-shop'} linkTitle={"All Shop"} icon={GiFurnace} />
+                    <ManuList
+                        address={'/'}
+                        linkTitle={"Home"}
+                        icon={FaHome}
+                    />
+                    <ManuList
+                        address={'all-shop'}
+                        linkTitle={"All Shop"}
+                        icon={GiFurnace}
+                    />
                     {
                         user?.email && <>
-                            <ManuList address={'/dashboard'} linkTitle={"Dashboard"} icon={MdOutlineDashboardCustomize} />
+                            <ManuList
+                                address={'/dashboard'}
+                                linkTitle={"Dashboard"}
+                                icon={MdOutlineDashboardCustomize}
+                            />
                             <span className="hidden md:block lg:block">
                                 <button onClick={handleToggle}
                                     className={`flex items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative`}>
@@ -41,19 +53,34 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                         </>
                     }
 
-                    <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
+                    <ManuList
+                        address={'create-shop'}
+                        linkTitle={"Create Shop"}
+                        icon={MdAddShoppingCart}
+                    />
                     <div className="group relative ">
-                        <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group">Pages <MdExpandLess className="text-2xl rotate-180 hover:rotate-0 w-full group-hover:visible" /></button>
+                        <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group">
+                            Pages <MdExpandLess className="text-2xl rotate-180 group-hover:rotate-0 w-full " />
+                        </button>
                         <div className="transition transform translate-y-8 ease-in-out invisible absolute group-hover:visible top-12 left-0 w-full h-auto text-white group-hover:translate-y-5 bg-base-300 pb-5 z-30">
-                            <NavLink to='about' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                            <NavLink
+                                to='about'
+                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                             ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
                                 About
                             </NavLink>
-                            <NavLink to='contact' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                            <NavLink
+                                to='contact'
+                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                             ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FcContacts className="w-5 h-8 mr-1 " />}</span>
                                 Contact
                             </NavLink>
-                            <NavLink to='blog' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
+                            <NavLink
+                                to='blog'
+                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                            ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FaBlog className="w-5 h-8 mr-1 " />}</span>
                                 Blog
                             </NavLink>
@@ -65,13 +92,21 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button " className="btn btn-ghost btn-circle avatar ring ring-white">
                                     <div className="rounded-full">
-                                        <img src={user?.photoURL} alt="profile" className="w-full h-full" />
+                                        <img
+                                            src={user?.photoURL}
+                                            alt="profile"
+                                            className="w-full h-full"
+                                        />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
+                                <ul
+                                    tabIndex={0}
+                                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
                                     <Link to='/dashboard'><li><a>Dashboard</a></li></Link>
                                     <Link to='/dashboard/settings'><li><a>Profile</a></li></Link>
-                                    <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 z-10">
+                                    <button
+                                        onClick={handleLogout}
+                                        className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 z-10">
                                         <span><FaSignOutAlt /></span>
                                         Logout
                                     </button>

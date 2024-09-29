@@ -1,5 +1,5 @@
 # Furni Track Website
-## Live Link : (https://book-reader-bd20d.web.app)
+## Live Link : https://book-reader-bd20d.web.app
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

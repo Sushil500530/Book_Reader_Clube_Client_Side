@@ -62,8 +62,13 @@ const Testimonials = () => {
 
     return (
         <div className="container mx-auto my-12">
-            <h1 className="text-3xl font-bold text-center">Our Testimonials</h1>
-            <p className="text-gray-500 text-base text-center my-5">Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication  <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.</p>
+            <h1 className="text-3xl font-bold text-center">
+                Our Testimonials
+            </h1>
+            <p className="text-gray-500 text-base text-center my-5">
+                Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication
+                <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.
+            </p>
             <div className="relative w-[95%] lg:w-11/12 mx-auto !pb-0">
                 <Swiper
                     spaceBetween={30}
@@ -88,10 +93,13 @@ const Testimonials = () => {
                             slidesPerView: 2,
                         },
                     }}
-                    
+
                 >
                     {testimonialsData.map((testimonial) => (
-                        <SwiperSlide key={testimonial?.id} className='overflow-visible z-0 '>
+                        <SwiperSlide
+                            key={testimonial?.id}
+                            className='overflow-visible z-0 '
+                        >
                             <div className="w-full h-auto md:h-[430px] bg-white  hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out group text-black p-2 md:p-8 rounded-md relative">
                                 {/* Profile Image - Positioned Absolutely */}
                                 <div className="flex items-center justify-start flex-col md:flex-row gap-5 w-full h-full">
@@ -109,8 +117,12 @@ const Testimonials = () => {
                                         {/* Content inside card */}
 
                                         <div className="flex items-center justify-start flex-col text-center ">
-                                            <h1 className="text-2xl font-bold text-black mb-2 group-hover:text-white">{testimonial?.name}</h1>
-                                            <p className="text-base font-semibold text-gray-700 group-hover:text-gray-300">{testimonial?.role}</p>
+                                            <h1 className="text-2xl font-bold text-black mb-2 group-hover:text-white">
+                                                {testimonial?.name}
+                                            </h1>
+                                            <p className="text-base font-semibold text-gray-700 group-hover:text-gray-300">
+                                                {testimonial?.role}
+                                            </p>
                                             <ReactStars
                                                 count={5}
                                                 value={testimonial?.rating}

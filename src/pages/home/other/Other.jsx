@@ -18,6 +18,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 
 const Other = () => {
+    const imagesItem = [image1, image2, image3, image4, image5, image6, image7, image8, image9] || [];
     return (
         <div className='my-12 bg-gradient-to-b from-[#2241b0] to-[#000000] py-10 text-center text-white'>
             <h1 className='text-3xl font-bold mb-3'>Feature of Furnitures</h1>
@@ -39,33 +40,13 @@ const Other = () => {
                     modules={[EffectCoverflow, Pagination]}
                     className="mySwiper h-[350px] md:h-auto"
                 >
-                    <SwiperSlide>
-                        <img src={image1} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image2} />
-                    </SwiperSlide>
-                  <SwiperSlide>
-                        <img src={image3} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image4} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image5} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image6} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image7} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image8} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image9} />
-                    </SwiperSlide> 
+                    {
+                        imagesItem?.length > 0 && imagesItem?.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <img src={image} />
+                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div>
         </div>
