@@ -49,7 +49,7 @@ const Navbar = ({ children }) => {
                             </label>
                         </div>
                         <div className="flex-1 px-2 md:mx-2">
-                                <Logo />
+                            <Logo />
                         </div>
                         <NavLinkManu handleToggle={handleToggle} sales={sales} />
                     </div>
@@ -57,35 +57,40 @@ const Navbar = ({ children }) => {
                 {children}
             </div>
             <Sidebar handleToggle={handleToggle} sales={sales} />
-            <div className={`z-10 fixed pb-6 pt-6 !bg-blue-50 -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform ${active && 'translate-x-full'} dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out`}>
-                <div className="flex items-center justify-between">
-                    <button onClick={handleToggle} className="btn outline-none border-none bg-transparent"><RxCross1 className="text-2xl" /></button>
-                    <button></button>
-                </div>
-                <h1 className="text-xl font-bold my-5">Show Your Buy Products</h1>
-                <hr className="w-[80%] h-[2px] bg-fuchsia-600 mx-auto mb-5" />
-                {
-                    sales?.length === 0 && <div className="flex flex-col w-full h-auto p-8 gap-5">
-                        <h1 className="text-xl font-bold"><span className="text-2xl text-purple-600">Oops</span>! <br /> Your Product is not found</h1>
-                        <img src={notImage} className="w-full h-[40vh]" alt="not-found-product" />
+            {!active && <div onClick={()=>setActive(true)} className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-transform duration-500 ease-in-out"></div>}
+            <div className="relative h-auto">
+                <div className={`z-10 fixed pb-6 pt-6 !bg-blue-50 text-black -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform ${active && 'translate-x-full'} transition duration-200 ease-in-out`}>
+                    <div className="flex items-center justify-between">
+                        <button onClick={handleToggle} className="btn outline-none border-none bg-transparent"><RxCross1 className="text-2xl" /></button>
+                        <button></button>
                     </div>
-                }
-                <div className="w-full h-[70vh] flex flex-col items-center justify-between">
-                    <div>
-                        {
-                            sales?.length > 0 && sales?.map(sale => <ForSaleData key={sale?._id} sale={sale} refetch={refetch} />)
-                        }
-                    </div>
-                    <div className=" flex items-center justify-center flex-col gap-5">
-                        <div className="bg-clip-content mt-10 p-6 border-4 border-violet-300 border-dashed">
-                            <h1 className="text-xl font-bold">Total Price : $ {getPrice}</h1>
+                    <h1 className="text-xl font-bold my-5 ">Show Your Buy Products</h1>
+                    <hr className="w-[80%] h-[2px] bg-fuchsia-600 mx-auto mb-5" />
+                    {
+                        sales?.length === 0 && <div className="flex flex-col w-full h-auto p-8 gap-5">
+                            <h1 className="text-xl font-bold "><span className="text-2xl text-purple-600">Oops</span>! <br /> Your Product is not found</h1>
+                            <img src={notImage} className="w-full h-[40vh]" alt="not-found-product" />
                         </div>
-                        <Link to='/checkout'>
-                            <button onClick={() => handleToggle(!active)} disabled={sales?.length === 0} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300"><FaDollarSign className="text-2xl font-bold" />Checkout Now</button>
-                        </Link>
+                    }
+                    <div className="w-full h-[70vh] flex flex-col items-center justify-between ">
+                        <div>
+                            {
+                                sales?.length > 0 && sales?.map(sale => <ForSaleData key={sale?._id} sale={sale} refetch={refetch} />)
+                            }
+                        </div>
+                        <div className=" flex items-center justify-center flex-col gap-5">
+                            <div className="bg-clip-content mt-10 p-6 border-4 border-violet-300 border-dashed">
+                                <h1 className="text-xl font-bold">Total Price : $ {getPrice}</h1>
+                            </div>
+                            <Link to='/checkout'>
+                                <button onClick={() => handleToggle(!active)} disabled={sales?.length === 0} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300"><FaDollarSign className="text-2xl font-bold" />Checkout Now</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
     );
 };
