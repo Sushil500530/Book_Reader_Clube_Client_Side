@@ -17,12 +17,13 @@ const ManageProductAdmin = () => {
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
                     {
-                        furnitures?.length > 0 && furnitures?.map(furniture => <div key={furniture?._id} className="bg-white shadow-md text-black flex items-center justify-center gap-3 ">
-                            <figure className="w-34 h-36"> <img src={furniture?.image} alt="product-image" className="w-full h-full" /> </figure>
+                        furnitures?.length > 0 && furnitures?.map(furniture => 
+                        <div key={furniture?._id} className="bg-white shadow-md text-black flex items-center justify-center gap-3 w-full h-40">
+                            <figure className="w-44 h-full"> <img src={furniture?.image} alt="product-image" className="w-full h-full" /> </figure>
                             <div>
                                 <h1 className="text-xl font-bold mb-2">{furniture?.title}</h1>
                                 <p>{furniture?.description?.length > 60 ? furniture?.description?.slice(0, 60) : furniture?.description}</p>
-                                <div className="flex items-center justify-end mr-5 mt-2">
+                                <div className="flex items-center justify-end mr-5 my-2">
                                     <Link to={`/furnitures/${furniture?._id}`}>
                                       <span className="btn btn-sm px-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl  hover:black hover:translate-x-1 transition" /></span>
                                     </Link>

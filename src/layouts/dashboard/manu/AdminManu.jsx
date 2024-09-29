@@ -7,7 +7,7 @@ const AdminManu = ({ setIsActive }) => {
     return (
         <>
             <DManuList address={'shop-managers'} linkTitle={'Shop Managers'} icon={GrUserManager} setIsActive={setIsActive} />
-            <DManuList address={'all-products'} linkTitle={'All Products'} icon={FaDatabase} />
+            <DManuList address={'all-products'} linkTitle={'All Products'} icon={FaDatabase} setIsActive={setIsActive} />
             <DManuList address={'manage-products'} linkTitle={'Manage Products'} icon={MdManageHistory} setIsActive={setIsActive} />
             <DManuList address={'sale-summary'} linkTitle={'Sale Summary'} icon={MdOutlineCrisisAlert} setIsActive={setIsActive} />
             <DManuList address={'all-users'} linkTitle={'All users'} icon={FaUsers} setIsActive={setIsActive} />

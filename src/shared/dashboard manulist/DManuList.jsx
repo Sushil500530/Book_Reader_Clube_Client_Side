@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from 'react-router-dom';
 
-const DManuList = ({setIsActive, address, icon: Icon, linkTitle }) => {
+const DManuList = ({ setIsActive, address, icon: Icon, linkTitle }) => {
     return (
         <NavLink
-        onClick={()=>setIsActive(true)}
+            onClick={() => setIsActive(true)}
             to={address}
             className={({ isActive }) =>
                 ` flex items-center text-[18px] font-medium px-4 gap-1 py-2 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 my-2 ${isActive ? ' border-[1px] border-blue-500 my-2' : ''

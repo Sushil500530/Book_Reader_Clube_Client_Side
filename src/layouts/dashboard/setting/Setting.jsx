@@ -60,8 +60,8 @@ const Setting = () => {
                         refetch()
                         toast.success('Profile updated successfully')
                         return updataUserProfile(name, photo)
-                            .then(() => { setShowImage('')})
-                            .catch((error) => {console.log(error.message) })
+                            .then(() => { setShowImage('') })
+                            .catch((error) => { console.log(error.message) })
                     }
                     setLoading(false)
                 })
@@ -90,11 +90,26 @@ const Setting = () => {
                     <h1 className='px-8 py-1 bg-fuchsia-600 text-white rounded-full text-xl font-bold mb-3'>Role: {users?.role}</h1>
                     <h1 className='text-xl font-bold'>Status: {users?.status}</h1>
                 </div>
-                <form onSubmit={handleSubmit} className='flex flex-col gap-2 items-start justify-center border py-8 text-xl px-3 md:px-4 lg:px-7 w-full h-auto mb-20'>
+                <form
+                    onSubmit={handleSubmit}
+                    className='flex flex-col gap-2 items-start justify-center border py-8 text-xl px-3 md:px-4 lg:px-7 w-full h-auto mb-20'
+                >
                     <label>Name*</label>
-                    <input type="text" name='name' defaultValue={users?.name} className="input input-bordered input-info w-full" required />
+                    <input
+                        type="text"
+                        name='name'
+                        defaultValue={users?.name}
+                        className="input input-bordered input-info w-full bg-white text-black" required
+                    />
                     <label>Email*</label>
-                    <input type="text" name='email' disabled defaultValue={users?.email} className="input input-bordered input-info w-full" required />
+                    <input
+                        type="text"
+                        name='email'
+                        disabled
+                        // defaultValue={users?.email}
+                        className="input input-bordered input-info w-full  disabled:bg-white disabled:text-black"
+                        required
+                    />
                     <div className="w-full space-y-2">
                         <h1 className='text-xl mb-2 text-start'>Profile Photo</h1>
                         <div className="bg-clip-content p-6 bg-violet-600 border-4 border-violet-300 border-dashed w-full">

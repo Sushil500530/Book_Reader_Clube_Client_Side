@@ -35,25 +35,27 @@ const DashboardLayout = () => {
             })
     }
 
-    console.log(user)
+    // console.log(user)
     return (
         <div>
             {/* <h1 className="text-3xl font-bold text-center">Dashboard</h1> */}
-            <div className='bg-white shadow-2xl z-30 fixed top-0 pt-1 text-gray-800 flex justify-between lg:hidden p-2 w-full'>
+            <div className='bg-white shadow-2xl z-10 fixed top-0 pt-1 text-gray-800 flex justify-between lg:hidden p-2 w-full'>
                 <div className="w-auto">
                     <Link to="/">
                         <Logo />
                     </Link>
                 </div>
-                <button onClick={handleReverse} className='btn w-auto h-full dark:bg-zinc-800 relative top-3 bg-transparent border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
-                    isActive === true ?
-                        <IoMenuOutline className='h-8 w-8 font-bold text-black dark:text-white' /> :
-                        <RxCross1 className='h-7 w-8 font-bold text-black  dark:text-white' />
-                }
+                <button
+                    onClick={handleReverse}
+                    className='btn w-auto h-full dark:bg-zinc-800 relative top-3 bg-transparent border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
+                        isActive === true ?
+                            <IoMenuOutline className='h-8 w-8 font-bold text-black dark:text-white' /> :
+                            <RxCross1 className='h-7 w-8 font-bold text-black  dark:text-white' />
+                    }
                 </button>
             </div>
             <div className="flex w-auto h-full bg-blue-50 ">
-                <div className={`z-10 fixed flex flex-col justify-between pb-12 shadow bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 transition duration-200 ease-in-out`}>
+                <div className={`z-[1] fixed flex flex-col justify-between pb-12 shadow bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 transition duration-200 ease-in-out`}>
                     <div className="">
                         <div className="mb-12 pt-2 px-4">
                             <Link to="/">
@@ -81,7 +83,7 @@ const DashboardLayout = () => {
                     </div>
                 </div>
                 <div className="hidden lg:block">
-                    <div className="z-30 fixed top-0 pt-1 bg-blue-50 shadow-xl text-white right-0 flex items-center justify-end h-16 w-full lg:w-[calc(100%-256px)] px-5">
+                    <div className="z-10 fixed top-0 pt-1 bg-blue-50 shadow-xl text-white right-0 flex items-center justify-end h-16 w-full lg:w-[calc(100%-256px)] px-5">
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button " className="btn btn-ghost btn-circle avatar ring ring-fuchsia-500">
                                 <div className="rounded-full">
@@ -103,7 +105,7 @@ const DashboardLayout = () => {
                         </div>
                     </div>
                 </div>
-                <div onClick={()=> setIsActive(true)} className="ml-0 md:ml-0 lg:ml-[260px] w-full h-full min-h-[calc(100vh-80px)] px-5 bg-blue-50  text:bg-zinc-800 mt-20">
+                <div onClick={() => setIsActive(true)} className="ml-0 md:ml-0 lg:ml-[260px] w-full h-full min-h-[calc(100vh-80px)] px-5 bg-blue-50  text:bg-zinc-800 mt-20">
                     <Outlet></Outlet>
                 </div>
             </div>

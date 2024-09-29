@@ -82,19 +82,19 @@ const About = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-32">
                             {
                                 data?.length > 0 && data.map(team => (
-                                    <div key={team.id} className="w-full h-auto bg-base-100 shadow-xl hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black rounded-md relative mt-14 hover:text-white">
+                                    <div key={team.id} className="w-full h-auto shadow-xl bg-white hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black rounded-md relative mt-14 group">
                                         <figure className="w-full relative flex items-center justify-center">
-                                            <img src={team?.image} alt="image" className="w-36 h-36 rounded-full hover:border-fuchsia-500 border-4 hover:scale-110 transition ease-in-out relative -top-10" />
+                                            <img src={team?.image} alt="image" className="w-36 h-36 rounded-full group-hover:border-fuchsia-500 border-4 hover:scale-110 transition ease-in-out relative -top-10" />
                                         </figure>
-                                        <div className="flex items-center justify-center gap-2 -mt-5 relative">
-                                            <FaFacebookF className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
-                                            <FaInstagram className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
-                                            <FaTwitter className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer" />
+                                        <div className="flex items-center justify-center gap-2 -mt-5 relative group-hover:text-white">
+                                            <FaFacebookF className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer hover:text-fuchsia-500" />
+                                            <FaInstagram className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer hover:text-fuchsia-500" />
+                                            <FaTwitter className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer   hover:text-fuchsia-500" />
                                         </div>
                                         <div className="flex items-center justify-center gap-2 flex-col p-5 ">
-                                            <h2 className="text-xl font-bold flex items-center justify-center">{team?.name}({team?.rating}/5<MdStarRate className="text-xl relative -top-2 text-amber-600" />)</h2>
+                                            <h2 className="text-lg md:text-xl font-bold flex items-center justify-center group-hover:text-white">{team?.name}({team?.rating}/5<MdStarRate className="text-xl relative -top-2 text-amber-600" />)</h2>
                                             <p className="relative -mt-2 font-bold text-fuchsia-500">{team?.role}</p>
-                                            <p className="text-justify text-gray-500 hover:text-gray-300">{team?.details}</p>
+                                            <p className="text-justify text-gray-500 group-hover:text-gray-300">{team?.details}</p>
                                         </div>
                                     </div>
                                 ))
@@ -124,7 +124,7 @@ const About = () => {
                         <div>
                             <div className="my-32 ">
                                 <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] mb-1 text-center">What will meet the needs and Flow...!</h1>
-                                <p className="text-center text-neutral-500">Furni-Track is designed to meet the comprehensive needs of furniture asset management, ensuring efficient tracking, organization, and maintenance of furniture items.</p>
+                                <p className="text-center text-neutral-500 my-3">Furni-Track is designed to meet the comprehensive needs of furniture asset management, <br /> ensuring efficient tracking, organization, and maintenance of furniture items.</p>
                             </div>
                             <div className="flex items-center justify-center w-full gap-5 lg:gap-16 flex-col lg:flex-row-reverse mb-32">
                                 <div className="w-full h-[600px] lg:w-1/2">
