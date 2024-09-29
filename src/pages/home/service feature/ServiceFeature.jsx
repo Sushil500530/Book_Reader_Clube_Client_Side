@@ -17,10 +17,10 @@ const ServiceFeature = () => {
                         strength={-200}
                         Radius={100}
                     >
-                        <div className=" h-[60vh] lg:h-[90vh] hero" >
+                        <div className=" h-[100vh] lg:h-[90vh] hero" >
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-center text-neutral-content">
-                                <div className="w-3/5">
+                                <div className="w-full md:w-3/5">
                                     <h1 className="mb-5 text-5xl font-bold uppercase  text-gray-100">Furniture</h1>
                                     <p className="mb-5 text-base font-medium  text-gray-200">Furniture refers to objects intended to support various human activities such as seating or stools, chairs, and sofas, eating, storing items, working, and sleeping .</p>
                                     <Link to='/all-shop'>

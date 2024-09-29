@@ -1,6 +1,3 @@
-import { Rating } from "@smastrom/react-rating";
-import { FaQuoteRight } from "react-icons/fa";
-import { FaQuoteLeft } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import ReactStars from 'react-rating-stars-component';
@@ -8,14 +5,9 @@ import { BiSolidQuoteAltRight } from "react-icons/bi";
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// import { Autoplay, Navigation } from 'swiper/modules';
 
 const Testimonials = () => {
-    //     <Rating
-    //     style={{ maxWidth: 120 }}
-    //     value={5}
-    //     readOnly
-    // />
+
     const testimonialsData = [
         {
             "name": "Mohammodullah Alim",
@@ -72,7 +64,7 @@ const Testimonials = () => {
         <div className="container mx-auto my-12">
             <h1 className="text-3xl font-bold text-center">Our Testimonials</h1>
             <p className="text-gray-500 text-base text-center my-5">Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication  <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.</p>
-            <div className="relative w-[95%] h-screen lg:w-11/12 mx-auto">
+            <div className="relative w-[95%] lg:w-11/12 mx-auto !pb-0">
                 <Swiper
                     spaceBetween={30}
                     autoplay={{
@@ -83,7 +75,7 @@ const Testimonials = () => {
                     }}
                     loop={true}
                     modules={[Autoplay]}
-                    className="mySwiper h-[800px]"
+                    className="mySwiper  md:h-auto !pb-10"
                     slidesPerView={1}
                     breakpoints={{
                         640: {
@@ -110,8 +102,8 @@ const Testimonials = () => {
                                             className="w-full h-full rounded-md border-4 border-white shadow-lg "
                                         />
                                     </div>
-                                    <div className="flex items-center justify-start gap-2 flex-1 flex-col z-10">
-                                        <div className='absolute right-5 bottom-0 text-gray-700 -z-10'>
+                                    <div className="flex items-center justify-start gap-2 flex-1 flex-col z-20">
+                                        <div className='absolute right-5 bottom-0 text-gray-200 group-hover:text-gray-700 -z-10'>
                                             <BiSolidQuoteAltRight size={80} />
                                         </div>
                                         {/* Content inside card */}
