@@ -9,7 +9,7 @@ import AboutFurni from "./about/AboutFurni";
 const SubFurniHome = () => {
     const data = useLoaderData()
     const features = (data[0]?.features);
-    console.log(data);
+    // console.log(data);
     return (
         <>
             <SubFurniBanner features={features} data={data} />

@@ -25,11 +25,11 @@ import useSale from "../../../hooks/useSale";
 
 const FurniDetails = () => {
     const data = useLoaderData();
-    const [ ,refetch, ] = useSale();
+    const [, refetch,] = useSale();
     const axiosSecure = useAxiosSecure();
-    const {user} = useAuth();
+    const { user } = useAuth();
     const navigate = useNavigate();
-    const {_id, image, category, price, title, description, thumbnail1, thumbnail2, rating, quantity, discount } = data || {};
+    const { _id, image, category, price, title, description, thumbnail1, thumbnail2, rating, quantity, discount } = data || {};
     const discountPrice = discount / 100 * price;
     const currentPrice = Math.round((price - discountPrice).toFixed(2));
     // console.log(currentPrice);
@@ -37,7 +37,7 @@ const FurniDetails = () => {
         furniId: _id,
         image,
         category,
-        price:currentPrice,
+        price: currentPrice,
         title,
         description,
         thumbnail1,
@@ -45,27 +45,27 @@ const FurniDetails = () => {
         rating,
         quantity,
         discount,
-        email:user?.email,
+        email: user?.email,
         userName: user?.displayName
     }
     // console.log(user?.email, buyProduct);
     const handleSetData = async () => {
-       try{
-        // console.log(user?.email, buyProduct);
-        await axiosSecure.post('/sales',buyProduct)
-        .then(res => {
-            if(res.data?.insertedId){
-                Swal.fire({
-                    title: "Successfully",
-                    text: `${title} added successfully`,
-                    icon: "success",
-                    timer: 1500
-                  });
-                  refetch();
-            }
-        })
-       }
-        catch(error){
+        try {
+            // console.log(user?.email, buyProduct);
+            await axiosSecure.post('/sales', buyProduct)
+                .then(res => {
+                    if (res.data?.insertedId) {
+                        Swal.fire({
+                            title: "Successfully",
+                            text: `${title} added successfully`,
+                            icon: "success",
+                            timer: 1500
+                        });
+                        refetch();
+                    }
+                })
+        }
+        catch (error) {
             toast.error(error.message)
         }
     }
@@ -73,15 +73,15 @@ const FurniDetails = () => {
         return navigate(-1)
     }
     const handleFavoriteData = async () => {
-       try{
-        await axiosSecure.post('/favorites',buyProduct)
-        .then(res => {
-            if(res.data?.insertedId){
-                toast.success('added successfully')
-            }
-        })
-       }
-        catch(error){
+        try {
+            await axiosSecure.post('/favorites', buyProduct)
+                .then(res => {
+                    if (res.data?.insertedId) {
+                        toast.success('added successfully')
+                    }
+                })
+        }
+        catch (error) {
             toast.error(error.message)
         }
     }
@@ -92,7 +92,7 @@ const FurniDetails = () => {
                 <h1 className="text-3xl font-bold text-center mt-10">Details of {title}....</h1>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full h-auto gap-8 mt-10">
                     <div>
-                        <figure className="w-full h-[60vh] border">
+                        <figure className="w-full h-[80vh] border">
                             <img src={image} className="w-full h-full" alt="furniture-image" />
                         </figure>
                         <div className="grid grid-cols-2 gap-5 mt-3 w-full h-[180px] md:h-[220px] lg:h-[280px]">
@@ -106,7 +106,7 @@ const FurniDetails = () => {
                         <h1 className="text-3xl font-bold text-start ">{title}</h1>
                         <p className="text-start my-3">{description}</p>
                         <div className="space-y-3">
-                            <h1 className="text-start text-xl text-[#262a3c]">Price: <span className="text-black">$ {price}</span></h1>
+                            <h1 className="text-start text-xl text-[#262a3c]">Price: <span className="text-black line-through">$ {price}</span></h1>
                             <h1 className="text-start text-xl text-[#262a3c]">Discount Price: <span className="text-[#0939e8]">$ {currentPrice}</span></h1>
                             <h1 className="text-start text-xl text-[#262a3c]">Quantity: <span className="text-black">{quantity}</span> </h1>
                             <h1 className="text-start text-xl text-[#262a3c]">Category: <span className="text-black">{category}</span></h1>

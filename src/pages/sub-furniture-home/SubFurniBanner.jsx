@@ -13,11 +13,7 @@ const SubFurniBanner = ({ features, data }) => {
     // console.log(Object.keys(features).join(','), features);
     const { feature_1, feature_2, feature_3, feature_4, feature_5 } = features || {};
     // console.log(data);
-    const title1 = data[0].title;
-    const title2 = data[0].title;
-    const title3 = data[0].title;
-    const title4 = data[0].title;
-    console.log(title4);
+
     return (
         <div>
             <Swiper
@@ -29,10 +25,10 @@ const SubFurniBanner = ({ features, data }) => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Navigation]}
-                className="mySwiper my-swap"
+                className="mySwiper my-swap w-full h-[80vh]"
             >
                 <SwiperSlide className='relative swap'>
-                    <div className='bg-black absolute w-full h-full opacity-50 flex items-center justify-center flex-col gap-5 z-10 mb-10'>
+                    <div className='bg-black absolute w-full h-full opacity-50 flex items-center justify-center flex-col gap-5 z-10'>
                         {/* <h1 className="font-bold text-transparent text-[3.5em] bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">{title1}</h1> */}
                     </div>
                     <img className='w-full h-full' src={feature_1 || image4} alt="image-banner" />
