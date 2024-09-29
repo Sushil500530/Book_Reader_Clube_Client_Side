@@ -16,7 +16,7 @@ const NewsLetter = () => {
                     </div>
                     <form onSubmit={handleSubmit} className="w-full lg:1/2 relative">
                         <input className='w-full px-4 py-5 rounded-full text-gray-800 border border-blue-400 shadow-xl ' name='email' id='email' type='email' placeholder='Enter your email' required />
-                            <button type="submit" className="absolute top-2 right-2 inline uppercase btn px-4 md:px-10 lg:px-10 rounded-full text-base lg:text-[18px] text-center font-medium hover:text-white transition shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black ">subscribe</button>
+                            <button type="submit" className="absolute top-2 right-2 inline uppercase btn px-4 md:px-10 lg:px-10 rounded-full text-base lg:text-[18px] text-center font-medium text-white transition shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] hover:text-gray-200 ">subscribe</button>
                     </form>
                 </div>
             </div>

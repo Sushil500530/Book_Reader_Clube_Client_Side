@@ -21,8 +21,8 @@ const ServiceFeature = () => {
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-center text-neutral-content">
                                 <div className="w-3/5">
-                                    <h1 className="mb-5 text-5xl font-bold uppercase">Furniture</h1>
-                                    <p className="mb-5 text-base font-semibold">Furniture refers to objects intended to support various human activities such as seating or stools, chairs, and sofas, eating, storing items, working, and sleeping .</p>
+                                    <h1 className="mb-5 text-5xl font-bold uppercase  text-gray-100">Furniture</h1>
+                                    <p className="mb-5 text-base font-medium  text-gray-200">Furniture refers to objects intended to support various human activities such as seating or stools, chairs, and sofas, eating, storing items, working, and sleeping .</p>
                                     <Link to='/all-shop'>
                                         <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] border-none px-8 hover:text-white transition ease-in-out text-[18px]">Get Started</button>
                                     </Link>
