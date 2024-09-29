@@ -26,7 +26,7 @@ const FurniCate = () => {
                 }
             </div>
             {
-                category?.length === 0 && <>
+                category?.length <= 0 && <>
                     <Loader />
                 </>
             }

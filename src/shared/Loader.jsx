@@ -3,7 +3,7 @@ import { ThreeDots } from 'react-loader-spinner';
 const Loader = () => {
     return (
         <div className="w-full h-[100vh]">
-            <div className='w-full h-[70vh] flex items-center justify-center relative'>
+            <div className='w-full h-[70vh] flex flex-col items-center justify-center relative'>
                 <ThreeDots
                     height="220"
                     className="relative"
@@ -15,7 +15,7 @@ const Loader = () => {
                     wrapperClassName=""
                     visible={true}
                 />
-                  <h1 className='text-2xl font-extrabold text-center animate-pulse absolute bottom-64 '>Loading.....</h1>
+                  <h1 className='text-2xl font-extrabold text-center animate-pulse relative -top-14  '>Loading.....</h1>
             </div>
         </div>
     );
