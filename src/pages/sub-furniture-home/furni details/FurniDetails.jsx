@@ -84,7 +84,9 @@ const FurniDetails = () => {
     return (
         <>
             <Container>
-                <h1 className="text-3xl font-bold text-center mt-10">Details of {title}....</h1>
+                <h1 className="text-3xl font-bold text-center mt-10">
+                    Details of {title}....
+                </h1>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full h-auto gap-8 mt-10">
                     <div className="m-3 lg:m-0">
                         <figure className="w-full h-[80vh] border">
@@ -112,13 +114,37 @@ const FurniDetails = () => {
                         </div>
                     </div>
                     <div className="flex items-start justify flex-col mt-5 p-3 md:p-5">
-                        <h1 className="text-3xl font-bold text-start ">{title}</h1>
-                        <p className="text-start my-3">{description}</p>
+                        <h1 className="text-3xl font-bold text-start ">
+                            {title}
+                            </h1>
+                        <p className="text-start my-3">
+                            {description}
+                            </p>
                         <div className="space-y-3">
-                            <h1 className="text-start text-xl text-[#262a3c]">Price: <span className="text-black line-through">$ {price}</span></h1>
-                            <h1 className="text-start text-xl text-[#262a3c]">Discount Price: <span className="text-[#0939e8]">$ {currentPrice}</span></h1>
-                            <h1 className="text-start text-xl text-[#262a3c]">Quantity: <span className="text-black">{quantity}</span> </h1>
-                            <h1 className="text-start text-xl text-[#262a3c]">Category: <span className="text-black">{category}</span></h1>
+                            <h1 className="text-start text-xl text-[#262a3c]">
+                                Price:
+                                <span className="text-black line-through">
+                                    $ {price}
+                                </span>
+                            </h1>
+                            <h1 className="text-start text-xl text-[#262a3c]">
+                                Discount Price:
+                                <span className="text-[#0939e8]">
+                                    $ {currentPrice}
+                                </span>
+                            </h1>
+                            <h1 className="text-start text-xl text-[#262a3c]">
+                                Quantity:
+                                <span className="text-black">
+                                    {quantity}
+                                </span>
+                            </h1>
+                            <h1 className="text-start text-xl text-[#262a3c]">
+                                Category:
+                                <span className="text-black">
+                                    {category}
+                                </span>
+                            </h1>
                             <div>
                                 <Rating
                                     style={{ maxWidth: 130 }}
@@ -127,26 +153,58 @@ const FurniDetails = () => {
                                 />
                             </div>
                             <div className="flex items-center gap-3">
-                                <button onClick={handleBack} className="  btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2 "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><FaStepBackward className=" text-xl md:text-2xl" /> Back</span></button>
-                                <button onClick={handleFavoriteData} className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal border tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-xl md:text-2xl" /></span></button>
-                                <button onClick={handleSetData} className="  btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">Add to Cart <MdAddShoppingCart className="text-xl md:text-2xl" /></span></button>
+                                <button
+                                    onClick={handleBack}
+                                    className="  btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2 ">
+                                    <span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                        <FaStepBackward className=" text-xl md:text-2xl" />
+                                        Back
+                                    </span>
+                                </button>
+                                <button
+                                    onClick={handleFavoriteData}
+                                    className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal border tooltip"
+                                    data-tip="add favorite">
+                                    <span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                        <MdFavorite className="text-xl md:text-2xl" />
+                                    </span>
+                                </button>
+                                <button
+                                    onClick={handleSetData}
+                                    className=" btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  ">
+                                    <span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                        Add to Cart
+                                        <MdAddShoppingCart className="text-xl md:text-2xl" />
+                                    </span>
+                                </button>
                             </div>
                         </div>
                         <div className="mt-5">
-                            <h1 className="text-xl font-bold text-start flex items-center gap-2">Home Delivery to Contact Us Now... <MdContactSupport className="text-2xl" /></h1>
+                            <h1 className="text-xl font-bold text-start flex items-center gap-2">
+                                Home Delivery to Contact Us Now...
+                                <MdContactSupport className="text-2xl" />
+                            </h1>
                             <hr className="w-2/3 h-[3px] bg-[#ff0fdb] my-3" />
                             <div className="w-[100%] lg:w-[500px] h-[170px] mb-5">
-                                <img src={deliver} className="w-full h-full" alt="deliver-image" />
+                                <img
+                                    src={deliver}
+                                    className="w-full h-full"
+                                    alt="deliver-image"
+                                />
                             </div>
-                            <p className="font-bold">Mobile: +8801767122497</p>
-                            <p className="font-bold">Email: sushil530@gmail.com</p>
+                            <p className="font-bold">
+                                Mobile: +8801767122497
+                            </p>
+                            <p className="font-bold">
+                                Email: sushil530@gmail.com
+                            </p>
                             <div className="divider divide-x">Or</div>
                             <div className="flex items-center gap-3">
-                                <FaWhatsapp className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
-                                <FaFacebook className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
-                                <FaLinkedinIn className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
-                                <FaTwitter className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
-                                <IoIosShareAlt className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
+                                <FaWhatsapp className="social-icons" />
+                                <FaFacebook className="social-icons" />
+                                <FaLinkedinIn className="social-icons" />
+                                <FaTwitter className="social-icons" />
+                                <IoIosShareAlt className="social-icons" />
                             </div>
                         </div>
                     </div>

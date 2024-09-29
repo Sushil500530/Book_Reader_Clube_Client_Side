@@ -11,3 +11,7 @@
   .green_gradient_text {
     @apply bg-gradient-to-b from-[#2241b0] to-[#000000] bg-clip-text text-transparent;
   }
+
+  .social-icons{
+    @apply w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer hover:text-fuchsia-500
+  }
