@@ -3,16 +3,11 @@ import Container from "../../../shared/container/Container";
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { Rating } from '@smastrom/react-rating';
-import { MdAddShoppingCart } from "react-icons/md";
-import { MdFavorite } from "react-icons/md";
-import { FaFacebookF } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
 import deliver from "../../../assets/image/200w.gif"
-import { FaTwitter } from "react-icons/fa";
-import { FaStepBackward } from "react-icons/fa";
+import { } from "react-icons/fa";
+import { FaStepBackward, FaFacebook, FaTwitter, FaLinkedinIn, FaWhatsapp, } from "react-icons/fa";
 import { IoIosShareAlt } from "react-icons/io";
-import { MdContactSupport } from "react-icons/md";
+import { MdContactSupport, MdAddShoppingCart, MdFavorite } from "react-icons/md";
 import RelatedProducts from "./RelatedProducts";
 import FooterPage from "../../footer/FooterPage";
 import SubDetails from "./SubDetails";
@@ -91,18 +86,32 @@ const FurniDetails = () => {
             <Container>
                 <h1 className="text-3xl font-bold text-center mt-10">Details of {title}....</h1>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full h-auto gap-8 mt-10">
-                    <div>
+                    <div className="m-3 lg:m-0">
                         <figure className="w-full h-[80vh] border">
                             <img src={image} className="w-full h-full" alt="furniture-image" />
                         </figure>
-                        <div className="grid grid-cols-2 gap-5 mt-3 w-full h-[180px] md:h-[220px] lg:h-[280px]">
-                            <InnerImageZoom src={thumbnail1} width={500} height={500} zoomSrc={thumbnail1} alt="furniture-image" />
-                            <InnerImageZoom src={thumbnail2} width={500} height={500} zoomSrc={thumbnail2} alt="furniture-image" />
+                        <div className="grid grid-cols-2 gap-3 mt-3 w-full h-[180px] md:h-[220px] lg:h-[280px]">
+                            <InnerImageZoom
+                                src={thumbnail1}
+                                width={500}
+                                height={500}
+                                zoomSrc={thumbnail1}
+                                className="w-full h-full"
+                                alt="furniture-image"
+                            />
+                            <InnerImageZoom
+                                src={thumbnail2}
+                                width={500}
+                                height={500}
+                                zoomSrc={thumbnail2}
+                                className="w-full h-full"
+                                alt="furniture-image"
+                            />
                         </div>
                         <div>
                         </div>
                     </div>
-                    <div className="flex items-start justify flex-col mt-5 p-5">
+                    <div className="flex items-start justify flex-col mt-5 p-3 md:p-5">
                         <h1 className="text-3xl font-bold text-start ">{title}</h1>
                         <p className="text-start my-3">{description}</p>
                         <div className="space-y-3">
@@ -118,9 +127,9 @@ const FurniDetails = () => {
                                 />
                             </div>
                             <div className="flex items-center gap-3">
-                                <button onClick={handleBack} className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2 "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><FaStepBackward className="text-2xl" /> Back</span></button>
-                                <button onClick={handleFavoriteData} className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal border tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-2xl" /></span></button>
-                                <button onClick={handleSetData} className="  btn text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">Add to Cart <MdAddShoppingCart className="text-2xl" /></span></button>
+                                <button onClick={handleBack} className="  btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2 "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><FaStepBackward className=" text-xl md:text-2xl" /> Back</span></button>
+                                <button onClick={handleFavoriteData} className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal border tooltip" data-tip="add favorite"><span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "><MdFavorite className="text-xl md:text-2xl" /></span></button>
+                                <button onClick={handleSetData} className="  btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  "><span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">Add to Cart <MdAddShoppingCart className="text-xl md:text-2xl" /></span></button>
                             </div>
                         </div>
                         <div className="mt-5">
@@ -133,21 +142,11 @@ const FurniDetails = () => {
                             <p className="font-bold">Email: sushil530@gmail.com</p>
                             <div className="divider divide-x">Or</div>
                             <div className="flex items-center gap-3">
-                                <button className="btn btn-sm btn-circle btn-outline border-none flex items-center justify-center bg-green-500">
-                                    <FaWhatsapp className="text-4xl hover:text-blue-600 hover:scale-110 transition" />
-                                </button>
-                                <button className="btn btn-sm btn-circle btn-outline border-none flex items-center justify-center bg-blue-500 text-white hover:scale-110">
-                                    <FaFacebookF className="text-2xl hover:text-blue-600" />
-                                </button>
-                                <button className="btn btn-sm btn-circle btn-outline border-none flex items-center justify-center bg-blue-500 text-white hover:scale-110">
-                                    <FaLinkedinIn className="text-2xl hover:text-blue-600" />
-                                </button>
-                                <button className="btn btn-sm flex items-center justify-center btn-circle btn-outline border-none bg-blue-500 text-white hover:scale-110">
-                                    <FaTwitter className="text-2xl hover:text-blue-600" />
-                                </button>
-                                <button className="btn btn-sm flex items-center justify-center btn-circle btn-outline border-none bg-blue-500 text-white hover:scale-110">
-                                    <IoIosShareAlt className="text-2xl hover:text-blue-600" />
-                                </button>
+                                <FaWhatsapp className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
+                                <FaFacebook className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
+                                <FaLinkedinIn className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
+                                <FaTwitter className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
+                                <IoIosShareAlt className="text-2xl [transition:0.5s] hover:scale-105 cursor-pointer hover:text-[#ff0fdb]" />
                             </div>
                         </div>
                     </div>

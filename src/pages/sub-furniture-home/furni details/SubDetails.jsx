@@ -5,7 +5,7 @@ const SubDetails = () => {
         <div className="my-20 p-5">
             <h1 className="text-2xl md:text-3xl lg:text-[32px] font-bold text-center">if You Want to Create Furniture Shop?</h1>
             <div className="flex flex-col lg:flex-row gap-10 mt-12">
-                <div className="w-full lg:w-1/2 h-[550px] p-5">
+                <div className="w-full lg:w-1/2 h-auto md:h-[550px]">
                     <h1 className="text-2xl font-bold text-center">Steps of  furni track ....</h1>
                     <p className="text-center">
                         {`  Effective task management involves a combination of planning, organization, prioritization, and execution. Here's a step-by-step guide to help you solve any task management challenge`}
@@ -82,7 +82,7 @@ const SubDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2 h-[550px] mt-40 md:mt-0 lg:mt-0">
+                <div className="w-full lg:w-1/2 h-64 md:h-96 lg:h-[550px] md:mt-0 lg:mt-0">
                     <iframe className="h-full w-full" src="https://www.youtube.com/embed/TGHOYfjwf7g" title="Furniture: Modern (Official Trailer)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen={false}></iframe>
                 </div>
             </div>
