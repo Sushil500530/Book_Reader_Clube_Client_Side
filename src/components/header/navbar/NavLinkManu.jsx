@@ -44,7 +44,7 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                     <ManuList address={'create-shop'} linkTitle={"Create Shop"} icon={MdAddShoppingCart} />
                     <div className="group relative ">
                         <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group">Pages <MdExpandLess className="text-2xl rotate-180 hover:rotate-0 w-full group-hover:visible" /></button>
-                        <div className="transition transform translate-y-8 ease-in-out invisible absolute group-hover:visible top-12 left-0 w-full h-auto text-white group-hover:translate-y-5 bg-base-300 pb-5">
+                        <div className="transition transform translate-y-8 ease-in-out invisible absolute group-hover:visible top-12 left-0 w-full h-auto text-white group-hover:translate-y-5 bg-base-300 pb-5 z-30">
                             <NavLink to='about' className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
                                 About
@@ -68,10 +68,10 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                                         <img src={user?.photoURL} alt="profile" className="w-full h-full" />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-[#d344ff]">
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
                                     <Link to='/dashboard'><li><a>Dashboard</a></li></Link>
                                     <Link to='/dashboard/settings'><li><a>Profile</a></li></Link>
-                                    <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                    <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 z-10">
                                         <span><FaSignOutAlt /></span>
                                         Logout
                                     </button>

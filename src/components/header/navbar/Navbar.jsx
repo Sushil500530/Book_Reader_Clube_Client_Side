@@ -42,13 +42,14 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
                 <div className={`w-full navbar fixed z-10 ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " : "bg-transparent text-purple-500"}`} >
-                    <div className="lg:max-w-[2520px] h-auto mx-auto xl:px-20 w-full  flex items-center justify-between lg:flex-row flex-row-reverse">
+                    {/* lg:max-w-[2520px] h-auto mx-auto xl:px-20 w-full  flex items-center justify-between lg:flex-row flex-row-reverse */}
+                    <div className="lg:max-w-[2520px] h-auto mx-auto lg:px-10 xl:px-20 w-full flex items-center justify-between lg:flex-row flex-row-reverse">
                         <div className="flex-none lg:hidden text-fuchsia-500 ">
                             <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
-                        <div className="flex-1 px-2 mx-2">
+                        <div className="flex-1 px-2 md:mx-2">
                                 <Logo />
                         </div>
                         <NavLinkManu handleToggle={handleToggle} sales={sales} />
@@ -57,7 +58,7 @@ const Navbar = ({ children }) => {
                 {children}
             </div>
             <Sidebar handleToggle={handleToggle} sales={sales} />
-            <div className={`z-10 fixed pb-6 pt-6 bg-blue-50 -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform ${active && 'translate-x-full'} dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out`}>
+            <div className={`z-10 fixed pb-6 pt-6 !bg-blue-50 -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform ${active && 'translate-x-full'} dark:text-white dark:bg-zinc-800 transition duration-200 ease-in-out`}>
                 <div className="flex items-center justify-between">
                     <button onClick={handleToggle} className="btn outline-none border-none bg-transparent"><RxCross1 className="text-2xl" /></button>
                     <button></button>

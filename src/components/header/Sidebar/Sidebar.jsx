@@ -6,7 +6,7 @@ import { FaBlog, FaHome, FaSignOutAlt, } from 'react-icons/fa';
 import { MdAddShoppingCart, MdExpandLess, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
 import { FcAbout, FcContacts } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
-const Sidebar = ({ handleToggle,sales }) => {
+const Sidebar = ({ handleToggle, sales }) => {
     const { user, logoutUser } = useAuth()
     const handleLogout = () => {
         logoutUser()
@@ -18,7 +18,7 @@ const Sidebar = ({ handleToggle,sales }) => {
         <>
             <div className="drawer-side z-30">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu w-80 min-h-full bg-blue-50 flex items-start pl-12 text-black">
+                <ul className="menu w-80 min-h-full bg-blue-50 flex items-start pl-12 text-black fixed overflow-y-auto">
                     <ManuList address={'/'} linkTitle={"Home"} icon={FaHome} />
                     {
                         user?.email && <>
@@ -68,13 +68,13 @@ const Sidebar = ({ handleToggle,sales }) => {
                                         <img src={user?.photoURL} alt="profile" className="w-full h-full" />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 -mr-32 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <ul tabIndex={0} className="mt-3 -mr-32 z-[1] p-2 shadow menu bg-white menu-sm dropdown-content  rounded-box w-52">
                                     <li><a>Dashboard</a></li>
                                     <li><a>Profile</a></li>
                                     <li onClick={handleLogout}><a>Logout</a></li>
                                 </ul>
                             </div>
-                            <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                            <button onClick={handleLogout} className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 -z-10 ">
                                 <span><FaSignOutAlt /></span>
                                 Logout
                             </button>

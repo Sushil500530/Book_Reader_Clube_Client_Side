@@ -23,7 +23,7 @@ const FooterPage = () => {
     }
 
     return (
-        <footer className=" bg-gradient-to-b from-[#2241b0] to-[#000000] dark:bg-zinc-800 mt-12 p-10">
+        <footer className=" bg-gradient-to-b from-[#2241b0] to-[#000000] dark:bg-zinc-800 mt-12 p-3 md:p-10">
             <Container>
                 <div className="footer  text-white flex flex-wrap justify-between items-center pb-10">
                     <Logo />
