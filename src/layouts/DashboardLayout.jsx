@@ -77,7 +77,7 @@ const DashboardLayout = () => {
                         }
                     </div>
                     <div>
-                        <FooterManu />
+                        <FooterManu setIsActive={setIsActive} />
                     </div>
                 </div>
                 <div className="hidden lg:block">

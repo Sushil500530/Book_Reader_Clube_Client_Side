@@ -43,7 +43,7 @@ const AllManagers = () => {
     if (isLoading) {
         return <Loader />
     }
-console.log(managers);
+// console.log(managers);
     return (
         <div>
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>

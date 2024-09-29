@@ -6,7 +6,7 @@ import { TiHome } from "react-icons/ti";
 import { useAuth } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 
-const FooterManu = () => {
+const FooterManu = ({ setIsActive }) => {
     const { logoutUser } = useAuth()
     const handleLogout = () => {
         logoutUser()
@@ -16,9 +16,9 @@ const FooterManu = () => {
     }
     return (
         <>
-            <DManuList address={'/'} linkTitle={'Go Home'} icon={TiHome} />
-            <DManuList address={'settings'} linkTitle={'Settings'} icon={IoMdSettings} />
-            <DManuList address={'manage-account'} linkTitle={'Manage Account'} icon={MdAccountCircle} />
+            <DManuList address='/' linkTitle={'Go Home'} icon={TiHome} setIsActive={setIsActive} />
+            <DManuList address='settings' linkTitle={'Settings'} icon={IoMdSettings} setIsActive={setIsActive} />
+            <DManuList address='manage-account' linkTitle={'Manage Account'} icon={MdAccountCircle} setIsActive={setIsActive} />
             <button onClick={handleLogout} className=" flex items-center text-black justify-start text-[18px] font-medium px-4 py-2 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] w-full text-start transition-all ease-in hover:scale-100 btn outline-none border-none bg-transparent hover:bg-transparent">
                 <span><FiLogOut /></span>
                 Logout
