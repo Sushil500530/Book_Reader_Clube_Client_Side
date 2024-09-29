@@ -77,9 +77,9 @@ const LoginPage = () => {
             <Container> 
                 <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-5 mb-12">
                     <div className="w-full min-h-[70vh] lg:w-3/5 flex items-center justify-center p-5 rounded-md">
-                        <img src={loginImage} alt="" />
+                        <img src={loginImage} alt="login-image" />
                     </div>
-                    <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gradient-to-t from-zinc-800 pb-8 ">
+                    <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gray-700/50 backdrop-blur-md">
                         <form onSubmit={handleSubmit} className="p-5 space-y-3">
                             <h1 className="text-3xl  font-bold mb-12">Please Login🤔</h1>
                             <div className="space-y-3">
@@ -89,14 +89,14 @@ const LoginPage = () => {
                             <div className="space-y-3 relative">
                                 <label className="text-[18px] font-medium">Password</label>
                                 <input type={`${showPassword ? "text" : "password"}`} name="password" className=" bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 " id="" placeholder="Enter your password..." required />
-                                <span onClick={handleShowPassword} className='absolute top-9 right-2 cursor-pointer'>{
+                                <span onClick={handleShowPassword} className='absolute top-10 right-2 cursor-pointer'>{
                                     showPassword ?
                                         <FaRegEye className='text-2xl text-white' />
                                         :
                                         <FaEyeSlash className='text-2xl text-white' />
                                 }</span>
                             </div>
-                            <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline">Sign up</Link></p>
+                            <p className="text-base font-medium my-8">Don&apos;t have an account yet?{' '} Please <Link to='/signup' className="text-blue-500 underline text-lg">Sign up</Link></p>
                             <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] outline-none border-none font-medium hover:text-blue-500 w-full">
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>

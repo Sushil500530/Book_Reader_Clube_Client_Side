@@ -15,7 +15,7 @@ const Banner = () => {
                         <button className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 "> Explore<MdOutlineExplore className="text-2xl" /></button>
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2 h-auto opacity-90 overflow-hidden">
+                <div className="w-full lg:w-1/2 h-auto opacity-90 lg:block hidden overflow-hidden">
                     <Lottie animationData={banner} className="h-[500px] w-full cursor-pointer" ></Lottie>
                 </div>
             </div>
