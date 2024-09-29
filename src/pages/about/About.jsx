@@ -84,7 +84,7 @@ const About = () => {
                                 data?.length > 0 && data.map(team => (
                                     <div key={team.id} className="w-full h-auto shadow-xl bg-white hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black rounded-md relative mt-14 group">
                                         <figure className="w-full relative flex items-center justify-center">
-                                            <img src={team?.image} alt="image" className="w-36 h-36 rounded-full group-hover:border-fuchsia-500 border-4 hover:scale-110 transition ease-in-out relative -top-10" />
+                                            <img src={team?.image} alt="image" className="w-36 h-36 rounded-full group-hover:border-fuchsia-500 border-4 hover:scale-110 transition ease-in-out relative -top-10 cursor-pointer" />
                                         </figure>
                                         <div className="flex items-center justify-center gap-2 -mt-5 relative group-hover:text-white">
                                             <FaFacebookF className="w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer hover:text-fuchsia-500" />
