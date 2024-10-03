@@ -16,7 +16,7 @@ const SubDetails = () => {
                     </p>
                     <div className="mt-5 space-y-2">
                         <div
-                            className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                            className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                             tabindex="1"
                         >
                             <div className="flex cursor-pointer items-center justify-between">
@@ -35,7 +35,7 @@ const SubDetails = () => {
                         </div>
 
                         <div
-                            className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                            className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                             tabindex="2"
                         >
                             <div className="flex cursor-pointer items-center justify-between">
@@ -53,7 +53,7 @@ const SubDetails = () => {
                             </div>
                         </div>
 
-                        <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                        <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                             tabindex="3">
                             <div className="flex cursor-pointer items-center justify-between">
                                 <ul className="list-disc cursor-pointer text-xl font-medium">
@@ -66,7 +66,7 @@ const SubDetails = () => {
                                 Decide on a tracking method that suits your needs. This could include barcoding, RFID (Radio-Frequency Identification), QR codes, or a combination of these.Ensure that the chosen method aligns with your objectives and budget.
                             </div>
                         </div>
-                        <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                        <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                             tabindex="3">
                             <div className="flex cursor-pointer items-center justify-between">
                                 <ul className="list-disc cursor-pointer text-xl font-medium">
@@ -83,7 +83,7 @@ const SubDetails = () => {
                                 Apply the chosen tracking method to each piece of furniture. Record essential information in a centralized database or management system.
                             </div>
                         </div>
-                        <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                        <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                             tabindex="3">
                             <div className="flex cursor-pointer items-center justify-between">
                                 <ul className="list-disc cursor-pointer text-xl font-medium">

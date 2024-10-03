@@ -12,6 +12,7 @@ import AdminManu from "./dashboard/manu/AdminManu";
 import Loader from "../shared/Loader";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const DashboardLayout = () => {
     const [users, refetch, isLoading] = useRole();
@@ -46,7 +47,7 @@ const DashboardLayout = () => {
                 </div>
                 <button
                     onClick={handleReverse}
-                    className='btn w-auto h-full dark:bg-zinc-800 relative top-3 bg-transparent border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
+                    className='btn w-auto h-full relative top-3 bg-transparent border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
                         isActive === true ?
                             <IoMenuOutline className='h-8 w-8 font-bold text-black dark:text-white' /> :
                             <RxCross1 className='h-7 w-8 font-bold text-black  dark:text-white' />

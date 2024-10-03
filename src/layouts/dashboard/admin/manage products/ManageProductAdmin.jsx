@@ -25,7 +25,7 @@ const ManageProductAdmin = () => {
                                 <p>{furniture?.description?.length > 60 ? furniture?.description?.slice(0, 60) : furniture?.description}</p>
                                 <div className="flex items-center justify-end mr-5 my-2">
                                     <Link to={`/furnitures/${furniture?._id}`}>
-                                      <span className="btn btn-sm px-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl  hover:black hover:translate-x-1 transition" /></span>
+                                      <span className="btn btn-sm px-5 bg-color text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl  hover:black hover:translate-x-1 transition" /></span>
                                     </Link>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@ const ManageProductAdmin = () => {
                         <div className="w-full lg:w-1/2 h-auto">
                             <h1 className="text-2xl font-bold">How To Manage My Product(Secrete)</h1>
                             <div className="mt-5 space-y-2">
-                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white pl-8"
+                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white pl-8"
                                     tabindex="1" >
                                     <div className="flex cursor-pointer items-center justify-between">
                                         <ul className="text-xl font-medium cursor-pointer list-disc">
@@ -52,7 +52,7 @@ const ManageProductAdmin = () => {
                                     </div>
                                 </div>
 
-                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                                     tabindex="2" >
                                     <div className="flex cursor-pointer items-center justify-between">
                                         <ul className="list-disc cursor-pointer text-xl font-medium">
@@ -66,7 +66,7 @@ const ManageProductAdmin = () => {
                                     </div>
                                 </div>
 
-                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                                     tabindex="3">
                                     <div className="flex cursor-pointer items-center justify-between">
                                         <ul className="list-disc cursor-pointer text-xl font-medium">
@@ -79,7 +79,7 @@ const ManageProductAdmin = () => {
                                         Highlight unique selling points and benefits of your products to differentiate them from competitors. Engage with your audience through compelling content, such as product demonstrations, customer testimonials, and blog posts.
                                     </div>
                                 </div>
-                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                                     tabindex="3">
                                     <div className="flex cursor-pointer items-center justify-between">
                                         <ul className="list-disc cursor-pointer text-xl font-medium">
@@ -93,7 +93,7 @@ const ManageProductAdmin = () => {
                                         Provide excellent customer service by addressing inquiries, resolving issues promptly, and ensuring a smooth purchasing experience. Foster long-term relationships with customers through loyalty programs, exclusive offers, and personalized communication.
                                     </div>
                                 </div>
-                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-gradient-to-b from-[#2241b0] to-[#000000] text-white  pl-8"
+                                <div className="group flex flex-col gap-2 rounded-lg p-5 bg-color text-white  pl-8"
                                     tabindex="3">
                                     <div className="flex cursor-pointer items-center justify-between">
                                         <ul className="list-disc cursor-pointer text-xl font-medium">

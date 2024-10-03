@@ -77,7 +77,7 @@ const FavoriteProduct = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 my-10 ">
                 {
                     favorites?.map(item =>
-                        <div key={item._id} className="hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out hover:text-white text-2xl text-center w-full h-[270px] bg-white shadow-2xl relative rounded-md lg:mb-20 mb-20 md:mb-20 pt-28">
+                        <div key={item._id} className="  hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out hover:text-white text-2xl text-center w-full h-[270px] bg-white shadow-2xl relative rounded-md lg:mb-20 mb-20 md:mb-20 pt-28">
                             <div className="absolute 2xl:left-[30%] xl:left-[25%] lg:left-[18%] md:left-[30%] left-[28%] -top-20 w-36 h-36 bg-black rounded-full">
                                 <img src={item?.image} alt="love-image" className="w-full h-full rounded-full" /></div>
                             <h3 className="text-2xl font-bold ">{item?.title}</h3>

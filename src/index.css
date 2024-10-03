@@ -8,8 +8,14 @@
     background: #fbfbfb !important;
     color: black !important;
   }
+
+  .bg-color{
+    @apply  bg-gradient-to-b from-[#2241b0] to-[#000000]
+  }
+
+
   .green_gradient_text {
-    @apply bg-gradient-to-b from-[#2241b0] to-[#000000] bg-clip-text text-transparent;
+    @apply bg-color bg-clip-text text-transparent;
   }
 
   .social-icons{

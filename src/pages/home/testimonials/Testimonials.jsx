@@ -100,7 +100,7 @@ const Testimonials = () => {
                             key={testimonial?.id}
                             className='overflow-visible z-0 '
                         >
-                            <div className="w-full h-auto md:h-[430px] bg-white  hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out group text-black p-2 md:p-8 rounded-md relative">
+                            <div className="w-full h-auto md:h-[430px] bg-white hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out group text-black p-2 md:p-8 rounded-md relative">
                                 {/* Profile Image - Positioned Absolutely */}
                                 <div className="flex items-center justify-start flex-col md:flex-row gap-5 w-full h-full">
                                     <div className="md:w-64 h-full">

@@ -53,7 +53,7 @@ const AllManagers = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 lg:gap-5 mt-12">
                 {
                     managers?.map(item =>
-                        <div key={item._id} className="bg-gradient-to-b from-[#2241b0] to-[#000000] transition ease-in-out text-white text-2xl text-center w-full h-auto bg-white shadow-2xl relative rounded-md ">
+                        <div key={item._id} className="bg-color transition ease-in-out text-white text-2xl text-center w-full h-auto bg-white shadow-2xl relative rounded-md ">
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
                                 <figure className="w-24 h-24 ">
                                     <img src={item?.shop_logo} alt="love-image" className="w-full h-full rounded-full border border-purple-500" />

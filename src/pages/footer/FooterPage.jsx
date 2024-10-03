@@ -23,35 +23,37 @@ const FooterPage = () => {
     }
 
     return (
-        <footer className=" bg-gradient-to-b from-[#2241b0] to-[#000000] dark:bg-zinc-800 mt-12 p-3 md:p-10">
+        <footer className=" bg-color mt-12 p-3 md:p-10">
             <Container>
-                <div className="footer  text-white flex flex-wrap justify-between items-center pb-10">
+                <div className="footer  text-gray-300 flex flex-wrap justify-between pb-10">
                     <Logo />
                     <nav>
-                        <header className="footer-title">Services</header>
+                        <header className="text-xl font-bold !text-white">Services</header>
                         <a className="link link-hover">Branding</a>
                         <a className="link link-hover">Design</a>
                         <a className="link link-hover">Marketing</a>
                         <a className="link link-hover">Advertisement</a>
                     </nav>
                     <nav>
-                        <header className="footer-title">Company</header>
+                        <header className="text-xl font-bold !text-white">Company</header>
                         <a className="link link-hover">About us</a>
                         <a className="link link-hover">Contact</a>
                         <a className="link link-hover">Jobs</a>
                         <a className="link link-hover">Press kit</a>
                     </nav>
                     <nav>
-                        <header className="footer-title">Legal</header>
+                        <header className="text-xl font-bold !text-white">Legal</header>
                         <a className="link link-hover">Terms of use</a>
                         <a className="link link-hover">Privacy policy</a>
                         <a className="link link-hover">Cookie policy</a>
                     </nav>
                     <form>
-                        <header className="footer-title">Newsletter</header>
+                        <header className="text-xl font-bold !text-white">Newsletter</header>
                         <fieldset className="form-control">
                             <label className="label">
-                                <span className="label-text text-white dark:text-white">Enter your email address</span>
+                                <span className="label-text text-white">
+                                    Enter your email address
+                                </span>
                             </label>
                             <div className="join flex items-center flex-row md:flex-row lg:flex-row w-full h-auto gap-0">
                                 <input

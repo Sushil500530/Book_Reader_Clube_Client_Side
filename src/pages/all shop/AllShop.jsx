@@ -107,7 +107,7 @@ const AllShop = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                         {
                             currentFurnitures?.length > 0 && currentFurnitures?.map((furniture, idx) =>
-                                <div key={idx} className="bg-gradient-to-b from-[#2241b0] to-[#000000] text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
+                                <div key={idx} className="bg-color text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
                                     <div className="flex items-center justify-center w-full py-3 -mt-12">
                                         <figure className="w-40 h-40 ">
                                             <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
