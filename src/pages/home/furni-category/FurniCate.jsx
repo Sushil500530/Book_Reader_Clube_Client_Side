@@ -6,14 +6,6 @@ import Loader from "../../../shared/Loader";
 const FurniCate = () => {
     const [category, refetch,] = useFurCategory();
     refetch()
-    // console.log(category);
-    // AOS.init({
-    //     offset: 200,
-    //     duration: 600,
-    //     easing: 'ease-in-sine',
-    //     delay: 100,
-    // });
-    // AOS.refresh();
     return (
         <Container>
             <h1 className="text-3xl text-black font-bold text-center mb-8">Find Your Fevourite Furniture</h1>

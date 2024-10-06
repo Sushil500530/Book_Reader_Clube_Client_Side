@@ -13,10 +13,10 @@ const Contact = () => {
     const handleSubmit = (e) => {
         setLoading(true);
         e.preventDefault();
-        const form = e.target;
-        const fullName = form.full_name.value;
-        const email = form.email.value;
-        const message = form.message.value;
+        // const form = e.target;
+        // const fullName = form.full_name.value;
+        // const email = form.email.value;
+        // const message = form.message.value;
         // console.log(fullName, email, message);
     }
     return (

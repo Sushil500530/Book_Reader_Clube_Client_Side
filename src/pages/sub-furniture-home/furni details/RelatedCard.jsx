@@ -87,7 +87,7 @@ const RelatedCard = ({ furniture }) => {
                             </span>
                         </button>
                         <Link to={`/furnitures/${_id}`}>
-                            <button className="  btn text-sm lg:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  ">
+                            <button className="  btn text-sm lg:text-[15px] text-white custom-bg-color border-none font-medium px-4 py-2  ">
                                 <span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
                                     Show Details
                                     <MdDescription className="lg:text-2xl" />

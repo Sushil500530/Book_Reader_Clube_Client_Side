@@ -67,7 +67,7 @@ const FooterPage = () => {
                                 <input
                                     type="submit"
                                     onClick={handleSubscribe}
-                                    className="btn  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] join-item"
+                                    className="btn custom-bg-color join-item text-white"
                                     value='Subscribe'
                                 />
                             </div>

@@ -107,7 +107,7 @@ const AllShop = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                         {
                             currentFurnitures?.length > 0 && currentFurnitures?.map((furniture, idx) =>
-                                <div key={idx} className="bg-color text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
+                                <div key={idx} className="bg-color-b text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
                                     <div className="flex items-center justify-center w-full py-3 -mt-12">
                                         <figure className="w-40 h-40 ">
                                             <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
@@ -116,16 +116,16 @@ const AllShop = () => {
                                     <div className="px-5 space-y-2">
                                         <div className="flex items-center justify-between">
                                             <h3 className="text-2xl">{furniture?.title}</h3>
-                                            <h3 className="text-xl text-fuchsia-500">Price: $ {furniture?.price}</h3>
+                                            <h3 className="text-lg font-bold text-fuchsia-500">Price: $ {furniture?.price}</h3>
                                         </div>
-                                        <p className="text-gray-300">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
+                                        <p className="text-gray-300 text-sm">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
                                         <p className='text-[17px] '>Category: {furniture?.category}</p>
                                         <h1 className='text-[17px] bg-fuchsia-500 px-3 py-1 w-[120px] rounded-full'>{furniture?.discount} % OFF</h1>
                                         <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
-                                            <Link to={`/furni-details/${furniture?._id}`} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600">
+                                            <Link to={`/furni-details/${furniture?._id}`} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600">
                                                 <FaRegEye /> View Details
                                             </Link>
-                                            <button onClick={() => handleSetData(furniture)} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button>
+                                            <button onClick={() => handleSetData(furniture)} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button>
                                         </div>
                                     </div>
                                 </div>)
@@ -134,7 +134,7 @@ const AllShop = () => {
                     <div>
                         {
                             currentFurnitures?.length <= 0 && <div className="flex items-center justify-center flex-col gap-5 w-full h-[40vh] pb-12">
-                                <h1 className="font-medium text-transparent text-xl md:text-2xl lg:text-3xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-start">Products is Not Found!</h1>
+                                <h1 className="font-medium text-transparent text-xl md:text-2xl lg:text-3xl bg-clip-text custom-bg-color text-start">Products is Not Found!</h1>
                                 <h1> <FcCancel className="text-6xl" /></h1>
                             </div>
                         }

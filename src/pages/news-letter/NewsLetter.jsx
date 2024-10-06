@@ -34,7 +34,7 @@ const NewsLetter = () => {
                         />
                         <button
                             type="submit"
-                            className="absolute top-2 right-2 inline uppercase btn px-3 md:px-10 lg:px-10 rounded-full text-base lg:text-[18px] text-center font-medium text-white transition shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] hover:text-gray-200 ">
+                            className="absolute top-2 right-2 inline uppercase btn px-3 md:px-10 lg:px-10 rounded-full text-base lg:text-[18px] text-center font-medium text-white transition shadow-md custom-bg-color hover:text-gray-200 ">
                             <span
                                 className="hidden md:block">
                                 subscribe

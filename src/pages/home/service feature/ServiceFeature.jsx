@@ -32,7 +32,7 @@ const ServiceFeature = () => {
                                         Furniture refers to objects intended to support various human activities such as seating or stools, chairs, and sofas, eating, storing items, working, and sleeping .
                                     </p>
                                     <Link to='/all-shop'>
-                                        <button className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] border-none px-8 hover:text-white transition ease-in-out text-[18px]">
+                                        <button className="btn custom-bg-color border-none px-8 text-white  hover:text-gray-200 transition ease-in-out text-[18px]">
                                             Get Started
                                         </button>
                                     </Link>

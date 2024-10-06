@@ -84,7 +84,7 @@ const FurniDetails = () => {
     return (
         <>
             <Container>
-                <h1 className="text-3xl font-bold text-center mt-10">
+                <h1 className="text-3xl font-bold text-center mt-10 text_gradient">
                     Details of {title}....
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full h-auto gap-8 mt-10">
@@ -155,7 +155,7 @@ const FurniDetails = () => {
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={handleBack}
-                                    className="  btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2 ">
+                                    className="  btn md:text-[17px] text-white custom-bg-color border-none font-medium px-4 py-2 ">
                                     <span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
                                         <FaStepBackward className=" text-xl md:text-2xl" />
                                         Back
@@ -171,7 +171,7 @@ const FurniDetails = () => {
                                 </button>
                                 <button
                                     onClick={handleSetData}
-                                    className=" btn md:text-[17px] text-white  bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] font-medium px-4 py-2  ">
+                                    className=" btn md:text-[17px] text-white custom-bg-color border-none font-medium px-4 py-2  ">
                                     <span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
                                         Add to Cart
                                         <MdAddShoppingCart className="text-xl md:text-2xl" />

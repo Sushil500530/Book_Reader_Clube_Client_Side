@@ -7,8 +7,6 @@ import image6 from '../../../assets/image/feature/banner-6.jpg';
 import image7 from '../../../assets/image/feature/banner-7.jpg';
 import image8 from '../../../assets/image/feature/banner-8.jpg';
 import image9 from '../../../assets/image/feature/banner-9.jpg';
-// import image4 from '../../../assets/image/feature/banner-4.jpg';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import './style.css'
