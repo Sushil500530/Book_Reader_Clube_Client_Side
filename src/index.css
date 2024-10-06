@@ -11,12 +11,18 @@
   }
 
   .bg-color{
-    @apply  bg-gradient-to-b from-[#2241b0] to-[#000000]
+    @apply bg-gradient-to-r from-[#2241b0] to-[#000000]
+  }
+  .custom-bg-color{
+    @apply  bg-gradient-to-r from-[#2241b0] to-[#b407b4]
   }
 
 
-  .green_gradient_text {
-    @apply bg-color bg-clip-text text-transparent;
+  .text_gradient{
+    @apply custom-bg-color bg-clip-text text-transparent;
+  }
+  .scroll-text-gradient{
+    @apply bg-gradient-to-r from-[#6771ff] to-[#cc08cc] bg-clip-text text-transparent;
   }
 
   .social-icons{

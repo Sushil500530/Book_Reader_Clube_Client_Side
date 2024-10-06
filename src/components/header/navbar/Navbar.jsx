@@ -46,7 +46,7 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
                 <div className={`w-full navbar fixed z-10 
-                    ${isScrolled ? "text-white fixed bg-gradient-to-r from-[#2241b0] to-[#000000]  top-0 left-0 w-full z-50  " :
+                    ${isScrolled ? "text-white fixed bg-color top-0 left-0 w-full z-50  " :
                         "bg-transparent text-purple-500"}`}
                 >
                     <div className="lg:max-w-[2520px] h-auto mx-auto lg:px-10 xl:px-20 w-full flex items-center justify-between lg:flex-row flex-row-reverse">
@@ -69,7 +69,7 @@ const Navbar = ({ children }) => {
                             </label>
                         </div>
                         <div className="flex-1 px-2 md:mx-2">
-                            <Logo />
+                            <Logo isScrolled={isScrolled} />
                         </div>
                         <NavLinkManu
                             handleToggle={handleToggle}

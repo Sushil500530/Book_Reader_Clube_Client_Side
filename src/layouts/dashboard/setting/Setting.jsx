@@ -106,20 +106,43 @@ const Setting = () => {
                         type="text"
                         name='email'
                         disabled
-                        // defaultValue={users?.email}
-                        className="input input-bordered input-info w-full  disabled:bg-white disabled:text-black"
+                        defaultValue={users?.email}
+                       className="input input-bordered input-info w-full disabled:bg-white text-black disabled:text-black"
                         required
                     />
                     <div className="w-full space-y-2">
                         <h1 className='text-xl mb-2 text-start'>Profile Photo</h1>
                         <div className="bg-clip-content p-6 bg-violet-600 border-4 border-violet-300 border-dashed w-full">
                             {
-                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-44' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent rounded-md" placeholder='choose your image.....' required />
+                                showImage ?
+                                    <div className='relative'>
+                                        <img src={showImage} alt="imageShow" className='w-full h-44' />
+                                        <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'>
+                                            <MdDeleteForever className='text-5xl text-red-500' />
+                                        </span>
+                                    </div>
+                                    :
+                                    <input
+                                        onChange={handleImage}
+                                        type='file'
+                                        name='image'
+                                        id='image'
+                                        accept='image/*'
+                                        className="file-input w-full file-input-info focus:border-none bg-transparent rounded-md"
+                                        placeholder='choose your image.....'
+                                        required
+                                    />
                             }
                         </div>
                     </div>
                     <label>Status*</label>
-                    <input type="text" name='status' defaultValue={users?.status} className="input input-bordered input-info w-full" required />
+                    <input
+                        type="text"
+                        name='status'
+                        defaultValue={users?.status}
+                        className="input input-bordered input-info w-full bg-white text-black"
+                        required
+                    />
                     <button className='btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] my-3 text-[17px] hover:text-blue-300' type='submit'>
                         {
                             loading === true ? <div className="text-[17px] flex items-center gap-2"><FiLoader className="w-6 h-6 animate-spin" /> processing</div> : 'Save Chnages'
