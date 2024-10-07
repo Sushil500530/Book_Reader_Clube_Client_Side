@@ -23,7 +23,7 @@ const FooterPage = () => {
     }
 
     return (
-        <footer className=" bg-color mt-12 p-3 md:p-10">
+        <footer className=" bg-color-b mt-12 p-3 md:p-10">
             <Container>
                 <div className="footer  text-gray-300 flex flex-wrap justify-between pb-10">
                     <Logo />

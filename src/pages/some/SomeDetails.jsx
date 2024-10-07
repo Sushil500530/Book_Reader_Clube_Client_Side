@@ -58,7 +58,7 @@ const SomeDetails = () => {
                             <IoCheckmark className='w-8 h-8 font-bold text-green-600' />
                         </h1>
                         <p className='text-start'>
-                            The "Furniture List" doesn&apos;t typically refer to a database table structure on its own but rather to a representation or display of furniture data. However, you can create a query or view in your database system to fetch and display the relevant information.
+                            The {"Furniture List"} doesn&apos;t typically refer to a database table structure on its own but rather to a representation or display of furniture data. However, you can create a query or view in your database system to fetch and display the relevant information.
                         </p>
                         <h1 className='text-2xl font-bold text-start flex items-center gap-2'>
                             Move Furniture
