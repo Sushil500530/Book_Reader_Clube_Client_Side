@@ -11,7 +11,7 @@ const SomeDetails = () => {
                     Strict of Furni-Track
                 </h1>
                 <p className='text-center my-5'>
-                    This structure allows for a comprehensive tracking system, enabling users to manage and monitor furniture assets efficiently. The Furniture Table stores core details, the Movement History <br /> Table tracks the spatial changes of furniture, and the Maintenance Log Table records the upkeep and associated costs.
+                    This structure allows for a comprehensive tracking system, enabling users to manage and monitor furniture assets efficiently. The Furniture Table stores core details, the Movement History Table tracks the spatial changes of furniture, and the Maintenance Log Table records the upkeep and associated costs.
                 </p>
                 <div className="flex flex-col md:flex-col lg:flex-row items-center justify-between gap-10">
                     <div className='w-full lg:w-1/2 h-auto'>
