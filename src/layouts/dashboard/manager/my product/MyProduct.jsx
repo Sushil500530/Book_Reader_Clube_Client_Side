@@ -20,12 +20,13 @@ const MyProduct = () => {
     const [findItem, setFindItem] = useState([]);
 
     const { user } = useAuth();
-    refetch();
+
 
     useEffect(() => {
+        refetch();
         const findProduct = furnitures?.filter(item => item?.email === user?.email);
         setMyProducts(findProduct);
-    }, [furnitures, user?.email]);
+    }, [furnitures,refetch, user?.email]);
     // console.log(myProducts);
     if (isLoading) {
         return <Loader />

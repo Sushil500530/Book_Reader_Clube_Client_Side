@@ -24,10 +24,6 @@ const UpdatedProduct = () => {
     const [thumb1, setThumb1] = useState('');
     const [thumb2, setThumb2] = useState('');
 
-    console.log("update data:", findUpdataData)
-
-
-
 
     // showImageDelete 
     const handleRemoveImage = () => {

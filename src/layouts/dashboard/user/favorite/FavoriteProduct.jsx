@@ -2,7 +2,6 @@ import Swal from "sweetalert2";
 import useFavorite from "../../../../hooks/useFavorite";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { MdDelete } from "react-icons/md";
-import { FaShoppingCart } from "react-icons/fa";
 import Loader from "../../../../shared/Loader";
 import { useAuth } from "../../../../hooks/useAuth";
 import toast from "react-hot-toast";
@@ -77,11 +76,13 @@ const FavoriteProduct = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 my-10 ">
                 {
                     favorites?.map(item =>
-                        <div key={item._id} className="  hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out hover:text-white text-2xl text-center w-full h-[270px] bg-white shadow-2xl relative rounded-md lg:mb-20 mb-20 md:mb-20 pt-28">
-                            <div className="absolute 2xl:left-[30%] xl:left-[25%] lg:left-[18%] md:left-[30%] left-[28%] -top-20 w-36 h-36 bg-black rounded-full">
-                                <img src={item?.image} alt="love-image" className="w-full h-full rounded-full" /></div>
-                            <h3 className="text-2xl font-bold ">{item?.title}</h3>
-                            <p className='text-[17px] font-bold '>Price: $ {item?.price}</p>
+                        <div key={item._id} className="px-3 group text-start  hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out hover:text-white w-full h-[300px] bg-white shadow-2xl relative rounded-md lg:mb-20 mb-20 md:mb-20 pt-28">
+                            <div className="absolute 2xl:left-[30%] xl:left-[25%] lg:left-[18%] md:left-[30%] left-[28%] -top-12 w-36 h-36 bg-black rounded-full">
+                                <img src={item?.image} alt="love-image" className="w-full h-full rounded-full group-hover:scale-105 [transition:0.3s]" />
+                            </div>
+                            <h3 className="text-xl font-bold ">{item?.title}</h3>
+                            <p className='text-sm font-normal text-start my-2'>{item?.description?.slice(0, 60)}</p>
+                            <p className='text-base font-bold '>Price: $ {item?.price}</p>
                             <div className="grid grid-cols-2 gap-5 p-5">
                                 <button onClick={() => buyProduct(item)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base">
                                     <BsCartPlus className="text-3xl text-white" />
