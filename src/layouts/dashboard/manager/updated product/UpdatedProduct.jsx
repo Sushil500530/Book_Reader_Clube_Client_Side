@@ -24,6 +24,8 @@ const UpdatedProduct = () => {
     const [thumb1, setThumb1] = useState('');
     const [thumb2, setThumb2] = useState('');
 
+    console.log("update data:", findUpdataData)
+
 
 
 
@@ -69,32 +71,35 @@ const UpdatedProduct = () => {
     const handleAddedProduct = async (e) => {
         e.preventDefault();
         setLoading(true);
+    
         const form = e.target;
         const product_name = form.product_name.value;
-        //   const loadImage = await imageUpload(imageProperty);
-        //     const thmbnl1 = await imageUpload(thumb1);
-        //     const thmbnl2 = await imageUpload(thumb2);
         const description = form.description.value;
         const quantity = form.quantity.value;
         const category = form.category.value;
         const rating = form.rating.value;
         const price = form.product_cost.value;
         const product_prof = form.product_profit.value;
-        const product_profit = parseInt(product_prof)
+        const product_profit = parseInt(product_prof);
         const discount = form.discount.value;
         const owner_name = user?.displayName;
         const email = user?.email;
         const location = form.location.value;
-
-        if (!imageProperty || !thumb1 || !thumb2) {
-            setLoading(false)
-            return toast.error("Please select image...!");
-        }
-
+    
         try {
-            const loadImage = await imageUpload(imageProperty);
-            const thmbnl1 = await imageUpload(thumb1);
-            const thmbnl2 = await imageUpload(thumb2);
+            // Determine if new images need to be uploaded
+            const loadImage = imageProperty
+                ? await imageUpload(imageProperty)
+                : { data: { display_url: findUpdataData?.image } };
+    
+            const thmbnl1 = thumb1
+                ? await imageUpload(thumb1)
+                : { data: { display_url: findUpdataData?.thumbnail1 } };
+    
+            const thmbnl2 = thumb2
+                ? await imageUpload(thumb2)
+                : { data: { display_url: findUpdataData?.thumbnail2 } };
+    
             const updatedProducts = {
                 title: product_name,
                 quantity,
@@ -111,27 +116,25 @@ const UpdatedProduct = () => {
                 email,
                 owner_name
             };
-            // console.log(updatedProducts);
-            axiosSecure.patch(`/updated/${findUpdataData?._id}`, updatedProducts)
-                .then(res => {
-                    setLoading(false)
-                    if (res.data?.modifiedCount > 0) {
-                        Swal.fire({
-                            title: "Updated Successfull!",
-                            text: "You clicked the button!",
-                            icon: "success",
-                            timer: 1000
-                        });
-                        return navigate('/dashboard/my-product')
-                    }
-                })
-        }
-        catch (error) {
+    
+            const res = await axiosSecure.patch(`/updated/${findUpdataData?._id}`, updatedProducts);
             setLoading(false);
-            toast.error(error.message)
+    
+            if (res.data?.modifiedCount > 0) {
+                Swal.fire({
+                    title: "Updated Successfully!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                    timer: 1000
+                });
+                return navigate('/dashboard/my-product');
+            }
+        } catch (error) {
+            setLoading(false);
+            toast.error(error.message);
         }
-    }
-
+    };
+    
 
     return (
         <div className="w-[90%] mx-auto dark:text-white">

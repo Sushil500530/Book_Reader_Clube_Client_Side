@@ -122,7 +122,7 @@ const AddProducts = () => {
                             icon: "success",
                             timer: 1000
                         });
-                          return navigate('/dashboard/add-product')
+                          return navigate('/dashboard/my-product')
                     }
                 })
         }
