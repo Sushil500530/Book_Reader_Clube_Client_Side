@@ -47,6 +47,7 @@ const CheckoutForm = () => {
         e.preventDefault();
         setLoading(true);
         if (!stripe || !elements) {
+            setLoading(false)
             return toast.error('something went wrong!')
         }
         const card = elements?.getElement(CardElement);
@@ -78,6 +79,7 @@ const CheckoutForm = () => {
         })
 
         if (confirmError) {
+            setLoading(false)
             // console.log('confirm error is=======>', confirmError)
             return toast.error('Your card number is incomplete');
         }
