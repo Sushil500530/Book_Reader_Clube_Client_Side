@@ -35,12 +35,12 @@ const SaleSummaryAdmin = () => {
         return <Loader />
     }
     return (
-        <div>
+        <div className="mb-20">
             <h1 className="text-3xl text-center  my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Sale Summary Product </h1>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr className="text-xl text-black">
+                        <tr className="text-xl text-black border bg-gray-50">
                             <th></th>
                             <th>Image</th>
                             <th>Title</th>
@@ -50,16 +50,41 @@ const SaleSummaryAdmin = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            allSales?.length > 0 && allSales?.map((sale, index) => <tr key={sale?._id} className="text-[18px]">
-                                <th>{index + 1}</th>
-                                <td><img src={sale?.image} alt="product_image" className="w-20 h-20 rounded-md" /> </td>
-                                <td>{sale?.title}</td>
-                                <td><span>{sale?.email}</span></td>
-                                <td><span >$ {sale?.price}</span></td>
-                                <td><span onClick={() => handleDelete(sale?._id)}><MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" /></span></td>
-                            </tr>)
-                        }
+                        {allSales?.length > 0 &&
+                            allSales.map((sale, index) => (
+                                <tr
+                                    key={sale?._id}
+                                    className="text-[18px] border border-gray-300"
+                                >
+                                    <th className="border border-gray-300">
+                                        {index + 1}
+                                    </th>
+                                    <td className="border border-gray-300">
+                                        <img
+                                            src={sale?.image}
+                                            alt="product_image"
+                                            className="w-20 h-20 rounded-md"
+                                        />
+                                    </td>
+                                    <td className="border border-gray-300">
+                                        {sale?.title}
+                                    </td>
+                                    <td className="border border-gray-300">
+                                        <span>{sale?.email}</span>
+                                    </td>
+                                    <td className="border border-gray-300">
+                                        <span>$ {sale?.price}</span>
+                                    </td>
+                                    <td className="border border-gray-300">
+                                        <span
+                                            onClick={() => handleDelete(sale?._id)}
+                                            className="cursor-pointer"
+                                        >
+                                            <MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" />
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             </div>

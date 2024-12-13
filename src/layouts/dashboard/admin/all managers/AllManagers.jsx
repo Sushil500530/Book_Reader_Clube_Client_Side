@@ -59,9 +59,9 @@ const AllManagers = () => {
                                     <img src={item?.shop_logo} alt="love-image" className="w-full h-full rounded-full border border-purple-500" />
                                 </figure>   
                             </div>
-                            <h3 className="text-xl">Name: {item?.owner}</h3>
-                            <p className='text-[17px] '>Shop Name: {item?.shop_name}</p>
-                            <p className='text-[17px] '>Address: {item?.location}</p>
+                            <h3 className="text-xl"><span className="font-bold">{item?.owner}</span></h3>
+                            <p className='text-[17px] '>Shop: <span className="font-bold">{item?.shop_name}</span></p>
+                            <p className='text-[17px] '>Address:<span className="font-bold">{item?.location}</span></p>
                             <div className="flex items-center gap-5 p-5">
                                 <button onClick={openModal} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-max flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black">
                                     <IoFlowerOutline size={18} />Promotional</button>

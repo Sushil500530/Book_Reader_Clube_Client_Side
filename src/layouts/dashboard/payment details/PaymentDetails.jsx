@@ -35,17 +35,17 @@ const PaymentDetails = () => {
         '65945a52ce557628b9b12247',
         '65945a52ce557628b9b12249'
     ];
-    
+
     const filterArray = [
         '65ed8b1acc7967b620507cb1',
         '65edd7fcd948cfd86be2800c',
         '65945a52ce557628b9b12242'
     ];
-    
+
     const extractedArray = mainArray.filter(item => !filterArray.includes(item));
-    
+
     console.log(extractedArray);
-    
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -82,7 +82,7 @@ const PaymentDetails = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr className="bg-base-200 text-xl">
+                            <tr className="bg-gray-50 border text-xl">
                                 <th></th>
                                 <th>Email</th>
                                 <th>Price</th>
@@ -92,19 +92,24 @@ const PaymentDetails = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                            {
-                                sortData?.map((payment, index) =>
-                                    <tr key={payment?._id} className="text-[17px]">
-                                        <th>{index + 1}</th>
-                                        <th>{payment?.email} </th>
-                                        <td>${payment?.price}</td>
-                                        <td>{payment?.date?.slice(0, 10)}</td>
-                                        <td>
-                                            <button onClick={() => handleDelete(payment?._id)} className="btn bg-red-600 text-white hover:text-red-600"><MdDelete className="w-9 h-9" /></button>
-                                        </td>
-                                    </tr>)
-                            }
+                            {sortData?.map((payment, index) => (
+                                <tr key={payment?._id} className="text-[17px] border border-gray-300">
+                                    <th className="border border-gray-300">{index + 1}</th>
+                                    <th className="border border-gray-300">{payment?.email}</th>
+                                    <td className="border border-gray-300">${payment?.price}</td>
+                                    <td className="border border-gray-300">{payment?.date?.slice(0, 10)}</td>
+                                    <td className="border border-gray-300">
+                                        <button
+                                            onClick={() => handleDelete(payment?._id)}
+                                            className="btn bg-red-600 text-white hover:text-red-600"
+                                        >
+                                            <MdDelete className="w-9 h-9" />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
+
                     </table>
                     {
                         sortData?.length <= 0 && <div className="flex items-center justify-center gap-3 flex-col w-full h-[50vh]">

@@ -76,7 +76,7 @@ const AllUsers = () => {
         return <Loader />
     }
     return (
-        <div>
+        <div className="mb-20">
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
                 <div>
                     <form onSubmit={handleRoleChangeForm} className="flex items-center justify-center gap-5 flex-col ">
@@ -95,7 +95,7 @@ const AllUsers = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr className="text-xl text-black">
+                        <tr className="text-xl text-black border bg-gray-50">
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
@@ -105,17 +105,34 @@ const AllUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            allUsers?.length > 0 && allUsers?.map((user, index) => <tr key={user?._id}>
-                                <th>{index + 1}</th>
-                                <td>{user?.name}</td>
-                                <td>{user?.email}</td>
-                                <td><span className=" bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-white px-3 py-2 rounded-full capitalize">{user?.role}</span></td>
-                                <td><span onClick={() => handleRoleChange(user?._id)} className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 link-hover cursor-pointer font-bold">Click Here</span></td>
-                                <td><span onClick={() => deleteUser(user?._id)}><MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" /></span></td>
-                            </tr>)
-                        }
+                        {allUsers?.length > 0 &&
+                            allUsers.map((user, index) => (
+                                <tr key={user?._id} className="border border-gray-300">
+                                    <th className="border border-gray-300">{index + 1}</th>
+                                    <td className="border border-gray-300">{user?.name}</td>
+                                    <td className="border border-gray-300">{user?.email}</td>
+                                    <td className="border border-gray-300">
+                                        <span className="bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-white px-3 py-2 rounded-full capitalize">
+                                            {user?.role}
+                                        </span>
+                                    </td>
+                                    <td className="border border-gray-300">
+                                        <span
+                                            onClick={() => handleRoleChange(user?._id)}
+                                            className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 link-hover cursor-pointer font-bold"
+                                        >
+                                            Click Here
+                                        </span>
+                                    </td>
+                                    <td className="border border-gray-300">
+                                        <span onClick={() => deleteUser(user?._id)}>
+                                            <MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" />
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
+
                 </table>
             </div>
         </div>
