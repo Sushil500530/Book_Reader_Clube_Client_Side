@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { GiLevelFourAdvanced } from "react-icons/gi";
 import DManuList from "../../../shared/dashboard manulist/DManuList";
 import { MdOutlineAddShoppingCart, MdOutlinePayments, MdOutlineFavorite } from "react-icons/md";
