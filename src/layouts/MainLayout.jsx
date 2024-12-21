@@ -1,5 +1,6 @@
 import Header from "../components/header/Header";
 import { useState, useEffect } from 'react';
+import Preloader from "../components/preloder/Preloader";
 
 const MainLayout = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -7,7 +8,7 @@ const MainLayout = () => {
         const stackTime = () => {
             setTimeout(() => {
                 setIsLoading(false)
-            }, 3000);
+            }, 2000);
         }
         stackTime()
     }, [])
@@ -16,9 +17,7 @@ const MainLayout = () => {
         <div>
             {
                 isLoading ?
-                    <div className='w-full h-screen flex items-center justify-center'>
-                        <h2 className='text-5xl font-bold text-center'>Loading.....</h2>
-                    </div> :
+                   <Preloader/> :
                     <Header />
             }
         </div>
