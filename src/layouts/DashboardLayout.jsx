@@ -55,7 +55,7 @@ const DashboardLayout = () => {
                 </button>
             </div>
             <div className="flex w-auto h-full bg-blue-50 ">
-                <div className={`z-[1] fixed flex flex-col justify-between pb-12 shadow bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 transition duration-200 ease-in-out sidebar`}>
+                <div className={`z-[999] fixed flex flex-col justify-between pb-12 shadow bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 transition duration-200 ease-in-out sidebar`}>
                     <div className="">
                         <div className="mb-12 pt-2 px-4">
                             <Link to="/">

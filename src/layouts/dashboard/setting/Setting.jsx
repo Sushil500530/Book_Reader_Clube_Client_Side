@@ -74,7 +74,7 @@ const Setting = () => {
     return (
         <div className='mb-12'>
             <div className="bg-[url('https://i.ibb.co/grk28gT/settng.gif')] w-full h-[60vh] bg-cover bg-no-repeat object-cover relative">
-                <figure className='w-[250px] h-[250px] rounded-full absolute top-1/3 left-[25%] md:left-1/3 lg:left-[42%] border-4 border-fuchsia-500 cursor-pointer opacity-100 z-50 hover:border-blue-700'>
+                <figure className='w-[250px] h-[250px] rounded-full absolute top-1/3 translate-y-[-50px] left-[25%] md:left-1/3 lg:left-[42%] border-4 border-fuchsia-500 cursor-pointer opacity-100 z-[1] hover:border-blue-700'>
                     <img src={users?.image} alt="profile_image" className='w-full h-full rounded-full' />
                 </figure>
                 <div className='bg-black absolute w-full h-full opacity-60 '></div>
