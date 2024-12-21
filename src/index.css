@@ -9,7 +9,27 @@
     font-optical-sizing: auto;
     background: #fbfbfb !important;
     color: black !important;
+    @apply sidebar
   }
+
+  /* custom scrollber */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #e0e9f4;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, #6667f7 44.88%, #ef41ff 176.6%);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to top, #2241b0 , #b407b4 );
+  border-radius: 10px;
+}
 
   .bg-color{
     @apply bg-gradient-to-r from-[#2241b0] to-[#000000]

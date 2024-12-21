@@ -6,7 +6,9 @@ import { FaBlog, FaHome, FaSignOutAlt, } from 'react-icons/fa';
 import { MdAddShoppingCart, MdExpandLess, MdLogin, MdOutlineDashboardCustomize, MdShoppingBasket } from "react-icons/md";
 import { FcAbout, FcContacts } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
-const Sidebar = ({ handleToggle, sales }) => {
+
+
+const Sidebar = ({ handleToggle, sales,closeDrawer,isScrolled }) => {
     const { user, logoutUser } = useAuth()
     const handleLogout = () => {
         logoutUser()
@@ -23,7 +25,7 @@ const Sidebar = ({ handleToggle, sales }) => {
                     className="drawer-overlay">
 
                 </label>
-                <ul className="menu w-80 min-h-full bg-blue-50 flex items-start pl-12 text-black fixed overflow-y-auto">
+                <ul onClick={closeDrawer}  className={`menu w-80 min-h-full bg-blue-50 flex items-start pl-12 text-black fixed overflow-y-auto ${isScrolled ? "top-[76px]" : "top-0"}`}>
                     <ManuList
                         address={'/'}
                         linkTitle={"Home"}
@@ -54,11 +56,11 @@ const Sidebar = ({ handleToggle, sales }) => {
                             </span>
                         </>
                     }
-                    <ManuList
+                    {/* <ManuList
                         address={'about'}
                         linkTitle={"About"}
                         icon={FcAbout}
-                    />
+                    /> */}
                     <ManuList
                         address={'create-shop'}
                         linkTitle={"Create Shop"}

@@ -36,6 +36,12 @@ const Navbar = ({ children }) => {
     const handleToggle = () => {
         setActive(!active)
     }
+    const closeDrawer = () => {
+        const drawerToggle = document.getElementById("my-drawer-3");
+        if (drawerToggle) drawerToggle.checked = false;
+      };
+
+      
     return (
         <div className="drawer">
             <input
@@ -82,6 +88,8 @@ const Navbar = ({ children }) => {
             <Sidebar
                 handleToggle={handleToggle}
                 sales={sales}
+                closeDrawer={closeDrawer}
+                isScrolled={isScrolled}
             />
             {
                 !active && <div
