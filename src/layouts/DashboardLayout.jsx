@@ -47,10 +47,10 @@ const DashboardLayout = () => {
                 </div>
                 <button
                     onClick={handleReverse}
-                    className='btn w-auto h-full relative top-3 bg-transparent border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
+                    className=' hover:bg-blue-50 px-4 rounded [transition:0.3s] py-2 w-auto h-full relative top-3 bg-transparent hover:text-white border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
                         isActive === true ?
-                            <IoMenuOutline className='h-8 w-8 font-bold text-black dark:text-white' /> :
-                            <RxCross1 className='h-7 w-8 font-bold text-black  dark:text-white' />
+                            <IoMenuOutline size={28} color="#000"/> :
+                            <RxCross1 size={28} color="#000" />
                     }
                 </button>
             </div>
@@ -64,11 +64,14 @@ const DashboardLayout = () => {
                         </div>
                         <NavLink
                          to='/dashboard' 
+                         onClick={ handleReverse}
                          className={({ isActive }) =>
                             ` flex items-center text-[18px] font-medium px-4 py-2 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100  
                          ${isActive ? 'text-blue-500 ' : ''
                             }`} >
-                            <span><MdDashboardCustomize className="w-5 h-8 mr-1 " /></span>
+                            <span>
+                                <MdDashboardCustomize className="w-5 h-8 mr-1 " />
+                                </span>
                             Dashboard
                         </NavLink>
                         {

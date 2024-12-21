@@ -75,17 +75,17 @@ const Router = createBrowserRouter([
             },
             {
                 path:'category/:category',
-                loader: ({params}) => fetch(`http://localhost:5000/furniture/${params?.category}`),
+                loader: ({params}) => fetch(`https://furni-track-project-server-side.vercel.app/furniture/${params?.category}`),
                 element:<SubFurniHome />
             },
             {
                 path:'furni-details/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/furnitures/${params?.id}`),
+                loader: ({params}) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params?.id}`),
                 element: <PrivetRoute> <FurniDetails /></PrivetRoute>
             },
             {
                 path:'furnitures/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/furnitures/${params?.id}`),
+                loader: ({params}) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params?.id}`),
                 element: <PrivetRoute><FurniDetails /></PrivetRoute>
             },
             {
@@ -139,7 +139,7 @@ const Router = createBrowserRouter([
             {
                 path: 'update-product/:id',
                 element: <PrivetRoute><UpdatedProduct /></PrivetRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/furnitures/${params.id}`)
+                loader: ({params})=>fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params.id}`)
             },
             {
                 path: 'my-product',
