@@ -14,7 +14,13 @@ const SomeDetails = () => {
                     This structure allows for a comprehensive tracking system, enabling users to manage and monitor furniture assets efficiently. The Furniture Table stores core details, the Movement History Table tracks the spatial changes of furniture, and the Maintenance Log Table records the upkeep and associated costs.
                 </p>
                 <div className="flex flex-col md:flex-col lg:flex-row items-center justify-between gap-10">
-                    <div className='w-full lg:w-1/2 h-auto'>
+                    <div
+                        data-aos="fade-right"
+                        data-aos-duration="2000"
+                        data-aos-offset="100"
+                        data-aos-easing="ease-in-out"
+                        className='w-full lg:w-1/2 h-auto'
+                    >
                         <h1 className='text-3xl font-bold flex gap-2 text-[#0f172c] items-center justify-center'>
                             Database Schema
                             <MdDataThresholding className='w-16 h-16 rounded-full bg-blue-100 p-3' />
@@ -41,14 +47,26 @@ const SomeDetails = () => {
                             table, establishing a relationship between the two tables.Indicates the type of maintenance (e.g., repair, cleaning). Records the date when the maintenance occurred. A text field for additional details or notes about the maintenance.
                         </p>
                     </div>
-                    <div className='w-full lg:w-1/2 h-auto'>
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration="2000"
+                         data-aos-offset="100"
+                        data-aos-easing="ease-in-out"
+                        className='w-full lg:w-1/2 h-auto'
+                    >
                         <img
                             src={structImage}
                             className='w-full h-full'
                             alt="image"
                         />
                     </div>
-                    <div className='w-full lg:w-1/2 h-auto'>
+                    <div
+                        data-aos="fade-left"
+                        data-aos-duration="2000"
+                         data-aos-offset="100"
+                        data-aos-easing="ease-in-out"
+                        className='w-full lg:w-1/2 h-auto'
+                    >
                         <h1 className='text-3xl text-[#0f172c]  font-bold flex gap-2 items-center justify-center'>
                             User Interface
                             <HiComputerDesktop className='w-16 h-16 rounded-full bg-blue-100 p-3' />
