@@ -30,7 +30,7 @@ const Contact = () => {
                 <div className="absolute top-0 right-0 left-0 w-full h-full bg-black opacity-30 flex items-center justify-center"> </div>
             </div>
             <div className="flex items-start justify-center gap-6 flex-col lg:flex-row-reverse p-5 w-[90%] mx-auto mt-14 mb-32">
-                <div className="w-full h-full lg:w-[35%] space-y-4 text-start flex items-center justify-center lg:items-start lg:justify-center flex-col">
+                <div data-aos="fade-left" className="w-full h-full lg:w-[35%] space-y-4 text-start flex items-center justify-center lg:items-start lg:justify-center flex-col">
                     <h1 className=" my-5 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">
                         Contact Us
                     </h1>
@@ -77,7 +77,7 @@ const Contact = () => {
                         </h1>
                     </div>
                 </div>
-                <div className="w-full h-full lg:w-[65%] ">
+                <div className="w-full h-full lg:w-[65%] "  data-aos="fade-up">
                     <h1 className="mt-5 mb-12 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">
                         Send A Message
                     </h1>

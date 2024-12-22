@@ -62,13 +62,16 @@ const Testimonials = () => {
 
     return (
         <div className="container mx-auto my-12">
-            <h1 className="text-3xl font-bold text-center">
-                Our Testimonials
-            </h1>
-            <p className="text-gray-500 text-base text-center my-5">
-                Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication
-                <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.
-            </p>
+            <div data-aos="fade-up">
+                <h1 className="text-3xl font-bold text-center">
+                    Our Testimonials
+                </h1>
+                <p className="text-gray-500 text-base text-center my-5">
+                    Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication
+                    <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.
+                </p>
+            </div>
+
             <div className="relative w-[95%] lg:w-11/12 mx-auto !pb-0">
                 <Swiper
                     spaceBetween={30}
