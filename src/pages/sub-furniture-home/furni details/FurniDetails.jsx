@@ -89,18 +89,22 @@ const FurniDetails = () => {
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full h-auto gap-8 mt-10">
                     <div className="m-3 lg:m-0">
-                        <figure className="w-full h-[80vh] border">
+                        <figure data-aos="fade-right" className="w-full h-[80vh] border">
                             <img src={image} className="w-full h-full" alt="furniture-image" />
                         </figure>
                         <div className="grid grid-cols-2 gap-3 mt-3 w-full h-[180px] md:h-[220px] lg:h-[280px]">
-                            <InnerImageZoom
-                                src={thumbnail1}
-                                width={500}
-                                height={500}
-                                zoomSrc={thumbnail1}
-                                className="w-full h-full"
-                                alt="furniture-image"
-                            />
+                            <span data-aos="flip-up">
+                                <InnerImageZoom
+                                    src={thumbnail1}
+                                    width={500}
+                                    height={500}
+                                    zoomSrc={thumbnail1}
+                                    className="w-full h-full"
+                                    alt="furniture-image"
+                                   
+                                />
+                            </span>
+                            
                             <InnerImageZoom
                                 src={thumbnail2}
                                 width={500}
@@ -108,18 +112,19 @@ const FurniDetails = () => {
                                 zoomSrc={thumbnail2}
                                 className="w-full h-full"
                                 alt="furniture-image"
+                                data-aos="flip-up"
                             />
                         </div>
                         <div>
                         </div>
                     </div>
-                    <div className="flex items-start justify flex-col mt-5 p-3 md:p-5">
+                    <div data-aos="fade-left" className="flex items-start justify flex-col mt-5 p-3 md:p-5">
                         <h1 className="text-3xl font-bold text-start ">
                             {title}
-                            </h1>
+                        </h1>
                         <p className="text-start my-3">
                             {description}
-                            </p>
+                        </p>
                         <div className="space-y-3">
                             <h1 className="text-start text-xl text-[#262a3c]">
                                 Price:

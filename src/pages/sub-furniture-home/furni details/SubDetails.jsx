@@ -7,7 +7,7 @@ const SubDetails = () => {
                 if You Want to Create Furniture Shop?
             </h1>
             <div className="flex flex-col lg:flex-row gap-10 mt-12">
-                <div className="w-full lg:w-1/2 h-auto md:h-[550px]">
+                <div data-aos="fade-right" className="w-full lg:w-1/2 h-auto md:h-[550px]">
                     <h1 className="text-2xl font-bold text-center mb-3">
                         Steps of  furni track ....
                     </h1>
@@ -102,7 +102,7 @@ const SubDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2 h-64 md:h-96 lg:h-[550px] md:mt-0 lg:mt-0">
+                <div data-aos="fade-left" className="w-full lg:w-1/2 h-64 md:h-96 lg:h-[550px] md:mt-0 lg:mt-0">
                     <iframe
                         className="h-full w-full"
                         src="https://www.youtube.com/embed/TGHOYfjwf7g"
