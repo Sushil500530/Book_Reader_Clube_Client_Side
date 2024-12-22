@@ -4,6 +4,7 @@ import Preloader from "../components/preloder/Preloader";
 
 const MainLayout = () => {
     const [isLoading, setIsLoading] = useState(true)
+    
     useEffect(() => {
         const stackTime = () => {
             setTimeout(() => {
@@ -12,12 +13,13 @@ const MainLayout = () => {
         }
         stackTime()
     }, [])
+
     return (
 
         <div>
             {
                 isLoading ?
-                   <Preloader/> :
+                    <Preloader /> :
                     <Header />
             }
         </div>

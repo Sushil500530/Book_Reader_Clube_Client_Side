@@ -7,8 +7,8 @@ const Banner = () => {
         <div className="w-full lg:h-screen h-auto bg-[url('https://i.ibb.co/wh2Vr39/banner5.gif')] bg-no-repeat bg-cover">
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 "></div>
             <div className="flex items-center justify-center pt-32 flex-col lg:flex-row gap-12 lg:px-24 p-5">
-                <div className="w-full lg:w-1/2 flex items-start justify-center flex-col z-10">
-                    <h1 className="font-extrabold text-2xl md:text-5xl lg:text-5xl leading-normal text-start">
+                <div data-aos="fade-up" className="w-full lg:w-1/2 flex items-start justify-center flex-col z-10">
+                    <h1 className="font-extrabold text-2xl md:text-5xl lg:text-5xl !leading-normal text-start">
                         Explopre Our New <span className="text_gradient"> Furniture</span> Collections.....<span className="text_gradient">!</span>
                     </h1>
                     <p className="text-start mt-12 text-gray-300">

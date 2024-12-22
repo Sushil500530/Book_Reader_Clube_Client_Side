@@ -3,10 +3,22 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase/firebase.config";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
+
+
+    useEffect(() => {
+        AOS.init({
+          duration: 1000, // Animation duration in milliseconds
+          easing: "ease-in-out", // Easing type
+          once: true, // Whether animation should happen only once
+        });
+      }, []);
+
     const axiosPublic = useAxiosPublic();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);

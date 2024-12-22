@@ -20,7 +20,7 @@ const FurniCategCard = ({ category }) => {
                     </div>
                 </div>
             </div>
-            <h1 className="text-xl font-extrabold text-center mt-5">{category?.category}</h1>
+            <h1 className="text-xl font-extrabold text-center mt-5">{category?.category?.replace(/_/g, ' ')}</h1>
         </div>
     );
 };
