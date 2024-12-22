@@ -90,7 +90,7 @@ const About = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-32">
                             {
                                 data?.length > 0 && data.map(team => (
-                                    <div
+                                    <div  data-aos="fade-up"
                                         key={team.id}
                                         className="w-full h-auto shadow-xl bg-white hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black rounded-md relative mt-14 group"
                                     >
@@ -130,14 +130,14 @@ const About = () => {
                                 Why Our Furni-Track
                             </h1>
                             <div className="flex items-center justify-center w-full gap-8 flex-col lg:flex-row mb-32">
-                                <div className="w-full h-[600px] lg:w-1/2">
+                                <div data-aos="fade-right" className="w-full h-[600px] lg:w-1/2">
                                     <img
                                         src="https://i.ibb.co/2WfSk7s/furniture1.jpg"
                                         alt="image"
                                         className="w-full h-full rounded-3xl"
                                     />
                                 </div>
-                                <div className="w-full h-auto lg:w-1/2">
+                                <div  data-aos="fade-left" className="w-full h-auto lg:w-1/2">
                                     <h1 className="text-4xl font-bold text-fuchsia-500 text-start">
                                         Summary
                                     </h1>
@@ -168,14 +168,14 @@ const About = () => {
                                 </p>
                             </div>
                             <div className="flex items-center justify-center w-full gap-5 lg:gap-16 flex-col lg:flex-row-reverse mb-32">
-                                <div className="w-full h-[600px] lg:w-1/2">
+                                <div data-aos="fade-up" className="w-full h-[600px] lg:w-1/2">
                                     <img
                                         src={StructImage}
                                         alt="structure-image"
                                         className="w-full h-full rounded-3xl"
                                     />
                                 </div>
-                                <div className="w-full h-auto lg:w-1/2 space-y-4">
+                                <div data-aos="fade-down" className="w-full h-auto lg:w-1/2 space-y-4">
                                     <div>
                                         <h1 className="flex items-center justify-start gap-3 text-xl font-bold mb-2">
                                             Comprehensive Data Storage
