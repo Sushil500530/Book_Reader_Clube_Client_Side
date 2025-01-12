@@ -6,7 +6,7 @@ const LocationStatus = () => {
     return (
         <Container>
             <div className='lg:mt-12 lg:mb-16 m-5'>
-                <h1 className="text-2xl lg:text-3xl font-bold text-center mb-8">
+                <h1 className="text-2xl lg:text-3xl font-bold text-center mb-8 lg:w-[520px] mx-auto">
                     Our Services Management and Location State
                 </h1>
                 <div className='w-full h-auto py-10 flex items-center justify-between border border-blue-500'>

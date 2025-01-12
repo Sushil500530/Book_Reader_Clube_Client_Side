@@ -20,13 +20,16 @@ const Other = () => {
     return (
         <div className='my-12 bg-color py-10 text-center text-white'>
             <h1 className='text-3xl font-bold mb-3'>Feature of Furnitures</h1>
-            <p className='w-full lg:w-2/3 mx-auto px-3  text-gray-300'>{`Premium quality materials for lasting durability", "Timeless and modern design that complements any decor", "Plush cushions for ultimate comfort", "Sturdy construction ensuring stability and reliability", "Handcrafted with care to enhance the uniqueness of each piece", "Versatile pieces for flexible arrangement in your space", "Exclusive limited-time discount – Save 15% on your purchase`}</p>
+            <p className='w-full lg:w-2/3 mx-auto px-3  text-gray-300'>
+                Made from premium materials for durability, this timeless design blends with any decor. Plush cushions ensure comfort, sturdy construction adds reliability, and handcrafted details offer unique charm. Save 15% now with our limited-time offer!
+            </p>
             <div className='w-full md:w-[75%] h-auto mx-auto'>
                 <Swiper
                     effect={'coverflow'}
                     grabCursor={true}
                     centeredSlides={true}
                     slidesPerView={'auto'}
+                    initialSlide={1}
                     coverflowEffect={{
                         rotate: 50,
                         stretch: 0,
