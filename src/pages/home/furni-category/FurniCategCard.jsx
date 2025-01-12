@@ -7,7 +7,7 @@ const FurniCategCard = ({ category }) => {
     // console.log(category);
     return (
         <div>
-            <div className="m-5 cursor-pointer w-auto h-[280px] md:h-[320px] lg:h-[350px] relative group rounded-lg hover:rounded-lg overflow-hidden">
+            <div  data-aos="flip-right" className="m-5 cursor-pointer w-auto h-[280px] md:h-[320px] lg:h-[350px] relative group rounded-lg hover:rounded-lg overflow-hidden">
                 <figure>
                     <img src={category?.image} className='w-full h-[280px] md:h-[320px] lg:h-[350px] ' alt="category-image" />
                 </figure>

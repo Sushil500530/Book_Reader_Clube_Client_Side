@@ -63,10 +63,10 @@ const Testimonials = () => {
     return (
         <div className="container mx-auto my-12">
             <div data-aos="fade-up">
-                <h1 className="text-3xl font-bold text-center">
+                <h1 data-aos="fade-up" className="text-3xl font-bold text-center">
                     Our Testimonials
                 </h1>
-                <p className="text-gray-500 text-base text-center my-5">
+                <p data-aos="fade-up" className="text-gray-500 text-base text-center my-5">
                     Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication
                     <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.
                 </p>

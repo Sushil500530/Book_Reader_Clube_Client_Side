@@ -8,10 +8,10 @@ const ServiceFeature = () => {
         <div>
             <div className="my-20 text-center ">
                 <div data-aos="fade-up">
-                    <h1 className="text-3xl font-bold ">
+                    <h1 data-aos="fade-up" className="text-3xl font-bold ">
                         Service Furnitures Feature
                     </h1>
-                    <p className="w-full lg:w-[1020px] mx-auto mb-8 p-5">
+                    <p data-aos="fade-up" className="w-full lg:w-[1020px] mx-auto mb-8 p-5">
                         Furniture refers to objects intended to support various human activities such as seating or stools, chairs, and sofas, eating, storing items, working, and sleeping . Furniture is also used to hold objects at a convenient height for work or to store things . Furniture can be a product of design and can be considered a form of decorative art.
                     </p>
                 </div>
