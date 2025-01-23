@@ -39,9 +39,9 @@ const Navbar = ({ children }) => {
     const closeDrawer = () => {
         const drawerToggle = document.getElementById("my-drawer-3");
         if (drawerToggle) drawerToggle.checked = false;
-      };
+    };
 
-      
+
     return (
         <div className="drawer">
             <input
@@ -75,7 +75,7 @@ const Navbar = ({ children }) => {
                             </label>
                         </div>
                         <div className="flex-1 px-2 md:mx-2">
-                            <Logo isScrolled={isScrolled} />
+                            <Logo />
                         </div>
                         <NavLinkManu
                             handleToggle={handleToggle}

@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-  body{
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    background: #fbfbfb !important;
-    color: black !important;
-    @apply sidebar
-  }
-  
-  /* custom scrollber */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  background: #fbfbfb !important;
+  color: black !important;
+  @apply sidebar
+}
+
+.playwrite {
+  font-family: "Playwrite IN", serif;
+}
+
+/* custom scrollber */
 .sidebar::-webkit-scrollbar {
   width: 5px;
 }
@@ -27,30 +32,31 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to top, #2241b0 , #b407b4 );
+  background: linear-gradient(to top, #2241b0, #b407b4);
   border-radius: 10px;
 }
 
-  .bg-color{
-    @apply bg-gradient-to-r from-[#2241b0] to-[#000000]
-  }
-  .bg-color-b{
-    @apply bg-gradient-to-b from-[#2241b0] to-[#000000]
-  }
-  .custom-bg-color{
-    @apply  bg-gradient-to-r from-[#2241b0] to-[#b407b4]
-  }
+.bg-color {
+  @apply bg-gradient-to-r from-[#2241b0] to-[#000000]
+}
+
+.bg-color-b {
+  @apply bg-gradient-to-b from-[#2241b0] to-[#000000]
+}
+
+.custom-bg-color {
+  @apply bg-gradient-to-r from-[#2241b0] to-[#b407b4]
+}
 
 
-  .text_gradient{
-    @apply custom-bg-color bg-clip-text text-transparent;
-  }
-  .scroll-text-gradient{
-    @apply bg-gradient-to-r from-[#6771ff] to-[#cc08cc] bg-clip-text text-transparent;
-  }
+.text_gradient {
+  @apply custom-bg-color bg-clip-text text-transparent;
+}
 
-  .social-icons{
-    @apply w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500  border-2 cursor-pointer hover:text-fuchsia-500
-  }
+.scroll-text-gradient {
+  @apply bg-gradient-to-r from-[#6771ff] to-[#cc08cc] bg-clip-text text-transparent;
+}
 
-  
+.social-icons {
+  @apply w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500 border-2 cursor-pointer hover:text-fuchsia-500
+}
