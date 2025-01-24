@@ -58,28 +58,30 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                         linkTitle={"Create Shop"}
                         icon={MdAddShoppingCart}
                     />
-                    <div className="group relative ">
+
+                    <div className="relative group font-semibold capitalize text-lg">
                         <button className=" flex items-center gap-3 text-base font-medium px-4 py-2 mt-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 group">
                             Pages <MdExpandLess className="text-2xl rotate-180 group-hover:rotate-0 w-full " />
                         </button>
-                        <div className="transition transform translate-y-8 ease-in-out invisible absolute group-hover:visible top-12 left-0 w-full h-auto text-white group-hover:translate-y-5 bg-base-300 pb-5 z-30">
+                        {/* Sub-menu dropdown (if any) */}
+                        <div className="absolute group-hover:block mt-6 rounded dropdown-content z-50 flex  flex-col bg-gray-100  px-4 text-gray-800 shadow-xl transition-all duration-500 ease-in-out max-h-0 overflow-hidden group-hover:max-h-96 w-36">
                             <NavLink
                                 to='about'
-                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
                              ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FcAbout className="w-5 h-8 mr-1 " />}</span>
                                 About
                             </NavLink>
                             <NavLink
                                 to='contact'
-                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
                              ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FcContacts className="w-5 h-8 mr-1 " />}</span>
                                 Contact
                             </NavLink>
                             <NavLink
                                 to='blog'
-                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium px-4 py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
+                                className={({ isActive }) => ` flex items-center text-purple-500 font-medium py-1 duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 
                             ${isActive ? ' border-b-[3px] w-auto border-b-fuchsia-500' : 'text-purple-500'}`} >
                                 <span>{<FaBlog className="w-5 h-8 mr-1 " />}</span>
                                 Blog
