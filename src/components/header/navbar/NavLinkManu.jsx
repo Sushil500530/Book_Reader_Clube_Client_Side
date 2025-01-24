@@ -103,7 +103,7 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                                 </div>
                                 <ul
                                     tabIndex={0}
-                                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
+                                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff] space-y-2">
                                     <Link to='/dashboard'><li><a>Dashboard</a></li></Link>
                                     <Link to='/dashboard/settings'><li><a>Profile</a></li></Link>
                                     <button
