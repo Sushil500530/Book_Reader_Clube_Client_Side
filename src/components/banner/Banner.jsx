@@ -9,7 +9,7 @@ const Banner = () => {
             <div className="flex items-center justify-center pt-32 flex-col lg:flex-row gap-12 lg:px-24 p-5">
                 <div className="w-full lg:w-1/2 flex items-start justify-center flex-col z-10">
                     <h1 data-aos="fade-right" className="font-extrabold text-2xl md:text-5xl lg:text-5xl !leading-normal text-start">
-                        Explopre Our New <span className="text_gradient"> Furniture</span> Collections.....<span className="text_gradient">!</span>
+                        Explopre Our New Furniture Collections.....<span className="text_gradient">!</span>
                     </h1>
                     <div data-aos="fade-left">
                         <p className="text-start mt-12 text-gray-300">
