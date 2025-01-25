@@ -4,6 +4,7 @@ import ReactStars from 'react-rating-stars-component';
 import { BiSolidQuoteAltRight } from "react-icons/bi";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import arrow from "../../../assets/image/arrow.png"
 
 
 const Testimonials = () => {
@@ -84,16 +85,16 @@ const Testimonials = () => {
                     loop={true}
                     modules={[Autoplay]}
                     className="mySwiper  md:h-auto !pb-10"
-                    slidesPerView={1}
+                    slidesPerView={3}
                     breakpoints={{
                         640: {
                             slidesPerView: 1,
                         },
                         768: {
-                            slidesPerView: 1,
+                            slidesPerView: 2,
                         },
                         1024: {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                         },
                     }}
 
@@ -103,27 +104,34 @@ const Testimonials = () => {
                             key={testimonial?.id}
                             className='overflow-visible z-0 '
                         >
-                            <div className="w-full h-auto md:h-[430px] bg-white hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out group text-black p-2 md:p-8 rounded-md relative">
+                            <div className="w-full h-auto md:h-[430px] bg-white [transition:0.5s] ease-in-out group text-black p-2 md:p-8 rounded-md relative">
                                 {/* Profile Image - Positioned Absolutely */}
-                                <div className="flex items-center justify-start flex-col md:flex-row gap-5 w-full h-full">
-                                    <div className="md:w-64 h-full">
+                                <div className=" w-full h-full">
+                                    <div className="w-20 h-20 rounded-full absolute right-0 left-0 top-0">
                                         <img
                                             src={testimonial?.image}
                                             alt="profile-image"
-                                            className="w-full h-full rounded-md border-4 border-white shadow-lg "
+                                            className="w-full h-full rounded-full border-4 border-white shadow-lg "
+                                        />
+                                    </div>
+                                    <div className="w-20 h-20 absolute right-0 top-0">
+                                        <img
+                                            src={arrow}
+                                            alt="profile-image"
+                                            className="w-full h-full "
                                         />
                                     </div>
                                     <div className="flex items-center justify-start gap-2 flex-1 flex-col z-20">
-                                        <div className='absolute right-5 bottom-0 text-gray-200 group-hover:text-gray-700 -z-10'>
+                                        <div className='absolute right-5 bottom-0 text-gray-200 -z-10'>
                                             <BiSolidQuoteAltRight size={80} />
                                         </div>
                                         {/* Content inside card */}
 
                                         <div className="flex items-center justify-start flex-col text-center ">
-                                            <h1 className="text-2xl font-bold text-black mb-2 group-hover:text-white">
+                                            <h1 className="text-2xl font-bold text-black mb-2">
                                                 {testimonial?.name}
                                             </h1>
-                                            <p className="text-base font-semibold text-gray-700 group-hover:text-gray-300">
+                                            <p className="text-base font-semibold text-gray-700 ">
                                                 {testimonial?.role}
                                             </p>
                                             <ReactStars
@@ -135,7 +143,7 @@ const Testimonials = () => {
                                                 activeColor="#ff6b00"
                                             />
                                         </div>
-                                        <p className="font-normal text-gray-600 mt-3 mb-7 text-sm text-justify group-hover:text-gray-400">
+                                        <p className="font-normal text-gray-600 mt-3 mb-7 text-sm text-justify">
                                             {testimonial?.testimonial}
                                         </p>
                                     </div>
