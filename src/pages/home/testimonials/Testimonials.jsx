@@ -62,14 +62,13 @@ const Testimonials = () => {
 
 
     return (
-        <div className="container mx-auto my-12">
+        <div className="container mx-auto my-12 p-4">
             <div data-aos="fade-up">
                 <h1 data-aos="fade-up" className="text-3xl font-bold text-center">
                     Our Testimonials
                 </h1>
-                <p data-aos="fade-up" className="text-gray-500 text-base text-center my-5">
-                    Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication
-                    <br /> and collaboration, we consistently exceed expectations and build lasting partnerships.
+                <p data-aos="fade-up" className="text-gray-500 text-base text-center my-5 w-full lg:w-[1050px] mx-auto">
+                    Our testimonials reflect client satisfaction and our commitment to understanding their needs. Through open communication  and collaboration, we consistently exceed expectations and build lasting partnerships.
                 </p>
             </div>
 
@@ -85,7 +84,7 @@ const Testimonials = () => {
                     loop={true}
                     modules={[Autoplay]}
                     className="mySwiper  md:h-auto !pb-10"
-                    slidesPerView={3}
+                    slidesPerView={1}
                     breakpoints={{
                         640: {
                             slidesPerView: 1,
@@ -104,7 +103,7 @@ const Testimonials = () => {
                             key={testimonial?.id}
                             className='overflow-visible z-0 '
                         >
-                            <div className="w-full h-auto md:h-[450px] bg-white [transition:0.5s] ease-in-out group text-black p-2 py-4 md:px-8 rounded-md relative z-20">
+                            <div className="w-full h-auto md:h-[380px] bg-white text-black p-3 py-4 md:px-8 rounded-md relative">
                                 <div className="flex items-center justify-start gap-2 flex-1 flex-col">
                                     <div className="w-20 h-20 rounded-full ">
                                         <img
@@ -113,12 +112,12 @@ const Testimonials = () => {
                                             className="w-full h-full rounded-full border-4 border-white shadow-lg "
                                         />
                                     </div>
-                                    <div className='absolute right-5 bottom-0 text-gray-600 -z-10'>
+                                    <div className='absolute right-5 bottom-0 text-gray-600 z-0'>
                                         <BiSolidQuoteAltRight size={80} />
                                     </div>
                                     {/* Content inside card */}
 
-                                    <div className="flex items-center justify-start flex-col text-center">
+                                    <div className="flex items-center justify-start flex-col text-center relative z-20">
                                         <h1 className="text-2xl font-bold text-black mb-2">
                                             {testimonial?.name}
                                         </h1>
