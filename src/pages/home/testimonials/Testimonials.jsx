@@ -4,7 +4,6 @@ import ReactStars from 'react-rating-stars-component';
 import { BiSolidQuoteAltRight } from "react-icons/bi";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import arrow from "../../../assets/image/arrow.png"
 
 
 const Testimonials = () => {
@@ -13,53 +12,54 @@ const Testimonials = () => {
         {
             "name": "Mohammodullah Alim",
             "image": "https://i.ibb.co/Y7RbMwr/22654-6-man-thumb.png",
-            "testimonial": "I believe in a client-centric approach, always striving to understand the unique needs and goals of my clients. By fostering open communication and collaboration, I ensure that each project is tailored to meet and exceed expectations. If you are seeking a dedicated professional who can deliver, I would love to connect. Feel free to reach out, and let's explore how we can collaborate on Mutual Goals or Projects.",
+            "testimonial": "With a client-first mindset, I focus on understanding unique goals and providing customized solutions. Through clear communication and collaboration, I ensure successful project execution that exceeds expectations. I'm open to connecting and discussing potential collaborations to achieve shared success.",
             "rating": 5,
             "role": "Market Manager"
         },
         {
             "name": "Siddik Korim",
             "image": "https://i.ibb.co/vZkCMrN/images-1.jpg",
-            "testimonial": "My approach is rooted in prioritizing the needs and ambitions of my clients above all else. Through active listening and a collaborative mindset, I ensure that each project is tailored precisely to exceed expectations. If you're seeking a committed professional who can deliver outstanding results, I'm eager to connect. Let's embark on a journey together, exploring how we can achieve our mutual goals and bring our shared projects to fruition.",
+            "testimonial": "I prioritize understanding my clients' ambitions to provide tailored solutions that deliver impactful results. By fostering open collaboration and strategic planning, I help achieve shared goals. Let's connect and explore ways to bring your ideas to life.",
             "rating": 4,
             "role": "Project Manager"
         },
         {
             "name": "Taslima Akter",
             "image": "https://i.ibb.co/Wp5kP4c/images-2.jpg",
-            "testimonial": "I firmly believe in putting my clients at the center of everything I do. By truly understanding their unique needs and aspirations, I'm able to tailor my approach to ensure their success. Through transparent communication and a collaborative spirit, I strive to exceed expectations with every project. If you're looking for a dedicated partner who is committed to achieving mutual goals, I'm here to help. Let's start a conversation and explore how we can work together to bring your projects to life.",
+            "testimonial": "I am committed to delivering client-focused solutions that drive success. Through transparent communication and a personalized approach, I ensure every project meets and exceeds expectations. Let's collaborate and create meaningful results together.",
             "rating": 5,
             "role": "Client Success Manager"
         },
         {
             "name": "Jhon Devid",
             "image": "https://i.ibb.co/VtrWMsj/istockphoto-1309328823-170667a.jpg",
-            "testimonial": "I believe in a client-centric approach, always striving to understand the unique needs and goals of my clients. By fostering open communication and collaboration, I ensure that each project is tailored to meet and exceed expectations. If you are seeking a dedicated professional who can deliver, I would love to connect. Feel free to reach out, and let's explore how we can collaborate on Mutual Goals or Projects.",
+            "testimonial": "My focus is on delivering value-driven solutions through collaboration and a deep understanding of client needs. I aim to exceed expectations by offering strategic insights and tailored execution. Let's connect and discuss how we can achieve success together.",
             "rating": 4.5,
             "role": "Sales Manager"
         },
         {
             "name": "Wannar Velly",
             "image": "https://i.ibb.co/JtbcgT9/istockphoto-1386479313-170667a.webp",
-            "testimonial": "My ethos revolves around a client-first mentality, where understanding your specific needs and objectives is paramount. Through fostering transparent communication and a spirit of collaboration, I aim not just to meet but to exceed your expectations at every turn. If you're searching for a dedicated professional who is passionate about achieving shared success, I'm eager to connect. Let's delve into your projects and aspirations together, forging a path toward mutual accomplishment.",
+            "testimonial": "I am dedicated to delivering operational excellence by understanding and aligning with client needs. Through clear communication and teamwork, I ensure seamless execution and successful outcomes. Let's work together to achieve our mutual objectives.",
             "rating": 4,
             "role": "Operations Manager"
         },
         {
             "name": "Dalia Beith",
             "image": "https://i.ibb.co/PG4nb4s/images-3.jpg",
-            "testimonial": "At the heart of my approach lies a deep commitment to understanding and prioritizing the unique requirements and aspirations of my clients. Through open dialogue and a collaborative mindset, I ensure that each project is finely crafted to not only meet but surpass expectations. If you're seeking a devoted partner who is driven by mutual success, I'm ready to engage. Let's embark on this journey together, exploring how we can turn our shared vision into reality.",
+            "testimonial": "I am passionate about crafting marketing strategies that resonate with client goals and objectives. Through collaboration and strategic insight, I help businesses achieve their vision and create impactful campaigns. Let's discuss how we can bring your ideas to life.",
             "rating": 5,
             "role": "Marketing Strategist"
         },
         {
             "name": "Sali Ahmmed",
             "image": "https://i.ibb.co/Wp5kP4c/images-2.jpg",
-            "testimonial": "I am dedicated to a client-centric philosophy, where your needs and goals are my top priority. Through active listening and effective collaboration, I tailor each project to exceed expectations. If you're in search of a committed professional who values mutual success, I'm here to help. Let's connect and explore how we can work together to achieve your objectives.",
+            "testimonial": "With a focus on business growth, I tailor strategies that align with client goals and deliver measurable success. Through collaboration and effective planning, I help bring ideas to fruition. Let's connect and explore opportunities for mutual success.",
             "rating": 4.5,
             "role": "Business Development Manager"
         }
     ]
+
 
     return (
         <div className="container mx-auto my-12">
@@ -104,49 +104,39 @@ const Testimonials = () => {
                             key={testimonial?.id}
                             className='overflow-visible z-0 '
                         >
-                            <div className="w-full h-auto md:h-[430px] bg-white [transition:0.5s] ease-in-out group text-black p-2 md:p-8 rounded-md relative">
-                                {/* Profile Image - Positioned Absolutely */}
-                                <div className=" w-full h-full">
-                                    <div className="w-20 h-20 rounded-full absolute right-0 left-0 top-0">
+                            <div className="w-full h-auto md:h-[450px] bg-white [transition:0.5s] ease-in-out group text-black p-2 py-4 md:px-8 rounded-md relative z-20">
+                                <div className="flex items-center justify-start gap-2 flex-1 flex-col">
+                                    <div className="w-20 h-20 rounded-full ">
                                         <img
                                             src={testimonial?.image}
                                             alt="profile-image"
                                             className="w-full h-full rounded-full border-4 border-white shadow-lg "
                                         />
                                     </div>
-                                    <div className="w-20 h-20 absolute right-0 top-0">
-                                        <img
-                                            src={arrow}
-                                            alt="profile-image"
-                                            className="w-full h-full "
+                                    <div className='absolute right-5 bottom-0 text-gray-600 -z-10'>
+                                        <BiSolidQuoteAltRight size={80} />
+                                    </div>
+                                    {/* Content inside card */}
+
+                                    <div className="flex items-center justify-start flex-col text-center">
+                                        <h1 className="text-2xl font-bold text-black mb-2">
+                                            {testimonial?.name}
+                                        </h1>
+                                        <p className="text-base font-semibold text-gray-700 ">
+                                            {testimonial?.role}
+                                        </p>
+                                        <ReactStars
+                                            count={5}
+                                            value={testimonial?.rating}
+                                            size={28}
+                                            edit={false}
+                                            isHalf={true}
+                                            activeColor="#ff6b00"
                                         />
                                     </div>
-                                    <div className="flex items-center justify-start gap-2 flex-1 flex-col z-20">
-                                        <div className='absolute right-5 bottom-0 text-gray-200 -z-10'>
-                                            <BiSolidQuoteAltRight size={80} />
-                                        </div>
-                                        {/* Content inside card */}
-
-                                        <div className="flex items-center justify-start flex-col text-center ">
-                                            <h1 className="text-2xl font-bold text-black mb-2">
-                                                {testimonial?.name}
-                                            </h1>
-                                            <p className="text-base font-semibold text-gray-700 ">
-                                                {testimonial?.role}
-                                            </p>
-                                            <ReactStars
-                                                count={5}
-                                                value={testimonial?.rating}
-                                                size={28}
-                                                edit={false}
-                                                isHalf={true}
-                                                activeColor="#ff6b00"
-                                            />
-                                        </div>
-                                        <p className="font-normal text-gray-600 mt-3 mb-7 text-sm text-justify">
-                                            {testimonial?.testimonial}
-                                        </p>
-                                    </div>
+                                    <p className="font-normal text-gray-600 mt-3 mb-7 text-sm text-justify">
+                                        {testimonial?.testimonial}
+                                    </p>
                                 </div>
                             </div>
                         </SwiperSlide>
