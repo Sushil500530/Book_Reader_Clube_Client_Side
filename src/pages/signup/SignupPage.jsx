@@ -112,7 +112,7 @@ const SignupPage = () => {
                     </div>
                     <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gray-700/50 backdrop-blur-md pb-8 ">
                         <form onSubmit={handleSubmit(handleSignIn)} className="p-5 space-y-3 text-gray-200">
-                            <h1 className="text-3xl font-bold mb-12 text-white">Please Register Now🤠</h1>
+                            <h1 className="text-3xl font-bold mb-12 text-white">Please Register Now</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Username </label>
                                 <input type="text"  {...register("name", { required: true })} name="name" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-2" id="" placeholder="Enter your name...." />
@@ -146,15 +146,15 @@ const SignupPage = () => {
                                 {/* <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full bordermb-1 bg-transparent" id="" /> */}
                                 {errors.image && <span className="text-red-500 mt-1">image is required!</span>}
                                 {
-                                    showImage ? 
-                                    <div className='relative'>
-                                        <img src={showImage} alt="imageShow" className='w-full h-44' />
-                                         <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' />
-                                         </span>
+                                    showImage ?
+                                        <div className='relative'>
+                                            <img src={showImage} alt="imageShow" className='w-full h-44' />
+                                            <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' />
+                                            </span>
                                         </div>
-                                     :
-                                     
-                                     <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....'/>
+                                        :
+
+                                        <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
                                 }
                             </div>
                             <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 text-lg underline">Sign In</Link></p>

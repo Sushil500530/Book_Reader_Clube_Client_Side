@@ -97,7 +97,7 @@ const LoginPage = () => {
                     </div>
                     <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gray-700/50 backdrop-blur-md">
                         <form onSubmit={handleSubmit} className="p-5 space-y-3">
-                            <h1 className="text-3xl font-bold mb-12">Please Login🤔</h1>
+                            <h1 className="text-3xl font-bold mb-12">Please Login</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px] font-medium">Email Address</label>
                                 <input
@@ -149,8 +149,8 @@ const LoginPage = () => {
                         </form>
 
                         <div className="flex items-center justify-center gap-5">
-                            <button className="btn btn-info"  onClick={handleAdminLogin}>Admin Login</button>
-                            <button className="btn btn-info"  onClick={handleManagerLogin}>Manager Login</button>
+                            <button className="btn btn-info" onClick={handleAdminLogin}>Admin Login</button>
+                            <button className="btn btn-info" onClick={handleManagerLogin}>Manager Login</button>
                             <button className="btn btn-info" onClick={handleGuestLogin}>
                                 Guest Login
                             </button>
