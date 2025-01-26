@@ -47,15 +47,15 @@ const DashboardLayout = () => {
                 </div>
                 <button
                     onClick={handleReverse}
-                    className=' hover:bg-blue-50 px-4 rounded [transition:0.3s] py-2 w-auto h-full relative top-3 bg-transparent hover:text-white border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
+                    className=' hover: bg-blue-50 px-4 rounded [transition:0.3s] py-2 w-auto h-full relative top-3 bg-transparent hover:text-white border-none outline-none mobile-menu-button focus:outline-none dark:text-white'> {
                         isActive === true ?
                             <IoMenuOutline size={28} color="#000" /> :
                             <RxCross1 size={28} color="#000" />
                     }
                 </button>
             </div>
-            <div className="flex w-auto h-full bg-blue-50 ">
-                <div className={`z-[999] fixed flex flex-col justify-between pb-12 shadow bg-blue-50 overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 transition duration-200 ease-in-out sidebar`}>
+            <div className="flex w-auto h-full  bg-[#f2f4f7] ">
+                <div className={`z-[999] fixed flex flex-col justify-between pb-12 shadow  bg-[#f2f4f7] overflow-x-hidden w-64 h-screen px-2 inset-y-0 left-0 transform ${isActive && '-translate-x-full '} lg:translate-x-0 transition duration-200 ease-in-out sidebar`}>
                     <div className="">
                         <div className="mb-12 pt-2 px-4">
                             <Link to="/">
@@ -100,7 +100,7 @@ const DashboardLayout = () => {
                     </div>
                 </div>
                 <div className="hidden lg:block">
-                    <div className="z-10 fixed top-0 pt-1 bg-blue-50 shadow-xl text-white right-0 flex items-center justify-end h-16 w-full lg:w-[calc(100%-256px)] px-5">
+                    <div className="z-10 fixed top-0 pt-1  bg-[#f2f4f7] shadow-xl text-white right-0 flex items-center justify-end h-16 w-full lg:w-[calc(100%-256px)] px-5">
                         <div className="dropdown dropdown-end">
                             <div
                                 abIndex={0}
@@ -133,7 +133,7 @@ const DashboardLayout = () => {
                 </div>
                 <div
                     onClick={() => setIsActive(true)}
-                    className="ml-0 md:ml-0 lg:ml-[260px] w-full h-full min-h-[calc(100vh-80px)] px-5 bg-blue-50  text:bg-zinc-800 mt-20"
+                    className="ml-0 md:ml-0 lg:ml-[260px] w-full h-full min-h-[calc(100vh-80px)] px-5 bg-[#f2f4f7]  text:bg-zinc-800 mt-20"
                 >
                     <Outlet />
                 </div>
