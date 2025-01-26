@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const ManageProductAdmin = () => {
     const [furnitures, refetch, isLoading] = useFurnitures();
-    if(isLoading){
+    if (isLoading) {
         refetch();
         return <Loader />
     }
@@ -17,19 +17,21 @@ const ManageProductAdmin = () => {
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
                     {
-                        furnitures?.length > 0 && furnitures?.map(furniture => 
-                        <div key={furniture?._id} className="bg-white shadow-md text-black flex items-center justify-center gap-3 w-full h-40">
-                            <figure className="w-44 h-full"> <img src={furniture?.image} alt="product-image" className="w-full h-full" /> </figure>
-                            <div>
-                                <h1 className="text-xl font-bold mb-2">{furniture?.title}</h1>
-                                <p>{furniture?.description?.length > 60 ? furniture?.description?.slice(0, 60) +"....." : furniture?.description}</p>
-                                <div className="flex items-center justify-end mr-5 my-2">
-                                    <Link to={`/furnitures/${furniture?._id}`}>
-                                      <span className="btn btn-sm px-5 bg-color text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl  hover:black hover:translate-x-1 transition" /></span>
-                                    </Link>
+                        furnitures?.length > 0 && furnitures?.map(furniture =>
+                            <div key={furniture?._id} className="bg-white shadow-md text-black flex items-center justify-center gap-3 w-full h-40">
+                                <figure className="w-44 h-full">
+                                    <img src={furniture?.image} alt="product-image" className="w-full h-full" />
+                                </figure>
+                                <div>
+                                    <h1 className="text-xl font-bold mb-2">{furniture?.title?.length > 15 ? furniture?.title?.slice(0, 15) + "....." : furniture?.title}</h1>
+                                    <p>{furniture?.description?.length > 50 ? furniture?.description?.slice(0, 50) + "....." : furniture?.description}</p>
+                                    <div className="flex items-center justify-end mr-5 my-2">
+                                        <Link to={`/furnitures/${furniture?._id}`}>
+                                            <span className="btn btn-sm px-5 bg-color text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl hover:black hover:translate-x-1 transition" /></span>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>)
+                            </div>)
                     }
                 </div>
                 <div className=" mt-12">
@@ -109,7 +111,7 @@ const ManageProductAdmin = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full lg:w-1/2 h-auto overflow-hidden">
+                        <div className="w-full lg:w-1/2 lg:h-[420px] mt-10 overflow-hidden">
                             <img src="https://i.ibb.co/1bS7hSz/managment.webp" alt="manage-image" className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer" />
                         </div>
                     </div>
