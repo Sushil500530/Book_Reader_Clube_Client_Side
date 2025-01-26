@@ -104,7 +104,7 @@ const Testimonials = () => {
                             className='overflow-visible z-0 '
                         >
                             <div className="w-full h-auto md:h-[380px] bg-white text-black p-3 py-4 md:px-8 rounded-md relative">
-                                <div className="flex items-center justify-start gap-2 flex-1 flex-col">
+                                <div className="flex items-center justify-start gap-2 flex-1 flex-col ">
                                     <div className="w-20 h-20 rounded-full ">
                                         <img
                                             src={testimonial?.image}
@@ -112,12 +112,12 @@ const Testimonials = () => {
                                             className="w-full h-full rounded-full border-4 border-white shadow-lg "
                                         />
                                     </div>
-                                    <div className='absolute right-5 bottom-0 text-gray-600 z-0'>
+                                    <div className='absolute right-5 bottom-0 text-gray-600/10'>
                                         <BiSolidQuoteAltRight size={80} />
                                     </div>
                                     {/* Content inside card */}
 
-                                    <div className="flex items-center justify-start flex-col text-center relative z-20">
+                                    <div className="flex items-center justify-start flex-col text-center relative">
                                         <h1 className="text-2xl font-bold text-black mb-2">
                                             {testimonial?.name}
                                         </h1>
