@@ -115,6 +115,21 @@ const DashboardLayout = () => {
                                 </div>
                             </div>
                             {/* add here  text  */}
+
+                            <ul
+                                tabIndex={0}
+                                className="mt-3 z-[1] p-2 space-y-2 shadow menu menu-sm dropdown-content !bg-white rounded-box w-52 text-[#d344ff]">
+                                <h2 className="text-xl font-bold capitalize">{user?.displayName}</h2>
+                                <h4 className="text-lg font-medium capitalize text-fuchsia-400">{users?.role}</h4>
+                                <hr />
+                                <Link to={'/dashboard/settings'} className="text-xl font-medium capitalize">Profile</Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 z-10">
+                                    <span><FaSignOutAlt /></span>
+                                    Logout
+                                </button>
+                            </ul>
                         </div>
                     </div>
                 </div>
