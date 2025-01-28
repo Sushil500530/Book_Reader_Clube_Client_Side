@@ -107,7 +107,7 @@ const AllShop = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20 lg:p-0 p-5">
                         {
                             currentFurnitures?.length > 0 && currentFurnitures?.map((furniture, idx) =>
-                                <div key={idx} className="bg-color-b text-white transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
+                                <div key={idx} className=" text-black transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
                                     <div className="flex items-center justify-center w-full py-3 -mt-12">
                                         <figure className="w-40 h-40 ">
                                             <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
@@ -118,7 +118,7 @@ const AllShop = () => {
                                             <h3 className="text-2xl">{furniture?.title}</h3>
                                             <h3 className="text-lg font-bold text-fuchsia-500">Price: $ {furniture?.price}</h3>
                                         </div>
-                                        <p className="text-gray-300 text-sm">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
+                                        <p className="text-black/60 text-sm">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
                                         <p className='text-[17px] '>Category: {furniture?.category}</p>
                                         <h1 className='text-[17px] bg-fuchsia-500 px-3 py-1 w-[120px] rounded-full'>{furniture?.discount} % OFF</h1>
                                         <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
