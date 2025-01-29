@@ -108,7 +108,9 @@ const AllShop = () => {
                         {
                             currentFurnitures?.length > 0 && currentFurnitures?.map((furniture, idx) =>
                                 <div key={idx} className="rounded-t-[110px] text-black transition ease-in-out w-full h-auto shadow-2xl relative rounded-md mb-10">
-                                    <h1 className='absolute top-20 left-4 text-sm bg-fuchsia-500 text-white px-3 py-1 w-max rounded-full'>{furniture?.discount} % OFF</h1>
+                                    <h1 className='absolute top-20 left-4 text-sm bg-fuchsia-500 text-white px-3 py-1 w-max rounded-full'>
+                                        {furniture?.discount} % OFF
+                                    </h1>
                                     <div className="flex items-center justify-center w-full py-3 -mt-12">
                                         <figure className="w-40 h-40 ">
                                             <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />

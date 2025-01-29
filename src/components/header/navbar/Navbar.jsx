@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import notImage from '../../../assets/image/product-not-fount.jpg'
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "../logo/Logo";
@@ -15,6 +15,9 @@ const Navbar = ({ children }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const getPrice = sales?.reduce((total, currentItem) => total + (currentItem?.price), 0);
     const [active, setActive] = useState(true);
+    const location = useLocation();
+
+    console.log("location:", location?.pathname)
 
 
     useEffect(() => {
@@ -53,7 +56,7 @@ const Navbar = ({ children }) => {
                 {/* Navbar */}
                 <div className={`w-full navbar fixed z-10 
                     ${isScrolled ? "text-white fixed bg-color top-0 left-0 w-full z-50  " :
-                        "bg-transparent text-purple-500"}`}
+                        "bg-transparent "} ${location?.pathname === '/' ? 'text-white' : 'text-purple-500 '}`}
                 >
                     <div className="lg:max-w-[2520px] h-auto mx-auto lg:px-10 xl:px-20 w-full flex items-center justify-between lg:flex-row flex-row-reverse">
                         <div className="flex-none lg:hidden text-fuchsia-500 ">
