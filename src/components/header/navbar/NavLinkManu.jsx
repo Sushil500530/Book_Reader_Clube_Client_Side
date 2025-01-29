@@ -47,7 +47,7 @@ const NavLinkManu = ({ handleToggle, sales }) => {
                                     className={`flex items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-blue-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative`}>
                                     <span>{<MdShoppingBasket className="w-5 h-8 mr-1 " />}</span>
                                     My Cart
-                                    <div className="badge text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute -top-2 border-none outline-none left-1/2 text-[18px]">{sales?.length}</div>
+                                    <div className="badge text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] absolute right-0 -top-1 border-none outline-none  text-sm">{sales?.length}</div>
                                 </button>
                             </span>
                         </>
