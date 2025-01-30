@@ -45,14 +45,7 @@ const UserHome = () => {
 
         <div className="" >
             <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-                <div className="mx-auto max-w-3xl text-center">
-                    <h2 className="  headtext__cormorant">
-                        TOtal Overview Businesses
-                    </h2>
-                    <p className="mt-4 p__opensans">
-                        it is important for furniture manufacturers to stay up-to-date with the latest trends and innovations in the industry while also ensuring that their processes are sustainable, environmentally friendly, and socially responsible.
-                    </p>
-                </div>
+
 
                 <div className="mt-8 sm:mt-12">
                     <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
