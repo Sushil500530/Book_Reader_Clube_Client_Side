@@ -45,8 +45,44 @@ const UserHome = () => {
     return (
 
         <div className="" >
-            <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+            <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-5 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="bg-gradient-to-tr from-[#0939e8] to-[#ff0fdb] p-4 rounded space-y-2">
+                        <div className="flex items-center justify-between">
+                            <h1 className="text-base md:text-xl text-white">Sales</h1>
+                            <span>
+                                <FaUsers size={30} color="white" />
+                            </span>
+                        </div>
+                        <h1 className="text-3xl md:text-4xl font-bold text-center text-white">451,1220.00</h1>
+                        <p>
+                            <FaArrowTrendUp color="white" size={20} />
+                        </p>
+                    </div>
+                    <div className="bg-gradient-to-tr from-[#0939e8] to-[#ff0fdb] p-4 rounded space-y-2">
+                        <div className="flex items-center justify-between">
+                            <h1 className="text-base md:text-xl text-white">Incomes</h1>
+                            <span>
+                                <FaUsers size={30} color="white" />
+                            </span>
+                        </div>
+                        <h1 className="text-3xl md:text-4xl font-bold text-center text-white">451,1220.00</h1>
+                        <p>
+                            <FaArrowTrendUp color="white" size={20} />
+                        </p>
+                    </div>
+                    <div className="bg-gradient-to-tr from-[#0939e8] to-[#ff0fdb] p-4 rounded space-y-2">
+                        <div className="flex items-center justify-between">
+                            <h1 className="text-base md:text-xl text-white">Products</h1>
+                            <span>
+                                <FaUsers size={30} color="white" />
+                            </span>
+                        </div>
+                        <h1 className="text-3xl md:text-4xl font-bold text-center text-white">451,1220.00</h1>
+                        <p>
+                            <FaArrowTrendUp color="white" size={20} />
+                        </p>
+                    </div>
                     <div className="bg-gradient-to-tr from-[#0939e8] to-[#ff0fdb] p-4 rounded space-y-2">
                         <div className="flex items-center justify-between">
                             <h1 className="text-base md:text-xl text-white">Users</h1>
@@ -60,37 +96,11 @@ const UserHome = () => {
                         </p>
                     </div>
                 </div>
-
-
-                <div className="mt-8 sm:mt-12">
-                    <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                        <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
-                            <dt className="order-last text-lg font-medium p__opensans">
-                                Total Sales
-                            </dt>
-                            <dd className="text-4xl font-extrabold text-first md:text-5xl">
-                                $4.8m
-                            </dd>
-                        </div>
-                        <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
-                            <dt className="order-last p__opensans">Total Teacher</dt>
-                            <dd className="text-4xl font-extrabold text-first md:text-5xl">
-                                24
-                            </dd>
-                        </div>
-                        <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center  ">
-                            <dt className="order-last  p__opensans">Total Students</dt>
-                            <dd className="text-4xl font-extrabold text-first md:text-5xl">
-                                86
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
             </div>
 
-            <div className="flex items-center justify-between gap-10 flex-col lg:flex-row ">
-                <div className="w-full h-auto lg:w-1/2">
-                    <div style={{ width: '100%', height: 300 }}>
+            <div className="flex items-center justify-between gap-10 flex-col lg:flex-row mt-10">
+                <div className="w-full h-auto lg:w-1/2 shadow-md p-4">
+                    <div className="">
                         <ResponsiveContainer>
                             <PieChart width={400} height={400}>
                                 <Pie

@@ -65,7 +65,7 @@ const TriangleBar = (props) => {
 
 const CustomChart = () => {
     return (
-        <div className='w-full h-auto lg:w-1/2'>
+        <div className='w-full h-auto lg:w-1/2  shadow-md p-4'>
             <ResponsiveContainer width="100%" height={320}>
                 <BarChart
                     data={data}
