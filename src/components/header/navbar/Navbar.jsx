@@ -83,6 +83,7 @@ const Navbar = ({ children }) => {
                         <NavLinkManu
                             handleToggle={handleToggle}
                             sales={sales}
+                            isScrolled={isScrolled}
                         />
                     </div>
                 </div>
@@ -101,24 +102,24 @@ const Navbar = ({ children }) => {
                 >
                 </div>
             }
-            <div className="relative h-auto">
+            <div className="relative h-auto min-h-screen">
                 <div className={`
                 z-10 fixed pb-6 pt-6 !bg-blue-50 text-black -overflow-y-hidden hidden md:block lg:block md:w-[50%] lg:w-[28%] h-screen px-2 inset-y-0 right-0 transform
                      ${active && 'translate-x-full'} 
-                     transition duration-200 ease-in-out`
+                     transition duration-200 ease-in-out ${isScrolled ? "top-[76px]" : "top-0"}`
                 }>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
                         <button
                             onClick={handleToggle}
-                            className="btn outline-none border-none bg-transparent">
+                            className="btn outline-none border-none w-max bg-transparent">
                             <RxCross1 className="text-2xl" />
                         </button>
-                        <button></button>
+                        <h1 className="text-xl font-bold my-5 ">
+                            Show Your Buy Products
+                        </h1>
+                        <hr className="w-[80%] h-[2px] bg-fuchsia-600 mx-auto mb-5" />
                     </div>
-                    <h1 className="text-xl font-bold my-5 ">
-                        Show Your Buy Products
-                    </h1>
-                    <hr className="w-[80%] h-[2px] bg-fuchsia-600 mx-auto mb-5" />
+
                     {
                         sales?.length === 0 && <div className="flex flex-col w-full h-auto p-8 gap-5">
                             <h1 className="text-xl font-bold ">
@@ -135,7 +136,7 @@ const Navbar = ({ children }) => {
                             />
                         </div>
                     }
-                    <div className="w-full h-[70vh] flex flex-col items-center justify-between ">
+                    <div className={`w-full h-[calc(100vh-364px)] flex flex-col items-center sidebar overflow-auto justify-between ${isScrolled && 'h-[calc(100vh-440px)]'} `}>
                         <div>
                             {
                                 sales?.length > 0 && sales?.map(sale =>
@@ -146,25 +147,24 @@ const Navbar = ({ children }) => {
                                     />)
                             }
                         </div>
-                        <div className=" flex items-center justify-center flex-col gap-5">
-                            <div className="bg-clip-content mt-10 p-6 border-4 border-violet-300 border-dashed">
-                                <h1 className="text-xl font-bold">Total Price : $ {getPrice}</h1>
-                            </div>
-                            <Link to='/checkout'>
-                                <button
-                                    onClick={() => handleToggle(!active)}
-                                    disabled={sales?.length === 0}
-                                    className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300">
-                                    <FaDollarSign className="text-2xl font-bold" />
-                                    Checkout Now
-                                </button>
-                            </Link>
+
+                    </div>
+                    <div className=" flex items-center justify-center flex-col gap-5">
+                        <div className="bg-clip-content mt-10 p-6 border-4 border-violet-300 border-dashed">
+                            <h1 className="text-xl font-bold">Total Price : $ {getPrice}</h1>
                         </div>
+                        <Link to='/checkout'>
+                            <button
+                                onClick={() => handleToggle(!active)}
+                                disabled={sales?.length === 0}
+                                className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300">
+                                <FaDollarSign className="text-2xl font-bold" />
+                                Checkout Now
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };

@@ -46,7 +46,6 @@ body {
 
 .custom-bg-color {
   /* @apply bg-gradient-to-r from-[#2241b0] to-[#b407b4] */
-  background: linear-gradient(82.84deg, #6427ff 0.86%, #9068f8 100%);
   @apply bg-gradient-to-r from-[#6427ff] to-[#9068f8]
 }
 
