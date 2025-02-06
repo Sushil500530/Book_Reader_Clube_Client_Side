@@ -16,13 +16,18 @@ const Banner = () => {
                             Discover our latest furniture collections: a fusion of style and functionality. Elevate your space with timeless pieces crafted for modern living. Explore sophistication and comfort in every corner of your home. Redefine your interior with our curated selection today.
                         </p>
                         <div className="flex items-center justify-start gap-5 my-10">
-                            <button className="custom-bg-color text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-gray-200 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
-                                Read More
-                                <MdOutlineReadMore className="text-2xl" />
+                            <button className="custom-bg-color text-white rounded font-medium py-2 px-4 hover:text-gray-200 group ">
+                                <span className="flex items-center gap-2 transform group-hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                    Read More
+                                    <MdOutlineReadMore className="text-2xl" />
+                                </span>
+
                             </button>
-                            <button className="custom-bg-color text-white rounded flex gap-2 items-center text-[18px] font-medium px-4 py-2  duration-200 transform hover:text-gray-200 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
-                                Explore
-                                <MdOutlineExplore className="text-2xl" />
+                            <button className="custom-bg-color text-white rounded font-medium py-2 px-4 hover:text-gray-200 group ">
+                                <span className="flex items-center gap-2 transform group-hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
+                                    Explore
+                                    <MdOutlineExplore className="text-2xl" />
+                                </span>
                             </button>
                         </div>
                     </div>
