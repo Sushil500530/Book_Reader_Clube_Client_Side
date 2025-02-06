@@ -23,10 +23,13 @@ const FooterPage = () => {
     }
 
     return (
-        <footer className=" bg-color-b mt-12 p-3 md:p-10">
+        <footer className="bg-black mt-12 p-3 md:p-10">
             <Container>
                 <div className="footer  text-gray-300 flex flex-wrap justify-between pb-10">
-                    <Logo />
+                    <div className="w-full md:w-[270px] flex items-center md:items-start text-center md:text-start flex-col">
+                        <Logo />
+                        <p className="text-sm text-gray-400">Furni-Track streamlines furniture shopping with easy browsing and real-time order tracking.</p>
+                    </div>
                     <nav>
                         <header className="text-xl font-bold !text-white">Services</header>
                         <a className="link link-hover">Branding</a>
