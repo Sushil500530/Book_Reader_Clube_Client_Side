@@ -6,7 +6,7 @@ import Container from '../../shared/container/Container';
 const SomeDetails = () => {
     return (
         <Container>
-            <div className='p-5'>
+            <div className='p-5 overflow-hidden'>
                 <h1 data-aos="fade-down" className="text-3xl font-bold text-center">
                     Strict of Furni-Track
                 </h1>
@@ -21,9 +21,9 @@ const SomeDetails = () => {
                         data-aos-easing="ease-in-out"
                         className='w-full lg:w-1/2 h-auto'
                     >
-                        <h1 className='text-3xl font-bold flex gap-2 text-[#0f172c] items-center justify-center'>
-                            Database Schema
+                        <h1 className='text-3xl mb-6 font-bold flex gap-2 text-[#0f172c] items-center lg:justify-end'>
                             <MdDataThresholding className='w-16 h-16 rounded-full bg-blue-100 p-3' />
+                            Database Schema
                         </h1>
                         <h1 className='text-2xl font-bold text-end flex items-center justify-start lg:justify-end gap-2'>
                             <IoCheckmark className='w-8 h-8 font-bold text-green-600' />
@@ -50,7 +50,7 @@ const SomeDetails = () => {
                     <div
                         data-aos="fade-up"
                         data-aos-duration="2000"
-                         data-aos-offset="100"
+                        data-aos-offset="100"
                         data-aos-easing="ease-in-out"
                         className='w-full lg:w-1/2 h-auto'
                     >
@@ -63,11 +63,11 @@ const SomeDetails = () => {
                     <div
                         data-aos="fade-left"
                         data-aos-duration="2000"
-                         data-aos-offset="100"
+                        data-aos-offset="100"
                         data-aos-easing="ease-in-out"
                         className='w-full lg:w-1/2 h-auto'
                     >
-                        <h1 className='text-3xl text-[#0f172c]  font-bold flex gap-2 items-center justify-center'>
+                        <h1 className='text-3xl mb-6 text-[#0f172c] font-bold flex gap-2 items-center'>
                             User Interface
                             <HiComputerDesktop className='w-16 h-16 rounded-full bg-blue-100 p-3' />
                         </h1>
