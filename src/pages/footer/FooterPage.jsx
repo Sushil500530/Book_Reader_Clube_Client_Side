@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../../components/header/logo/Logo";
 import Container from "../../shared/container/Container";
-import { MdCall, MdOutlineMail, MdWhatsapp } from "react-icons/md";
+import { MdCall, MdLocationOn, MdOutlineMail, MdWhatsapp } from "react-icons/md";
 
 
 const FooterPage = () => {
@@ -45,6 +45,7 @@ const FooterPage = () => {
                         <Link to="tel:+8801767122497" target="_blank" className="link link-hover flex items-center gap-2">
                             <MdCall size={22} />
                             +8801767122497</Link>
+                        <a className="flex items-center gap-2"> <MdLocationOn size={22} /> Dinajpur, Bangladesh</a>
                     </nav>
                 </div>
             </Container>
