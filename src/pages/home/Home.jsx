@@ -4,10 +4,10 @@ import MessengerChat from '../../shared/socialAccount/MessengerChat';
 import FooterPage from '../footer/FooterPage';
 import NewsLetter from '../news-letter/NewsLetter';
 import SomeDetails from '../some/SomeDetails';
+import Features from './features/Features';
 import FurniCate from './furni-category/FurniCate';
 import './home.css'
 import LocationStatus from './location/LocationStatus';
-import Other from './other/Other';
 import ServiceFeature from './service feature/ServiceFeature';
 import Testimonials from './testimonials/Testimonials';
 
@@ -19,14 +19,14 @@ const Home = () => {
             </div>
             <FurniCate />
             <LocationStatus />
-            <Other />
+            <Features />
             <SomeDetails />
             <ServiceFeature />
             <Testimonials />
             <NewsLetter />
             <FooterPage />
-           <MessengerChat />
-           <WhatsApp />
+            <MessengerChat />
+            <WhatsApp />
         </div>
     );
 };

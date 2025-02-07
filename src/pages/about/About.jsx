@@ -160,7 +160,7 @@ const About = () => {
                         </div>
                         <div>
                             <div className="lg:my-32 ">
-                                <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] mb-1 text-center">
+                                <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl text_gradient mb-1 text-center">
                                     What will meet the needs and Flow...!
                                 </h1>
                                 <p className="text-center text-neutral-500 my-3">
