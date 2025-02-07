@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import Logo from "../../components/header/logo/Logo";
 import Container from "../../shared/container/Container";
-import { MdOutlineMail } from "react-icons/md";
+import { MdCall, MdOutlineMail, MdWhatsapp } from "react-icons/md";
 
 
 const FooterPage = () => {
@@ -35,11 +36,15 @@ const FooterPage = () => {
                     </nav>
                     <nav>
                         <header className="text-xl font-bold !text-white">Contact us</header>
-                        <a href="mailto:sushil500530@gmail.com" className="link link-hover flex items-center gap-2">
+                        <Link to="mailto:sushil500530@gmail.com" target="_blank" className="link link-hover flex items-center gap-2">
                             <MdOutlineMail size={22} />
-                            sushil500530@gmail.com</a>
-                        <a className="link link-hover">+8801828884433</a>
-                        <a className="link link-hover"> +8801828884433</a>
+                            sushil500530@gmail.com</Link>
+                        <Link to="https://wa.me/8801767122497" target="_blank" className="link link-hover flex items-center gap-2">
+                            <MdWhatsapp size={22} />
+                            +8801767122497</Link>
+                        <Link to="tel:+8801767122497" target="_blank" className="link link-hover flex items-center gap-2">
+                            <MdCall size={22} />
+                            +8801767122497</Link>
                     </nav>
                 </div>
             </Container>
