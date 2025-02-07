@@ -71,7 +71,7 @@ const About = () => {
 
     return (
         <>
-            <div className="">
+            <div className="overflow-hidden">
                 <div className="flex items-center justify-center w-full h-[60vh] flex-col relative py-20">
                     <img
                         src="https://i.ibb.co/VTmTvXt/about.jpg"
@@ -79,45 +79,45 @@ const About = () => {
                         className="w-full h-full"
                     />
                     <div
-                        className="absolute top-0 right-0 left-0 w-full h-full bg-gradient-to-t from-[#2241b0] to-[#000000] opacity-70 flex items-center justify-center pt-20">
+                        className="absolute top-0 right-0 left-0 w-full h-full bg-gradient-to-t from-[#2241b0]/80 to-[#000000] opacity-70 flex items-center justify-center pt-20">
                     </div>
                 </div>
                 <Container>
                     <div className="p-5">
-                        <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">
+                        <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl text_gradient text-center">
                             Meet Up Our Team...!
                         </h1>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-32">
                             {
                                 data?.length > 0 && data.map(team => (
-                                    <div  data-aos="fade-up"
+                                    <div data-aos="fade-up"
                                         key={team.id}
-                                        className="w-full h-auto shadow-xl bg-white hover:bg-gradient-to-t from-[#2241b0] to-[#000000] text-black rounded-md relative mt-14 group"
+                                        className="w-full h-auto shadow-xl bg-white hover:shadow-2xl text-black rounded-md relative mt-14 group"
                                     >
                                         <figure className="w-full relative flex items-center justify-center">
                                             <img
                                                 src={team?.image}
                                                 alt="image"
-                                                className="w-36 h-36 rounded-full group-hover:border-fuchsia-500 border-4 hover:scale-110 transition ease-in-out relative -top-10 cursor-pointer"
+                                                className="w-36 h-36 rounded-full group-hover:border-[#6427ff] border-4 group-hover:scale-110 transition ease-in-out relative -top-10 cursor-pointer"
                                             />
                                         </figure>
-                                        <div className="flex items-center justify-center gap-2 -mt-5 relative group-hover:text-white">
+                                        <div className="flex items-center justify-center gap-2 -mt-5 relative">
                                             <FaFacebookF className="social-icons" />
                                             <FaInstagram className="social-icons" />
                                             <FaTwitter className="social-icons" />
                                         </div>
                                         <div className="flex items-center justify-center gap-2 flex-col p-5 ">
-                                            <h2 className="text-lg md:text-xl font-bold flex items-center justify-center group-hover:text-white">
+                                            <h2 className="text-lg md:text-xl font-bold flex items-center justify-center">
                                                 {team?.name}
                                                 ({team?.rating}
                                                 /5
                                                 <MdStarRate className="text-xl relative -top-2 text-amber-600" />
                                                 )
                                             </h2>
-                                            <p className="relative -mt-2 font-bold text-fuchsia-500">
+                                            <p className="relative -mt-2 font-bold text_gradient">
                                                 {team?.role}
                                             </p>
-                                            <p className="text-justify text-gray-500 group-hover:text-gray-300">
+                                            <p className="text-justify text-gray-500 ">
                                                 {team?.details}
                                             </p>
                                         </div>
@@ -126,22 +126,22 @@ const About = () => {
                             }
                         </div>
                         <div>
-                            <h1 className=" mt-32 mb-8 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">
+                            <h1 className=" mt-32 mb-8 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl text_gradient text-center">
                                 Why Our Furni-Track
                             </h1>
                             <div className="flex items-center justify-center w-full gap-8 flex-col lg:flex-row mb-32">
-                                <div data-aos="fade-right" className="w-full h-[600px] lg:w-1/2">
+                                <div data-aos="fade-right" className="w-full h-[380px] lg:h-[600px] lg:w-1/2">
                                     <img
                                         src="https://i.ibb.co/2WfSk7s/furniture1.jpg"
                                         alt="image"
                                         className="w-full h-full rounded-3xl"
                                     />
                                 </div>
-                                <div  data-aos="fade-left" className="w-full h-auto lg:w-1/2">
-                                    <h1 className="text-4xl font-bold text-fuchsia-500 text-start">
+                                <div data-aos="fade-left" className="w-full h-auto lg:w-1/2">
+                                    <h1 className="text-4xl font-bold text-[#9068f8] text-start">
                                         Summary
                                     </h1>
-                                    <hr className="w-[200px] h-[3px] bg-fuchsia-500 my-3" />
+                                    <hr className="w-[200px] h-[3px] bg-gray-800 my-3" />
                                     <p className="text-gray-500">
                                         At Furni-Track, we are dedicated to simplifying your furniture shopping experience. Our platform offers comprehensive tracking tools, ensuring seamless delivery and satisfaction.
                                     </p>
@@ -159,7 +159,7 @@ const About = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="my-32 ">
+                            <div className="lg:my-32 ">
                                 <h1 className="font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] mb-1 text-center">
                                     What will meet the needs and Flow...!
                                 </h1>
@@ -168,7 +168,7 @@ const About = () => {
                                 </p>
                             </div>
                             <div className="flex items-center justify-center w-full gap-5 lg:gap-16 flex-col lg:flex-row-reverse mb-32">
-                                <div data-aos="fade-up" className="w-full h-[600px] lg:w-1/2">
+                                <div data-aos="fade-up" className="w-full h-[380px] lg:h-[600px] lg:w-1/2">
                                     <img
                                         src={StructImage}
                                         alt="structure-image"
