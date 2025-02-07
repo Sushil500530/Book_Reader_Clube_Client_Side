@@ -1,26 +1,9 @@
-import { useState } from "react";
 import Logo from "../../components/header/logo/Logo";
 import Container from "../../shared/container/Container";
-import Swal from "sweetalert2";
-import toast from "react-hot-toast";
+import { MdOutlineMail } from "react-icons/md";
+
 
 const FooterPage = () => {
-    const [email, setEmail] = useState('')
-    const handleSubscribe = (e) => {
-        e.preventDefault();
-        if (!email) {
-            return toast.error('Please enter Your Email')
-        }
-        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            return Swal.fire({
-                title: "Congrates!🎉",
-                text: "Your Submissions have been submitted",
-                icon: "success",
-                timer: 1000
-            });
-        }
-        return toast.error("You have entered an invalid email address!")
-    }
 
     return (
         <footer className="bg-black mt-12 p-3 md:p-10">
@@ -50,32 +33,14 @@ const FooterPage = () => {
                         <a className="link link-hover">Privacy policy</a>
                         <a className="link link-hover">Cookie policy</a>
                     </nav>
-                    <form>
-                        <header className="text-xl font-bold !text-white">Newsletter</header>
-                        <fieldset className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">
-                                    Enter your email address
-                                </span>
-                            </label>
-                            <div className="join flex items-center flex-row md:flex-row lg:flex-row w-full h-auto gap-0">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="username@site.com"
-                                    className="input text-black input-bordered input-info join-item w-full"
-                                    required
-                                />
-                                <input
-                                    type="submit"
-                                    onClick={handleSubscribe}
-                                    className="btn custom-bg-color join-item text-white"
-                                    value='Subscribe'
-                                />
-                            </div>
-                        </fieldset>
-                    </form>
+                    <nav>
+                        <header className="text-xl font-bold !text-white">Contact us</header>
+                        <a href="mailto:sushil500530@gmail.com" className="link link-hover flex items-center gap-2">
+                            <MdOutlineMail size={22} />
+                            sushil500530@gmail.com</a>
+                        <a className="link link-hover">+8801828884433</a>
+                        <a className="link link-hover"> +8801828884433</a>
+                    </nav>
                 </div>
             </Container>
         </footer>
