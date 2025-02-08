@@ -3,6 +3,9 @@ import { MdDataThresholding } from "react-icons/md";
 import { HiComputerDesktop } from "react-icons/hi2";
 import { IoCheckmark } from "react-icons/io5";
 import Container from '../../shared/container/Container';
+
+
+
 const SomeDetails = () => {
     return (
         <Container>

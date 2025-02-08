@@ -24,19 +24,20 @@ const AllShop = () => {
     const [filterValue, setFilterValue] = useState('');
     const [, refetch,] = useSale();
 
-    // console.log('find filtered value---------->', filterValue);
-
+    console.log('find filtered value---------->', isLoading);
+    // formated product category 
+    const formatFilterText = (text) => text.replace(/ /g, '_');
 
     useEffect(() => {
-        const findData = furnitures?.filter(furniture => furniture?.title.toLowerCase().includes(searchValue.toLowerCase()));
+        let findData = furnitures?.filter(furniture =>
+            furniture?.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+
+        if (filterValue && formatFilterText(filterValue) !== 'all-products') {
+            findData = findData?.filter(furniture => furniture?.category === formatFilterText(filterValue));
+        }
+
         setCurrentFurnitures(findData);
-        if (filterValue) {
-            const filteredData = findData?.filter(furniture => furniture?.category === filterValue);
-            setCurrentFurnitures(filteredData);
-        }
-        if (filterValue === 'all-products') {
-            setCurrentFurnitures(furnitures)
-        }
     }, [furnitures, searchValue, filterValue]);
 
     if (isLoading) {
@@ -98,7 +99,7 @@ const AllShop = () => {
                             <option value='all-products'>All Product</option>
                             {
                                 category?.length > 0 && category.map(categ => <option key={categ?._id} required>
-                                    {categ?.category}
+                                    {categ?.category?.replace(/_/g, ' ')}
                                 </option>)
                             }
                         </select>
