@@ -1,7 +1,6 @@
 import Container from "../../shared/container/Container";
 import { FaSearch, } from "react-icons/fa";
 import useFurnitures from './../../hooks/useFurnitures';
-import { FcCancel } from "react-icons/fc";
 import useFurCategory from "../../hooks/useFurCategory";
 import { useEffect, useState } from "react";
 import Loader from "../../shared/Loader";
@@ -21,7 +20,7 @@ const AllShop = () => {
 
     // console.log('find filtered value---------->', filterValue);
     // formated product category 
-    const formatFilterText = (text) => text.replace(/ /g, '_');
+    const formatFilterText = (text) => text?.replace(/ /g, '_');
 
     useEffect(() => {
         let findData = furnitures?.filter(furniture =>

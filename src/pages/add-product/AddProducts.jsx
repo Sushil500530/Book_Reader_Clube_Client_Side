@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import useFindMananger from "../../hooks/useFindMananger";
 import Loader from "../../shared/Loader";
 import useFurCategory from "../../hooks/useFurCategory";
-import { MdDeleteForever,MdAddShoppingCart } from "react-icons/md";
+import { MdDeleteForever, MdAddShoppingCart } from "react-icons/md";
 
 const AddProducts = () => {
     const { user } = useAuth();
@@ -19,11 +19,11 @@ const AddProducts = () => {
     const [currentManager, , isLoading] = useFindMananger();
     const [category, ,] = useFurCategory();
     const [showImage, setShowImage] = useState('');
-    const [showThumbnail1,setShowThumbnail1] = useState('');
-    const [showThumbnail2,setShowThumbnail2] = useState('');
-    const [imageProperty,setImageProperty] = useState('');
-    const [thumb1,setThumb1] = useState('');
-    const [thumb2,setThumb2] = useState('');
+    const [showThumbnail1, setShowThumbnail1] = useState('');
+    const [showThumbnail2, setShowThumbnail2] = useState('');
+    const [imageProperty, setImageProperty] = useState('');
+    const [thumb1, setThumb1] = useState('');
+    const [thumb2, setThumb2] = useState('');
 
 
 
@@ -48,7 +48,7 @@ const AddProducts = () => {
 
     // thumbnail functionality is here 
     const handleShowThumb1 = (e) => {
-        if(e.target.files && e.target.files[0]){
+        if (e.target.files && e.target.files[0]) {
             const thumbName1 = e.target.files[0];
             setThumb1(thumbName1)
             setShowThumbnail1(URL.createObjectURL(thumbName1));
@@ -56,7 +56,7 @@ const AddProducts = () => {
     }
 
     const handleShowThumb2 = (e) => {
-        if(e.target.files && e.target.files[0]){
+        if (e.target.files && e.target.files[0]) {
             const thumbName2 = e.target.files[0];
             setThumb2(thumbName2)
             setShowThumbnail2(URL.createObjectURL(thumbName2));
@@ -122,7 +122,7 @@ const AddProducts = () => {
                             icon: "success",
                             timer: 1000
                         });
-                          return navigate('/dashboard/my-product')
+                        return navigate('/dashboard/my-product')
                     }
                 })
         }
@@ -164,11 +164,11 @@ const AddProducts = () => {
                                     Image
                                 </label>
                                 <div className=' w-full text-black bg-white m-auto rounded-lg'>
-                                   <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                    <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                         {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                         {
-                                                showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
-                                            }
+                                            showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -182,14 +182,14 @@ const AddProducts = () => {
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                             {
                                                 showThumbnail1
-                                                 ? 
-                                                <div className="relative">
-                                                    <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
-                                                </div>
-                                                 : 
-                                                 <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white " />
+                                                    ?
+                                                    <div className="relative">
+                                                        <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                                    </div>
+                                                    :
+                                                    <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white " />
                                             }
-                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -200,11 +200,11 @@ const AddProducts = () => {
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                                             {
-                                                showThumbnail2 ?<div className="relative">
-                                                <img src={showThumbnail2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
-                                            </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white text-black" />
+                                                showThumbnail2 ? <div className="relative">
+                                                    <img src={showThumbnail2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                                </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white text-black" />
                                             }
-                                           
+
                                         </div>
                                     </div>
                                 </div>

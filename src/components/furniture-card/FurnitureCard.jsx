@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import Button from './../button/index';
 
 export default function FurnitureCard({ furniture }) {
     const axiosPublic = useAxiosPublic();
@@ -58,20 +59,30 @@ export default function FurnitureCard({ furniture }) {
                     <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
                 </figure>
             </div>
-            <div className="px-5 space-y-2 flex flex-col justify-between">
+            <div className="px-5 space-y-2 flex flex-col justify-between lg:h-56">
                 <div>
-                    <div className="flex items-center justify-between">
-                        <h3 className="text-2xl">{furniture?.title}</h3>
-                        <h3 className="text-lg font-bold text-fuchsia-500">Price: $ {furniture?.price}</h3>
+                    <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-xl font-medium">{furniture?.title?.length > 15 ? furniture?.title?.slice(0, 15) + "....." : furniture?.title}</h3>
+                        <h3 className=" font-bold text-fuchsia-500">Price: $ {furniture?.price}</h3>
                     </div>
                     <p className="text-black/60 text-sm">{furniture?.description?.length > 90 ? furniture?.description?.slice(0, 90) + "...." : furniture?.description}</p>
-                    <p className='text-[17px] '>Category: {furniture?.category}</p>
+                    <p className='text-[17px] mt-2 '>Category: {furniture?.category?.replace(/_/g, ' ')}</p>
                 </div>
                 <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
-                    <Link to={`/furni-details/${furniture?._id}`} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-600">
-                        <FaRegEye /> View Details
+                    <Link to={`/furni-details/${furniture?._id}`}>
+                        <Button
+                            title="View Details"
+                            icon={FaRegEye}
+                            className="px-2 py-2"
+                        />
                     </Link>
-                    <button onClick={() => handleSetData(furniture)} className="w-full md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button>
+                    <Button
+                        onClick={() => handleSetData(furniture)}
+                        title="Add to Cart"
+                        icon={FaShoppingCart}
+                        className="px-2 py-2"
+                    />
+                    {/* <button className="w-full backdrop-blur-md md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button> */}
                 </div>
             </div>
         </div>

@@ -67,7 +67,7 @@ const UpdatedProduct = () => {
     const handleAddedProduct = async (e) => {
         e.preventDefault();
         setLoading(true);
-    
+
         const form = e.target;
         const product_name = form.product_name.value;
         const description = form.description.value;
@@ -81,21 +81,21 @@ const UpdatedProduct = () => {
         const owner_name = user?.displayName;
         const email = user?.email;
         const location = form.location.value;
-    
+
         try {
             // Determine if new images need to be uploaded
             const loadImage = imageProperty
                 ? await imageUpload(imageProperty)
                 : { data: { display_url: findUpdataData?.image } };
-    
+
             const thmbnl1 = thumb1
                 ? await imageUpload(thumb1)
                 : { data: { display_url: findUpdataData?.thumbnail1 } };
-    
+
             const thmbnl2 = thumb2
                 ? await imageUpload(thumb2)
                 : { data: { display_url: findUpdataData?.thumbnail2 } };
-    
+
             const updatedProducts = {
                 title: product_name,
                 quantity,
@@ -112,10 +112,10 @@ const UpdatedProduct = () => {
                 email,
                 owner_name
             };
-    
+
             const res = await axiosSecure.patch(`/updated/${findUpdataData?._id}`, updatedProducts);
             setLoading(false);
-    
+
             if (res.data?.modifiedCount > 0) {
                 Swal.fire({
                     title: "Updated Successfully!",
@@ -130,7 +130,7 @@ const UpdatedProduct = () => {
             toast.error(error.message);
         }
     };
-    
+
 
     return (
         <div className="w-[90%] mx-auto dark:text-white">
