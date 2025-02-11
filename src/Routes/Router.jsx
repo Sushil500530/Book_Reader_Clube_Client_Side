@@ -33,67 +33,68 @@ import AllUsers from "../layouts/dashboard/admin/all user/AllUsers";
 import AllShop from "../pages/all shop/AllShop";
 import Contact from "../pages/contact/Contact";
 import Blog from "../pages/blog/Blog";
+import AdminHome from "../layouts/dashboard/admin/admin-home";
 
 
 const Router = createBrowserRouter([
     {
         path: '/',
-        errorElement:<ErrorPage />,
+        errorElement: <ErrorPage />,
         element: <MainLayout />,
-        children:[
+        children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home />
             },
             {
-                path:'all-shop',
+                path: 'all-shop',
                 element: <AllShop />
             },
             {
-                path:'about',
+                path: 'about',
                 element: <About />
             },
             {
-                path:'contact',
+                path: 'contact',
                 element: <Contact />
             },
             {
-                path:'blog',
+                path: 'blog',
                 element: <Blog />
             },
             {
-                path:'login',
+                path: 'login',
                 element: <LoginPage />
             },
             {
-                path:'signup',
+                path: 'signup',
                 element: <SignupPage />
             },
             {
-                path:'create-shop',
+                path: 'create-shop',
                 element: <PrivetRoute><CreateShop /></PrivetRoute>
             },
             {
-                path:'category/:category',
-                loader: ({params}) => fetch(`https://furni-track-project-server-side.vercel.app/furniture/${params?.category}`),
-                element:<SubFurniHome />
+                path: 'category/:category',
+                loader: ({ params }) => fetch(`https://furni-track-project-server-side.vercel.app/furniture/${params?.category}`),
+                element: <SubFurniHome />
             },
             {
-                path:'furni-details/:id',
-                loader: ({params}) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params?.id}`),
+                path: 'furni-details/:id',
+                loader: ({ params }) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params?.id}`),
                 element: <PrivetRoute> <FurniDetails /></PrivetRoute>
             },
             {
-                path:'furnitures/:id',
-                loader: ({params}) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params?.id}`),
+                path: 'furnitures/:id',
+                loader: ({ params }) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params?.id}`),
                 element: <PrivetRoute><FurniDetails /></PrivetRoute>
             },
             {
-                path:'my-cart',
+                path: 'my-cart',
                 element: <PrivetRoute><MyCart /></PrivetRoute>
             },
             {
-                path:'checkout',
+                path: 'checkout',
                 element: <PrivetRoute><PaymentSection /></PrivetRoute>
             }
         ]
@@ -104,16 +105,16 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element:<PrivetRoute><UserHome /></PrivetRoute>
+                element: <PrivetRoute><AdminHome /></PrivetRoute>
             },
             // general user dashboard 
             {
                 path: 'create-shop',
-                element:<PrivetRoute><DCreateShop /></PrivetRoute>
+                element: <PrivetRoute><DCreateShop /></PrivetRoute>
             },
             {
                 path: 'favorites',
-                element:<PrivetRoute><FavoriteProduct /></PrivetRoute>
+                element: <PrivetRoute><FavoriteProduct /></PrivetRoute>
             },
             {
                 path: 'payment-details',
@@ -139,7 +140,7 @@ const Router = createBrowserRouter([
             {
                 path: 'update-product/:id',
                 element: <PrivetRoute><UpdatedProduct /></PrivetRoute>,
-                loader: ({params})=>fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params.id}`)
+                loader: ({ params }) => fetch(`https://furni-track-project-server-side.vercel.app/furnitures/${params.id}`)
             },
             {
                 path: 'my-product',
@@ -159,23 +160,23 @@ const Router = createBrowserRouter([
             },
             // adimin category route 
             {
-                path:'shop-managers',
+                path: 'shop-managers',
                 element: <PrivetRoute><AllManagers /></PrivetRoute>
             },
             {
-                path:'all-products',
+                path: 'all-products',
                 element: <PrivetRoute><AllProducts /></PrivetRoute>
             },
             {
-                path:'manage-products',
+                path: 'manage-products',
                 element: <PrivetRoute><ManageProductAdmin /></PrivetRoute>
             },
             {
-                path:'sale-summary',
+                path: 'sale-summary',
                 element: <PrivetRoute><SaleSummaryAdmin /></PrivetRoute>
             },
             {
-                path:'all-users',
+                path: 'all-users',
                 element: <PrivetRoute><AllUsers /></PrivetRoute>
             },
         ]
