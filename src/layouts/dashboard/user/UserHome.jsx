@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-
+import { CgShutterstock } from "react-icons/cg";
 import CustomChart from "./charts/CustomChart";
 // import Revenue from "./Revenue/Revenue";
-import { FaUsers } from 'react-icons/fa';
+import { FaDollarSign, FaUsers } from 'react-icons/fa';
 import StatsCard from "../../../components/dashboard/stats-card";
 
 const UserHome = () => {
@@ -46,12 +46,28 @@ const UserHome = () => {
     return (
 
         <div className="" >
-            <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-5 lg:px-8">
+            <div className="">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <StatsCard />
-                    <StatsCard />
-                    <StatsCard />
-                    <StatsCard />
+                    <StatsCard
+                        title="Total Income"
+                        value="$ 48,500K"
+                        icon={FaDollarSign}
+                    />
+                    <StatsCard
+                        title="Product"
+                        value="25000"
+                        icon={CgShutterstock}
+                    />
+                    <StatsCard
+                        title="Sales"
+                        value="$ 32,000k"
+                        icon={FaDollarSign}
+                    />
+                    <StatsCard
+                        title="Users"
+                        value="1,500K"
+                        icon={FaUsers}
+                    />
 
                 </div>
             </div>
