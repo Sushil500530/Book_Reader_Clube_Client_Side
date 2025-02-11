@@ -47,16 +47,16 @@ const UserHome = () => {
         <div className="" >
             <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-5 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="bg-gradient-to-tr from-[#0939e8] to-[#ff0fdb] p-4 rounded space-y-2">
+                    <div className="shadow-xl text-black p-4 rounded space-y-2">
                         <div className="flex items-center justify-between">
-                            <h1 className="text-base md:text-xl text-white">Sales</h1>
-                            <span>
+                            <h1 className="text-base md:text-xl">Sales</h1>
+                            <span className="rounded-full w-10 h-10 flex items-center p-2 custom-bg-color">
                                 <FaUsers size={30} color="white" />
                             </span>
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-center text-white">451,1220.00</h1>
+                        <h1 className="text-3xl md:text-4xl font-bold text-center">451,1220.00</h1>
                         <p>
-                            <FaArrowTrendUp color="white" size={20} />
+                            <FaArrowTrendUp size={20} />
                         </p>
                     </div>
                     <div className="bg-gradient-to-tr from-[#0939e8] to-[#ff0fdb] p-4 rounded space-y-2">
