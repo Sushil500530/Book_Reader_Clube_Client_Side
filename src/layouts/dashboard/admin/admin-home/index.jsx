@@ -2,6 +2,7 @@ import { FaDollarSign, FaUsers } from "react-icons/fa";
 import StatsCard from "../../../../components/dashboard/stats-card";
 import { CgShutterstock } from "react-icons/cg";
 import { PieChart } from "./pie-chart";
+import { ConversionAndPayoutChart } from "../../line-chart";
 
 export default function AdminHome() {
     return (
@@ -31,6 +32,9 @@ export default function AdminHome() {
             </div>
             <div>
                 <PieChart />
+            </div>
+            <div>
+                <ConversionAndPayoutChart />
             </div>
 
         </div >
