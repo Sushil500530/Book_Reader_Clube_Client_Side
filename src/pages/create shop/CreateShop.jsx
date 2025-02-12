@@ -95,7 +95,7 @@ const CreateShop = () => {
                         {/* <Helmet>
                 <title>Create Shop | Inventory M </title>
             </Helmet> */}
-                        <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold text-center text-gray-200 dark:text-gray-200 my-12 flex items-center justify-center gap-2 ">Create a New <span className='text-fuchsia-500'>Shop</span> <span className="mr-3 text-5xl text-center text-indigo-500">{<MdAddShoppingCart />}</span></h2>
+                        <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold text-center text-gray-200 dark:text-gray-200 my-12 flex items-center justify-center gap-2 ">Create a New <span className='text_gradient'>Shop</span> <span className="mr-3 text-5xl text-center">{<MdAddShoppingCart />}</span></h2>
                         <form onSubmit={handleCreateShop}>
                             <div className='grid grid-cols-1 dark:text-gray-200  text-gray-200'>
                                 <div className='space-y-6'>
@@ -140,7 +140,7 @@ const CreateShop = () => {
                                     </div>
                                 </div>
 
-                                <Button type='submit'  >
+                                <Button type='submit' className='custom-bg-color hover-custom-bg-color py-3 mt-6 px-4 w-full text-center' >
                                     {loading ? (
                                         <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                     ) : (

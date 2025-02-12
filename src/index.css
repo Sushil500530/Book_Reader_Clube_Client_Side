@@ -49,6 +49,9 @@ body {
   @apply bg-gradient-to-r from-[#6427ff] to-[#9068f8]
 }
 
+.hover-custom-bg-color {
+  @apply custom-bg-color [transition:0.5s] group-hover:from-[#6427ff]/80 group-hover:to-[#9068f8]/80
+}
 
 .text_gradient {
   @apply custom-bg-color bg-clip-text text-transparent;
