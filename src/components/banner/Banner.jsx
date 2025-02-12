@@ -17,8 +17,8 @@ const Banner = () => {
                             Discover our latest furniture collections: a fusion of style and functionality. Elevate your space with timeless pieces crafted for modern living. Explore sophistication and comfort in every corner of your home. Redefine your interior with our curated selection today.
                         </p>
                         <div className="flex items-center justify-start gap-5 my-10">
-                            <Button title="Read More" icon={MdOutlineReadMore} />
-                            <Button title="Explore" icon={MdOutlineExplore} />
+                            <Button icon={MdOutlineReadMore}> Read More </Button>
+                            <Button icon={MdOutlineExplore} >Explore</Button>
                         </div>
                     </div>
                 </div>

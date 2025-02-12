@@ -71,18 +71,19 @@ export default function FurnitureCard({ furniture }) {
                 <div className=" flex items-center md:justify-center lg:justify-between gap-3 w-full py-5 flex-col md:flex-row lg:flex-row">
                     <Link to={`/furni-details/${furniture?._id}`}>
                         <Button
-                            title="View Details"
                             icon={FaRegEye}
                             className="px-2 py-2 custom-bg-color "
-                        />
+                        >
+                            View Details
+                        </Button>
                     </Link>
                     <Button
                         onClick={() => handleSetData(furniture)}
-                        title="Add to Cart"
                         icon={FaShoppingCart}
                         className="px-2 py-2 custom-bg-color "
-                    />
-                    {/* <button className="w-full backdrop-blur-md md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button> */}
+                    >
+                        Add to Cart
+                    </Button>
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ import useRole from '../../hooks/useRole';
 import { useNavigate } from 'react-router-dom';
 import FooterPage from '../footer/FooterPage';
 import { MdDeleteForever } from "react-icons/md";
+import Button from '../../components/button';
 
 const CreateShop = () => {
     const axiosSecure = useAxiosSecure();
@@ -24,7 +25,7 @@ const CreateShop = () => {
 
 
     // showImageDelete 
-    const handleRemoveImage = ()=>{
+    const handleRemoveImage = () => {
         setImageName('');
         setShowImage('');
     }
@@ -139,13 +140,13 @@ const CreateShop = () => {
                                     </div>
                                 </div>
 
-                                <button type='submit' className='btn w-full p-3 mt-5 text-[18px] text-center font-medium hover:text-gray-200 transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-gray-200  outline-none border-none' >
+                                <Button type='submit'  >
                                     {loading ? (
                                         <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                     ) : (
                                         'Create Shop'
                                     )}
-                                </button>
+                                </Button>
                             </div>
                         </form>
                     </div>
