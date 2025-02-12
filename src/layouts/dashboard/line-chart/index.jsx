@@ -70,8 +70,8 @@ export function ConversionAndPayoutChart() {
             <div className="flex items-center justify-between gap-2">
                 <h1>Conversions & Payout</h1>
                 <div className='flex items-center gap-2'>
-                    <Button className={`bg-[#FF8F6DCC] text-black ${selectedSeries === "conversions" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("conversions")}>Conversions</Button>
-                    <Button className={`bg-[#DBA5FF] text-black ${selectedSeries === "payout" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("payout")}>Payout</Button>
+                    <Button className={`bg-[#FF8F6DCC] text-black ${selectedSeries === "conversions" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("conversions")} title="Conversions" />
+                    <Button className={`bg-[#DBA5FF] text-black ${selectedSeries === "payout" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("payout")} title="Payout" />
                 </div>
             </div>
             <div className="w-full max-w-6xl mx-auto mt-6">

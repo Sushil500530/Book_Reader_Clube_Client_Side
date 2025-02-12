@@ -73,14 +73,14 @@ export default function FurnitureCard({ furniture }) {
                         <Button
                             title="View Details"
                             icon={FaRegEye}
-                            className="px-2 py-2"
+                            className="px-2 py-2 custom-bg-color "
                         />
                     </Link>
                     <Button
                         onClick={() => handleSetData(furniture)}
                         title="Add to Cart"
                         icon={FaShoppingCart}
-                        className="px-2 py-2"
+                        className="px-2 py-2 custom-bg-color "
                     />
                     {/* <button className="w-full backdrop-blur-md md:w-1/2 lg:1/2 lg:px-2 lg:py-3 lg:btn-none custom-bg-color flex items-center justify-center border-none outline-none text-sm rounded-md btn text-white hover:text-blue-400"><FaShoppingCart /> Add to Cart</button> */}
                 </div>
