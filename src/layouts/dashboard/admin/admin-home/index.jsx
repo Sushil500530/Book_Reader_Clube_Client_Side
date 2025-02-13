@@ -30,11 +30,15 @@ export default function AdminHome() {
                 />
 
             </div>
-            <div>
-                <PieChart />
-            </div>
-            <div>
-                <ConversionAndPayoutChart />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                <div className="card lg:col-span-1">
+                    <div className="md:w-max mx-auto w-full lg:w-full">
+                        <PieChart />
+                    </div>
+                </div>
+                <div className="card lg:col-span-2">
+                    <ConversionAndPayoutChart />
+                </div>
             </div>
 
         </div >

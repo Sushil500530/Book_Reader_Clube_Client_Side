@@ -64,3 +64,7 @@ body {
 .social-icons {
   @apply w-10 h-10 p-2 hover:-translate-y-[2px] duration-200 rounded-full shadow-md hover:border-fuchsia-500 border-2 cursor-pointer hover:text-fuchsia-500
 }
+
+.card {
+  @apply p-4 shadow rounded
+}

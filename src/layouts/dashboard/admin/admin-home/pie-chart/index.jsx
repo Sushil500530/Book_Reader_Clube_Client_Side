@@ -54,7 +54,7 @@ export function PieChart() {
                 breakpoint: 480,
                 options: {
                     chart: {
-                        width: 200,
+                        width: "100%",
                     },
                     legend: {
                         position: "bottom",
