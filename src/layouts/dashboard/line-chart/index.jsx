@@ -7,12 +7,12 @@ export function ConversionAndPayoutChart() {
 
     const series = [
         {
-            name: "Conversions",
+            name: "Product",
             data: [31, 40, 28, 51, 42, 109, 100],
             color: "#FF8F6DCC",
         },
         {
-            name: "Payout",
+            name: "Sales",
             data: [11, 32, 45, 32, 34, 52, 41],
             color: "#DBA5FF",
         }
@@ -70,8 +70,8 @@ export function ConversionAndPayoutChart() {
             <div className="flex items-center justify-between gap-2">
                 <h1>Conversions & Payout</h1>
                 <div className='flex items-center gap-2'>
-                    <Button className={`bg-[#FF8F6DCC] text-black ${selectedSeries === "conversions" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("conversions")}>Conversions</Button>
-                    <Button className={`bg-[#DBA5FF] text-black ${selectedSeries === "payout" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("payout")}>Payout</Button>
+                    <Button className={`bg-[#FF8F6DCC] px-4 py-2 text-black ${selectedSeries === "product" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("product")}>Product</Button>
+                    <Button className={`bg-[#DBA5FF] px-4 py-2 text-black ${selectedSeries === "sales" ? "font-bold" : ""}`} onClick={() => setSelectedSeries("sales")}>Sales</Button>
                 </div>
             </div>
             <div className="w-full max-w-6xl mx-auto mt-6">
