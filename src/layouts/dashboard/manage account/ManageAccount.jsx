@@ -4,6 +4,7 @@ import { MdAnnouncement } from "react-icons/md";
 // import img from '../../../assets/image/feature/banner-1.png'
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import Button from "../../../components/button";
 
 
 const ManageAccount = () => {
@@ -36,7 +37,12 @@ const ManageAccount = () => {
                 <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-3 py-8">Manage Account <MdManageAccounts className="w-8 h-8 text-fuchsia-500" /></h1>
                 <form onSubmit={handleSearch} className="flex items-center justify-center gap-2 relative w-full md:w-[70%] lg:w-1/2 mx-auto mt-5">
                     <input onChange={() => setSearch(event.target.value)} type="search" name="search" placeholder="Search Your Account......" className="input focus:input-bordered input-info w-full pr-28 bg-white text-black" />
-                    <button type="submit" className="btn absolute right-0 top-0 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300">Search</button>
+                    <div className="relative -left-[104px]">
+                        <Button className="custom-bg-color px-5 py-3">
+                            Search
+                        </Button>
+                    </div>
+                    {/* <button type="submit" className="btn absolute right-0 top-0 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] hover:text-blue-300"></button> */}
                 </form>
             </div>
             {
@@ -57,7 +63,9 @@ const ManageAccount = () => {
                             </div>
                         </div>
                         <div>
-                            <button onClick={handleAdd} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-base hover:text-blue-300">Add Your Account</button>
+                            <Button onClick={handleAdd} >
+                                Add Your Account
+                            </Button>
                         </div>
                     </div>)
             }
