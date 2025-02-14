@@ -8,6 +8,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useFurnitures from './../../../../hooks/useFurnitures';
 import Loader from "../../../../shared/Loader";
 import SpecificData from "./SpecificData";
+import Button from "../../../../components/button";
 
 
 const AllProducts = () => {
@@ -80,10 +81,10 @@ const AllProducts = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
                     currentItems?.length > 0 && currentItems?.map(furniture =>
-                        <div key={furniture?._id} className="bg-color text-white transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
+                        <div key={furniture?._id} className="card text-black transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 ">
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
-                                <figure className="w-32 h-32 ">
-                                    <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer hover:scale-110 transition ease-in-out duration-500" />
+                                <figure className="w-32 h-32 hover:scale-110 [transition:0.5s]">
+                                    <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer" />
                                 </figure>
                             </div>
                             <h3 className="text-xl">{furniture?.title}</h3>
@@ -91,8 +92,14 @@ const AllProducts = () => {
                             <p className='text-[17px] '>Shop Name: {furniture?.shop_name ? furniture?.shop_name : "Anonymous Shop"}</p>
                             <p className='text-[17px] '>Owner Name: {furniture?.owner_name ? furniture?.owner_name : "Anonymous Owner"}</p>
                             <div className=" grid grid-cols-2 gap-5 p-5">
-                                <button onClick={() => handleFindData(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-blue-600"><FaRegEye className="text-2xl" /></button>
-                                <button onClick={() => handleProductDelete(furniture?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-red-400"><MdDelete className="text-2xl" /></button>
+                                <Button
+                                    onClick={() => handleFindData(furniture?._id)}
+                                    icon={FaRegEye}>
+                                </Button>
+                                <Button
+                                    onClick={() => handleProductDelete(furniture?._id)}
+                                    icon={MdDelete}>
+                                </Button>
                             </div>
                         </div>)
                 }

@@ -50,19 +50,19 @@ const AllManagers = () => {
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
                 <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text_gradient">Promotion is Comming here Soon!</h1>
             </ManagerModal>
-            <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers({managers?.length})</h1>
+            <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text_gradient">All Managers({managers?.length})</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 lg:gap-5 mt-12">
                 {
                     managers?.map(item =>
-                        <div key={item._id} className="card text-center space-y-1">
+                        <div key={item._id} className="card text-center space-y-1 group">
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
-                                <figure className="w-24 h-24 ">
+                                <figure className="w-24 h-24 group-hover:scale-110 [transition:0.5s]">
                                     <img src={item?.shop_logo} alt="love-image" className="w-full h-full rounded-full border border-purple-500" />
                                 </figure>
                             </div>
                             <h3 className="text-xl"><span className="font-bold">{item?.owner}</span></h3>
-                            <p className='text-[17px] '>Shop: <span className="font-bold">{item?.shop_name}</span></p>
-                            <p className='text-[17px] '>Address:<span className="font-bold">{item?.location}</span></p>
+                            <p className='text-[17px] '>Shop: <span className="font-medium">{item?.shop_name}</span></p>
+                            <p className='text-[17px] '>Address:<span className="font-medium">{item?.location}</span></p>
                             <div className="flex items-center gap-5 p-5">
                                 <Button
                                     onClick={openModal}
