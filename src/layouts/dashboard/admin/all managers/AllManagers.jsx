@@ -8,6 +8,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useState } from "react";
 import ManagerModal from "./ManagerModal";
 import Button from "../../../../components/button";
+import AdminTitle from "../../../../components/title";
 
 const AllManagers = () => {
     const [managers, refetch, isLoading] = useAllManagers();
@@ -50,7 +51,9 @@ const AllManagers = () => {
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
                 <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text_gradient">Promotion is Comming here Soon!</h1>
             </ManagerModal>
-            <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text_gradient">All Managers({managers?.length})</h1>
+            <AdminTitle>
+                All Managers({managers?.length})
+            </AdminTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 lg:gap-5 mt-12">
                 {
                     managers?.map(item =>
