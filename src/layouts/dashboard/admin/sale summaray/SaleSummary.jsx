@@ -4,6 +4,7 @@ import Loader from "../../../../shared/Loader";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import AdminTitle from "../../../../components/title";
 
 const SaleSummaryAdmin = () => {
     const [allSales, refetch, isLoading] = useAllSale();
@@ -36,11 +37,13 @@ const SaleSummaryAdmin = () => {
     }
     return (
         <div className="mb-20">
-            <h1 className="text-3xl text-center  my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Sale Summary Product </h1>
+            <AdminTitle>
+                Sale Summary Product
+            </AdminTitle>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr className="text-xl text-black border bg-gray-50">
+                        <tr className="text-xl text-white border custom-bg-color">
                             <th></th>
                             <th>Image</th>
                             <th>Title</th>
@@ -63,7 +66,7 @@ const SaleSummaryAdmin = () => {
                                         <img
                                             src={sale?.image}
                                             alt="product_image"
-                                            className="w-20 h-20 rounded-md"
+                                            className="w-20 h-12 rounded-md"
                                         />
                                     </td>
                                     <td className="border border-gray-300">
