@@ -32,7 +32,7 @@ const ManageAccount = () => {
 
     return (
         <div className="px-3 mb-12">
-            <div className="w-full h-auto bg-blue-50 shadow-xl pb-3 sticky inset-0 top-10 p-3">
+            <div className="w-full h-auto bg-blue-50 border pb-3 sticky inset-0 top-10 p-3">
                 <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-3 py-8">Manage Account <MdManageAccounts className="w-8 h-8 text-fuchsia-500" /></h1>
                 <form onSubmit={handleSearch} className="flex items-center justify-center gap-2 relative w-full md:w-[70%] lg:w-1/2 mx-auto mt-5">
                     <input onChange={() => setSearch(event.target.value)} type="search" name="search" placeholder="Search Your Account......" className="input focus:input-bordered input-info w-full pr-28 bg-white text-black" />

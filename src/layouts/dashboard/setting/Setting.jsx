@@ -8,6 +8,7 @@ import { useState } from "react";
 import { updateProfile } from "firebase/auth";
 import auth from './../../../provider/firebase/firebase.config';
 import { MdDeleteForever } from "react-icons/md";
+import Button from "../../../components/button";
 
 const Setting = () => {
     const [users, refetch,] = useRole();
@@ -60,7 +61,10 @@ const Setting = () => {
                         refetch()
                         toast.success('Profile updated successfully')
                         return updataUserProfile(name, photo)
-                            .then(() => { setShowImage('') })
+                            .then(() => {
+                                setShowImage('')
+                                setLoading(false)
+                            })
                             .catch((error) => { console.log(error.message) })
                     }
                     setLoading(false)
@@ -107,12 +111,12 @@ const Setting = () => {
                         name='email'
                         disabled
                         defaultValue={users?.email}
-                       className="input input-bordered input-info w-full disabled:bg-white text-black disabled:text-black"
+                        className="input input-bordered input-info w-full disabled:bg-white text-black disabled:text-black"
                         required
                     />
                     <div className="w-full space-y-2">
                         <h1 className='text-xl mb-2 text-start'>Profile Photo</h1>
-                        <div className="bg-clip-content p-6 bg-violet-600 border-4 border-violet-300 border-dashed w-full">
+                        <div>
                             {
                                 showImage ?
                                     <div className='relative'>
@@ -143,11 +147,14 @@ const Setting = () => {
                         className="input input-bordered input-info w-full bg-white text-black"
                         required
                     />
-                    <button className='btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] my-3 text-[17px] hover:text-blue-300' type='submit'>
+                    <Button>
                         {
-                            loading === true ? <div className="text-[17px] flex items-center gap-2"><FiLoader className="w-6 h-6 animate-spin" /> processing</div> : 'Save Chnages'
+                            loading === true ? <div className="text-[17px] flex items-center gap-2 w-full">
+                                <FiLoader className="w-6 h-6 animate-spin" /> processing
+                            </div> : 'Save Chnages'
                         }
-                    </button>
+                    </Button>
+
                 </form>
             </div>
         </div>

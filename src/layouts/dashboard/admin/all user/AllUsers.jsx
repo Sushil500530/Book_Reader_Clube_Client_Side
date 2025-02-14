@@ -103,7 +103,7 @@ const AllUsers = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr className="text-xl text-black border bg-gray-50">
+                        <tr className="text-xl custom-bg-color text-white">
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
