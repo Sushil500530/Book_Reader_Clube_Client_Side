@@ -3,7 +3,7 @@ import { FaArrowTrendUp } from 'react-icons/fa6'
 
 export default function StatsCard({ title, value, icon: Icon }) {
     return (
-        <div className="shadow-xl text-black p-4 rounded space-y-2">
+        <div className="card text-black p-4 rounded space-y-2">
             <div className="flex items-center justify-between">
                 {
                     title && <h1 className="text-sm">{title}</h1>

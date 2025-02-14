@@ -66,5 +66,5 @@ body {
 }
 
 .card {
-  @apply p-4 shadow rounded
+  @apply p-4 shadow rounded border border-gray-200
 }
