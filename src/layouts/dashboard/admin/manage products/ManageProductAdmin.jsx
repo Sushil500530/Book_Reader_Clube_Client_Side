@@ -3,6 +3,8 @@ import { FaArrowRight } from "react-icons/fa";
 import useFurnitures from "../../../../hooks/useFurnitures";
 import Loader from "../../../../shared/Loader";
 import { Link } from "react-router-dom";
+import AdminTitle from './../../../../components/title/index';
+import Button from './../../../../components/button/index';
 
 
 const ManageProductAdmin = () => {
@@ -13,7 +15,9 @@ const ManageProductAdmin = () => {
     }
     return (
         <div className="pb-12">
-            <h1 className="text-3xl text-center font-bold my-10 flex items-center justify-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Manage All Products</h1>
+            <AdminTitle>
+                Manage All Products
+            </AdminTitle>
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
                     {
@@ -27,7 +31,12 @@ const ManageProductAdmin = () => {
                                     <p>{furniture?.description?.length > 50 ? furniture?.description?.slice(0, 50) + "....." : furniture?.description}</p>
                                     <div className="flex items-center justify-end mr-5 my-2">
                                         <Link to={`/furnitures/${furniture?._id}`}>
-                                            <span className="btn btn-sm px-5 bg-color text-white hover:text-purple-500 hover:translate-x-2">Show <FaArrowRight className="text-xl hover:black hover:translate-x-1 transition" /></span>
+                                            <Button
+                                                icon={FaArrowRight}
+                                                className="custom-bg-color px-1 text-white hover:translate-x-2"
+                                            >
+                                                Show
+                                            </Button>
                                         </Link>
                                     </div>
                                 </div>
