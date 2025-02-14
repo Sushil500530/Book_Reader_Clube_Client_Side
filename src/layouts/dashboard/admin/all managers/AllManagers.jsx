@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useState } from "react";
 import ManagerModal from "./ManagerModal";
+import Button from "../../../../components/button";
 
 const AllManagers = () => {
     const [managers, refetch, isLoading] = useAllManagers();
@@ -47,13 +48,13 @@ const AllManagers = () => {
     return (
         <div>
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
-                <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Promotion is Comming here Soon!</h1>
+                <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text_gradient">Promotion is Comming here Soon!</h1>
             </ManagerModal>
             <h1 className="text-3xl text-center my-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Managers({managers?.length})</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 lg:gap-5 mt-12">
                 {
                     managers?.map(item =>
-                        <div key={item._id} className="bg-color transition ease-in-out text-white text-2xl text-center w-full h-auto bg-white shadow-2xl relative rounded-md mb-10">
+                        <div key={item._id} className="card text-center space-y-1">
                             <div className="flex items-center justify-center w-full py-3 -mt-12">
                                 <figure className="w-24 h-24 ">
                                     <img src={item?.shop_logo} alt="love-image" className="w-full h-full rounded-full border border-purple-500" />
@@ -63,10 +64,17 @@ const AllManagers = () => {
                             <p className='text-[17px] '>Shop: <span className="font-bold">{item?.shop_name}</span></p>
                             <p className='text-[17px] '>Address:<span className="font-bold">{item?.location}</span></p>
                             <div className="flex items-center gap-5 p-5">
-                                <button onClick={openModal} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-max flex items-center justify-center gap-3 border-none outline-none text-base text-white hover:text-black">
-                                    <IoFlowerOutline size={18} />Promotional</button>
-                                <button onClick={() => handleRemove(item?._id)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-max flex items-center justify-center gap-3 border-none outline-none text-sm text-white hover:text-red-400">
-                                    <MdDelete size={32} /></button>
+                                <Button
+                                    onClick={openModal}
+                                    icon={IoFlowerOutline}>
+                                    Promotional
+                                </Button>
+                                <Button
+                                    onClick={() => handleRemove(item?._id)}
+                                    icon={MdDelete}
+                                >
+                                </Button>
+
                             </div>
                         </div>)
                 }
