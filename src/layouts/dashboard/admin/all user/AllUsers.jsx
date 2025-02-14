@@ -6,6 +6,9 @@ import Loader from "../../../../shared/Loader";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import AdminTitle from "../../../../components/title";
+import Button from "../../../../components/button";
+import { FaRegEdit } from "react-icons/fa";
 
 const AllUsers = () => {
     const [allUsers, refetch, isLoading] = useAllUsers();
@@ -77,21 +80,26 @@ const AllUsers = () => {
     }
     return (
         <div className="mb-20">
+
             <ManagerModal isOpen={isOpen} setIsOpen={setIsOpen}>
                 <div>
                     <form onSubmit={handleRoleChangeForm} className="flex items-center justify-center gap-5 flex-col ">
-                        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 text-xl cursor-pointer font-bold">Role Change</h1>
+                        <h1 className="text_gradient text-xl cursor-pointer font-bold">Role Change</h1>
                         <select name="role" id="role" className=" rounded-md">
                             <option selected disabled>Change Here</option>
                             <option value='admin'>Admin</option>
                             <option value='manager'>Manager</option>
                             <option value='guest'>Guest</option>
                         </select>
-                        <button className="btn bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-white hover:text-black">Change</button>
+                        <Button>
+                            Change
+                        </Button>
                     </form>
                 </div>
             </ManagerModal>
-            <h1 className="text-3xl text-center font-bold my-5 text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">All Users</h1>
+            <AdminTitle>
+                All Users
+            </AdminTitle>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
@@ -112,17 +120,18 @@ const AllUsers = () => {
                                     <td className="border border-gray-300">{user?.name}</td>
                                     <td className="border border-gray-300">{user?.email}</td>
                                     <td className="border border-gray-300">
-                                        <span className="bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-white px-3 py-2 rounded-full capitalize">
+                                        <span className="text_gradient font-medium capitalize">
                                             {user?.role}
                                         </span>
                                     </td>
                                     <td className="border border-gray-300">
-                                        <span
+                                        <Button
+                                            className="w-max mx-auto custom-bg-color px-2 py-1"
                                             onClick={() => handleRoleChange(user?._id)}
-                                            className="text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] hover:text-purple-500 link-hover cursor-pointer font-bold"
+                                            icon={FaRegEdit}
                                         >
-                                            Click Here
-                                        </span>
+
+                                        </Button>
                                     </td>
                                     <td className="border border-gray-300">
                                         <span onClick={() => deleteUser(user?._id)}>
