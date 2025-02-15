@@ -52,13 +52,13 @@ const ManageAccount = () => {
                         <div><MdAnnouncement className="w-10 h-10 text-fuchsia-600" /></div>
                     </div>
                 </> : findUsers?.map(user =>
-                    <div key={user?._id} className="flex flex-col md:flex-row gap-3 md:gap-0 lg:gap-0 lg:flex-row items-center justify-between w-full md:w-[70%] lg:w-[550px] mx-auto mt-10 p-3 rounded-md hover:shadow-md hover:border-b-2 border border-b-2 hover:border-b-fuchsia-500 cursor-pointer">
+                    <div key={user?._id} className="flex flex-col md:flex-row gap-3 md:gap-0 lg:gap-0 lg:flex-row items-center justify-between w-full md:w-[70%] lg:w-[550px] mx-auto mt-10 p-3 rounded-m hover:shadow-md border [transition:0.5s] cursor-pointer">
                         <div className="flex flex-col md:flex-row lg:flex-row items-center justify-start gap-5 flex-1 py-1">
                             <figure className="w-20 h-20">
                                 <img src={user?.image} className="w-full h-full rounded-full" alt="account-image" />
                             </figure>
-                            <div className="flex flex-col lg:items-start gap-2 items-center justify-center">
-                                <h1 className="text-xl">{user?.name}</h1>
+                            <div className="flex flex-col lg:items-start gap-1 items-center justify-center">
+                                <h1 className="text-md font-medium">{user?.name}</h1>
                                 <p>{user?.email}</p>
                             </div>
                         </div>

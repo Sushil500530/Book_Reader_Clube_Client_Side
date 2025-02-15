@@ -2,6 +2,7 @@
 import { Rating } from "@smastrom/react-rating";
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react'
+import Button from "../../../../components/button";
 
 const SpecificData = ({ isOpen, closeModal, findData }) => {
     return (
@@ -29,12 +30,12 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                                         </figure>
                                         <div className='grid grid-cols-2 my-5 gap-3 !text-start'>
                                             <div className=" space-y-1 flex flex-col items-start justify-start text-start">
-                                                <h1 className='text-xl font-bold'>Product Cost : <span className='font-medium text-gray-800'>{findData?.price} tk</span></h1>
-                                                <h1 className='text-xl font-bold'>Discount : <span className='font-medium text-gray-800'>{findData?.discount}%</span></h1>
-                                                <h1 className='text-xl font-bold'>Category : <span className='font-medium text-gray-800'>{findData?.category}</span></h1>
-                                                <h1 className='text-xl font-bold'>Product Quantity : <span className='font-medium text-gray-800'>{findData?.quantity}</span></h1>
+                                                <h1 className='text-xl font-normal'>Product Cost : <span className='font-medium'>{findData?.price} tk</span></h1>
+                                                <h1 className='text-xl font-normal'>Discount : <span className='font-medium'>{findData?.discount}%</span></h1>
+                                                <h1 className='text-xl font-normal'>Category : <span className='font-medium'>{findData?.category}</span></h1>
+                                                <h1 className='text-xl font-normal'>Product Quantity : <span className='font-medium'>{findData?.quantity}</span></h1>
                                                 <div className="w-full flex items-center justify-start my-3">
-                                                    <h1 className='text-xl font-bold'>Rating: </h1>
+                                                    <h1 className='text-xl font-normal'>Rating: </h1>
                                                     <Rating
                                                         style={{ maxWidth: 130 }}
                                                         value={findData?.rating}
@@ -54,9 +55,9 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                                         </div>
                                     </div>
                                     <div className="mt-4">
-                                        <button type="button" className="btn w-full text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500" onClick={closeModal} >
+                                        <Button onClick={closeModal}>
                                             Close
-                                        </button>
+                                        </Button>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
