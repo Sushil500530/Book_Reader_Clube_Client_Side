@@ -10,6 +10,8 @@ import useFindMananger from "../../hooks/useFindMananger";
 import Loader from "../../shared/Loader";
 import useFurCategory from "../../hooks/useFurCategory";
 import { MdDeleteForever, MdAddShoppingCart } from "react-icons/md";
+import Button from "../../components/button";
+import AdminTitle from "../../components/title";
 
 const AddProducts = () => {
     const { user } = useAuth();
@@ -136,11 +138,15 @@ const AddProducts = () => {
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}
-            <h3 className="text-3xl text-center mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Add Product <span><MdAddShoppingCart className="text-7xl text-black" /></span> </h3>
-            <div className="container mx-auto mt-12">
+            <AdminTitle>
+                <span className="flex items-center justify-start gap-2 ">
+                    Add Product <MdAddShoppingCart color="#000000" size={24} /></span>
+            </AdminTitle>
+
+            <div className="container mx-auto mb-12">
                 <form onSubmit={handleAddedProduct}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-                        <div className='space-y-6'>
+                        <div className='space-y-6 card !py-10  h-max'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className=' block text-black font-medium'>
@@ -164,12 +170,10 @@ const AddProducts = () => {
                                     Image
                                 </label>
                                 <div className=' w-full text-black bg-white m-auto rounded-lg'>
-                                    <div className='file_upload px-5 py-3 my-5 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
-                                        {
-                                            showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
-                                        }
-                                    </div>
+                                    {
+                                        showImage ? <div className='relative'><img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' /></span></div> : <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                    }
+
                                 </div>
                             </div>
 
@@ -179,18 +183,16 @@ const AddProducts = () => {
                                         Set Thumbnail1
                                     </label>
                                     <div className=' bg-white w-full m-auto text-black rounded-lg'>
-                                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            {
-                                                showThumbnail1
-                                                    ?
-                                                    <div className="relative">
-                                                        <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
-                                                    </div>
-                                                    :
-                                                    <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white " />
-                                            }
+                                        {
+                                            showThumbnail1
+                                                ?
+                                                <div className="relative">
+                                                    <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                                </div>
+                                                :
+                                                <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white " />
+                                        }
 
-                                        </div>
                                     </div>
                                 </div>
                                 <div className='space-y-1 w-full'>
@@ -198,14 +200,11 @@ const AddProducts = () => {
                                         Set Thumbnail2
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
-                                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            {
-                                                showThumbnail2 ? <div className="relative">
-                                                    <img src={showThumbnail2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
-                                                </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white text-black" />
-                                            }
-
-                                        </div>
+                                        {
+                                            showThumbnail2 ? <div className="relative">
+                                                <img src={showThumbnail2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                            </div> : <input onChange={handleShowThumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white text-black" />
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +228,7 @@ const AddProducts = () => {
                         </div>
 
 
-                        <div className='space-y-6'>
+                        <div className='space-y-6 card !py-10 h-max'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
                                     <label htmlFor='location' className='block text-black font-medium'>
@@ -253,7 +252,7 @@ const AddProducts = () => {
                                 </div>
                             </div>
                             <div className='space-y-1'>
-                                <label htmlFor='description' className='block font-medium'>
+                                <label htmlFor='description' className='block font-medium text-black'>
                                     Description
                                 </label>
                                 <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md border-blue-400  ' name='description' placeholder="Write description"
@@ -275,13 +274,16 @@ const AddProducts = () => {
                                     />
                                 </div>
                             </div>
-                            <button type='submit' className='btn w-full mt-5 p-3 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black '>
+                            <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full" >
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
                                     'Added Product'
                                 )}
-                            </button>
+                            </Button>
+                            {/* <button type='submit' className='btn w-full mt-5 p-3 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black '>
+
+                            </button> */}
                         </div>
                     </div>
                 </form>
