@@ -6,6 +6,7 @@ import Loader from "../../../../shared/Loader";
 import { useAuth } from "../../../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { BsCartPlus } from "react-icons/bs";
+import Button from './../../../../components/button/index';
 
 const FavoriteProduct = () => {
     const [favorites, refetch, isLoading] = useFavorite();
@@ -76,25 +77,43 @@ const FavoriteProduct = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 my-10 ">
                 {
                     favorites?.map(item =>
-                        <div key={item._id} className="px-3 group text-start  hover:bg-gradient-to-b from-[#2241b0] to-[#000000] [transition:0.5s] ease-in-out hover:text-white w-full h-[300px] bg-white shadow-2xl relative rounded-md lg:mb-20 mb-20 md:mb-20 pt-28">
+                        <div key={item._id} className="!group text-start card !w-full !h-[310px]  !relative lg:!mb-20 !mb-20 md:!mb-20 !pt-28">
                             <div className="absolute 2xl:left-[30%] xl:left-[25%] lg:left-[18%] md:left-[30%] left-[28%] -top-12 w-36 h-36 bg-black rounded-full">
-                                <img src={item?.image} alt="love-image" className="w-full h-full rounded-full group-hover:scale-105 [transition:0.3s]" />
+                                <img
+                                    src={item?.image}
+                                    alt="love-image"
+                                    className="w-full h-full rounded-full group-hover:scale-105 [transition:0.3s]"
+                                />
                             </div>
-                            <h3 className="text-xl font-bold ">{item?.title}</h3>
-                            <p className='text-sm font-normal text-start my-2'>{item?.description?.slice(0, 60)}</p>
-                            <p className='text-base font-bold '>Price: $ {item?.price}</p>
-                            <div className="grid grid-cols-2 gap-5 p-5">
-                                <button onClick={() => buyProduct(item)} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base">
-                                    <BsCartPlus className="text-3xl text-white" />
-                                </button>
-                                <button onClick={() => handleDelete({ id: item?._id, title: item?.title })} className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] w-full flex items-center justify-center gap-3 border-none outline-none text-base">
-                                    <MdDelete className="text-3xl text-white" />
-                                </button>
+                            <h3 className="text-xl font-medium ">
+                                {item?.title}
+                            </h3>
+                            <p className='text-sm font-normal text-start my-2'>
+                                {item?.description?.slice(0, 60)}
+                            </p>
+                            <p className='text-base font-medium '>
+                                Price: $ {item?.price}
+                            </p>
+                            <div className="grid grid-cols-2 gap-5 p-5 absolute bottom-0 w-full right-0 left-0">
+                                <Button
+                                    onClick={() => buyProduct(item)}
+                                    className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full"
+                                    icon={BsCartPlus}
+                                >
+
+                                </Button>
+                                <Button
+                                    onClick={() => handleDelete({ id: item?._id, title: item?.title })}
+                                    icon={MdDelete}
+                                    className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full"
+                                >
+
+                                </Button>
                             </div>
                         </div>)
                 }
             </div>
-        </div>
+        </div >
     );
 };
 
