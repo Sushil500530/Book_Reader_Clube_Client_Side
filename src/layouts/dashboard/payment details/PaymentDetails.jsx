@@ -5,6 +5,8 @@ import { BiSolidFileFind } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import AdminTitle from './../../../components/title/index';
+import Button from './../../../components/button/index';
 
 const PaymentDetails = () => {
     const [payments, refetch, isLoading] = usePaymentD();
@@ -76,35 +78,40 @@ const PaymentDetails = () => {
     }
     return (
         <div className="mt-12">
-            <h1 className="text-2xl font-bold text-center flex items-center justify-center gap-2">Payment Details <BiSolidCommentDetail className="w-8 h-8 text-fuchsia-500" /></h1>
-            <div className="my-12">
+            <AdminTitle>
+                <span className="flex items-center gap-1">
+                    Payment Details
+                    <BiSolidCommentDetail className="w-8 h-8 text-fuchsia-500" />
+                </span>
+            </AdminTitle>
+            <div className="mb-12">
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr className="bg-gray-50 border text-xl">
+                            <tr className="custom-bg-color text-white text-xl">
                                 <th></th>
                                 <th>Email</th>
                                 <th>Price</th>
                                 <th>Date</th>
-                                <th>Action</th>
+                                <th className="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {/* row 1 */}
                             {sortData?.map((payment, index) => (
-                                <tr key={payment?._id} className="text-[17px] border border-gray-300">
+                                <tr key={payment?._id} className="text-[17px] !font-normal border border-gray-300">
                                     <th className="border border-gray-300">{index + 1}</th>
-                                    <th className="border border-gray-300">{payment?.email}</th>
+                                    <th className="border border-gray-300  !font-normal">{payment?.email}</th>
                                     <td className="border border-gray-300">${payment?.price}</td>
-                                    <td className="border border-gray-300">{payment?.date?.slice(0, 10)}</td>
+                                    <td className="border border-gray-300">{payment?.date?.slice(0, 10) || "N/A"}</td>
                                     <td className="border border-gray-300">
-                                        <button
+                                        <Button
                                             onClick={() => handleDelete(payment?._id)}
-                                            className="btn bg-red-600 text-white hover:text-red-600"
+                                            icon={MdDelete}
                                         >
-                                            <MdDelete className="w-9 h-9" />
-                                        </button>
+
+                                        </Button>
                                     </td>
                                 </tr>
                             ))}
