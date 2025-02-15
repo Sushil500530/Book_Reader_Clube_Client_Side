@@ -8,8 +8,10 @@ import { FaRegEye } from "react-icons/fa";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
-import MyProductModal from "./MyProductModal";
 import { Link } from "react-router-dom";
+import AdminTitle from './../../../../components/title/index';
+import Button from "../../../../components/button";
+import SpecificData from "../../admin/all products/SpecificData";
 
 
 const MyProduct = () => {
@@ -26,7 +28,7 @@ const MyProduct = () => {
         refetch();
         const findProduct = furnitures?.filter(item => item?.email === user?.email);
         setMyProducts(findProduct);
-    }, [furnitures,refetch, user?.email]);
+    }, [furnitures, refetch, user?.email]);
     // console.log(myProducts);
     if (isLoading) {
         return <Loader />
@@ -75,27 +77,36 @@ const MyProduct = () => {
 
     return (
         <div>
-            <MyProductModal isOpen={isOpen} closeModal={closeModal} findItem={findItem} />
-            <h1 className="font-bold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center ">My Product({myProducts?.length})</h1>
+            <AdminTitle>
+                My Product({myProducts?.length})
+            </AdminTitle>
+            <SpecificData isOpen={isOpen} closeModal={closeModal} findData={findItem} />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-10 gap-5">
                 {
                     myProducts?.length > 0 && myProducts?.map(item => <div key={item?._id} className="bg-white shadow-xl p-5 rounded">
                         <figure className="w-full h-[220px] relative">
-                            <img src={item?.image} className="w-full h-full rounded-xl hover:scale-105 transition-all cursor-pointer" alt="furniture-image" />
+                            <img src={item?.image} className="w-full h-full rounded-xl hover:scale-105 [transition:0.5s] cursor-pointer" alt="furniture-image" />
                         </figure>
                         <div className="mt-5">
                             <h1 className="text-start font-bold">{item?.title}</h1>
                             <p>{item?.description?.slice(0, 50)}......</p>
                             <div className="flex items-center justify-between pt-5 gap-5">
-                                <button onClick={() => handleDelete({ id: item?._id, title: item?.product_name })} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] hover:text-red-500"><AiFillDelete size={18} /></button>
-                                <button onClick={() => handleShow(item?._id)} className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] hover:text-blue-500"><FaRegEye size={18} /></button>
-                                <Link to={`/dashboard/update-product/${item?._id}`}> <button className="btn text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] hover:text-blue-500"><FiEdit size={18} /></button></Link>
+                                <Button
+                                    onClick={() => handleDelete({ id: item?._id, title: item?.product_name })}
+                                    icon={AiFillDelete}
+                                >
+                                </Button>
+
+                                <Button onClick={() => handleShow(item?._id)} icon={FaRegEye} >  </Button>
+                                <Link to={`/dashboard/update-product/${item?._id}`}>
+                                    <Button icon={FiEdit} >  </Button>
+                                </Link>
                             </div>
                         </div>
                     </div>
                     )}
             </div>
-        </div>
+        </div >
     );
 };
 

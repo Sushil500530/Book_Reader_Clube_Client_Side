@@ -6,6 +6,7 @@ import { MdDescription, MdFavorite } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Button from './../../../components/button/index';
 
 const RelatedCard = ({ furniture }) => {
     const { user } = useAuth();
@@ -78,21 +79,24 @@ const RelatedCard = ({ furniture }) => {
                         />
                     </div>
                     <div className="flex items-center flex-row lg:flex-row gap-2">
-                        <button
+                        <Button
                             onClick={handleFavoriteData}
-                            className="btn text-[17px] text-red-600 hover:text-blue-600 font-normal tooltip"
-                            data-tip="add favorite">
-                            <span className="flex items-center gap-1 transform rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
-                                <MdFavorite className="text-2xl" />
-                            </span>
-                        </button>
+                            icon={MdFavorite}
+                            className="custom-bg-color hover-custom-bg-color p-2"
+                        >
+                        </Button>
                         <Link to={`/furnitures/${_id}`}>
-                            <button className="  btn text-sm lg:text-[15px] text-white custom-bg-color border-none font-medium px-4 py-2  ">
+                            <Button
+                                icon={MdDescription}
+                            >
+                                Show Details
+                            </Button>
+                            {/* <button className="  btn text-sm lg:text-[15px] text-white custom-bg-color border-none font-medium px-4 py-2  ">
                                 <span className="flex items-center gap-1 transform hover:text-blue-300 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ">
-                                    Show Details
-                                    <MdDescription className="lg:text-2xl" />
+                                    
+                                    < className="lg:text-2xl" />
                                 </span>
-                            </button>
+                            </button> */}
                         </Link>
                     </div>
                 </div>

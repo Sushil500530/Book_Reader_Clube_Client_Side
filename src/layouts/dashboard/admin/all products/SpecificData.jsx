@@ -54,8 +54,8 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-4">
-                                        <Button onClick={closeModal}>
+                                    <div className="mt-4 w-full">
+                                        <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full" onClick={closeModal}>
                                             Close
                                         </Button>
                                     </div>
