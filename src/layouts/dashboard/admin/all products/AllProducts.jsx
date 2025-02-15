@@ -86,8 +86,8 @@ const AllProducts = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-12">
                 {
                     currentItems?.length > 0 && currentItems?.map(furniture =>
-                        <div key={furniture?._id} className="card text-black transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10 group ">
-                            <div className="flex items-center justify-center w-full py-3 -mt-12">
+                        <div key={furniture?._id} className="card text-black transition ease-in-out text-2xl text-center w-full h-auto shadow-2xl relative rounded-md mb-10  ">
+                            <div className="flex items-center justify-center w-full py-3 -mt-12 group">
                                 <figure className="w-32 h-32 group-hover:scale-110 [transition:0.5s]">
                                     <img src={furniture?.image} alt="love-image" className="w-full h-full rounded-full border border-purple-500 cursor-pointer" />
                                 </figure>

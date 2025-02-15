@@ -27,13 +27,13 @@ const ManageProductAdmin = () => {
                                     <img src={furniture?.image} alt="product-image" className="w-full h-full" />
                                 </figure>
                                 <div>
-                                    <h1 className="text-xl font-bold mb-2">{furniture?.title?.length > 15 ? furniture?.title?.slice(0, 15) + "....." : furniture?.title}</h1>
+                                    <h1 className="font-bold mb-2">{furniture?.title?.length > 16 ? furniture?.title?.slice(0, 16) + "....." : furniture?.title}</h1>
                                     <p>{furniture?.description?.length > 50 ? furniture?.description?.slice(0, 50) + "....." : furniture?.description}</p>
                                     <div className="flex items-center justify-end mr-5 my-2">
                                         <Link to={`/furnitures/${furniture?._id}`}>
                                             <Button
                                                 icon={FaArrowRight}
-                                                className="custom-bg-color px-1 text-white hover:translate-x-2"
+                                                className="custom-bg-color px-2 text-white hover:translate-x-2 text-sm"
                                             >
                                                 Show
                                             </Button>

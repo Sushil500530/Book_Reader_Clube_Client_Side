@@ -116,7 +116,7 @@ const Setting = () => {
                     />
                     <div className="w-full space-y-2">
                         <h1 className='text-xl mb-2 text-start'>Profile Photo</h1>
-                        <div>
+                        <div className="w-full">
                             {
                                 showImage ?
                                     <div className='relative'>
@@ -144,12 +144,12 @@ const Setting = () => {
                         type="text"
                         name='status'
                         defaultValue={users?.status}
-                        className="input input-bordered input-info w-full bg-white text-black"
+                        className="input input-bordered input-info w-full bg-white text-black mb-6"
                         required
                     />
                     <Button>
                         {
-                            loading === true ? <div className="text-[17px] flex items-center gap-2 w-full">
+                            loading === true ? <div className="text-[17px] flex items-center gap-2 !w-full">
                                 <FiLoader className="w-6 h-6 animate-spin" /> processing
                             </div> : 'Save Chnages'
                         }
