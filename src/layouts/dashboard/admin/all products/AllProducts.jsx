@@ -113,7 +113,7 @@ const AllProducts = () => {
                 {Array.from({
                     length: Math.ceil(filteredItems.length / itemsPerPage),
                 }).map((_, index) => (
-                    <button className={`px-3 py-1 mx-1 rounded-full ${currentPage === index + 1 ? "bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-white hover:text-black" : "bg-color text-white"
+                    <button className={`px-3 py-1 mx-1 rounded-full ${currentPage === index + 1 ? "custom-bg-color text-white hover:text-black" : "hover:shadow-md [transition:0.5s] text-black"
                         }`}
                         key={index + 1}
                         onClick={() => paginate(index + 1)}

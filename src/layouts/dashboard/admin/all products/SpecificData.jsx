@@ -30,12 +30,12 @@ const SpecificData = ({ isOpen, closeModal, findData }) => {
                                         </figure>
                                         <div className='grid grid-cols-2 my-5 gap-3 !text-start'>
                                             <div className=" space-y-1 flex flex-col items-start justify-start text-start">
-                                                <h1 className='text-xl font-normal'>Product Cost : <span className='font-medium'>{findData?.price} tk</span></h1>
-                                                <h1 className='text-xl font-normal'>Discount : <span className='font-medium'>{findData?.discount}%</span></h1>
-                                                <h1 className='text-xl font-normal'>Category : <span className='font-medium'>{findData?.category}</span></h1>
-                                                <h1 className='text-xl font-normal'>Product Quantity : <span className='font-medium'>{findData?.quantity}</span></h1>
+                                                <h1 className='font-normal'>Product Cost : <span className='font-medium'>{findData?.price} tk</span></h1>
+                                                <h1 className='font-normal'>Discount : <span className='font-medium'>{findData?.discount}%</span></h1>
+                                                <h1 className='font-normal'>Category : <span className='font-medium'>{findData?.category}</span></h1>
+                                                <h1 className='font-normal'>Product Quantity : <span className='font-medium'>{findData?.quantity}</span></h1>
                                                 <div className="w-full flex items-center justify-start my-3">
-                                                    <h1 className='text-xl font-normal'>Rating: </h1>
+                                                    <h1 className='font-normal'>Rating: </h1>
                                                     <Rating
                                                         style={{ maxWidth: 130 }}
                                                         value={findData?.rating}
